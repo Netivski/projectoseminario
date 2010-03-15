@@ -1,0 +1,41 @@
+<solution name="Bombocas, Lda.">
+	<environments>
+		<server type="DB_SERVER" name="BombocasDB" dbName="DB_TEST">
+			<secutiry uid="sa" pwd="xptoh3000"/>
+		</server>
+		<server type="MAIL_SERVER" name="mail.bombocas.pt">
+			<secutiry uid="xpto pwd="h3000"/>
+		</server>
+	</environments>
+	<types>
+		<type name="intxpto" basetype="int">
+			<domain ........./>
+		</type>
+	</types>
+	<entities>
+		<entity name="Cliente">
+			<attribute name="id" type="intxpto"/>
+			<attribute name="nome" type="string"/>
+			<attribute name="morada" type="string"/>
+		</entity>
+		<entity name="Produto">
+			<attribute name="id" type="intxpto"/>
+			<attribute name="desc" type="string"/>
+		</entity>
+		<entity name="Venda">
+			<attribute name="id" type="intxpto"/>
+			<attribute name="cliente" type="Cliente" mandatory="true" cardinalidade="1"/>
+			<attribute name="de-talhe" type="Detalhe_Venda" mandatory="true" cardinalidade="10"/>
+		</entity>
+		<entity name="Detalhe_Venda">
+			<attribute name="id" type="Venda" mandatory="true" cardinalidade="1"/>
+			<attribute name="Produto" type="Produto" mandatory="true" cardinalidade="10"/>
+		</entity>
+		
+	</entities>
+	<processes>
+		<process name="venda"......./>
+			<permissions>
+			</permissions>
+	</processes>
+</solution>
