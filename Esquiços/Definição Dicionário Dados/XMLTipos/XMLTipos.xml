@@ -1,0 +1,21 @@
+<types xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=".\XSDTipos.xsd">
+	<baseTypes>
+		<baseType name="guid" maxLength="16" precision="0" scale="0"/>
+		<baseType name="datetime" maxLength="8" precision="23" scale="3"/>
+		<baseType name="int" maxLength="4" precision="10" scale="0"/>
+		<baseType name="long" maxLength="8" precision="19" scale="0"/>
+		<baseType name="double" maxLength="4" precision="24" scale="0"/>
+		<baseType name="float" maxLength="8" precision="53" scale="0"/>
+		<baseType name="decimal" maxLength="17" precision="38" scale="38"/>
+		<baseType name="boolean" maxLength="1" precision="1" scale="0"/>
+		<baseType name="string" maxLength="8000" precision="0" scale="0"/>
+		<baseType name="binary" maxLength="8000" precision="0" scale="0"/>
+		<baseType name="char" maxLength="8000" precision="0" scale="0"/>
+	</baseTypes>
+	<customTypes>
+		<customType name="customInt" type="int">
+			<minValue value="10"/>
+			<maxValue value="11"/>
+		</customType>
+	</customTypes>
+</types>
