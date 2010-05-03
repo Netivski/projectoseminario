@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by Ricardo Neto (Netpat) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:simpleType name="t_Int16">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="65535"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="tDataProvider" abstract="true">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="type" type="xs:string" use="required"/>
+		<xs:attribute name="serverName" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="tSQLDataProvider">
+		<xs:complexContent>
+			<xs:extension base="tDataProvider">
+				<xs:attribute name="instance" type="xs:string" use="required"/>
+				<xs:attribute name="catalog" type="xs:string" use="required"/>
+				<xs:attribute name="port" type="t_Int16" use="required"/>
+				<xs:attribute name="username" type="xs:string" use="required"/>
+				<xs:attribute name="password" type="xs:string" use="required"/>
+				<xs:attribute name="connPoolMin" type="xs:string" use="required"/>
+				<xs:attribute name="connPoolMax" type="xs:string" use="required"/>
+				<xs:attribute name="security" type="xs:string" use="required"/>
+				<xs:attribute name="timeout" type="xs:integer" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="environments">
+		<xs:annotation>
+			<xs:documentation>Root element of the environments file</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<!--  <begin> -->
+				<!-- dataEnvironments -->
+				<xs:element name="data">
+					<xs:annotation>
+						<xs:documentation>Element that serves as a collection for all data providers</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="provider" type="tDataProvider" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+					<xs:key name="key_providerName">
+						<xs:annotation>
+							<xs:documentation>Definition of attribute 'name' as a "primary key" of 'dataEnvironments' element</xs:documentation>
+						</xs:annotation>
+						<xs:selector xpath="provider"/>
+						<xs:field xpath="@name"/>
+					</xs:key>
+				</xs:element>
+				<!-- dataEnvironments -->
+				<!--  <end> -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
