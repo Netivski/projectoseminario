@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by Ricardo Neto (Netpat) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:simpleType name="t_NIF">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="100000000"/>
+			<xs:maxInclusive value="999999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="TesteType">
+		<xs:complexType>
+			<xs:attribute name="att1" type="t_NIF"/>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>
