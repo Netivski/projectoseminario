@@ -1,0 +1,24 @@
+<sqlProviders xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="sqlProviders.xsd">
+		<provider 
+			type="SQLServer"
+			name="Main SQL Server"
+			serverName="127.0.0.1"
+			instance="SQLServer1"
+			catalog="RN_RBAC1" 
+			username=""
+			password=""
+			security=""
+			timeout="0"/>
+			
+		<provider
+			type="SQLServer"
+			name="Redundant SQL Server"
+			serverName="127.0.0.1"
+			instance="SQLServer1"
+			catalog="RN_RBAC1"
+			username=""
+			password=""
+			security=""
+			timeout="0"/>
+			
+</sqlProviders>

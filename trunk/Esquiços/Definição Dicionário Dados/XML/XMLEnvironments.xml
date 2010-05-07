@@ -1,6 +1,0 @@
-<environments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=".\XSDEnvironments.xsd">
-	<data>
-		<provider type="SQLServer" name="Main SQL Server" serverName="127.0.0.1"/>
-		<provider type="SQLServer" name="Redundant SQL Server" serverName="127.0.0.1"/>
-	</data>
-</environments>
