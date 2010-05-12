@@ -1,0 +1,33 @@
+<entities>
+
+	<entity name="Cliente">
+		<primaryKey name="pk_Cliente">
+			<attribute name="id" type="xs:int" visibility="private"/>
+		</primaryKey>
+		<attribute name="nome" type="xs:string" visibility="private"/>
+	</entity>
+	
+	<entity name="Fornecedor">
+		<primaryKey name="pk_Forn">
+			<attribute name="id" type="xs:int" visibility="private"/>
+		</primaryKey>
+		<attribute name="nome" type="xs:string" visibility="private"/>
+	</entity>
+	
+	<entity name="Produto">
+		<primaryKey name="pk_Prod">
+			<attribute name="id" type="xs:int" visibility="private"/>
+		</primaryKey>
+		<attribute name="desc" type="xs:string" visibility="private"/>
+		<relation name="codForn" srcEnt="Fornecedor" minOccurs="0" maxOccurs="unbounded"/>
+	</entity>
+	
+	<entity name="Venda">
+		<primaryKey name="pk_Venda">
+			<attribute name="id" type="xs:int" visibility="private"/>
+		</primaryKey>
+		<relation name="codCli" srcEnt="Cliente" minOccurs="1" maxOccurs="1"/>
+		<relation name="codProd" srcEnt="Produto" minOccurs="1" maxOccurs="unbounded"/>
+	</entity>
+	
+</entities>
