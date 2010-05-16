@@ -1,8 +1,12 @@
 <processes>
+
 	<process name="Venda">
 		<input>
 			<entity name="Cliente"/>
-			<entity name="Produto" maxOccurs="unbounded"/>
+			<dicionaryAttribute name="ProdQuant" maxOccurs="unbounded">
+				<entity name="Produto"/>
+				<attribute name="quant" type="xs:int"/>
+			</dicionaryAttribute>
 			<attribute name="Data" type="xs:date"/>
 		</input>
 		<output>
@@ -27,6 +31,17 @@
 		<security>
 			<allowedRole name="Contabilidade"/>
 			<allowedRole name="Compras"/>
+		</security>
+	</process>
+	
+	<process name="AcertoStock">
+		<input>
+			<entity name="Produto"/>
+			<attribute name="NovoValor" type="xs:int"/>
+		</input>
+		<security>
+			<allowedRole name="Contabilidade"/>
+			<allowedRole name="Armazém"/>
 		</security>
 	</process>
 	

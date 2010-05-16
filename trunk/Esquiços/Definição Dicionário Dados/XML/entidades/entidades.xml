@@ -30,4 +30,24 @@
 		<relation name="codProd" srcEnt="Produto" minOccurs="1" maxOccurs="unbounded"/>
 	</entity>
 	
+	<entity name="User">
+		<primaryKey name="pk_User">
+			<attribute name="id" type="xs:int" visibility="private"/>
+		</primaryKey>
+		<relation name="roleId" srcEnt="Role" minOccurs="1" maxOccurs="unbounded"/>
+	</entity>
+
+	<entity name="Role">
+		<primaryKey name="pk_Role">
+			<attribute name="id" type="xs:int" visibility="private"/>
+		</primaryKey>
+		<relation name="permissionId" srcent="Permission" minOccurs="1" maxOccurs="unbounded"/>
+	</entity>
+	
+	<entity name="Permission">
+		<primaryKey name="pk_Name">
+			<attribute name="name" type="xs:string" visibility="private"/>
+		</primaryKey>
+	</entity>
+	
 </entities>

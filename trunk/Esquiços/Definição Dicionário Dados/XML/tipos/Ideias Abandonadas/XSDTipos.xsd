@@ -2,7 +2,6 @@
 <!-- edited with XMLSpy v2009 (http://www.altova.com) by Ricardo Neto (Netpat) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:complexType name="t_baseType">
-	<xs:attribute name="bin" type="xs:unsignedInt" use="required"/>
 		<xs:attribute name="name" type="xs:string" use="required"/>
 		<xs:attribute name="precision" type="xs:int" use="required"/>
 		<xs:attribute name="scale" type="xs:int" use="required"/>
