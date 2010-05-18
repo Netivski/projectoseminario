@@ -54,8 +54,8 @@
     <Compile Include="FoundationType\CustomType.cs" />
     <Compile Include="FoundationType\Enumeration.cs" />
     <Compile Include="FoundationType\ICustomType.cs" />
-    <Compile Include="FoundationType\IBaseType.cs" />
-    <Compile Include="FoundationType\BaseType.cs" />
+    <Compile Include="FoundationType\IPlatformType.cs" />
+    <Compile Include="FoundationType\PlatformType.cs" />
     <Compile Include="FoundationType\Validator.cs" />
     <Compile Include="FoundationType\WhiteSpaceEnum.cs" />
     <Compile Include="Resource\Resources.Designer.cs">
