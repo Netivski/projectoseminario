@@ -14,6 +14,7 @@ namespace EDM.FoundationClasses.FoundationType
         public static IPlatformType UGuid       = new PlatformType(typeof(Guid), null, null, null);
         public static IPlatformType UDateTime   = new PlatformType(typeof(DateTime), null, null, null);
         public static IPlatformType UFloat      = new PlatformType(typeof(float), null, null, null);
+        public static IPlatformType UBinary     = new PlatformType(typeof(byte), null, null, null);        
 
         public static IPlatformType SQLGuid     = new PlatformType(typeof(Guid), 16, null, null);
         public static IPlatformType SQLDateTime = new PlatformType(typeof(DateTime), 8, 23, 3);

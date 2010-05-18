@@ -5,7 +5,7 @@ namespace GenRtti
 {
     public static class UserType
     {
-        public static ICustomType<int> customInt = new CustomType<int>(BaseType.UInt, 2, 2, 2, null, null, 10, 9, 11, 12, null, null, null);
+        public static ICustomType<int> customInt = new CustomType<int>(PlatformType.UInt, 2, 2, 2, null, null, 10, 9, 11, 12, null, null, null);
         
         static void test()
         {
