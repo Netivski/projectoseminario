@@ -6,7 +6,7 @@ namespace EDM.FoundationClasses.FoundationType
     //http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#rf-length
     public interface ICustomType<T>
     {
-        IBaseType BaseType { get; }
+        IPlatformType BaseType { get; }
 
         /// <summary>
         /// [Definition:]   length is the number of units of length, where units of length varies depending on the type that is being ·derived· from. The value of length ·must· be a nonNegativeInteger.

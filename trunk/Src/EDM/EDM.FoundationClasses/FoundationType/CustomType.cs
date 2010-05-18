@@ -5,7 +5,7 @@ namespace EDM.FoundationClasses.FoundationType
 {
     public class CustomType<T>: ICustomType<T>
     {
-        public CustomType(IBaseType baseType, int length, int minLength, int maxLength, string pattern, List<Enumeration<T>> enumeration, T minInclusive, T minExclusive, T maxInclusive, T maxExclusive, WhiteSpaceEnum? whiteSpace, short? totalDigits, short? fractionDigits)
+        public CustomType(IPlatformType baseType, int length, int minLength, int maxLength, string pattern, List<Enumeration<T>> enumeration, T minInclusive, T minExclusive, T maxInclusive, T maxExclusive, WhiteSpaceEnum? whiteSpace, short? totalDigits, short? fractionDigits)
         {
             if (baseType == null)                                    throw new ArgumentNullException("baseType");
             if (length < 0)                                          throw new ArgumentException("Argument length can't be negative!");
@@ -29,7 +29,7 @@ namespace EDM.FoundationClasses.FoundationType
             this.fractionDigits = fractionDigits;
         }
 
-        IBaseType            baseType;
+        IPlatformType            baseType;
         int                  length;
         int                  minLength;
         int                  maxLength;
@@ -43,7 +43,7 @@ namespace EDM.FoundationClasses.FoundationType
         short?               totalDigits;
         short?               fractionDigits;
 
-        public IBaseType BaseType { get { return baseType; } }
+        public IPlatformType BaseType { get { return baseType; } }
 
         public int Length { get { return length; } }
 
