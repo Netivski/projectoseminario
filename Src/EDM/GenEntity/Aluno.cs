@@ -14,7 +14,7 @@ namespace GenEntity
 
         public override bool IsValid()
         {
-            return base.IsValid() && Validator.IsValid(UserType.uInt, id);
+            return base.IsValid() && Validator.IsValid(UserTypeMetadata.uInt, id);
         }
 
         // Tem que ser rescrito o método GetHashCode, caso implemente fields unique
@@ -23,8 +23,8 @@ namespace GenEntity
         {
             if (obj == null) return false;
 
-            //Na comparação utilizar todos os fields que sejam unique
-            return id == obj.id;
+            //Utilizar todos os fields que sejam unique
+            return base.Equals((Pessoa)obj); 
         }
 
 
