@@ -1,203 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2010 (http://www.altova.com) by Ricardo Neto (Netpat) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<!-- Definição do tipo que extende um LONG -->
-	<xs:complexType name="t_customLong">
+	<!-- Definição do tipo LONG -->
+	<xs:complexType name="t_Long">
 		<xs:sequence>
-			<xs:element name="totalDigits" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
 			<xs:element name="enumeration" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice>
-				<xs:element name="minInclusive" type="xs:long" minOccurs="0"/>
-				<xs:element name="minExclusive" type="xs:long" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="maxInclusive" type="xs:long" minOccurs="0"/>
-				<xs:element name="maxExclusive" type="xs:long" minOccurs="0"/>
-			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="totalDigits" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
+		<xs:attribute name="minInclusive" type="xs:long" use="optional"/>
+		<xs:attribute name="minExclusive" type="xs:long" use="optional"/>
+		<xs:attribute name="maxInclusive" type="xs:long" use="optional"/>
+		<xs:attribute name="maxExclusive" type="xs:long" use="optional"/>
 	</xs:complexType>
-	<!-- Definição do tipo que extende um INT -->
-	<xs:complexType name="t_customInt">
+	<!-- Definição do tipo INT -->
+	<xs:complexType name="t_Int">
 		<xs:sequence>
-			<xs:element name="totalDigits" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
 			<xs:element name="enumeration" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice>
-				<xs:element name="minInclusive" type="xs:int" minOccurs="0"/>
-				<xs:element name="minExclusive" type="xs:int" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="maxInclusive" type="xs:int" minOccurs="0"/>
-				<xs:element name="maxExclusive" type="xs:int" minOccurs="0"/>
-			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="totalDigits" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
+		<xs:attribute name="minInclusive" type="xs:int" use="optional"/>
+		<xs:attribute name="minExclusive" type="xs:int" use="optional"/>
+		<xs:attribute name="maxInclusive" type="xs:int" use="optional"/>
+		<xs:attribute name="maxExclusive" type="xs:int" use="optional"/>
 	</xs:complexType>
-	<!-- Definição do tipo que extende um SHORT -->
-	<xs:complexType name="t_customShort">
+	<!-- Definição do tipo SHORT -->
+	<xs:complexType name="t_Short">
 		<xs:sequence>
-			<xs:element name="totalDigits" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
 			<xs:element name="enumeration" type="xs:short" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice>
-				<xs:element name="minInclusive" type="xs:short" minOccurs="0"/>
-				<xs:element name="minExclusive" type="xs:short" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="maxInclusive" type="xs:short" minOccurs="0"/>
-				<xs:element name="maxExclusive" type="xs:short" minOccurs="0"/>
-			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="totalDigits" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
+		<xs:attribute name="minInclusive" type="xs:short" use="optional"/>
+		<xs:attribute name="minExclusive" type="xs:short" use="optional"/>
+		<xs:attribute name="maxInclusive" type="xs:short" use="optional"/>
+		<xs:attribute name="maxExclusive" type="xs:short" use="optional"/>
 	</xs:complexType>
-	<!-- Definição do tipo que extende um BYTE -->
-	<xs:complexType name="t_customByte">
+	<!-- Definição do tipo BYTE -->
+	<xs:complexType name="t_Byte">
 		<xs:sequence>
-			<xs:element name="totalDigits" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
 			<xs:element name="enumeration" type="xs:byte" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice>
-				<xs:element name="minInclusive" type="xs:byte" minOccurs="0"/>
-				<xs:element name="minExclusive" type="xs:byte" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="maxInclusive" type="xs:byte" minOccurs="0"/>
-				<xs:element name="maxExclusive" type="xs:byte" minOccurs="0"/>
-			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="totalDigits" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
+		<xs:attribute name="minInclusive" type="xs:byte" use="optional"/>
+		<xs:attribute name="minExclusive" type="xs:byte" use="optional"/>
+		<xs:attribute name="maxInclusive" type="xs:byte" use="optional"/>
+		<xs:attribute name="maxExclusive" type="xs:byte" use="optional"/>
 	</xs:complexType>
-	<!-- Definição do tipo que extende um BINARY -->
-	<xs:complexType name="t_customBinary">
+	<!-- Definição do tipo BINARY -->
+	<xs:complexType name="t_Binary">
 		<xs:sequence>
-			<xs:element name="length" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="minLength" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="maxLength" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
-			<xs:element name="enumeration" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="enumeration" type="xs:hexBinary" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="length" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="minLength" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="maxLength" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
 	</xs:complexType>
-	<!-- Definição do tipo que extende um DECIMAL -->
-	<xs:complexType name="t_customDecimal">
+	<!-- Definição do tipo DECIMAL -->
+	<xs:complexType name="t_Decimal">
 		<xs:sequence>
-			<xs:element name="totalDigits" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="fractionDigits" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
 			<xs:element name="enumeration" type="xs:decimal" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice>
-				<xs:element name="minInclusive" type="xs:decimal" minOccurs="0"/>
-				<xs:element name="minExclusive" type="xs:decimal" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="maxInclusive" type="xs:decimal" minOccurs="0"/>
-				<xs:element name="maxExclusive" type="xs:decimal" minOccurs="0"/>
-			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="totalDigits" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="fractionDigits" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
+		<xs:attribute name="minInclusive" type="xs:decimal" use="optional"/>
+		<xs:attribute name="minExclusive" type="xs:decimal" use="optional"/>
+		<xs:attribute name="maxInclusive" type="xs:decimal" use="optional"/>
+		<xs:attribute name="maxExclusive" type="xs:decimal" use="optional"/>
 	</xs:complexType>
-	<!-- Definição do tipo que extende um FLOAT -->
-	<xs:complexType name="t_customFloat">
+	<!-- Definição do tipo FLOAT -->
+	<xs:complexType name="t_Float">
 		<xs:sequence>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
 			<xs:element name="enumeration" type="xs:float" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice>
-				<xs:element name="minInclusive" type="xs:float" minOccurs="0"/>
-				<xs:element name="minExclusive" type="xs:float" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="maxInclusive" type="xs:float" minOccurs="0"/>
-				<xs:element name="maxExclusive" type="xs:float" minOccurs="0"/>
-			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
+		<xs:attribute name="minInclusive" type="xs:float" use="optional"/>
+		<xs:attribute name="minExclusive" type="xs:float" use="optional"/>
+		<xs:attribute name="maxInclusive" type="xs:float" use="optional"/>
+		<xs:attribute name="maxExclusive" type="xs:float" use="optional"/>
 	</xs:complexType>
-	<!-- Definição do tipo que extende um DOUBLE -->
-	<xs:complexType name="t_customDouble">
+	<!-- Definição do tipo DOUBLE -->
+	<xs:complexType name="t_Double">
 		<xs:sequence>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
 			<xs:element name="enumeration" type="xs:double" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice>
-				<xs:element name="minInclusive" type="xs:double" minOccurs="0"/>
-				<xs:element name="minExclusive" type="xs:double" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="maxInclusive" type="xs:double" minOccurs="0"/>
-				<xs:element name="maxExclusive" type="xs:double" minOccurs="0"/>
-			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
+		<xs:attribute name="minInclusive" type="xs:double" use="optional"/>
+		<xs:attribute name="minExclusive" type="xs:double" use="optional"/>
+		<xs:attribute name="maxInclusive" type="xs:double" use="optional"/>
+		<xs:attribute name="maxExclusive" type="xs:double" use="optional"/>
 	</xs:complexType>
-	<!-- Definição do tipo que extende um STRING -->
-	<xs:complexType name="t_customString">
+	<!-- Definição do tipo STRING -->
+	<xs:complexType name="t_String">
 		<xs:sequence>
-			<xs:element name="length" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="minLength" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="maxLength" type="xs:positiveInteger" minOccurs="0"/>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
 			<xs:element name="enumeration" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="length" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="minLength" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="maxLength" type="xs:positiveInteger" use="optional"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
 	</xs:complexType>
-	<!-- Definição do tipo que extende um DATETIME -->
-	<xs:complexType name="t_customDatetime">
+	<!-- Definição do tipo DATETIME -->
+	<xs:complexType name="t_Datetime">
 		<xs:sequence>
-			<xs:element name="pattern" type="xs:string" minOccurs="0"/>
 			<xs:element name="enumeration" type="xs:dateTime" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice>
-				<xs:element name="minInclusive" type="xs:dateTime" minOccurs="0"/>
-				<xs:element name="minExclusive" type="xs:dateTime" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="maxInclusive" type="xs:dateTime" minOccurs="0"/>
-				<xs:element name="maxExclusive" type="xs:dateTime" minOccurs="0"/>
-			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="pattern" type="xs:string" use="optional"/>
+		<xs:attribute name="minInclusive" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="minExclusive" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="maxInclusive" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="maxExclusive" type="xs:dateTime" use="optional"/>
 	</xs:complexType>
-	<!-- Definição de um tipo custom -->
-	<xs:complexType name="t_customType">
-		<xs:choice>
-			<xs:element name="customLong" type="t_customLong"/>
-			<xs:element name="customInt" type="t_customInt"/>
-			<xs:element name="customShort" type="t_customShort"/>
-			<xs:element name="customByte" type="t_customByte"/>
-			<xs:element name="customBinary" type="t_customBinary"/>
-			<xs:element name="customDecimal" type="t_customDecimal"/>
-			<xs:element name="customFloat" type="t_customFloat"/>
-			<xs:element name="customDouble" type="t_customDouble"/>
-			<xs:element name="customString" type="t_customString"/>
-			<xs:element name="customDatetime" type="t_customDatetime"/>
-		</xs:choice>
+	<!-- Definição do tipo BOOLEAN-->
+	<xs:complexType name="t_Boolean">
 		<xs:attribute name="name" type="xs:string" use="required"/>
 	</xs:complexType>
-	<!-- Definição do contentor de tipos custom -->
-	<xs:complexType name="t_customTypeContainer">
-		<xs:sequence>
-			<xs:element name="customType" type="t_customType" maxOccurs="unbounded"/>
+	<!-- Definição do contentor de USER TYPES -->
+	<xs:complexType name="t_userType">
+		<xs:sequence maxOccurs="unbounded" minOccurs="0">
+			<xs:choice>
+				<xs:element name="long" type="t_Long" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="int" type="t_Int" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="short" type="t_Short" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="byte" type="t_Byte" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="binary" type="t_Binary" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="decimal" type="t_Decimal" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="float" type="t_Float" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="double" type="t_Double" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="string" type="t_String" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="datetime" type="t_Datetime" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- Definição de um tipo base -->
-	<xs:complexType name="t_platformType">
-		<xs:attribute name="name" type="xs:string" use="required"/>
-		<xs:attribute name="precision" type="xs:int" use="required"/>
-		<xs:attribute name="scale" type="xs:int" use="required"/>
-		<xs:attribute name="maxLength" type="xs:int" use="required"/>
-	</xs:complexType>
-	<!-- Definição do contentor de tipos base -->
-	<xs:complexType name="t_platformTypeContainer">
-		<xs:sequence>
-			<xs:element name="platformType" type="t_platformType" minOccurs="11" maxOccurs="11"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="types">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="platformTypes" type="t_platformTypeContainer">
-					<xs:unique name="un_platformType_name">
-						<xs:selector xpath="platformType"/>
-						<xs:field xpath="@name"/>
-					</xs:unique>
-				</xs:element>
-				<xs:element name="customTypes" type="t_customTypeContainer">
-					<xs:unique name="un_customType_name">
-						<xs:selector xpath="customType"/>
-						<xs:field xpath="@name"/>
-					</xs:unique>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
+	
+	
+	<!-- Definição do elemento USERTYPES -->
+	<xs:element name="userTypes" type="t_userType">
+		<xs:unique name="un_platformType_name">
+			<xs:selector xpath="*"/>
+			<xs:field xpath="@name"/>
+		</xs:unique>
 	</xs:element>
 </xs:schema>

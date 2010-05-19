@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by Ricardo Neto (Netpat) -->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="entityValidator.xsd">	
+
+	<entity type="base" name="Pessoa">
+		<fields>
+			<field type="int" name="id"/>
+			<field type="string" name="nome"/>
+		</fields>
+		<relations>
+			<manyToMany entity="Departamento" name="relPessoaDepartamento" maxOccurs="5" minOccurs="1"/>
+			<oneToMany entity="Cadeira" name="relPessoaCadeira" maxOccurs="unbounded" minOccurs="3"/>
+		</relations>
+	</entity>
+
+	<entity type="dependent" name="Estudante" baseEntity="Pessoa">
+		<fields>
+			<field type="int" name="id"/>
+			<field type="string" name="nome"/>
+		</fields>
+		<relations>
+			<manyToMany entity="Departamento" name="relPessoaDepartamento" maxOccurs="5" minOccurs="1"/>
+			<oneToMany entity="Cadeira" name="relPessoaCadeira" maxOccurs="unbounded" minOccurs="3"/>
+		</relations>
+	</entity>
+
+</entities>

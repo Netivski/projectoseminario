@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="typeModelValidator.xsd">
+
+	<int name="positiveInt" minInclusive="0"/>
+
+	<string name="nameString"/>
+	
+	<datetime name="nascimentoDate"/>
+	
+	<int name="iselNumAluno"/>
+	
+	<int name="iselNumDocente"/>
+	
+	<int name="iselCodDepartamento"/>
+	
+	<string name="iselNomeDepartamento"/>
+	
+	<int name="iselCodCurso"/>
+	
+	<string name="iselNomeCurso"/>
+	
+	<int name="anoEscolar" pattern="[0-9]{4}"/>
+
+	<string name="tipoSemestre">
+		<enumeration>Inverno</enumeration>
+		<enumeration>Verão</enumeration>
+	</string>
+	
+	<datetime name="inicioSemestre"/>
+	
+	<datetime name="fimSemestre"/>
+	
+</userTypes>
