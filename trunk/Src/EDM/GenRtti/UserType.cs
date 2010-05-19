@@ -5,11 +5,16 @@ namespace GenRtti
 {
     public static class UserType
     {
-        public static ICustomType<int> customInt = new CustomType<int>(PlatformType.UInt, 2, 2, 2, null, null, 10, 9, 11, 12, null, null, null);
+
+        //Gerador - Objectos a gerar
+        // 1 - Gerar todos os user types
+        // 2 - Gerar a lista de enumeration do tipo
+
+        public static IUserType<int> uInt = new UserType<int>(2, 2, 2, null, null, 10, 9, 11, 12, null, null, null);
         
         static void test()
         {
-            Validator.IsValid(customInt, 123);
+            Validator.IsValid(uInt, 123);
         }
     }
 }
