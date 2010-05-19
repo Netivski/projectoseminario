@@ -8,6 +8,7 @@ namespace EDM.FoundationClasses.FoundationType
         {
             if (cType == null) throw new ArgumentNullException("cType");
 
+            //Enum.IsDefined( 
 
             return false;
         }

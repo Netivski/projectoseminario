@@ -5,7 +5,7 @@ namespace EDM.FoundationClasses.FoundationType
 {
     public class UserType<T>: IUserType<T>
     {
-        public UserType(int length, int minLength, int maxLength, string pattern, List<Enumeration<T>> enumeration, T minInclusive, T minExclusive, T maxInclusive, T maxExclusive, WhiteSpaceEnum? whiteSpace, short? totalDigits, short? fractionDigits)
+        public UserType(int length, int minLength, int maxLength, string pattern, List<string> enumeration, T minInclusive, T minExclusive, T maxInclusive, T maxExclusive, WhiteSpaceEnum? whiteSpace, short? totalDigits, short? fractionDigits)
         {
             if (length < 0)                                          throw new ArgumentException("Argument length can't be negative!");
             if (minLength < 0)                                       throw new ArgumentException("Argument minLength can't be negative!");
@@ -27,18 +27,18 @@ namespace EDM.FoundationClasses.FoundationType
             this.fractionDigits = fractionDigits;
         }
 
-        int                  length;
-        int                  minLength;
-        int                  maxLength;
-        string               pattern;
-        List<Enumeration<T>> enumeration;
-        T                    maxInclusive;
-        T                    maxExclusive;
-        T                    minInclusive;
-        T                    minExclusive;
-        WhiteSpaceEnum?      whiteSpace;
-        short?               totalDigits;
-        short?               fractionDigits;
+        int             length;
+        int             minLength;
+        int             maxLength;
+        string          pattern;
+        List<string>    enumeration;
+        T               maxInclusive;
+        T               maxExclusive;
+        T               minInclusive;
+        T               minExclusive;
+        WhiteSpaceEnum? whiteSpace;
+        short?          totalDigits;
+        short?          fractionDigits;
 
         public Type BaseType { get { return typeof( T ); } }
 
@@ -50,7 +50,7 @@ namespace EDM.FoundationClasses.FoundationType
 
         public string Pattern { get { return pattern; } }
 
-        public List<Enumeration<T>> Enumeration { get{ return enumeration;} }
+        public List<string> Enumeration { get{ return enumeration;} }
 
         public T MaxInclusive { get{ return maxInclusive; } }
 

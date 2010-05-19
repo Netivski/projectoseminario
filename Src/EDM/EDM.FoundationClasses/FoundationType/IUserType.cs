@@ -31,7 +31,7 @@ namespace EDM.FoundationClasses.FoundationType
         /// <summary>
         /// [Definition:]   enumeration constrains the ·value space· to a specified set of values.
         /// </summary>       
-        List<Enumeration<T>> Enumeration { get; }
+        List<string> Enumeration { get; }
 
         /// <summary>
         /// [Definition:]   maxInclusive is the ·inclusive upper bound· of the ·value space· for a datatype with the ·ordered· property. The value of maxInclusive ·must· be in the ·value space· of the ·base type·. 
