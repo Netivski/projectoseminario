@@ -3,7 +3,7 @@ using EDM.FoundationClasses.FoundationType;
 
 namespace GenRtti
 {
-    public static class UserType
+    public static class UserTypeMetadata
     {
 
         //Gerador - Objectos a gerar
