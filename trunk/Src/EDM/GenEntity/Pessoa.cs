@@ -18,7 +18,7 @@ namespace GenEntity
         {
             // Utilizar operador && para todos os fields unique
 
-            return Validator.IsValid(UserType.uInt, id);
+            return Validator.IsValid(UserTypeMetadata.uInt, id);
         }
 
         public override int GetHashCode()
