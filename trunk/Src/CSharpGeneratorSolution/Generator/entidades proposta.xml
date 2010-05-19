@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<entities>
+  <!--
+    @Type 
+          base      -  
+          abstract  - 
+          dependent -                    
+  -->
+  <entity name="Pessoa" type="abstract">
+    <schema>
+      <element name="id"   type="positiveInt" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="true" unique="true" searchable="true"/>
+      <element name="nome" type="NameString" visibility="public" minOccurs="0" maxOccurs="1" nillable="true" sequence="false" unique="flase" searchable="true"/>
+      <element name="dtNascimento" type="NascimentoDate" visibility="public" minOccurs="0" maxOccurs="1" nillable="true" sequence="false" unique="flase" searchable="false"/>
+    </schema>
+    <relations/>
+  </entity>
+
+  <entity name="Aluno" type="dependent" baseEntity="Pessoa">
+    <schema>
+      <element name="num" type="iselNumAluno" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="flase" searchable="true"/>
+    </schema>
+    <relations/>
+  </entity>
+
+  <entity name="Docente" type="dependent" baseEntity="Pessoa">
+    <schema>
+      <element name="num" type="iselNumDocente" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="flase" searchable="true"/>
+    </schema>
+    <relations/>
+  </entity>
+
+  <entity name="Departamento" type="base">
+    <schema>
+      <element name="cod" type="iselCodDepartamento" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="true" searchable="true"/>
+      <element name="nome" type="iselNomeDepartamento" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="false" searchable="true"/>
+    </schema>
+    <relations/>
+  </entity>
+
+  <entity name="Curso" type="base">
+    <schema>
+      <element name="cod" type="iselCodCurso" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="true" searchable="true"/>
+      <element name="nome" type="iselNomeCurso" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="false" searchable="true"/>      
+	  <element name="alunos" type="iselNumAluno" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique=
+"false" searchable="true"/>
+    </schema>
+    <relations/>
+  </entity>
+
+  <entity name="Semestre" type="base">
+    <schema>
+      <element name="ano" type="iselAnoEscolar" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="true" searchable="true"/>
+      <element name="tipo" type="iselTipoSemestre" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="true" searchable="true"/>
+      <element name="inicio" type="iselInicioSemestre" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="false" searchable="true"/>
+      <element name="fim" type="iselFimSemestre" visibility="private" minOccurs="0" maxOccurs="1" nillable="false" sequence="false" unique="false" searchable="true"/>
+    </schema>
+    <relations/>
+  </entity>
+
+
+</entities>
