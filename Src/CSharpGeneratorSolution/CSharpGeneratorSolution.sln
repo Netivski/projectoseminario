@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exception_lib", "Exception_lib\Exception_lib.csproj", "{76396CB6-DCF6-4493-9B72-7E5FA99728BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{4877D801-0853-49AF-9F6D-F8AACC4646CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{CD1E0DED-77AD-4409-A366-1260DD2B9BD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76396CB6-DCF6-4493-9B72-7E5FA99728BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76396CB6-DCF6-4493-9B72-7E5FA99728BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76396CB6-DCF6-4493-9B72-7E5FA99728BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76396CB6-DCF6-4493-9B72-7E5FA99728BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4877D801-0853-49AF-9F6D-F8AACC4646CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4877D801-0853-49AF-9F6D-F8AACC4646CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4877D801-0853-49AF-9F6D-F8AACC4646CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4877D801-0853-49AF-9F6D-F8AACC4646CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD1E0DED-77AD-4409-A366-1260DD2B9BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD1E0DED-77AD-4409-A366-1260DD2B9BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD1E0DED-77AD-4409-A366-1260DD2B9BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD1E0DED-77AD-4409-A366-1260DD2B9BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
