@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Environment\IEnvironment.cs" />
+    <Compile Include="Exception\FoundationType\InvalidBaseTypeException.cs" />
+    <Compile Include="Exception\GeneralException.cs" />
     <Compile Include="Process\IProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FoundationType\UserType.cs" />
@@ -72,7 +74,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Exception\" />
     <Folder Include="Gui\" />
     <Folder Include="Permission\" />
   </ItemGroup>
