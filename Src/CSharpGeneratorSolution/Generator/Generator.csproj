@@ -59,8 +59,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Duvidas.txt" />
+    <Content Include="XML\entity.xml" />
+    <Content Include="XML\typeModel.xml" />
     <Content Include="XSLT\Entities.xslt" />
     <Content Include="XSLT\Types.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XML\entityValidator.xsd" />
+    <None Include="XML\typeModelValidator.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

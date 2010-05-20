@@ -3,3 +3,8 @@ C:\ISEL\PES\trunk\CSharpGeneratorSolution\Exception_lib\bin\Debug\Exception_lib.
 C:\ISEL\PES\trunk\CSharpGeneratorSolution\Exception_lib\obj\Debug\ResolveAssemblyReference.cache
 C:\ISEL\PES\trunk\CSharpGeneratorSolution\Exception_lib\obj\Debug\Exception_lib.dll
 C:\ISEL\PES\trunk\CSharpGeneratorSolution\Exception_lib\obj\Debug\Exception_lib.pdb
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\Exception_lib\bin\Debug\Exception_lib.dll
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\Exception_lib\bin\Debug\Exception_lib.pdb
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\Exception_lib\obj\Debug\ResolveAssemblyReference.cache
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\Exception_lib\obj\Debug\Exception_lib.dll
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\Exception_lib\obj\Debug\Exception_lib.pdb

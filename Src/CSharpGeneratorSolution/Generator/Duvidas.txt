@@ -1,0 +1,16 @@
+﻿---------------------------------
+---			Gerais
+---------------------------------
+
+O ficheiro XML é único ou são vários, um por cada componente(Tipos, Entidades, etc..)?
+
+---------------------------------
+---			Type
+---------------------------------
+
+As propriedades minInclusive, minExclusive, maxInclusive e maxExclusive podem ter valores de qualquer tipo ou só numéricos?
+
+---------------------------------
+---			Entity
+---------------------------------
+

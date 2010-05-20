@@ -4,18 +4,17 @@
     
   <xsl:output method="text" indent="yes"/>
 
-  <!--<xsl:template match="Entities">
-    <xsl:apply-templates select="Entitie"/>
-  </xsl:template>-->
-
   <xsl:template match="entity">
-using System;
-using EDM.FoundationClasses.FoundationEntity; //a ver
+    using System;
+    using EDM.FoundationClasses.Entity;
+    using EDM.FoundationClasses.FoundationType;
+    using GenRtti;
 
-namespace GeneratedEntity //a ver
-{
-  //Auto-Generated class
-  public <xsl:choose><xsl:when test="@type = 'abstract'">abstract </xsl:when></xsl:choose>class <xsl:value-of select="@name"/> <xsl:choose><xsl:when test="@type = 'dependent'"> : <xsl:value-of select="@baseEntity"/></xsl:when></xsl:choose>
+    namespace GenEntity
+    {
+      //Auto-Generated class
+      [Serializable]
+      public <xsl:choose><xsl:when test="@type = 'abstract'">abstract </xsl:when></xsl:choose>class <xsl:value-of select="@name"/> <xsl:choose><xsl:when test="@type = 'dependent'"> : <xsl:value-of select="@baseEntity"/></xsl:when></xsl:choose>
   {
     //fields
     <xsl:apply-templates select="schema/element" mode="fields"/>

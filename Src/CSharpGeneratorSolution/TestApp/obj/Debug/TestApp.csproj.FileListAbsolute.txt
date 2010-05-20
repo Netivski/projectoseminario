@@ -7,3 +7,12 @@ C:\ISEL\PES\trunk\CSharpGeneratorSolution\TestApp\bin\Debug\Generator.dll
 C:\ISEL\PES\trunk\CSharpGeneratorSolution\TestApp\bin\Debug\Exception_lib.dll
 C:\ISEL\PES\trunk\CSharpGeneratorSolution\TestApp\bin\Debug\Generator.pdb
 C:\ISEL\PES\trunk\CSharpGeneratorSolution\TestApp\bin\Debug\Exception_lib.pdb
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\TestApp\obj\Debug\TestApp.exe
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\TestApp\obj\Debug\TestApp.pdb
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\TestApp\bin\Debug\TestApp.exe
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\TestApp\bin\Debug\TestApp.pdb
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\TestApp\bin\Debug\Generator.dll
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\TestApp\bin\Debug\Exception_lib.dll
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\TestApp\bin\Debug\Generator.pdb
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\TestApp\bin\Debug\Exception_lib.pdb
+C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\TestApp\obj\Debug\ResolveAssemblyReference.cache
