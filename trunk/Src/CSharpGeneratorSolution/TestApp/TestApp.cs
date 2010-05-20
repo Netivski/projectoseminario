@@ -10,9 +10,9 @@ namespace TestApp
     {
         public static void Main(string[] args)
         {
-            IGenerator gen = GeneratorFactory.getInstance(@"C:\ISEL\PES\trunk\CSharpGeneratorSolution\Generator\\entidades proposta.xml",
-                @"C:\ISEL\PES\trunk\CSharpGeneratorSolution\Generator\\XSLT");
-            gen.generate(@"C:\ISEL\PES\trunk\CSharpGeneratorSolution\Generator\Generated");
+            IGenerator gen = GeneratorFactory.getInstance(@"C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\Generator\XML\typeModel.xml",
+                @"C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\Generator\XSLT");
+            gen.generate(@"C:\ISEL\PES\trunk\Src\CSharpGeneratorSolution\Generator\Generated");
             //gen = GeneratorFactory.getInstance(@"C:\ISEL\PES\trunk\CSharpGeneratorSolution\Generator\\typeModel.xml",
             //    @"C:\ISEL\PES\trunk\CSharpGeneratorSolution\Generator\\XSLT");
             //gen.generate(@"C:\ISEL\PES\trunk\CSharpGeneratorSolution\Generator\Generated");

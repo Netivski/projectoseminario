@@ -18,8 +18,7 @@ namespace Generator
         private readonly String _xmlFileLocation;
         private readonly String _xsltBag;
         private readonly XslCompiledTransform _transformer;
-
-        private XmlDocument _doc;        
+        
         private readonly IDictionary<String, String> _xsltDictionary;
 
         public Generator(String xmlFileLocation, String xsltBag)
@@ -41,22 +40,22 @@ namespace Generator
         public void generate(string destFolder)
         {
             _destFolder = destFolder + "\\";
-            XmlNodeList list;
 
-            _doc = new XmlDocument();
-            _doc.Load(_xmlFileLocation);
+            XmlDocument doc = new XmlDocument();
+            doc.Load(_xmlFileLocation);
 
-            list = _doc.GetElementsByTagName("entity");
-            foreach (XmlNode entityNode in list)
-            {
-                generateEntity(entityNode);
-            }
+            XmlNodeList list = doc.GetElementsByTagName("userTypes");
 
-            //list = _doc.GetElementsByTagName("customType");
-            //foreach (XmlNode typeNode in list)
+            if(list.Count > 0)
+                generateType(list[0]);
+
+            //list = doc.GetElementsByTagName("entity");
+            //foreach (XmlNode entityNode in list)
             //{
-            //    generateType(typeNode);
+            //    generateEntity(entityNode);
             //}
+
+            
         }
 
         #endregion
@@ -64,7 +63,7 @@ namespace Generator
         public void generateType(XmlNode typeNode)
         {
             _transformer.Load(_xsltDictionary["Types"]);
-            _transformer.Transform(typeNode, new XmlTextWriter(_destFolder + typeNode.Attributes["name"].Value + ".cs", Encoding.UTF8));
+            _transformer.Transform(typeNode, new XmlTextWriter(_destFolder + "UserTypeMetadata.cs", Encoding.UTF8));
         }
 
         public void generateEntity(XmlNode entityNode)
