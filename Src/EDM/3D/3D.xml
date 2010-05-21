@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<DDD projectName="ISEL - Solução de gestão" projectCode="ISEL">
+<EDM projectName="ISEL - Solução de gestão" projectCode="ISEL">
 
   <userTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <int name="positiveInt" minInclusive="0"/>
@@ -66,4 +66,4 @@
     </entity>
   </entities>
 
-</DDD>
+</EDM>
