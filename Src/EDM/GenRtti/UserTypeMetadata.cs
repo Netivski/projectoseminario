@@ -14,7 +14,7 @@ namespace GenRtti
         
         static void test()
         {
-            Validator<int>.IsValid(uInt, 123);
+            Validator.IsValid(uInt, 123);
         }
     }
 }
