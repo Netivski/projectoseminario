@@ -6,22 +6,20 @@ namespace EDM.GeneratorEntryPoint
 {
     class Program
     {
-        static readonly string DDDFilePath  = null;
-        static readonly string XSLTBasePath = null;
+        static readonly string EDMFilePath  = null;
         static readonly string GenResult    = null;
 
 
         static Program()
         {
 
-            DDDFilePath  = Path.Combine(Environment.CurrentDirectory, @"..\..\..\3D\3D.xml");
-            XSLTBasePath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Generator\XSLT");
+            EDMFilePath  = Path.Combine(Environment.CurrentDirectory, @"..\..\..\3D\3D.xml");            
             GenResult    = Path.Combine(Environment.CurrentDirectory, @"..\..\..\3D\GenResult");
         }
 
         static void Main(string[] args)
         {
-            GeneratorFactory.GetInstance(DDDFilePath, XSLTBasePath).Generate(GenResult);
+            GeneratorFactory.GetInstance(EDMFilePath, GenResult).Generate();
         }
     }
 }

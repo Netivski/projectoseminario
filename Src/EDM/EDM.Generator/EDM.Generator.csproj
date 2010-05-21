@@ -47,15 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\GeneratorContext.cs" />
+    <Compile Include="Context\EDMFile.cs" />
+    <Compile Include="Context\EDMXPath.cs" />
+    <Compile Include="Context\Output.cs.cs" />
+    <Compile Include="Context\Transform.cs" />
+    <Compile Include="Exception\EDMFileNotFoundException.cs" />
     <Compile Include="Exception\GeneralException.cs" />
-    <Compile Include="Exception\NotExpectedException.cs" />
-    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Exception\InvalidOutputDirectoryException.cs" />
+    <Compile Include="Exception\InvalidTransformDirectoryException.cs" />
+    <Compile Include="Exception\UnexpectedException.cs" />
     <Compile Include="Generator.cs" />
     <Compile Include="GeneratorFactory.cs" />
     <Compile Include="IGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Context\Context.cd" />
     <None Include="sign_key.snk" />
   </ItemGroup>
   <ItemGroup>
