@@ -7,58 +7,59 @@ namespace EDM.FoundationClasses.FoundationType
     public static class Validator
     {
 
-        #region - Type Validator 
-
-        static bool IsValid(IUserType<long> cType, long value)
+        static bool IsBaseTypeValid(Type baseType, Type valueType)
         {
-            return false;
+            return baseType == valueType;
         }
 
-        static bool IsValid(IUserType<int> cType, int value)
+        public static bool IsValid(IUserType<long> cType, long value)
         {
-            return false;
+            return IsBaseTypeValid( cType.BaseType, typeof(long) ) &&  false;
         }
 
-        static bool IsValid(IUserType<short> cType, short value)
+        public static bool IsValid(IUserType<int> cType, int value)
         {
-            return false;
+            return IsBaseTypeValid( cType.BaseType, typeof(int) ) && false;
         }
 
-        static bool IsValid(IUserType<byte> cType, byte value)
+        public static bool IsValid(IUserType<short> cType, short value)
         {
-            return false;
+            return IsBaseTypeValid( cType.BaseType, typeof(short) ) && false;
         }
 
-        static bool IsValid(IUserType<decimal> cType, decimal value)
+        public static bool IsValid(IUserType<byte> cType, byte value)
         {
-            return false;
+            return IsBaseTypeValid( cType.BaseType, typeof(byte) ) && false;
         }
 
-        static bool IsValid(IUserType<float> cType, float value)
+        public static bool IsValid(IUserType<decimal> cType, decimal value)
         {
-            return false;
+            return IsBaseTypeValid( cType.BaseType, typeof(decimal) ) && false;
         }
 
-        static bool IsValid(IUserType<double> cType, double value)
+        public static bool IsValid(IUserType<float> cType, float value)
         {
-            return false;
+            return IsBaseTypeValid( cType.BaseType, typeof(float) ) && false;
         }
 
-        static bool IsValid(IUserType<string> cType, string value)
+        public static bool IsValid(IUserType<double> cType, double value)
         {
-            return false;
+            return IsBaseTypeValid( cType.BaseType, typeof(double) ) && false;
         }
 
-        static bool IsValid(IUserType<DateTime> cType, DateTime value)
+        public static bool IsValid(IUserType<string> cType, string value)
         {
-            return false;
+            return IsBaseTypeValid( cType.BaseType, typeof(string) ) && false;
         }
 
-        static bool IsValid(IUserType<bool> cType, bool value)
+        public static bool IsValid(IUserType<DateTime> cType, DateTime value)
         {
-            return false;
+            return IsBaseTypeValid( cType.BaseType, typeof(DateTime) ) && false;
         }
 
-        #endregion 
+        public static bool IsValid(IUserType<bool> cType, bool value)
+        {
+            return IsBaseTypeValid( cType.BaseType, typeof(bool) ) && false;
+        }
     }
 }
