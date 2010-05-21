@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DDD projectName="ISEL - Solução de gestão" projectCode="ISEL">
+
+  <userTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <int name="positiveInt" minInclusive="0"/>
+    <string name="nameString"/>
+    <datetime name="nascimentoDate"/>
+    <int name="iselNumAluno"/>
+    <int name="iselNumDocente"/>
+    <int name="iselCodDepartamento"/>
+    <string name="iselNomeDepartamento"/>
+    <int name="iselCodCurso"/>
+    <string name="iselNomeCurso"/>
+    <int name="anoEscolar" pattern="[0-9]{4}"/>
+    <string name="tipoSemestre">
+      <enumeration>Inverno</enumeration>
+      <enumeration>Verão</enumeration>
+    </string>
+    <datetime name="inicioSemestre"/>
+    <datetime name="fimSemestre"/>
+  </userTypes>
+
+  <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <entity type="abstract" name="Pessoa">
+      <fields>
+        <field type="positiveInt" name="id" searchable="true" sequence="true" unique="true"/>
+        <field type="nameString" name="nome" nillable="true" searchable="true"/>
+      </fields>
+    </entity>
+
+    <entity type="dependent" name="Aluno" baseEntity="Pessoa">
+      <fields>
+        <field type="iselNumAluno" name="num" searchable="true"/>
+      </fields>
+    </entity>
+
+    <entity type="dependent" name="Docente" baseEntity="Pessoa">
+      <fields>
+        <field type="iselNumDocente" name="num" searchable="true"/>
+      </fields>
+    </entity>
+
+    <entity type="base" name="Departamento">
+      <fields>
+        <field type="iselCodDepartamento" name="cod" unique="true" searchable="true"/>
+        <field type="iselNomeDepartamento" name="nome" searchable="true"/>
+      </fields>
+    </entity>
+
+    <entity type="base" name="Curso">
+      <fields>
+        <field type="iselCodCurso" name="cod" unique="true" searchable="true"/>
+        <field type="iselNomeCurso" name="nome" searchable="true"/>
+      </fields>
+    </entity>
+
+    <entity type="base" name="Semestre">
+      <fields>
+        <field type="iselAnoEscolar" name="ano" unique="true" searchable="true"/>
+        <field type="iselTipoSemestre" name="tipo" unique="true" searchable="true"/>
+        <field type="iselInicioSemestre" name="inicio" searchable="true"/>
+        <field type="iselFimSemestre" name="fim" searchable="true"/>
+      </fields>
+    </entity>
+  </entities>
+
+</DDD>
