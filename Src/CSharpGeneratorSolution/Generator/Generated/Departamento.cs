@@ -1,18 +1,17 @@
 ﻿
 using System;
-using EDM.FoundationClasses.FoundationEntity; //a ver
+using EDM.FoundationClasses.Entity;
+using EDM.FoundationClasses.FoundationType;
+using GenRtti;
 
-namespace GeneratedEntity //a ver
+namespace GenEntity
 {
   //Auto-Generated class
-  public class Departamento
+  [Serializable]
+  public  class Departamento : IEntity
   {
     //fields
-    
-    private iselCodDepartamento cod;
-  
-    private iselNomeDepartamento nome;
-  
+           
     //Generated parameterless constructor
     public Departamento ()  {}
           

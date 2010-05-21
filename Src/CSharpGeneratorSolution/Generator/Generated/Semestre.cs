@@ -1,22 +1,17 @@
 ﻿
 using System;
-using EDM.FoundationClasses.FoundationEntity; //a ver
+using EDM.FoundationClasses.Entity;
+using EDM.FoundationClasses.FoundationType;
+using GenRtti;
 
-namespace GeneratedEntity //a ver
+namespace GenEntity
 {
   //Auto-Generated class
-  public class Semestre
+  [Serializable]
+  public  class Semestre : IEntity
   {
     //fields
-    
-    private iselAnoEscolar ano;
-  
-    private iselTipoSemestre tipo;
-  
-    private iselInicioSemestre inicio;
-  
-    private iselFimSemestre fim;
-  
+           
     //Generated parameterless constructor
     public Semestre ()  {}
           

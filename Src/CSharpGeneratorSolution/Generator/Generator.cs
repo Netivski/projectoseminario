@@ -44,16 +44,16 @@ namespace Generator
             XmlDocument doc = new XmlDocument();
             doc.Load(_xmlFileLocation);
 
-            XmlNodeList list = doc.GetElementsByTagName("userTypes");
+            //XmlNodeList list = doc.GetElementsByTagName("userTypes");
 
-            if(list.Count > 0)
-                generateType(list[0]);
+            //if(list.Count > 0)
+            //    generateType(list[0]);
 
-            //list = doc.GetElementsByTagName("entity");
-            //foreach (XmlNode entityNode in list)
-            //{
-            //    generateEntity(entityNode);
-            //}
+            XmlNodeList list = doc.GetElementsByTagName("entity");
+            foreach (XmlNode entityNode in list)
+            {
+                generateEntity(entityNode);
+            }
 
             
         }

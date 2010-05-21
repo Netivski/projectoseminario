@@ -1,16 +1,17 @@
 ﻿
 using System;
-using EDM.FoundationClasses.FoundationEntity; //a ver
+using EDM.FoundationClasses.Entity;
+using EDM.FoundationClasses.FoundationType;
+using GenRtti;
 
-namespace GeneratedEntity //a ver
+namespace GenEntity
 {
   //Auto-Generated class
-  public class Docente : Pessoa
+  [Serializable]
+  public  class Docente : Pessoa
   {
     //fields
-    
-    private iselNumDocente num;
-  
+           
     //Generated parameterless constructor
     public Docente ()  : base() {}
           
