@@ -5,7 +5,7 @@
 	<entity type="abstract" name="Pessoa">
 		<fields>
 			<field type="positiveInt" name="id" searchable="true" sequence="true" unique="true"/>
-			<field type="nameString" name="nome" nillable="true" searchable="true"/>
+			<field type="nameString" name="nome" nillable="true" searchable="true"/>  
 		</fields>
 	</entity>
 	

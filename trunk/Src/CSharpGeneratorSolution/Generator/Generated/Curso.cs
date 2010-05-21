@@ -1,20 +1,17 @@
 ﻿
 using System;
-using EDM.FoundationClasses.FoundationEntity; //a ver
+using EDM.FoundationClasses.Entity;
+using EDM.FoundationClasses.FoundationType;
+using GenRtti;
 
-namespace GeneratedEntity //a ver
+namespace GenEntity
 {
   //Auto-Generated class
-  public class Curso
+  [Serializable]
+  public  class Curso : IEntity
   {
     //fields
-    
-    private iselCodCurso cod;
-  
-    private iselNomeCurso nome;
-  
-    private iselNumAluno alunos;
-  
+           
     //Generated parameterless constructor
     public Curso ()  {}
           

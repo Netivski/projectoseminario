@@ -1,26 +1,19 @@
 ﻿
 using System;
-using EDM.FoundationClasses.FoundationEntity; //a ver
+using EDM.FoundationClasses.Entity;
+using EDM.FoundationClasses.FoundationType;
+using GenRtti;
 
-namespace GeneratedEntity //a ver
+namespace GenEntity
 {
   //Auto-Generated class
-  public abstract class Pessoa
+  [Serializable]
+  public abstract class Pessoa : IEntity
   {
     //fields
-    
-    private positiveInt id;
-  
-    public NameString nome;
-  
-    public NascimentoDate dtNascimento;
-      
+        
     //Properties
     
-    public NameString nome{ get; set; }
-      
-    public NascimentoDate dtNascimento{ get; set; }
-      
   }//class
 }//namespace
   
