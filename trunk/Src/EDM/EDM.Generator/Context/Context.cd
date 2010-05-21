@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EDM.Generator.Context.GeneratorContext">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAIAAQACAAEAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Context\GeneratorContext.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EDMFile" />
+      <Property Name="Output" />
+      <Property Name="Transform" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EDM.Generator.Context.EDMFile">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAIgBAAIAAAAAAAAQAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Context\EDMFile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="XPath" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EDM.Generator.Context.EDMXPath">
+    <Position X="1" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAACAACAAAAAAAAAAACAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Context\EDMXPath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.Generator.Context.Output">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Context\Output.cs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.Generator.Context.Transform">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Context\Transform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
