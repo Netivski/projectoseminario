@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Ricardo Neto (Netpat) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="./entidades/entityValidator.xsd"/>
+	<xs:include schemaLocation="./tipos/typeModelValidator.xsd"/>
+
+	<!-- Definição do elemento SOLUTION -->
+	<xs:element name="solution">
+		<xs:complexType>
+			<xs:sequence>
+
+				<!-- Definição do elemento USERTYPES -->
+				<xs:element name="userTypes" type="t_userType">
+					<xs:unique name="un_platformType_name">
+						<xs:selector xpath="*"/>
+						<xs:field xpath="@name"/>
+					</xs:unique>
+				</xs:element>
+
+				<!-- Definição do elemento ENTITIES -->
+				<xs:element name="entities">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="entity" type="t_entity" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+					<!-- Restrição de unicidade ao nome da entidade-->
+					<xs:unique name="un_entityName">
+						<xs:selector xpath="entity"/>
+						<xs:field xpath="@name"/>
+					</xs:unique>
+					<!-- Restrição referencial do atributo baseType de entity para nome de entity existente -->
+					<xs:key name="entityName">
+						<xs:selector xpath="entity"/>
+						<xs:field xpath="@name"/>
+					</xs:key>
+					<xs:keyref name="refEntityName" refer="entityName">
+						<xs:selector xpath="entity"/>
+						<xs:field xpath="@baseEntity"/>
+					</xs:keyref>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+
+		<!-- Restrição referencial do atributo type de field para nome de tipo existente -->
+		<xs:key name="typeName">
+			<xs:selector xpath="userTypes/*"></xs:selector>
+			<xs:field xpath="@name"></xs:field>
+		</xs:key>
+		<xs:keyref refer="typeName" name="refTypeName">
+			<xs:selector xpath="entities/entity/fields/field"></xs:selector>
+			<xs:field xpath="@type"></xs:field>
+		</xs:keyref>
+
+	</xs:element>
+</xs:schema>

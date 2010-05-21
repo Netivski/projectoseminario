@@ -129,15 +129,17 @@
 	<xs:complexType name="t_Boolean">
 		<xs:attribute name="name" type="xs:string" use="required"/>
 	</xs:complexType>
+
 	<!-- Definição do contentor de USER TYPES -->
 	<xs:complexType name="t_userType">
-		<xs:sequence maxOccurs="unbounded" minOccurs="0">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
 			<xs:choice>
 				<xs:element name="long" type="t_Long" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="int" type="t_Int" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="short" type="t_Short" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="byte" type="t_Byte" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="binary" type="t_Binary" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="boolean" type="t_Boolean" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="decimal" type="t_Decimal" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="float" type="t_Float" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="double" type="t_Double" minOccurs="0" maxOccurs="unbounded"/>
@@ -146,13 +148,5 @@
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	
-	
-	<!-- Definição do elemento USERTYPES -->
-	<xs:element name="userTypes" type="t_userType">
-		<xs:unique name="un_platformType_name">
-			<xs:selector xpath="*"/>
-			<xs:field xpath="@name"/>
-		</xs:unique>
-	</xs:element>
+
 </xs:schema>
