@@ -2,7 +2,7 @@
 
 namespace EDM.Generator.Exception
 {
-    public abstract class GeneralException: System.Exception 
+    internal abstract class GeneralException: System.Exception 
     {
         public GeneralException(): base() {}
         public GeneralException(string message): base(message){}

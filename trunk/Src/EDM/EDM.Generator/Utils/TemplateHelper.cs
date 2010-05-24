@@ -7,7 +7,7 @@ using System.Text;
 
 namespace EDM.Generator.Utils
 {
-    public class TemplateHelper
+    internal class TemplateHelper
     {
         public TemplateHelper()
         {
