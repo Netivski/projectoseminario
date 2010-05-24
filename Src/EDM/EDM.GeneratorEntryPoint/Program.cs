@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using EDM.Generator;
 
 namespace EDM.GeneratorEntryPoint
 {
@@ -19,7 +18,7 @@ namespace EDM.GeneratorEntryPoint
 
         static void Main(string[] args)
         {
-            GeneratorFactory.GetInstance(EDMFilePath, GenResult).Generate();
+            EDM.Generator.EntryPoint.Generate(EDMFilePath, GenResult, EDM.Generator.GeneratorTarget.CSharp, EDM.Generator.GeneratortEnvironment.EDMBase);
         }
     }
 }

@@ -15,9 +15,28 @@ namespace EDM.Generator.Engine
     {
         readonly GeneratorContext context = null;
 
-        public Engine(String edmFilePath, String resultDirectory)        
+        public Engine(GeneratorTarget target, GeneratortEnvironment environment)        
         {
-            context = new GeneratorContext(edmFilePath, Path.Combine(Environment.CurrentDirectory, @"..\..\EDM.Generator\XSLT"), resultDirectory);
+            context = new GeneratorContext(  target ,environment );
+        }
+
+        protected GeneratorContext Context { get { return context; } }
+
+        public abstract void Generate();
+
+        public void SetEDMFile(string edmFilePath)
+        {
+            context.SetEDMFile(edmFilePath);
+        }
+
+        public void SetTransform(string xsltPath)
+        {
+            context.SetTransform(xsltPath);
+        }
+
+        public void SetOutput(string resultDirectory)
+        {
+            context.SetOutput(resultDirectory);
         }
 
     }

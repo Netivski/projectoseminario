@@ -47,7 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\CSharpEngine.cs" />
+    <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Engine\EngineFactory.cs" />
+    <Compile Include="Engine\GeneratedFileInfo.cs" />
     <Compile Include="Engine\IEngine.cs" />
+    <Compile Include="Engine\JavaEngine.cs" />
+    <Compile Include="Exception\TargetNotImplementedException.cs" />
     <Compile Include="GeneratortEnvironment.cs" />
     <Compile Include="Context\GeneratorContext.cs" />
     <Compile Include="Context\EDMFile.cs" />
@@ -59,24 +65,19 @@
     <Compile Include="Exception\InvalidOutputDirectoryException.cs" />
     <Compile Include="Exception\InvalidTransformDirectoryException.cs" />
     <Compile Include="Exception\UnexpectedException.cs" />
-    <Compile Include="Generator.cs" />
-    <Compile Include="GeneratorFactory.cs" />
-    <Compile Include="IGenerator.cs" />
+    <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GeneratorTarget.cs" />
     <Compile Include="Utils\TemplateHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Context\Context.cd" />
+    <None Include="Engine\Engine.cd" />
     <None Include="sign_key.snk" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="XSLT\Entities.xslt" />
     <Content Include="XSLT\Types.xslt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Engine\CSharp\" />
-    <Folder Include="Engine\Java\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

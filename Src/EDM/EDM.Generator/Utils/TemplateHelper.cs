@@ -7,26 +7,14 @@ using System.Text;
 
 namespace EDM.Generator.Utils
 {
-    internal class TemplateHelper
+    internal static class TemplateHelper
     {
-        public TemplateHelper()
-        {
-        }
-
-        Encoding outputEncoding = Encoding.UTF8;
-
-        public Encoding OutputEncoding
-        {
-            get { return outputEncoding; }
-            set { outputEncoding = value; }
-        }
-
-        public void Render(XmlNode node, XslCompiledTransform template, string outputFilePath)
+        public static void Render(XmlNode node, XslCompiledTransform template, string outputFile, Encoding outputEncoding)
         {
             XmlTextWriter writer = null;
             try
             {
-                writer = new XmlTextWriter(outputFilePath, OutputEncoding);
+                writer = new XmlTextWriter(outputFile, outputEncoding);
                 template.Transform(node, writer);
             }
             finally
@@ -39,5 +27,9 @@ namespace EDM.Generator.Utils
             }
         }
 
+        public static void Render(XmlNode node, XslCompiledTransform template, string outputFile)
+        {
+            Render(node, template, outputFile, Encoding.UTF8);
+        }
     }
 }
