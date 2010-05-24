@@ -20,6 +20,14 @@ namespace EDM.Generator.Context
 
         }
 
+        public XslCompiledTransform GetTemplateFile(string xsltName)
+        {
+            XslCompiledTransform transformer = new XslCompiledTransform();
+            transformer.Load(Path.Combine(baseDirectory.FullName, string.Concat(xsltName, ".xslt")));
+
+            return transformer;
+        }
+
         public void Render(XmlNode node, string xsltName, string outputFilePath)
         {
             XslCompiledTransform transformer = new XslCompiledTransform();
@@ -39,10 +47,6 @@ namespace EDM.Generator.Context
                     writer.Close();
                 }
             }
-
-
-
-
         }
     }
 }
