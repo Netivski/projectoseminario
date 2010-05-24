@@ -2,7 +2,7 @@
 
 <EDM projectName="ISEL - Solução de gestão" projectCode="ISEL">
 
-  <userTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <userTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" generatedFileName="UserTypeMetadata">
     <int name="positiveInt" minInclusive="0"/>
     <string name="nameString"/>
     <datetime name="nascimentoDate"/>
@@ -23,40 +23,40 @@
 
   <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <entity type="abstract" name="Pessoa">
+    <entity type="abstract" name="Pessoa" generatedFileName="Pessoa">
       <fields>
         <field type="positiveInt" name="id" searchable="true" sequence="true" unique="true"/>
         <field type="nameString" name="nome" nillable="true" searchable="true"/>
       </fields>
     </entity>
 
-    <entity type="dependent" name="Aluno" baseEntity="Pessoa">
+    <entity type="dependent" name="Aluno" baseEntity="Pessoa" generatedFileName="Aluno">
       <fields>
         <field type="iselNumAluno" name="num" searchable="true"/>
       </fields>
     </entity>
 
-    <entity type="dependent" name="Docente" baseEntity="Pessoa">
+    <entity type="dependent" name="Docente" baseEntity="Pessoa" generatedFileName="Docente">
       <fields>
         <field type="iselNumDocente" name="num" searchable="true"/>
       </fields>
     </entity>
 
-    <entity type="base" name="Departamento">
+    <entity type="base" name="Departamento" generatedFileName="Departamento">
       <fields>
         <field type="iselCodDepartamento" name="cod" unique="true" searchable="true"/>
         <field type="iselNomeDepartamento" name="nome" searchable="true"/>
       </fields>
     </entity>
 
-    <entity type="base" name="Curso">
+    <entity type="base" name="Curso" generatedFileName="Curso">
       <fields>
         <field type="iselCodCurso" name="cod" unique="true" searchable="true"/>
         <field type="iselNomeCurso" name="nome" searchable="true"/>
       </fields>
     </entity>
 
-    <entity type="base" name="Semestre">
+    <entity type="base" name="Semestre" generatedFileName="Semestre">
       <fields>
         <field type="iselAnoEscolar" name="ano" unique="true" searchable="true"/>
         <field type="iselTipoSemestre" name="tipo" unique="true" searchable="true"/>

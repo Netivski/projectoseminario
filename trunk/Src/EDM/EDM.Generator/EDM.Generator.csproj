@@ -76,7 +76,7 @@
     <None Include="sign_key.snk" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="XSLT\Entities.xslt" />
+    <Content Include="XSLT\Entity.xslt" />
     <Content Include="XSLT\Types.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
