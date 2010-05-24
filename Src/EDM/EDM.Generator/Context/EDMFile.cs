@@ -13,7 +13,7 @@ namespace EDM.Generator.Context
 
         public EDMFile( string filePath ) 
         {
-            if (File.Exists(filePath)) throw new EDMFileNotFoundException(filePath);
+            if (!File.Exists(filePath)) throw new EDMFileNotFoundException(filePath);
 
             try
             {
