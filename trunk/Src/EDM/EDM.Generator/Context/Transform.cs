@@ -27,26 +27,5 @@ namespace EDM.Generator.Context
 
             return transformer;
         }
-
-        public void Render(XmlNode node, string xsltName, string outputFilePath)
-        {
-            XslCompiledTransform transformer = new XslCompiledTransform();
-            transformer.Load( Path.Combine( baseDirectory.FullName, string.Concat(xsltName, ".xslt") ) );
-
-            XmlTextWriter writer = null;
-            try
-            {
-                writer = new XmlTextWriter(outputFilePath, Encoding.UTF8);
-                transformer.Transform(node, writer);
-            }
-            finally
-            {
-                if (writer != null)
-                {
-                    writer.Flush();
-                    writer.Close();
-                }
-            }
-        }
     }
 }

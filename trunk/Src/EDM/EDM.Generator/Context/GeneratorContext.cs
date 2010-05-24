@@ -5,15 +5,18 @@ namespace EDM.Generator.Context
 {
     internal class GeneratorContext
     {
-        readonly EDMFile   edmFile   = null;
-        readonly Transform transform = null;
-        readonly Output    output    = null;
 
-        public GeneratorContext(string edmFilePath, string xsltPath, string resultDirectory)
-        {
-            edmFile   = new EDMFile(edmFilePath);
-            transform = new Transform(xsltPath);
-            output    = new Output(resultDirectory);
+        readonly GeneratorTarget       target;     
+        readonly GeneratortEnvironment environment;
+
+        EDMFile   edmFile   = null;        
+        Transform transform = null;
+        Output    output    = null;
+
+        public GeneratorContext(GeneratorTarget target, GeneratortEnvironment environment)
+        {                                    
+            this.target      = target;
+            this.environment = environment;
         }
 
         public EDMFile EDMFile
@@ -38,6 +41,37 @@ namespace EDM.Generator.Context
             {
                 return output;
             }
+        }
+
+        public GeneratorTarget Target
+        {
+            get
+            {
+                return target;
+            }
+        }
+
+        public GeneratortEnvironment Environment
+        {
+            get
+            {
+                return environment;
+            }
+        }
+
+        public void SetEDMFile(string edmFilePath)
+        {
+            edmFile = new EDMFile(edmFilePath);
+        }
+
+        public void SetTransform( string xsltPath )
+        {
+            transform = new Transform(xsltPath);
+        }
+
+        public void SetOutput(string resultDirectory)
+        {
+            output = new Output(resultDirectory);
         }
     }
 }
