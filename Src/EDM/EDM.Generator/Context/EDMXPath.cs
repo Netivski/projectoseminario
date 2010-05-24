@@ -10,7 +10,7 @@ namespace EDM.Generator.Context
         {
             get
             {
-                return "/EDM";
+                return "/solution";
             }
         }
         public string UserTypes
