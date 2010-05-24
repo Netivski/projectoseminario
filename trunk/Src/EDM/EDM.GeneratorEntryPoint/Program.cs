@@ -13,7 +13,7 @@ namespace EDM.GeneratorEntryPoint
         {
 
             EDMFilePath  = Path.Combine(Environment.CurrentDirectory, @"..\..\..\3D\3D.xml");            
-            GenResult    = Path.Combine(Environment.CurrentDirectory, @"..\..\..\3D\GenResult");
+            GenResult    = Path.Combine(Environment.CurrentDirectory, @"..\..\..\3D\");
         }
 
         static void Main(string[] args)

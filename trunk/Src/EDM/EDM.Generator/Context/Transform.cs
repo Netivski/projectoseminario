@@ -14,10 +14,8 @@ namespace EDM.Generator.Context
 
         public Transform( string baseDirectory )
         {
-            if( !Directory.Exists( baseDirectory ) ) throw new InvalidTransformDirectoryException( baseDirectory );
-
-            this.baseDirectory = new DirectoryInfo( baseDirectory ); 
-
+            this.baseDirectory = new DirectoryInfo( baseDirectory );
+            if (!this.baseDirectory.Exists) throw new InvalidTransformDirectoryException(baseDirectory);
         }
 
         public XslCompiledTransform GetTemplateFile(string xsltName)
