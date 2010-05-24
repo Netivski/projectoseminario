@@ -22,9 +22,7 @@ namespace EDM.Generator.Engine
 
         public override void Generate()
         {
-            // .: Falta definir o atributo que tem o nome do ficheiro :.  
-
-            SetSteps();
+             SetSteps();
 
             foreach (GeneratedFileInfo fileInfo in steps) 
             {
