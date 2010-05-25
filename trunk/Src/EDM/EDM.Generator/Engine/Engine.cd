@@ -18,7 +18,7 @@
   <Class Name="EDM.Generator.Engine.CSharpEngine">
     <Position X="3.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAE=</HashCode>
       <FileName>Engine\CSharpEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -28,6 +28,48 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Engine\JavaEngine.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.Generator.Engine.AbstractStep">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Engine\AbstractStep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.Generator.Engine.EDMParserStep">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Engine\EDMParserStep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.Generator.Engine.GeneratedFileInfoStep">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAIAgAA=</HashCode>
+      <FileName>Engine\GeneratedFileInfoStep.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="files" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EDM.Generator.Engine.GeneratedFileInfo">
+    <Position X="17.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAABAACBAAAgAAQAIAAAAAAAAAAAABAAAAAQ=</HashCode>
+      <FileName>Engine\GeneratedFileInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
+    <Position X="17.5" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="System.Collections.Generic.List&lt;T&gt;.Enumerator" Collapsed="true">
+        <TypeIdentifier />
+        <Lollipop Position="0.2" />
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Tahoma" Size="8.25" />
 </ClassDiagram>
