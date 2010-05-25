@@ -31,7 +31,7 @@ namespace EDM.FoundationClasses.FoundationType
         int             minLength;
         int             maxLength;
         string          pattern;
-        List<T>    enumeration;
+        List<T>         enumeration;
         T               maxInclusive;
         T               maxExclusive;
         T               minInclusive;
