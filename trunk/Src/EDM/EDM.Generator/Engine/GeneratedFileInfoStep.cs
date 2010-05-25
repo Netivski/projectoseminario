@@ -20,6 +20,8 @@ namespace EDM.Generator.Engine
 
         public override void GenerateStep(GeneratorContext context)
         {
+            SetFiles( context );
+
             foreach (GeneratedFileInfo file in files)
             {
                 XmlNodeList nodes = context.EDMFile.Content.SelectNodes(file.XPath);
