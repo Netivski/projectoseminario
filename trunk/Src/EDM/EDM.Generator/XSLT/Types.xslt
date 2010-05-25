@@ -3,7 +3,7 @@
 <!--<?xml version="1.0" encoding="iso-8859-1"?>-->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="">
 
-  <xsl:output method="text" indent="yes"/>
+  <xsl:output method="text"/>
 
   <xsl:template match="userTypes">
 using System;
@@ -20,15 +20,11 @@ namespace GenRtti
   
   <!--Template to generate user types-->
   <xsl:template match="*">
-    <xsl:if test="count(enumeration) != 0">
-    private List<xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text>String<xsl:text disable-output-escaping="yes">></xsl:text> listOf_<xsl:value-of select="@name"/> = new List<xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text>String<xsl:text disable-output-escaping="yes">></xsl:text>(<xsl:value-of select="count(enumeration)"/>);
-    <xsl:apply-templates select="enumeration"/>
-    </xsl:if>
     public static IUserType<xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text><xsl:value-of select="name(.)"/><xsl:text disable-output-escaping="yes">></xsl:text>&#160;<xsl:value-of select="@name"/> = new UserType<xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text><xsl:value-of select="name(.)"/><xsl:text disable-output-escaping="yes">></xsl:text>(<xsl:choose><xsl:when test="@length != ''"><xsl:value-of select="@length"/>, </xsl:when><xsl:otherwise>0, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@minLength != ''"><xsl:value-of select="@minLength"/>, </xsl:when><xsl:otherwise>0, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@maxLength != ''"><xsl:value-of select="@maxLength"/>, </xsl:when><xsl:otherwise>0, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@pattern != ''">"<xsl:value-of select="@pattern"/>", </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
-    <xsl:choose><xsl:when test="count(enumeration) != 0">listOf_<xsl:value-of select="@name"/>, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
+    <xsl:choose><xsl:when test="count(enumeration) != 0">new List<xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text>string<xsl:text disable-output-escaping="yes">></xsl:text> {<xsl:apply-templates select="enumeration"/>}, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@minInclusive != ''"><xsl:value-of select="@minInclusive"/>, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@minExclusive != ''"><xsl:value-of select="@minExclusive"/>, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@maxInclusive != ''"><xsl:value-of select="@maxInclusive"/>, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
@@ -39,7 +35,5 @@ namespace GenRtti
   </xsl:template>
   
   <!--Template to generate enumeration List-->
-  <xsl:template match="enumeration">
-    listOf_<xsl:value-of select="../@name"/>.Add("<xsl:value-of select="text()"/>");
-  </xsl:template>
+  <xsl:template match="enumeration">"<xsl:value-of select="text()"/>"<xsl:if test="position() != last()">, </xsl:if></xsl:template>
 </xsl:stylesheet>
