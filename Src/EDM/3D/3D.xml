@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<solution xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="3dValidator.xsd">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<solution generatedFileName="3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="3dValidator.xsd">
 	<userTypes generatedFileName="UserTypeMetadata">
 		<int name="positiveInt" minInclusive="0"/>
 		<string name="nameString"/>

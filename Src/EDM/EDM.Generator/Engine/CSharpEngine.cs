@@ -15,7 +15,8 @@ namespace EDM.Generator.Engine
         void SetSteps()
         {
             steps = new List<GeneratedFileInfo>(){
-                                                    new GeneratedFileInfo( "Types" , Path.Combine( Context.Output.RttiProjectPath, "{0}.cs" ), Context.EDMFile.XPath.UserTypes )
+                                                    new GeneratedFileInfo( "formatDoc" , Path.Combine( Context.EDMFile.DirectoryFullName, "{0}.xml" ), Context.EDMFile.XPath.Root )
+                                                   ,new GeneratedFileInfo( "Types" , Path.Combine( Context.Output.RttiProjectPath, "{0}.cs" ), Context.EDMFile.XPath.UserTypes )
                                                    ,new GeneratedFileInfo( "Entity", Path.Combine( Context.Output.EntityProjectPath, "{0}.cs" ), Context.EDMFile.XPath.Entity )
                                                  };       
         }

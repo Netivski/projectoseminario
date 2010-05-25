@@ -2,7 +2,6 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:output method="text" indent="yes"/>
-
   <xsl:template match="entity">
 using System;
 using EDM.FoundationClasses.Entity;
@@ -11,11 +10,9 @@ using GenRtti;
 
 namespace GenEntity
 {
-  //Auto-Generated class
   [Serializable]
   public <xsl:if test="@type = 'abstract'">abstract</xsl:if> class <xsl:value-of select="@name"/> : <xsl:choose><xsl:when test="@type = 'dependent'"><xsl:value-of select="@baseEntity"/></xsl:when><xsl:otherwise>IEntity</xsl:otherwise></xsl:choose>
   {
-    //Generated parameterless constructor
     public <xsl:value-of select="@name"/> () {}
 
     //fields
@@ -41,9 +38,8 @@ namespace GenEntity
 }//namespace
   </xsl:template>
   <xsl:template match="fields/field" mode="fields">
-    public virtual <xsl:value-of select="@baseType"/> <xsl:value-of select="@name"/> { get; set; }
-  </xsl:template>  
-  <xsl:template match="fields/field[@unique = 'true']" mode="IsValid"> Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"><xsl:text disable-output-escaping="yes"><![CDATA[&&]]></xsl:text></xsl:if></xsl:template>
+    public virtual <xsl:choose><xsl:when test="@EDMType != ''"><xsl:value-of select="@EDMType"/></xsl:when><xsl:otherwise><xsl:value-of select="@type"/> </xsl:otherwise></xsl:choose> <xsl:value-of select="@name"/> { get; set; }</xsl:template>  
+  <xsl:template match="fields/field[@unique = 'true' and @EDMType != '']" mode="IsValid"> Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"><xsl:text disable-output-escaping="yes"><![CDATA[&&]]></xsl:text></xsl:if></xsl:template>
   <xsl:template match="fields/field[@unique = 'true']" mode="Hash"><xsl:value-of select="@name"/>.GetHashCode()<xsl:if test="position() != last()"> ^ </xsl:if></xsl:template>
   <xsl:template match="fields/field[@unique = 'true']" mode="Equals"><xsl:value-of select="@name"/>.Equals(obj.<xsl:value-of select="@name"/>)<xsl:if test="position() != last()"><xsl:text disable-output-escaping="yes"><![CDATA[ && ]]></xsl:text></xsl:if></xsl:template>
 </xsl:stylesheet>
