@@ -38,8 +38,8 @@ namespace GenEntity
 }//namespace
   </xsl:template>
   <xsl:template match="fields/field" mode="fields">
-    public virtual <xsl:choose><xsl:when test="@EDMType != ''"><xsl:value-of select="@EDMType"/></xsl:when><xsl:otherwise><xsl:value-of select="@type"/> </xsl:otherwise></xsl:choose> <xsl:value-of select="@name"/> { get; set; }</xsl:template>  
-  <xsl:template match="fields/field[@unique = 'true' and @EDMType != '']" mode="IsValid"> Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"><xsl:text disable-output-escaping="yes"><![CDATA[&&]]></xsl:text></xsl:if></xsl:template>
+    public virtual <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/> { get; set; }</xsl:template>  
+  <xsl:template match="fields/field[@unique = 'true']" mode="IsValid"> Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"><xsl:text disable-output-escaping="yes"><![CDATA[&&]]></xsl:text></xsl:if></xsl:template>
   <xsl:template match="fields/field[@unique = 'true']" mode="Hash"><xsl:value-of select="@name"/>.GetHashCode()<xsl:if test="position() != last()"> ^ </xsl:if></xsl:template>
   <xsl:template match="fields/field[@unique = 'true']" mode="Equals"><xsl:value-of select="@name"/>.Equals(obj.<xsl:value-of select="@name"/>)<xsl:if test="position() != last()"><xsl:text disable-output-escaping="yes"><![CDATA[ && ]]></xsl:text></xsl:if></xsl:template>
 </xsl:stylesheet>
