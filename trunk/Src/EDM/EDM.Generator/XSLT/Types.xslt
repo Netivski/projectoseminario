@@ -24,7 +24,7 @@ namespace GenRtti
     <xsl:choose><xsl:when test="@minLength != ''"><xsl:value-of select="@minLength"/>, </xsl:when><xsl:otherwise>0, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@maxLength != ''"><xsl:value-of select="@maxLength"/>, </xsl:when><xsl:otherwise>0, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@pattern != ''">"<xsl:value-of select="@pattern"/>", </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
-    <xsl:choose><xsl:when test="count(enumeration) != 0">new List<xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text>string<xsl:text disable-output-escaping="yes">></xsl:text> {<xsl:apply-templates select="enumeration"/>}, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
+    <xsl:choose><xsl:when test="count(enumeration) != 0">new List<xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text><xsl:value-of select="name(.)"/><xsl:text disable-output-escaping="yes">></xsl:text> {<xsl:apply-templates select="enumeration"/>}, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@minInclusive != ''"><xsl:value-of select="@minInclusive"/>, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@minExclusive != ''"><xsl:value-of select="@minExclusive"/>, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
     <xsl:choose><xsl:when test="@maxInclusive != ''"><xsl:value-of select="@maxInclusive"/>, </xsl:when><xsl:otherwise>null, </xsl:otherwise></xsl:choose>
@@ -35,5 +35,5 @@ namespace GenRtti
   </xsl:template>
   
   <!--Template to generate enumeration List-->
-  <xsl:template match="enumeration">"<xsl:value-of select="text()"/>"<xsl:if test="position() != last()">, </xsl:if></xsl:template>
+  <xsl:template match="enumeration"><xsl:if test="name(..) = 'string'">"</xsl:if><xsl:value-of select="text()"/><xsl:if test="name(..) = 'string'">"</xsl:if><xsl:if test="position() != last()">, </xsl:if></xsl:template>
 </xsl:stylesheet>
