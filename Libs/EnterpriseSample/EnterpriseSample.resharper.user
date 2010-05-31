@@ -1,0 +1,160 @@
+<Configuration>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:EnterpriseSample.Presenters.ViewInterfaces.IEditCustomerView">
+      <Item value="HistoricalOrderSummaries" priority="0" />
+      <Item value="Customer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Presenters.ListCustomerOrdersPresenter">
+      <Item value="InitViewFor" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Core.Domain.Order">
+      <Item value="ShipToName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Tests.Presenters.ListOrdersPresenterTests.ListCustomersViewStub">
+      <Item value="ObjectsToList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Core.DataInterfaces.IHistoricalOrderSummaryDao">
+      <Item value="GetCustomerOrderHistoryFor" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Hashtable">
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Core.Domain.Customer">
+      <Item value="SetAssignedIdTo" priority="2" />
+      <Item value="ID" priority="0" />
+      <Item value="IsTransient" priority="0" />
+      <Item value="GetHashCode" priority="1" />
+      <Item value="AddOrder" priority="1" />
+      <Item value="Orders" priority="2" />
+      <Item value="ToString" priority="0" />
+      <Item value="ContactName" priority="1" />
+      <Item value="CompanyName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Castle.Services.Transaction.TransactionMode">
+      <Item value="Requires" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Presenters.ViewInterfaces.IListObjectsView&lt;EnterpriseSample.Core.Domain.HistoricalOrderSummary&gt;">
+      <Item value="ObjectsToList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EnterpriseSample.Tests.TestGlobals.TestCustomer">
+      <Item value="ID" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Tests.Domain.DomainObjectIdSetter&lt;long&gt;">
+      <Item value="SetIdOf" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List&lt;EnterpriseSample.Core.Domain.Order&gt;">
+      <Item value="ForEach" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ProjectBase.Data.NHibernateSessionManager.Instance">
+      <Item value="CommitTransactionOn" priority="0" />
+      <Item value="BeginTransactionOn" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Core.DataInterfaces.IDaoFactory">
+      <Item value="GetHistoricalOrderSummaryDao" priority="0" />
+      <Item value="GetCustomerDao" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Castle.MicroKernel.IKernel">
+      <Item value="ReleaseComponent" priority="0" />
+      <Item value="RemoveComponent" priority="1" />
+      <Item value="Resolver" priority="4" />
+      <Item value="ComponentModelBuilder" priority="0" />
+      <Item value="AddComponent" priority="0" />
+      <Item value="AddComponentInstance" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Castle.MicroKernel.IDependencyResolver">
+      <Item value="Resolve" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="IsNullOrEmpty" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Castle.Services.Transaction">
+      <Item value="TransactionAttribute" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:int">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ASP.views_editcustomerview_ascx">
+      <Item value="AttachPresenter" priority="0" />
+      <Item value="UpdateCompleted" priority="0" />
+      <Item value="UpdateCancelled" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Presenters.EditCustomerPresenter">
+      <Item value="Update" priority="0" />
+      <Item value="InitViewWith" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Castle">
+      <Item value="Services.Transaction" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EnterpriseSample.Web.CustomHttpApplication.WindsorContainer">
+      <Item value="Kernel" priority="3" />
+      <Item value="AddComponentWithProperties" priority="0" />
+      <Item value="Resolve" priority="2" />
+      <Item value="AddComponent" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Core.DataInterfaces.ICustomerDao">
+      <Item value="GetById" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISession">
+      <Item value="Flush" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList&lt;EnterpriseSample.Core.Domain.Order&gt;">
+      <Item value="Count" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EnterpriseSample.Presenters.ViewInterfaces.IListObjectsView&lt;EnterpriseSample.Core.Domain.Order&gt;">
+      <Item value="ObjectsToList" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <EditorManager>
+    <RecentFiles>
+      <File id="8CF24AF8-714C-4029-8E0E-3BA26C27FA7C/d:Domain/f:Supplier.hbm.xml" caret="681" scrollPosition="0|0" />
+      <File id="8CF24AF8-714C-4029-8E0E-3BA26C27FA7C/d:Domain/f:Supplier.cs" caret="0" scrollPosition="0|0" />
+      <File id="8CF24AF8-714C-4029-8E0E-3BA26C27FA7C/d:Domain/f:Product.cs" caret="716" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/f:Default.aspx" caret="735" scrollPosition="0|0" />
+      <File id="8CF24AF8-714C-4029-8E0E-3BA26C27FA7C/d:DataInterfaces/f:IDaoFactory.cs" caret="1" scrollPosition="0|0" />
+      <File id="FCB45F28-3A4E-4E72-9691-556125CCF227/f:NHibernateDaoFactory.cs" caret="1196" scrollPosition="0|22" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/f:ListCustomers.aspx" caret="646" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/f:ListCustomers.aspx.cs" caret="1216" scrollPosition="0|0" />
+      <File id="8CF24AF8-714C-4029-8E0E-3BA26C27FA7C/d:Domain/f:Products.cs" caret="807" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/f:ListSuppliers.aspx" caret="524" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/d:Views/f:EditCustomerView.ascx" caret="0" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/f:ListSuppliers.aspx.cs" caret="414" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/f:AddCustomer.aspx.cs" caret="320" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/f:Default.aspx.cs" caret="0" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/f:EditCustomer.aspx.cs" caret="1146" scrollPosition="0|5" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/d:Views/f:EditCustomerView.ascx.cs" caret="1305" scrollPosition="0|21" />
+      <File id="8CF24AF8-714C-4029-8E0E-3BA26C27FA7C/d:Domain/f:DomainObject.cs" caret="0" scrollPosition="0|0" />
+      <File id="506BD2E6-A534-4C5D-802E-43CFD16A32B4/d:Domain/f:DomainObjectIdSetter.cs" caret="1166" scrollPosition="0|0" />
+      <File id="506BD2E6-A534-4C5D-802E-43CFD16A32B4/d:Web/f:WebSmokeTests.cs" caret="521" scrollPosition="0|0" />
+      <File id="506BD2E6-A534-4C5D-802E-43CFD16A32B4/d:Presenters/f:ListCustomersPresenterTests.cs" caret="0" scrollPosition="0|0" />
+      <File id="506BD2E6-A534-4C5D-802E-43CFD16A32B4/d:Data/d:DaoTestDoubles/f:MockCustomerDaoFactory.cs" caret="674" scrollPosition="0|0" />
+      <File id="506BD2E6-A534-4C5D-802E-43CFD16A32B4/d:TestFactories/f:TestCustomersFactory.cs" caret="775" scrollPosition="0|3" />
+      <File id="8CF24AF8-714C-4029-8E0E-3BA26C27FA7C/d:Domain/f:Order.cs" caret="1726" scrollPosition="0|18" />
+      <File id="506BD2E6-A534-4C5D-802E-43CFD16A32B4/d:Presenters/f:ListOrdersPresenterTests.cs" caret="1139" scrollPosition="0|0" />
+      <File id="506BD2E6-A534-4C5D-802E-43CFD16A32B4/d:TestFactories/f:TestOrdersFactory.cs" caret="1304" scrollPosition="0|21" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/f:Web.config" caret="1569" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/d:Config/f:CastleComponents.config" caret="0" scrollPosition="0|0" />
+      <File id="506BD2E6-A534-4C5D-802E-43CFD16A32B4/f:TestGlobals.cs" caret="0" scrollPosition="0|0" />
+      <File id="506BD2E6-A534-4C5D-802E-43CFD16A32B4/f:App.config" caret="715" scrollPosition="0|0" />
+      <File id="C2A3FB1E-16BC-41C0-932D-D13A55B18120/d:Config/f:NorthwindNHibernate.config" caret="699" scrollPosition="21|0" />
+    </RecentFiles>
+  </EditorManager>
+  <FileStructureView>
+    <AutoScrollToSource>False</AutoScrollToSource>
+    <TrackCaretLocation>False</TrackCaretLocation>
+  </FileStructureView>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <ReFormatCode>
+    <ReorderMembers>False</ReorderMembers>
+    <OptimizeUsings>False</OptimizeUsings>
+    <RemoveRedundantThis>False</RemoveRedundantThis>
+    <ShortenReferences>False</ShortenReferences>
+  </ReFormatCode>
+  <SharedSolutionDisabledTemplatesManager>
+    <DisabledTemplates />
+  </SharedSolutionDisabledTemplatesManager>
+  <UserSolutionDisabledTemplatesManager>
+    <DisabledTemplates />
+  </UserSolutionDisabledTemplatesManager>
+</Configuration>
