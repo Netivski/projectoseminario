@@ -1,8 +1,0 @@
-<permissions>
-
-	<role name="Contabilidade"/>
-	<role name="Comercial"/>
-	<role name="Armazém"/>
-	<role name="Compras"/>
-	
-</permissions>
