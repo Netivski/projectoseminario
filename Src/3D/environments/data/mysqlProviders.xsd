@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by Ricardo Neto (Netpat) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="./serverType.xsd"/>
+	<xs:complexType name="t_MYSQLProvider">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="type" type="t_serverType" use="required"/>
+		<xs:attribute name="serverName" type="xs:string" use="required"/>
+		<xs:attribute name="instance" type="xs:string" use="required"/>
+		<xs:attribute name="catalog" type="xs:string" use="required"/>
+		<xs:attribute name="port" type="xs:short" use="optional" default="1433"/>
+		<xs:attribute name="username" type="xs:string" use="required"/>
+		<xs:attribute name="password" type="xs:string" use="required"/>
+		<xs:attribute name="security" type="xs:string" use="optional"/>
+		<xs:attribute name="timeout" type="xs:short" use="optional" default="120"/>
+	</xs:complexType>
+	<xs:complexType name="t_mysqlProviders">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="provider" type="t_MYSQLProvider" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

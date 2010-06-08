@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by Ricardo Neto (Netpat) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="t_baseType">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="precision" type="xs:int" use="required"/>
+		<xs:attribute name="scale" type="xs:int" use="required"/>
+		<xs:attribute name="maxLength" type="xs:int" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="t_baseTypes">
+		<xs:sequence>
+			<xs:element name="baseType" type="t_baseType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="t_typeRestriction">
+		<xs:attribute name="value" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="t_customType">
+		<xs:sequence>
+			<xs:element name="minValue" type="t_typeRestriction" minOccurs="0"/>
+			<xs:element name="maxValue" type="t_typeRestriction" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="type" type="xs:string" use="required"/>
+		<xs:attribute name="precision" type="xs:int" use="optional"/>
+		<xs:attribute name="scale" type="xs:int" use="optional"/>
+		<xs:attribute name="maxLength" type="xs:int" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="t_customTypes">
+		<xs:sequence>
+			<xs:element name="customType" type="t_customType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="types">
+		<xs:annotation>
+			<xs:documentation>Root element of the type system file</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="baseTypes" type="t_baseTypes">
+					<xs:annotation>
+						<xs:documentation>Element that serves as a collection for all base types</xs:documentation>
+					</xs:annotation>
+					<xs:key name="key_typeName">
+						<xs:annotation>
+							<xs:documentation>Definition of attribute 'name' as a "primary key" of baseType element</xs:documentation>
+						</xs:annotation>
+						<xs:selector xpath="baseType"/>
+						<xs:field xpath="@name"/>
+					</xs:key>
+				</xs:element>
+				<xs:element name="customTypes" type="t_customTypes">
+					<xs:annotation>
+						<xs:documentation>Element that wil gather all custom types</xs:documentation>
+					</xs:annotation>
+					<xs:unique name="un_customType_name">
+						<xs:annotation>
+							<xs:documentation>Definition of attribute 'name' as a "primary key" of customType element</xs:documentation>
+						</xs:annotation>
+						<xs:selector xpath="customType"/>
+						<xs:field xpath="@name"/>
+					</xs:unique>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:keyref name="fk_baseType" refer="key_typeName">
+			<xs:annotation>
+				<xs:documentation>Definition of attribute 'name' as a "foreign key", referencing attribute 'name' of 'baseType' elements defined</xs:documentation>
+			</xs:annotation>
+			<xs:selector xpath="customTypes/customType"/>
+			<xs:field xpath="@type"/>
+		</xs:keyref>
+	</xs:element>
+</xs:schema>

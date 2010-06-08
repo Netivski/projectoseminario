@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Ricardo Neto (Netpat) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="./data/sqlProviders.xsd"/>
+	<xs:include schemaLocation="./data/mysqlProviders.xsd"/>
+	<!-- Definição do tipo que representa um contentor de data environments -->
+	<xs:complexType name="t_dataEnvContainer">
+		<xs:sequence>
+			<xs:element name="sqlProviders" type="t_sqlProviders" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="mysqlProviders" type="t_mysqlProviders" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	
+	<!-- MAIL ENVIRONMENTS -->
+	<!-- Definição do tipo que representa um contentor de mail environments -->
+	<!-- -->
+	
+	
+	
+	<!-- Definição do elemento que representa um contentor de environments -->
+	<xs:complexType name="t_environments">
+		<xs:sequence>
+			<xs:element name="dataEnvironments" type="t_dataEnvContainer">
+				<xs:unique name="un_sqlProviderName">
+					<xs:selector xpath="*/*"></xs:selector>
+					<xs:field xpath="@name"></xs:field>
+				</xs:unique>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
