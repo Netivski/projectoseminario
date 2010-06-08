@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by Ricardo Neto (Netpat) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- Definição do enumerado correspondente ao tipo do servidor-->
+	<xs:simpleType name="t_serverType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SQLSERVER"/>
+			<xs:enumeration value="ORACLE"/>
+			<xs:enumeration value="MYSQL"/>
+			<xs:enumeration value="POSTGRESSQL"/>
+			<xs:enumeration value="INFORMIX"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
