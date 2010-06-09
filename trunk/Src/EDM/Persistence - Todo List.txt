@@ -1,0 +1,8 @@
+1 - Adicionar as entradas no web.config ( deverá ser assegurado no momento da criação do projecto )
+2 - Capacidade de edição do web.config. Editar a connection string ( por implementar )
+3 - Altera o xslt dos ficheiros das entidades. A class tem de derivar de DomainObject e implementar IHasAssignedId
+4 - Editar o xslt IDaoFactory e NHibernateDaoFactory. Tem que ser implementado com uma class base 
+5 - Criar os ficheiros de mapeamento, hbm.xml
+6 - Criar os ficheiros de mapeamento, hibernate-mapping
+7 – Implementar as relações entre as entidades
+ 
