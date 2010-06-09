@@ -61,6 +61,8 @@
     <Compile Include="Persistence\Core\Exception\PostconditionException.cs" />
     <Compile Include="Persistence\Core\Exception\PreconditionException.cs" />
     <Compile Include="Persistence\Core\IDao.cs" />
+    <Compile Include="Persistence\Core\IHasAssignedId.cs" />
+    <Compile Include="Persistence\Core\Module\NHibernateSessionModule.cs" />
     <Compile Include="Persistence\Data\AbstractNHibernateDao.cs" />
     <Compile Include="Persistence\Data\NHibernateSessionManager.cs" />
     <Compile Include="Process\IProcess.cs" />
