@@ -81,6 +81,8 @@
     <None Include="sign_key.snk" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="XSLT\NHibernateDaoFactory.xslt" />
+    <Content Include="XSLT\IDaoFactory.xslt" />
     <Content Include="XSLT\Entity.xslt" />
     <Content Include="XSLT\Types.xslt" />
   </ItemGroup>

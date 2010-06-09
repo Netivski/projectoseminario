@@ -13,8 +13,10 @@ namespace EDM.Generator.Engine
         void SetFiles(GeneratorContext context)
         {
             files = new List<GeneratedFileInfo>(){
-                                                    new GeneratedFileInfo( "Types"    , Path.Combine( context.Output.RttiProjectPath   , "{0}.cs"  ), context.EDMFile.XPath.UserTypes )
-                                                   ,new GeneratedFileInfo( "Entity"   , Path.Combine( context.Output.EntityProjectPath , "{0}.cs"  ), context.EDMFile.XPath.Entity )
+                                                    new GeneratedFileInfo( "Types"               , Path.Combine( context.Output.RttiProjectPath   , "{0}.cs"  )                 , context.EDMFile.XPath.UserTypes )
+                                                   ,new GeneratedFileInfo( "Entity"              , Path.Combine( context.Output.EntityProjectPath , "{0}.cs"  )                 , context.EDMFile.XPath.Entity )
+                                                   ,new GeneratedFileInfo( "IDaoFactory"         , Path.Combine( context.Output.EntityProjectPath , "IDaoFactory.cs"  )         , context.EDMFile.XPath.Entities )
+                                                   ,new GeneratedFileInfo( "NHibernateDaoFactory", Path.Combine( context.Output.EntityProjectPath , "NHibernateDaoFactory.cs"  ), context.EDMFile.XPath.Entities )                                                                                                      
                                                  };
         }
 

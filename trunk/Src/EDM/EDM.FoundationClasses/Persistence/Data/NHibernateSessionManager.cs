@@ -43,8 +43,7 @@ namespace EDM.FoundationClasses.Persistence.Data
         private class Nested
         {
             static Nested() { }
-            internal static readonly NHibernateSessionManager NHibernateSessionManager =
-                new NHibernateSessionManager();
+            internal static readonly NHibernateSessionManager NHibernateSessionManager = new NHibernateSessionManager();
         }
 
         #endregion
