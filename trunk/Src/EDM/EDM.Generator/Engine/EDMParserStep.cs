@@ -12,8 +12,8 @@ namespace EDM.Generator.Engine
             XmlNodeList fieldList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity/fields/field");
             foreach (XmlNode node in fieldList)
             {
-                String baseType = Utils.XML.Get.GetNode(context.EDMFile.Content, string.Concat( "/solution//userTypes/*[@name = '", node.Attributes["type"].Value.ToString(), "']")).Name;
-                Utils.XML.Set.AddAttribute(context.EDMFile.Content, string.Concat("/solution/entities/entity/fields/field[@name = '", node.Attributes["name"].Value.ToString(), "']"), "edmType", baseType);
+                String baseType = Utils.XML.Get.GetNode(context.EDMFile.Content, string.Concat( "/solution/userTypes/*[@name = '", node.Attributes["type"].Value.ToString(), "']")).Name;
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, string.Concat("/solution/entities/entity/fields/field[@name = '", node.Attributes["name"].Value.ToString(), "' and @type = '", node.Attributes["type"].Value.ToString(),"']"), "edmType", baseType);
             }
         }
     }
