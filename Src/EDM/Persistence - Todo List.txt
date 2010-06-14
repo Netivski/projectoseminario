@@ -1,8 +1,47 @@
 1 - Adicionar as entradas no web.config ( deverá ser assegurado no momento da criação do projecto )
 2 - Capacidade de edição do web.config. Editar a connection string ( por implementar )
 3 - Altera o xslt dos ficheiros das entidades. A class tem de derivar de DomainObject e implementar IHasAssignedId
-4 - Editar o xslt IDaoFactory e NHibernateDaoFactory. Tem que ser implementado com uma class base 
-5 - Criar os ficheiros de mapeamento, hbm.xml
-6 - Criar os ficheiros de mapeamento, hibernate-mapping
-7 – Implementar as relações entre as entidades
+4 - Editar o xslt IDaoFactory e NHibernateDaoFactory. Tem que ser implementado com uma class base ( Done - Falta criar a noção de base e extend )
+5 - Criar os ficheiros de mapeamento, hbm.xml ( Done - Falta criar as relações )
+6 – Implementar as relações entre as entidades 
  
+
+
+
+**********************************************************
+
+
+Alterações 10/06/2010
+  1 - EDM File
+        1 - inclusão dos atributos companyName, projectName na Solution
+            Nota :: Os atributos vão ser utilizados na construção do NameSpace
+                    companyName.projectName
+
+        2 - Alteração do ficheiro EDMParserStep para inclusão do atributo NameSpace no elemento Solution, Entity   
+
+
+	3 - No ficheiro EDMParserStep tem de ser revisto as string de xPath.
+
+  
+        4 - Documentação Mapping http://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html
+            http://msdn.microsoft.com/en-us/magazine/dd569757.aspx
+	    keyword :: Domain-Driven Development
+	    Livro recomendado - Chapter 2 of Martin Fowler's Patterns of Enterprise Application Architecture book for a great discussion of the major design patterns for organizing business logic.
+
+
+	     
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
