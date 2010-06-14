@@ -14,15 +14,21 @@ namespace EDM.Generator.Utils.XML
             }
         }
 
-        public static void AddAttribute(XmlDocument dom, string xPath, string attributeName, string attributeValue)
-        {
-            XmlNode node = Get.GetNode(dom, xPath);
+        public static void AddAttribute(XmlDocument dom, XmlNode node, string attributeName, string attributeValue)
+        {            
             if (node != null)
             {
                 XmlAttribute newAttribute = dom.CreateAttribute(attributeName);
                 newAttribute.Value = attributeValue;
                 node.Attributes.Append(newAttribute);
             }
+        }
+
+        public static void AddAttribute(XmlDocument dom, string xPath, string attributeName, string attributeValue)
+        {
+            XmlNode node = Get.GetNode(dom, xPath);
+
+            AddAttribute(dom, node, attributeName, attributeValue);
         }
 
         public static void SetNodeText(XmlDocument dom, string xPath, string value)

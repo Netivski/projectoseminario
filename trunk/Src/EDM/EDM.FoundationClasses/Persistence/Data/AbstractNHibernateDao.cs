@@ -71,7 +71,7 @@ namespace EDM.FoundationClasses.Persistence.Data
         /// </summary>
         /// <exception cref="NonUniqueResultException" />
         public T GetUniqueByExample(T exampleInstance, params string[] propertiesToExclude)
-        {
+        {       
             List<T> foundList = GetByExample(exampleInstance, propertiesToExclude);
 
             if (foundList.Count > 1)

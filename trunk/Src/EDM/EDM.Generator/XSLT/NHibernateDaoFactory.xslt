@@ -1,14 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
   <xsl:output method="text" indent="yes"/>
+  <xsl:template match="/">
+    <xsl:apply-templates select="/solution/entities"/>
+  </xsl:template>
+
   <xsl:template match="entities">
-
-<![CDATA[
-    //Nota :: 
-    //Por cada uma das ./entity criar o interface e declaração inline
-
-
 using BasicSample.Core.DataInterfaces;
 using BasicSample.Core.Domain;
 
@@ -37,22 +34,7 @@ namespace BasicSample.Data
         }
 
 
-
-        public ICustomerDao GetCustomerDao() {
-            return new CustomerDao();
-        }
-
-        public IHistoricalOrderSummaryDao GetHistoricalOrderSummaryDao() {
-            return new HistoricalOrderSummaryDao();
-        }
-
-        public IOrderDao GetOrderDao() {
-            return new OrderDao();
-        }
-
-        public ISupplierDao GetSupplierDao() {
-            return new SupplierDao();
-        }
+        <xsl:apply-templates select="entity" mode="property"/>
 
         #region Inline DAO implementations
 
@@ -61,17 +43,28 @@ namespace BasicSample.Data
         /// This should be extracted into its own class-file if it needs to extend the
         /// inherited DAO functionality.
         /// </summary>
-        public class CustomerDao : AbstractNHibernateDao<Customer, string>, ICustomerDao { }
-
-        public class SupplierDao : AbstractNHibernateDao<Supplier, long>, ISupplierDao { }
+        <xsl:apply-templates select="entity" mode="declarations"/>
 
         #endregion
     }
 }
-
-
-
-]]>
-  
   </xsl:template>
+
+  <xsl:template match="entity" mode="property">
+    public I<xsl:value-of select="@name"/>Dao Get<xsl:value-of select="@name"/>Dao() {
+    return new <xsl:value-of select="@name"/>Dao();
+    }
+  </xsl:template>
+
+  <xsl:template match="entity" mode="declarations">    
+    public class <xsl:value-of select="@name"/>Dao : AbstractNHibernateDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="lt"></xsl:call-template>, I<xsl:value-of select="@name"/>Dao { }
+  </xsl:template>
+
+  <xsl:template name="gt">
+    <xsl:text disable-output-escaping="yes"><![CDATA[>]]></xsl:text>
+  </xsl:template>
+  <xsl:template name="lt">
+    <xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text>
+  </xsl:template>
+
 </xsl:stylesheet>

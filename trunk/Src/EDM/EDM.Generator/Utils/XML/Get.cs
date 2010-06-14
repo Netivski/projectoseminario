@@ -10,15 +10,20 @@ namespace EDM.Generator.Utils.XML
             return (dom.SelectNodes(xPath));
         }
 
-        public static string GetAttributeValue(XmlDocument dom, string xPath, string attributeName)
+        public static string GetAttributeValue(XmlDocument dom, XmlNode node, string attributeName)
         {
-            string returnValue = null;
-            XmlNode node = GetNode(dom, xPath);
             if (node != null)
             {
-                returnValue = node.Attributes[attributeName].Value.ToString();
+                try { return node.Attributes[attributeName].Value; }
+                catch (NullReferenceException) { return null; } //attribute does not exist
             }
-            return (returnValue);
+            return null;
+        }
+
+
+        public static string GetAttributeValue(XmlDocument dom, string xPath, string attributeName)
+        {
+            return GetAttributeValue(dom, GetNode(dom, xPath), attributeName);
         }
 
         public static string GetNodeText(XmlDocument dom, string xPath)
@@ -29,13 +34,13 @@ namespace EDM.Generator.Utils.XML
             {
                 returnValue = node.InnerText.ToString();
             }
-            return (returnValue);
+            return returnValue;
         }
 
 
         public static XmlNode GetNode(XmlDocument dom, string xPath)
         {
-            return (dom.SelectSingleNode(xPath));
+            return dom.SelectSingleNode(xPath);
         }
     }
 }
