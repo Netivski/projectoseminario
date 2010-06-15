@@ -9,6 +9,7 @@
 using EDM.FoundationClasses.Persistence.Core;
 using EDM.FoundationClasses.Persistence.Data;
 using <xsl:value-of select="@nameSpace"/>;
+using <xsl:value-of select="@nameSpace"/>.DataInterfaces.Base;
 
 namespace <xsl:value-of select="@nameSpace"/>.DataInterfaces
 {
@@ -16,7 +17,7 @@ namespace <xsl:value-of select="@nameSpace"/>.DataInterfaces
     /// Provides an interface for retrieving DAO objects
     ///</summary>
 
-    public interface IDaoFactory: Base.IDaoFactory
+    public interface IDaoFactory: IDaoFactoryBase
     {
 
     }

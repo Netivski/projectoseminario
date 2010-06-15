@@ -33,8 +33,10 @@ namespace EDM.Generator.Engine
             Utils.XML.Set.AddAttribute(context.EDMFile.Content, context.EDMFile.XPath.UserTypes, "nameSpace"        , rttiNameSpace);            
             Utils.XML.Set.AddAttribute(context.EDMFile.Content, context.EDMFile.XPath.UserTypes, "generatedFileName", string.Empty );
 
+            //002.3 - Entities Element
+            Utils.XML.Set.AddAttribute(context.EDMFile.Content, context.EDMFile.XPath.Entities, "nameSpace", string.Format("{0}.{1}", nameSpace, ENTITY_PROJECT_NAME ));
 
-            //002.3 - Entity Element
+            //002.4 - Entity Element
             nodeList     = Utils.XML.Get.GetNodeList(context.EDMFile.Content, context.EDMFile.XPath.Entity);
             foreach (XmlNode node in nodeList)
             {

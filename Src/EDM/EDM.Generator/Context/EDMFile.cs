@@ -57,7 +57,7 @@ namespace EDM.Generator.Context
         {
             get
             {
-                return Utils.XML.Get.GetAttributeValue(Content, "/solution", "companyName");
+                return Utils.XML.Get.GetAttributeValue(Content, xPath.Solution, "companyName");
             }
         }
 
@@ -65,7 +65,7 @@ namespace EDM.Generator.Context
         {
             get
             {
-                return Utils.XML.Get.GetAttributeValue(Content, "/solution", "projectName");
+                return Utils.XML.Get.GetAttributeValue(Content, xPath.Solution, "projectName");
             }
         }
 

@@ -7,10 +7,15 @@
   </xsl:template>
 
   <xsl:template match="entities">
-using BasicSample.Core.DataInterfaces;
-using BasicSample.Core.Domain;
+using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Persistence.Data;
+using <xsl:value-of select="@nameSpace"/>;
+using <xsl:value-of select="@nameSpace"/>.DataInterfaces;
+using <xsl:value-of select="@nameSpace"/>.DataInterfaces.Base;
 
-namespace BasicSample.Data
+
+
+namespace <xsl:value-of select="@nameSpace"/>.Data.Base
 {
     /// <summary>
     /// Exposes access to NHibernate DAO classes.  Motivation for this DAO

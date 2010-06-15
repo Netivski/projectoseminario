@@ -22,7 +22,7 @@ namespace EDM.Generator.Context
             get { return Path.Combine(resultDirectory.FullName, string.Format("{0}.{1}", nameSpace, "Rtti")); }
         }
 
-        public string RttiBase
+        public string RttiBasePath
         {
             get { return Path.Combine(RttiProjectPath, "Base"); }
         }
@@ -32,10 +32,30 @@ namespace EDM.Generator.Context
             get { return Path.Combine(resultDirectory.FullName, string.Format("{0}.{1}", nameSpace, "Entity")); }
         }
 
-        public string EntityDomainProjectPath
+        public string EntityDataPath
+        {
+            get { return Path.Combine(resultDirectory.FullName, Path.Combine(EntityProjectPath, "Data")); }
+        }
+
+        public string EntityDataBasePath
+        {
+            get { return Path.Combine(EntityDataPath, "Base"); }
+        }
+
+        public string EntityDomainPath
         {
             get { return Path.Combine(resultDirectory.FullName, Path.Combine(EntityProjectPath, "Domain")); }
         }
+
+        public string EntityDataInterfacesPath
+        {
+            get { return Path.Combine(resultDirectory.FullName, Path.Combine(EntityProjectPath, "DataInterfaces")); }
+        }
+
+        public string EntityDataInterfacesBasePath
+        {
+            get { return Path.Combine(EntityDataInterfacesPath, "Base"); }
+        }        
 
         public string FeProjectPath
         {
