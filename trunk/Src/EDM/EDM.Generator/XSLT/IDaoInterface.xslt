@@ -12,19 +12,11 @@ using <xsl:value-of select="@nameSpace"/>;
 
 namespace <xsl:value-of select="@nameSpace"/>.DataInterfaces
 {
-    /// <summary>
-    /// Provides an interface for retrieving DAO objects
-    ///</summary>
-
-    public interface IDaoFactory: Base.IDaoFactory
-    {
-
-    }
+    // There's no need to declare each of the DAO interfaces in its own file, so just add them inline here.
+    // But you're certainly welcome to put each declaration into its own file.
+    #region Inline interface declarations
+    #endregion
 }
-  </xsl:template>
-
-  <xsl:template match="entity" mode="interface">
-    I<xsl:value-of select="@name"/>Dao Get<xsl:value-of select="@name"/>Dao();
   </xsl:template>
 
 </xsl:stylesheet>

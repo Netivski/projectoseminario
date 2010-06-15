@@ -58,6 +58,6 @@ namespace BasicSample.Data
   </xsl:template>
 
   <xsl:template match="entity" mode="declarations">    
-    public class <xsl:value-of select="@name"/>Dao : AbstractNHibernateDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="lt"></xsl:call-template>, I<xsl:value-of select="@name"/>Dao { }
+    public class <xsl:value-of select="@name"/>Dao : AbstractNHibernateDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="gt"></xsl:call-template>, I<xsl:value-of select="@name"/>Dao { }
   </xsl:template>
 </xsl:stylesheet>
