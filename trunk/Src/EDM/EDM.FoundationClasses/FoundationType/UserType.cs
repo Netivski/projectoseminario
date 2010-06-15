@@ -5,7 +5,7 @@ namespace EDM.FoundationClasses.FoundationType
 {
     public class UserType<T>: IUserType<T>
     {
-        public UserType(int length, int minLength, int maxLength, string pattern, List<T> enumeration, T minInclusive, T minExclusive, T maxInclusive, T maxExclusive, WhiteSpaceEnum? whiteSpace, short? totalDigits, short? fractionDigits)
+        public UserType(int length, int minLength, int maxLength, string pattern, List<T> enumeration, NullableType<T> minInclusive, NullableType<T> minExclusive, NullableType<T> maxInclusive, NullableType<T> maxExclusive, WhiteSpaceEnum? whiteSpace, short? totalDigits, short? fractionDigits)
         {
             if (length < 0)                                          throw new ArgumentException("Argument length can't be negative!");
             if (minLength < 0)                                       throw new ArgumentException("Argument minLength can't be negative!");
@@ -32,10 +32,10 @@ namespace EDM.FoundationClasses.FoundationType
         int             maxLength;
         string          pattern;
         List<T>         enumeration;
-        T               maxInclusive;
-        T               maxExclusive;
-        T               minInclusive;
-        T               minExclusive;
+        NullableType<T> maxInclusive;
+        NullableType<T> maxExclusive;
+        NullableType<T> minInclusive;
+        NullableType<T> minExclusive;
         WhiteSpaceEnum? whiteSpace;
         short?          totalDigits;
         short?          fractionDigits;
@@ -52,13 +52,13 @@ namespace EDM.FoundationClasses.FoundationType
 
         public List<T> Enumeration { get{ return enumeration;} }
 
-        public T MaxInclusive { get{ return maxInclusive; } }
+        public T MaxInclusive { get { return maxInclusive == null ? default(T) : maxInclusive.Value; } }
 
-        public T MaxExclusive { get{ return maxExclusive; } }
+        public T MaxExclusive { get { return maxExclusive == null ? default(T) : maxExclusive.Value; } }
 
-        public T MinInclusive { get{ return minInclusive; } }
+        public T MinInclusive { get { return minInclusive == null ? default(T) : minInclusive.Value; } }
 
-        public T MinExclusive { get{ return minExclusive; } }
+        public T MinExclusive { get { return minExclusive == null ? default(T) : minExclusive.Value; } }
 
         public WhiteSpaceEnum? WhiteSpace {  get { return whiteSpace; }  }
 

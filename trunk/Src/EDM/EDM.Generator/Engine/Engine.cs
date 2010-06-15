@@ -36,7 +36,10 @@ namespace EDM.Generator.Engine
 
         public void SetOutput(string resultDirectory)
         {
-            context.SetOutput(resultDirectory);
+
+            if (context.EDMFile == null) throw new InvalidEDMStateException();
+
+            context.SetOutput(resultDirectory, context.EDMFile.NameSpace);
         }
 
     }

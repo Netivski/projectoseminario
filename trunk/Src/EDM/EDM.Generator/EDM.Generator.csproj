@@ -56,6 +56,7 @@
     <Compile Include="Engine\GeneratedFileInfoStep.cs" />
     <Compile Include="Engine\IEngine.cs" />
     <Compile Include="Engine\JavaEngine.cs" />
+    <Compile Include="Exception\InvalidEDMStateException.cs" />
     <Compile Include="Exception\TargetNotImplementedException.cs" />
     <Compile Include="GeneratortEnvironment.cs" />
     <Compile Include="Context\GeneratorContext.cs" />
@@ -82,10 +83,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="XSLT\Common.xslt" />
+    <Content Include="XSLT\BaseTypes.xslt" />
+    <Content Include="XSLT\Entity.xslt" />
     <Content Include="XSLT\NHibernateMapping.xslt" />
     <Content Include="XSLT\NHibernateDaoFactory.xslt" />
     <Content Include="XSLT\IDaoFactory.xslt" />
-    <Content Include="XSLT\Entity.xslt" />
+    <Content Include="XSLT\BaseEntity.xslt" />
     <Content Include="XSLT\Types.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
