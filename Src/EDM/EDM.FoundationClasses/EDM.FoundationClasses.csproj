@@ -53,6 +53,7 @@
     <Compile Include="Environment\IEnvironment.cs" />
     <Compile Include="Exception\FoundationType\InvalidBaseTypeException.cs" />
     <Compile Include="Exception\GeneralException.cs" />
+    <Compile Include="FoundationType\NullableType.cs" />
     <Compile Include="Persistence\Core\DesignByContract.cs" />
     <Compile Include="Persistence\Core\DomainObject.cs" />
     <Compile Include="Persistence\Core\Exception\AssertionException.cs" />

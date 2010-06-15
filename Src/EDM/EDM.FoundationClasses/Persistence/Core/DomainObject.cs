@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace EDM.FoundationClasses.Persistence.Core
+﻿namespace EDM.FoundationClasses.Persistence.Core
 {
     /// <summary>
     /// For a discussion of this object, see 

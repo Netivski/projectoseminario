@@ -22,11 +22,9 @@ namespace EDM.Generator.Engine
 
             //002   - Add NameSpace Atribute
             //002.1 - Solution Element
-            string companyName, projectName, nameSpace, assemblyName;
-            companyName  = Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, "/solution", "companyName");
-            projectName  = Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, "/solution", "projectName");           
-            nameSpace    = string.Concat(companyName, ".", projectName);
-            assemblyName = string.Format("{0}.{1}", companyName, projectName);
+            string nameSpace, assemblyName;
+            nameSpace    = context.EDMFile.NameSpace;
+            assemblyName = context.EDMFile.BaseName;
             Utils.XML.Set.AddAttribute(context.EDMFile.Content, "/solution", "nameSpace", nameSpace);
 
             //002.2 - userTypes Element
@@ -40,8 +38,9 @@ namespace EDM.Generator.Engine
             nodeList     = Utils.XML.Get.GetNodeList(context.EDMFile.Content, context.EDMFile.XPath.Entity);
             foreach (XmlNode node in nodeList)
             {
-                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "assemblyName"     , string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "assemblyName"     , string.Format("{0}.{1}"    , assemblyName, ENTITY_PROJECT_NAME));
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nameSpace"        , string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "name")));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "baseNameSpace"    , string.Format("{0}.{1}"    , nameSpace, ENTITY_PROJECT_NAME));
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "rttiNameSpace"    , rttiNameSpace);
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "generatedFileName", Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "name"));                
             }

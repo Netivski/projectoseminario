@@ -69,9 +69,9 @@ namespace EDM.Generator.Context
             transform = new Transform(xsltPath);
         }
 
-        public void SetOutput(string resultDirectory)
+        public void SetOutput(string resultDirectory, string nameSpace)
         {
-            output = new Output(resultDirectory);
+            output = new Output(resultDirectory, nameSpace);
         }
     }
 }

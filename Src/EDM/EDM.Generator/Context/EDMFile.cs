@@ -52,5 +52,38 @@ namespace EDM.Generator.Context
         {
             get { return xPath; }
         }
+
+        public string CompanyName
+        {
+            get
+            {
+                return Utils.XML.Get.GetAttributeValue(Content, "/solution", "companyName");
+            }
+        }
+
+        public string ProjectName
+        {
+            get
+            {
+                return Utils.XML.Get.GetAttributeValue(Content, "/solution", "projectName");
+            }
+        }
+
+
+        public string NameSpace
+        {
+            get
+            {
+                return string.Format("{0}.{1}", CompanyName, ProjectName);
+            }
+        }
+
+        public string BaseName
+        {
+            get
+            {
+                return NameSpace;
+            }
+        }    
     }
 }
