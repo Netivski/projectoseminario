@@ -10,21 +10,28 @@ namespace EDM.Generator.Context
         {
             get
             {
-                return "/solution";
+                return "/";
+            }
+        }
+        public string Solution
+        {
+            get
+            {
+                return string.Concat(Root, "solution");
             }
         }
         public string UserTypes
         {
             get
             {
-                return string.Concat(Root, "/userTypes");
+                return string.Concat(Solution, "/userTypes");
             }
         }
         public string Entities
         {
             get
             {
-                return string.Concat(Root, "/entities");
+                return string.Concat(Solution, "/entities");
             }
         }
         public string Entity

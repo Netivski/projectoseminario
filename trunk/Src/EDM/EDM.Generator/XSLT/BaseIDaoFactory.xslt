@@ -16,7 +16,7 @@ namespace <xsl:value-of select="@nameSpace"/>.DataInterfaces.Base
     /// Provides an interface for retrieving DAO objects
     ///</summary>
 
-    public interface IDaoFactory
+    public interface IDaoFactoryBase
     {
       <xsl:apply-templates select="entity" mode="interface"/>
     }

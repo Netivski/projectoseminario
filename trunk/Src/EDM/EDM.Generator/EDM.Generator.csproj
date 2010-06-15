@@ -84,11 +84,15 @@
   <ItemGroup>
     <Content Include="XSLT\Common.xslt" />
     <Content Include="XSLT\BaseTypes.xslt" />
-    <Content Include="XSLT\Entity.xslt" />
+    <Content Include="XSLT\BaseIDaoFactory.xslt" />
+    <Content Include="XSLT\BaseIDaoInterface.xslt" />
+    <Content Include="XSLT\BaseNHibernateDaoFactory.xslt" />
+    <Content Include="XSLT\IDaoInterface.xslt" />
+    <Content Include="XSLT\DomainEntity.xslt" />
     <Content Include="XSLT\NHibernateMapping.xslt" />
     <Content Include="XSLT\NHibernateDaoFactory.xslt" />
     <Content Include="XSLT\IDaoFactory.xslt" />
-    <Content Include="XSLT\BaseEntity.xslt" />
+    <Content Include="XSLT\Entity.xslt" />
     <Content Include="XSLT\Types.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

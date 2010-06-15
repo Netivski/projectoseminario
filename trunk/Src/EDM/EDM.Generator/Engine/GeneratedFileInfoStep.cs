@@ -13,13 +13,16 @@ namespace EDM.Generator.Engine
         void SetFiles(GeneratorContext context)
         {
             files = new List<GeneratedFileInfo>(){
-                                                     new GeneratedFileInfo( "BaseTypes"            , Path.Combine( context.Output.RttiBase                , "BaseUserTypeMetadata.cs"  ), context.EDMFile.XPath.UserTypes, true  )
-                                                    ,new GeneratedFileInfo( "Types"                , Path.Combine( context.Output.RttiProjectPath         , "UserTypeMetadata.cs"      ), context.EDMFile.XPath.UserTypes, false )
-                                                    ,new GeneratedFileInfo( "Entity"               , Path.Combine( context.Output.EntityDomainProjectPath , "{0}.cs"                   ), context.EDMFile.XPath.Entity   , true  )
-                                                    ,new GeneratedFileInfo( "BaseEntity"           , Path.Combine( context.Output.EntityProjectPath       , "{0}.cs"                   ), context.EDMFile.XPath.Entity   , true  )
-                                                   //,new GeneratedFileInfo( "IDaoFactory"         , Path.Combine( context.Output.EntityProjectPath , "IDaoFactory.cs"           ), "/"                             )
-                                                   //,new GeneratedFileInfo( "NHibernateDaoFactory", Path.Combine( context.Output.EntityProjectPath , "NHibernateDaoFactory.cs"  ), "/"                             )     
-                                                   //,new GeneratedFileInfo( "NHibernateMapping"   , Path.Combine( context.Output.EntityProjectPath , "{0}.hbm.xml"              ), context.EDMFile.XPath.Entity    )                                                                                                      
+                                                     new GeneratedFileInfo( "BaseTypes"                      , Path.Combine( context.Output.RttiBasePath                , "BaseUserTypeMetadata.cs"         ), context.EDMFile.XPath.UserTypes, true  )
+                                                    ,new GeneratedFileInfo( "Types"                          , Path.Combine( context.Output.RttiProjectPath             , "UserTypeMetadata.cs"             ), context.EDMFile.XPath.UserTypes, false )
+                                                    ,new GeneratedFileInfo( "DomainEntity"                   , Path.Combine( context.Output.EntityDomainPath            , "{0}.cs"                          ), context.EDMFile.XPath.Entity   , true  )
+                                                    ,new GeneratedFileInfo( "Entity"                         , Path.Combine( context.Output.EntityProjectPath           , "{0}.cs"                          ), context.EDMFile.XPath.Entity   , false )
+                                                    ,new GeneratedFileInfo( "BaseIDaoFactory"                , Path.Combine( context.Output.EntityDataInterfacesBasePath, "IDaoFactoryBase.cs"              ), context.EDMFile.XPath.Root     , true  )
+                                                    ,new GeneratedFileInfo( "BaseIDaoInterface"              , Path.Combine( context.Output.EntityDataInterfacesBasePath, "IDaoInterface.cs"                ), context.EDMFile.XPath.Root     , true  )                                                    
+                                                    ,new GeneratedFileInfo( "IDaoFactory"                    , Path.Combine( context.Output.EntityDataInterfacesPath    , "IDaoFactory.cs"                  ), context.EDMFile.XPath.Root     , false )
+                                                    ,new GeneratedFileInfo( "IDaoInterface"                  , Path.Combine( context.Output.EntityDataInterfacesPath    , "IDaoInterface.cs"                ), context.EDMFile.XPath.Root     , false )                                                                                                        
+                                                    ,new GeneratedFileInfo( "BaseNHibernateDaoFactory"       , Path.Combine( context.Output.EntityDataBasePath          , "NHibernateDaoFactory.cs"         ), context.EDMFile.XPath.Root     , true  )                                 
+                                                    ,new GeneratedFileInfo( "NHibernateMapping"              , Path.Combine( context.Output.EntityDomainPath            , "{0}.hbm.xml"                     ), context.EDMFile.XPath.Entity   , true  )                                                                                                      
                                                  };
         }
 
