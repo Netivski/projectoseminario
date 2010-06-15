@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:include href="Common.xslt"/>
   <xsl:output method="text" indent="yes"/>
   <xsl:template match="/">
     <xsl:apply-templates select="/solution/entities"/>
@@ -59,12 +60,4 @@ namespace BasicSample.Data
   <xsl:template match="entity" mode="declarations">    
     public class <xsl:value-of select="@name"/>Dao : AbstractNHibernateDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="lt"></xsl:call-template>, I<xsl:value-of select="@name"/>Dao { }
   </xsl:template>
-
-  <xsl:template name="gt">
-    <xsl:text disable-output-escaping="yes"><![CDATA[>]]></xsl:text>
-  </xsl:template>
-  <xsl:template name="lt">
-    <xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text>
-  </xsl:template>
-
 </xsl:stylesheet>

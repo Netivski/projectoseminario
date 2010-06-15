@@ -103,4 +103,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)$(TargetName).dll" "..\..\..\..\ISEL.Sample\Assembly" /R /Q /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
