@@ -58,8 +58,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataInterfaces\" />
-    <Folder Include="Data\" />
+    <Folder Include="DataInterfaces\Base\" />
+    <Folder Include="Data\Base\" />
     <Folder Include="Domain\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
