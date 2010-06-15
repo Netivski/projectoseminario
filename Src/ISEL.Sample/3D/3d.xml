@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution companyName="ISEL" projectName="Sample" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="3dValidator.xsd">
+	<userTypes>
+		<int name="positiveInt" minInclusive="0"/>
+		<string name="nameString"/>
+    <![CDATA[
+      Tem que ser revisto o caso do datetime, em c# o tipo é DateTime.
+    ]]>
+		<!--<datetime name="nascimentoDate"/>-->
+		<int name="iselNumAluno"/>
+		<int name="iselNumDocente"/>
+		<int name="iselCodDepartamento"/>
+		<string name="iselNomeDepartamento"/>
+		<int name="iselCodCurso"/>
+		<string name="iselNomeCurso"/>
+		<int name="anoEscolar" pattern="[0-9]{4}"/>
+		<string name="tipoSemestre">
+			<enumeration>Inverno</enumeration>
+			<enumeration>Verão</enumeration>
+		</string>
+		<!--<datetime name="inicioSemestre"/>
+		<datetime name="fimSemestre"/>-->
+	</userTypes>
+	<environments>
+		<dataEnvironments>
+			<sqlProviders>
+				<provider name="FirstBDServer" type="SQLSERVER" serverName="127.0.0.1" instance="SQLSERVER1"
+					username="sa" password="root" catalog="RN_RBAC1"/>
+				<provider name="SecondBDServer" type="SQLSERVER" serverName="127.0.0.1" instance="SQLSERVER1"
+					username="sa" password="root" catalog="Northwind"/>
+			</sqlProviders>
+			<mysqlProviders>
+				<provider name="ThirdBDServer" type="MYSQL" serverName="127.0.0.1" instance="OPENMYSQL1"
+					username="sa" password="root" catalog="APA_TEST"/>
+			</mysqlProviders>
+		</dataEnvironments>
+	</environments>
+	<entities>
+		<entity type="abstract" name="Pessoa">
+			<fields>
+				<field type="nameString" name="nome" nillable="true" searchable="true"/>
+			</fields>
+		</entity>
+		<entity type="dependent" name="Aluno" baseEntity="Pessoa">
+			<fields>
+				<field type="iselNumAluno" name="num" searchable="true"/>
+			</fields>
+		</entity>
+		<entity type="dependent" name="Docente" baseEntity="Pessoa">
+			<fields>
+				<field type="iselNumDocente" name="num" searchable="true"/>
+			</fields>
+		</entity>
+		<entity type="base" name="Departamento">
+			<fields>
+				<field type="iselCodDepartamento" name="cod" unique="true" searchable="true"/>
+				<field type="iselNomeDepartamento" name="nome" searchable="true"/>
+			</fields>
+		</entity>
+		<entity type="base" name="Curso">
+			<fields>
+				<field type="iselCodCurso" name="cod" unique="true" searchable="true"/>
+				<field type="iselNomeCurso" name="nome" searchable="true"/>
+			</fields>
+		</entity>
+		<entity type="base" name="Semestre">
+			<fields>
+				<field type="anoEscolar" name="ano" unique="true" searchable="true"/>
+				<field type="tipoSemestre" name="tipo" unique="true" searchable="true"/>
+				<!--<field type="inicioSemestre" name="inicio" searchable="true"/>
+				<field type="fimSemestre" name="fim" searchable="true"/>-->
+			</fields>
+		</entity>
+	</entities>
+</solution>
