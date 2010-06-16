@@ -2,7 +2,7 @@
 
 namespace EDM.Generator
 {
-    public enum GeneratortEnvironment
+    public enum GeneratorEnvironment
     {
          EDMBase
         ,Other

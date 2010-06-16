@@ -5,7 +5,7 @@ namespace EDM.Generator.Engine
 {
     internal static class EngineFactory
     {
-        public static IEngine GetEngine(GeneratorTarget target, GeneratortEnvironment environment)
+        public static IEngine GetEngine(GeneratorTarget target, GeneratorEnvironment environment)
         {
             switch (target)
             {

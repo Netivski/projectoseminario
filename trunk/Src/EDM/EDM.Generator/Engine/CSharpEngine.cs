@@ -10,7 +10,7 @@ namespace EDM.Generator.Engine
     {
         List<AbstractStep> steps = null;
        
-        public CSharpEngine(GeneratorTarget target, GeneratortEnvironment environment): base(target, environment) { }
+        public CSharpEngine(GeneratorTarget target, GeneratorEnvironment environment): base(target, environment) { }
 
         void SetSteps()
         {
@@ -22,7 +22,10 @@ namespace EDM.Generator.Engine
 
         public override void Generate()
         {
-            SetSteps();
+            if (steps == null)
+            {
+                SetSteps();
+            }
             steps.ForEach( step => step.GenerateStep( Context ) ); 
         }
     }
