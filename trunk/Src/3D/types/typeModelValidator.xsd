@@ -129,7 +129,6 @@
 	<xs:complexType name="t_Boolean">
 		<xs:attribute name="name" type="xs:string" use="required"/>
 	</xs:complexType>
-
 	<!-- Definição do contentor de USER TYPES -->
 	<xs:complexType name="t_userType">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -147,6 +146,6 @@
 				<xs:element name="datetime" type="t_Datetime" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="generatedFileName" type="xs:string" use="required"/>
 	</xs:complexType>
-
 </xs:schema>
