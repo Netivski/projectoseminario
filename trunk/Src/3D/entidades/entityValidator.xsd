@@ -17,6 +17,12 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Definição do enumerado correspondente à cardinalidade -->
+	<xs:simpleType name="t_one">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definição do enumerado correspondente à cardinalidade -->
 	<xs:simpleType name="t_maxOccurs">
 		<xs:union>
 			<xs:simpleType>
@@ -26,7 +32,7 @@
 			</xs:simpleType>
 			<xs:simpleType>
 				<xs:restriction base="xs:int">
-					<xs:minInclusive value="1"/>
+					<xs:minInclusive value="0"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:union>
@@ -51,21 +57,21 @@
 	<xs:complexType name="t_oneToOne">
 		<xs:attribute name="name" type="xs:string" use="required"/>
 		<xs:attribute name="entity" type="xs:string" use="required"/>
-		<xs:attribute name="minOccurs" type="t_zeroOrOne" use="required"/>
+		<xs:attribute name="minOccurs" type="t_one" use="required"/>
 		<xs:attribute name="maxOccurs" type="t_zeroOrOne" use="required"/>
 	</xs:complexType>
 	<!-- Definição do elemento que representa uma relação 1-n -->
 	<xs:complexType name="t_oneToMany">
 		<xs:attribute name="name" type="xs:string" use="required"/>
 		<xs:attribute name="entity" type="xs:string" use="required"/>
-		<xs:attribute name="minOccurs" type="xs:positiveInteger" use="required"/>
+		<xs:attribute name="minOccurs" type="t_maxOccurs" use="required"/>
 		<xs:attribute name="maxOccurs" type="t_maxOccurs" use="required"/>
 	</xs:complexType>
 	<!-- Definição do elemento que representa uma relação n-n -->
 	<xs:complexType name="t_manyToMany">
 		<xs:attribute name="name" type="xs:string" use="required"/>
 		<xs:attribute name="entity" type="xs:string" use="required"/>
-		<xs:attribute name="minOccurs" type="xs:positiveInteger" use="required"/>
+		<xs:attribute name="minOccurs" type="t_maxOccurs" use="required"/>
 		<xs:attribute name="maxOccurs" type="t_maxOccurs" use="required"/>
 	</xs:complexType>
 	<!-- Definição do elemento que representa o contentor de relações -->
