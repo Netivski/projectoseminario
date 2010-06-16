@@ -36,7 +36,12 @@
 		</dataEnvironments>
 	</environments>
 	<entities>
-		<entity type="abstract" name="Pessoa">
+    <entity type="base" name="Sample">
+      <fields>
+        <field type="nameString" name="Name" unique="false" searchable="true"/>
+      </fields>
+    </entity> 
+    <!--<entity type="abstract" name="Pessoa">
 			<fields>
 				<field type="nameString" name="nome" nillable="true" searchable="true"/>
 			</fields>
@@ -67,9 +72,9 @@
 			<fields>
 				<field type="anoEscolar" name="ano" unique="true" searchable="true"/>
 				<field type="tipoSemestre" name="tipo" unique="true" searchable="true"/>
-				<!--<field type="inicioSemestre" name="inicio" searchable="true"/>
-				<field type="fimSemestre" name="fim" searchable="true"/>-->
+				--><!--<field type="inicioSemestre" name="inicio" searchable="true"/>
+				<field type="fimSemestre" name="fim" searchable="true"/>--><!--
 			</fields>
-		</entity>
+		</entity>-->
 	</entities>
 </solution>
