@@ -12,10 +12,10 @@ using <xsl:value-of select="@rttiNameSpace"/>;
 namespace <xsl:value-of select="@baseNameSpace"/>.Domain
 {
   [Serializable]
-  public <xsl:if test="@type = 'abstract'">abstract</xsl:if> class <xsl:value-of select="@name"/> : <xsl:choose><xsl:when test="@type = 'dependent'"><xsl:value-of select="@baseEntity"/></xsl:when><xsl:otherwise>DomainObject<xsl:call-template name="lt"></xsl:call-template>long<xsl:call-template name="gt"></xsl:call-template>, IEntity
+  public <xsl:if test="@type = 'abstract'">abstract</xsl:if> class <xsl:value-of select="@name"/>Domain : <xsl:choose><xsl:when test="@type = 'dependent'"><xsl:value-of select="@baseEntity"/></xsl:when><xsl:otherwise>DomainObject<xsl:call-template name="lt"></xsl:call-template>long<xsl:call-template name="gt"></xsl:call-template>, IEntity
   </xsl:otherwise></xsl:choose>
   {
-    public <xsl:value-of select="@name"/> () {}
+    public <xsl:value-of select="@name"/>Domain () {}
 
     <xsl:apply-templates select="fields/field" mode="fields"/>
 

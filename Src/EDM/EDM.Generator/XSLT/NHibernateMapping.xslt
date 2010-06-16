@@ -14,6 +14,6 @@
     </hibernate-mapping>
   </xsl:template>
   <xsl:template match="field">
-    <property name="{@name}" column="{@name}" />    
+    <property name="{@name}" column="{@name}" not-null="true"/>    
  </xsl:template>  
 </xsl:stylesheet>

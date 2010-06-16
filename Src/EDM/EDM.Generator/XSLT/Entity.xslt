@@ -12,8 +12,8 @@ using <xsl:value-of select="@rttiNameSpace"/>;
 namespace <xsl:value-of select="@baseNameSpace"/>
 {
   [Serializable]
-  public class <xsl:value-of select="@name"/> : Domain.<xsl:value-of select="@name"/>
-  {
+  public class <xsl:value-of select="@name"/> : Domain.<xsl:value-of select="@name"/>Domain
+    {
     public <xsl:value-of select="@name"/> () {}
   }
 }
