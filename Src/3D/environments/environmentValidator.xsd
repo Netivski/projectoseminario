@@ -1,31 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2010 (http://www.altova.com) by Ricardo Neto (Netpat) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:include schemaLocation="./data/sqlProviders.xsd"/>
-	<xs:include schemaLocation="./data/mysqlProviders.xsd"/>
+
+	<!-- Definição do tipo que representa o tipo de provider utiilzado -->
+	<xs:simpleType name="t_serverType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MsSql2000"/>
+			<xs:enumeration value="MsSql2005"/>
+			<xs:enumeration value="MsSql2008"/>
+			<xs:enumeration value="MsSqlCe"/>
+			<xs:enumeration value="MySQL"/>
+			<xs:enumeration value="MySQL5"/>
+			<xs:enumeration value="PostgreSQL"/>
+			<xs:enumeration value="Informix"/>
+			<xs:enumeration value="Ingres"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	
 	<!-- Definição do tipo que representa um contentor de data environments -->
 	<xs:complexType name="t_dataEnvContainer">
 		<xs:sequence>
-			<xs:element name="sqlProviders" type="t_sqlProviders" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="mysqlProviders" type="t_mysqlProviders" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="provider" type="t_Provider" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-
-
+	
+	<xs:complexType name="t_Provider">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="type" type="t_serverType" use="required"/>
+		<xs:attribute name="connectionString" type="xs:string" use="required"/>
+		<xs:attribute name="serverName" type="xs:string" use="required"/>
+		<xs:attribute name="instance" type="xs:string" use="required"/>
+		<xs:attribute name="catalog" type="xs:string" use="required"/>
+		<xs:attribute name="port" type="xs:short" use="optional" default="1433"/>
+		<xs:attribute name="username" type="xs:string" use="required"/>
+		<xs:attribute name="password" type="xs:string" use="required"/>
+		<xs:attribute name="security" type="xs:string" use="optional"/>
+		<xs:attribute name="timeout" type="xs:short" use="optional" default="120"/>
+	</xs:complexType>
+		
 	
 	<!-- MAIL ENVIRONMENTS -->
 	<!-- Definição do tipo que representa um contentor de mail environments -->
 	<!-- -->
-	
-	
-	
 	<!-- Definição do elemento que representa um contentor de environments -->
 	<xs:complexType name="t_environments">
 		<xs:sequence>
 			<xs:element name="dataEnvironments" type="t_dataEnvContainer">
 				<xs:unique name="un_sqlProviderName">
-					<xs:selector xpath="*/*"></xs:selector>
-					<xs:field xpath="@name"></xs:field>
+					<xs:selector xpath="*"/>
+					<xs:field xpath="@name"/>
 				</xs:unique>
 			</xs:element>
 		</xs:sequence>

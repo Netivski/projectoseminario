@@ -20,16 +20,10 @@
 	</userTypes>
 	<environments>
 		<dataEnvironments>
-			<sqlProviders>
-				<provider name="FirstBDServer" type="SQLSERVER" serverName="127.0.0.1" instance="SQLSERVER1"
-					username="sa" password="root" catalog="RN_RBAC1"/>
-				<provider name="SecondBDServer" type="SQLSERVER" serverName="127.0.0.1" instance="SQLSERVER1"
-					username="sa" password="root" catalog="Northwind"/>
-			</sqlProviders>
-			<mysqlProviders>
-				<provider name="ThirdBDServer" type="MYSQL" serverName="127.0.0.1" instance="OPENMYSQL1"
-					username="sa" password="root" catalog="APA_TEST"/>
-			</mysqlProviders>
+			<provider name="FirstBDServer" type="MsSql2008" 
+				connectionString="Server=localhost;Initial Catalog=ORM_DB;User Id=sa;Password=root"
+				serverName="127.0.0.1" instance="SQLSERVER1"
+				username="sa" password="root" catalog="RN_RBAC1"/>
 		</dataEnvironments>
 	</environments>
 	<entities>
