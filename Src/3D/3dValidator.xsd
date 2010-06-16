@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2010 (http://www.altova.com) by Ricardo Neto (Netpat) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:include schemaLocation="./entidades/entityValidator.xsd"/>
-	<xs:include schemaLocation="./tipos/typeModelValidator.xsd"/>
+	<xs:include schemaLocation="./entities/entityValidator.xsd"/>
+	<xs:include schemaLocation="./types/typeModelValidator.xsd"/>
 	<xs:include schemaLocation="./environments/environmentValidator.xsd"/>
 	<!-- Definição do elemento SOLUTION -->
 	<xs:element name="solution">
