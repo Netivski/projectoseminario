@@ -2,6 +2,7 @@
 using System.Xml;
 using System.Collections.Generic;
 using EDM.Generator.Context;
+using System.IO;
 
 namespace EDM.Generator.Engine
 {
@@ -13,12 +14,20 @@ namespace EDM.Generator.Engine
         public override void GenerateStep( GeneratorContext context )
         {
             //001 - Alterar o DOM do context.EDMFile.Content
+            //001.1 - Adicionar aos fields o atributo edmType com o respectivo baseType
             XmlNodeList nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity/fields/field");
             foreach (XmlNode node in nodeList)
             {
                 String baseType = Utils.XML.Get.GetNode(context.EDMFile.Content, string.Concat( "/solution/userTypes/*[@name = '", node.Attributes["type"].Value.ToString(), "']")).Name;
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, string.Concat("/solution/entities/entity/fields/field[@name = '", node.Attributes["name"].Value.ToString(), "' and @type = '", node.Attributes["type"].Value.ToString(),"']"), "edmType", baseType);
             }
+            //001.2 - Adicionar ao dataEnvironment o atributo Dialect
+            XmlNode dataEnvNode = Utils.XML.Get.GetNode(context.EDMFile.Content, "solution/environments/dataEnvironments/*");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Generator\Engine\XML\DialectMapping.xml"));
+            XmlNode mappingNode = Utils.XML.Get.GetNode(doc, string.Concat("/DialectMapping/Mapping[@type = '", dataEnvNode.Attributes["type"].Value.ToString(), "']"));
+            Utils.XML.Set.AddAttribute(context.EDMFile.Content, "solution/environments/dataEnvironments/*", "dialect", mappingNode.Attributes["dialect"].Value.ToString());
+            doc = null;
 
             //002   - Add NameSpace Atribute
             //002.1 - Solution Element
@@ -44,7 +53,9 @@ namespace EDM.Generator.Engine
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nameSpace"        , string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "name")));
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "baseNameSpace"    , string.Format("{0}.{1}"    , nameSpace, ENTITY_PROJECT_NAME));
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "rttiNameSpace"    , rttiNameSpace);
-                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "generatedFileName", Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "name"));                
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "generatedFileName", Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "name"));
+
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "targetDomainPath", context.Output.EntityDomainPath);
             }
 
         }

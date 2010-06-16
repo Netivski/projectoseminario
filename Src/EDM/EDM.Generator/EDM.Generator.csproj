@@ -62,7 +62,7 @@
     <Compile Include="Context\GeneratorContext.cs" />
     <Compile Include="Context\EDMFile.cs" />
     <Compile Include="Context\EDMXPath.cs" />
-    <Compile Include="Context\Output.cs.cs" />
+    <Compile Include="Context\Output.cs" />
     <Compile Include="Context\Transform.cs" />
     <Compile Include="Exception\EDMFileNotFoundException.cs" />
     <Compile Include="Exception\GeneralException.cs" />
@@ -82,6 +82,8 @@
     <None Include="sign_key.snk" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Engine\XML\DialectMapping.xml" />
+    <Content Include="Engine\XML\KeyWords.xml" />
     <Content Include="XSLT\Common.xslt" />
     <Content Include="XSLT\BaseTypes.xslt" />
     <Content Include="XSLT\BaseIDaoFactory.xslt" />
@@ -89,6 +91,7 @@
     <Content Include="XSLT\BaseNHibernateDaoFactory.xslt" />
     <Content Include="XSLT\IDaoInterface.xslt" />
     <Content Include="XSLT\DomainEntity.xslt" />
+    <Content Include="XSLT\NHibernateConfig.xslt" />
     <Content Include="XSLT\NHibernateMapping.xslt" />
     <Content Include="XSLT\NHibernateDaoFactory.xslt" />
     <Content Include="XSLT\IDaoFactory.xslt" />
