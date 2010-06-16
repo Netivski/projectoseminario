@@ -21,14 +21,16 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
 
     public <xsl:choose><xsl:when test="@type = 'dependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> bool IsValid()
     {
-        <xsl:choose>
-          <xsl:when test="@type = 'dependent'">
-            return base.IsValid();
-          </xsl:when>
-          <xsl:otherwise>
-            return <xsl:apply-templates select="fields/field" mode="IsValid"/>;
-          </xsl:otherwise>
-        </xsl:choose>    
+      return<xsl:if test="@type = 'dependent'"> base.IsValid()<xsl:if test="count(fields/field) > 0"><xsl:text disable-output-escaping="yes"><![CDATA[ &&]]></xsl:text></xsl:if></xsl:if>
+      <xsl:apply-templates select="fields/field" mode="IsValid"/>;
+      <!--<xsl:choose>
+        <xsl:when test="@type = 'dependent'">
+          return base.IsValid();
+        </xsl:when>
+        <xsl:otherwise>
+          return <xsl:apply-templates select="fields/field" mode="IsValid"/>;
+        </xsl:otherwise>
+      </xsl:choose>--> 
     }
     
     <!--<xsl:if test="@type != 'dependent' and count(fields/field[@unique = 'true']) > 0">
