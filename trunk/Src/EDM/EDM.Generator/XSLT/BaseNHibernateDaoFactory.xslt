@@ -21,26 +21,25 @@ namespace <xsl:value-of select="@nameSpace"/>.Data.Base
     /// Exposes access to NHibernate DAO classes.  Motivation for this DAO
     /// framework can be found at http://www.hibernate.org/328.html.
     /// </summary>
-    public class NHibernateDaoFactory : IDaoFactory
+    public class NHibernateDaoFactoryBase : IDaoFactory
     {
 
-        static readonly NHibernateDaoFactory current = null;
-       
-        NHibernateDaoFactory() { }
+      static readonly NHibernateDaoFactoryBase current = null;
+
+      protected NHibernateDaoFactoryBase() { }
+
+      static NHibernateDaoFactoryBase()
+      {
+        current = new NHibernateDaoFactoryBase();
+      }
+
+      public static NHibernateDaoFactoryBase Current
+      {
+        get { return current; }
+      }
 
 
-        static NHibernateDaoFactory() 
-        {
-            current = new NHibernateDaoFactory();
-        }
-
-        public static NHibernateDaoFactory Current
-        {
-            get { return current; }
-        }
-
-
-        <xsl:apply-templates select="entity" mode="property"/>
+    <xsl:apply-templates select="entity" mode="property"/>
 
         #region Inline DAO implementations
 

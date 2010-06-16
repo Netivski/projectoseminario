@@ -7,46 +7,22 @@
   </xsl:template>
 
   <xsl:template match="entities">
-using BasicSample.Core.DataInterfaces;
-using BasicSample.Core.Domain;
+using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Persistence.Data;
+using <xsl:value-of select="@nameSpace"/>.Data.Base;
+using <xsl:value-of select="@nameSpace"/>.DataInterfaces;
+using <xsl:value-of select="@nameSpace"/>.DataInterfaces.Base;
 
-namespace BasicSample.Data
+
+
+namespace <xsl:value-of select="@nameSpace"/>.Data
 {
     /// <summary>
     /// Exposes access to NHibernate DAO classes.  Motivation for this DAO
     /// framework can be found at http://www.hibernate.org/328.html.
     /// </summary>
-    public class NHibernateDaoFactory : IDaoFactory
+    public class NHibernateDaoFactory : NHibernateDaoFactoryBase
     {
-
-        static readonly NHibernateDaoFactory current = null;
-       
-        NHibernateDaoFactory() { }
-
-
-        static NHibernateDaoFactory() 
-        {
-            current = new NHibernateDaoFactory();
-        }
-
-        public static NHibernateDaoFactory Current
-        {
-            get { return current; }
-        }
-
-
-        <xsl:apply-templates select="entity" mode="property"/>
-
-        #region Inline DAO implementations
-
-        /// <summary>
-        /// Concrete DAO for accessing instances of <see cref="Customer" /> from DB.
-        /// This should be extracted into its own class-file if it needs to extend the
-        /// inherited DAO functionality.
-        /// </summary>
-        <xsl:apply-templates select="entity" mode="declarations"/>
-
-        #endregion
     }
 }
   </xsl:template>
@@ -58,6 +34,6 @@ namespace BasicSample.Data
   </xsl:template>
 
   <xsl:template match="entity" mode="declarations">    
-    public class <xsl:value-of select="@name"/>Dao : AbstractNHibernateDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="lt"></xsl:call-template>, I<xsl:value-of select="@name"/>Dao { }
+    public class <xsl:value-of select="@name"/>Dao : AbstractNHibernateDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="gt"></xsl:call-template>, I<xsl:value-of select="@name"/>Dao { }
   </xsl:template>
 </xsl:stylesheet>

@@ -89,10 +89,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Persistence\Assembly\NHibernate.dll" />
-    <Content Include="Persistence\Assembly\NHibernate.license.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Gui\" />
     <Folder Include="Permission\" />
   </ItemGroup>
