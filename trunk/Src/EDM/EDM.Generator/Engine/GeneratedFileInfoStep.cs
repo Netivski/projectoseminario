@@ -24,7 +24,7 @@ namespace EDM.Generator.Engine
                                                     ,new GeneratedFileInfo( "BaseNHibernateDaoFactory" , Path.Combine( context.Output.EntityDataBasePath          , "NHibernateDaoFactoryBase.cs"     ), context.EDMFile.XPath.Root     , true  )                                 
                                                     ,new GeneratedFileInfo( "NHibernateDaoFactory"     , Path.Combine( context.Output.EntityDataPath              , "NHibernateDaoFactory.cs"         ), context.EDMFile.XPath.Root     , false )                                 
                                                     ,new GeneratedFileInfo( "NHibernateMapping"        , Path.Combine( context.Output.EntityDomainPath            , "{0}.hbm.xml"                     ), context.EDMFile.XPath.Entity   , true  )
-                                                    ,new GeneratedFileInfo( "NHibernateConfig"         , Path.Combine( context.Output.PersistencePath             , "hibernate.cfg.xml"               ), context.EDMFile.XPath.Solution , true  )
+                                                    //,new GeneratedFileInfo( "NHibernateConfig"         , Path.Combine( context.Output.PersistencePath             , "hibernate.cfg.xml"               ), context.EDMFile.XPath.Solution , true  )
                                                  };
         }
 

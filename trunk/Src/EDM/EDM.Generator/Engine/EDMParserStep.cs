@@ -23,11 +23,11 @@ namespace EDM.Generator.Engine
             }
             //001.2 - Adicionar ao dataEnvironment o atributo Dialect
             XmlNode dataEnvNode = Utils.XML.Get.GetNode(context.EDMFile.Content, "solution/environments/dataEnvironments/*");
-            XmlDocument doc = new XmlDocument();
-            doc.Load(Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Generator\Engine\XML\DialectMapping.xml"));
-            XmlNode mappingNode = Utils.XML.Get.GetNode(doc, string.Concat("/DialectMapping/Mapping[@type = '", dataEnvNode.Attributes["type"].Value.ToString(), "']"));
-            Utils.XML.Set.AddAttribute(context.EDMFile.Content, "solution/environments/dataEnvironments/*", "dialect", mappingNode.Attributes["dialect"].Value.ToString());
-            doc = null;
+            //XmlDocument doc = new XmlDocument();
+            //doc.Load(Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Generator\Engine\XML\DialectMapping.xml"));
+            //XmlNode mappingNode = Utils.XML.Get.GetNode(doc, string.Concat("/DialectMapping/Mapping[@type = '", dataEnvNode.Attributes["type"].Value.ToString(), "']"));
+            //Utils.XML.Set.AddAttribute(context.EDMFile.Content, "solution/environments/dataEnvironments/*", "dialect", mappingNode.Attributes["dialect"].Value.ToString());
+            //doc = null;
 
             //002   - Add NameSpace Atribute
             //002.1 - Solution Element

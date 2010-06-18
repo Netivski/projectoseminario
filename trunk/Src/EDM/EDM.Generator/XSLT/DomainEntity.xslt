@@ -21,35 +21,27 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
 
     public <xsl:choose><xsl:when test="@type = 'dependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> bool IsValid()
     {
-      return<xsl:if test="@type = 'dependent'"> base.IsValid()<xsl:if test="count(fields/field) > 0"><xsl:text disable-output-escaping="yes"><![CDATA[ &&]]></xsl:text></xsl:if></xsl:if>
-      <xsl:apply-templates select="fields/field" mode="IsValid"/>;
+      return <xsl:if test="@type = 'dependent'"> base.IsValid() <xsl:if test="count(fields/field) > 0"> <xsl:text disable-output-escaping="yes"><![CDATA[ &&]]></xsl:text> </xsl:if> </xsl:if> <xsl:apply-templates select="fields/field" mode="IsValid"/>;
     }
-    
-    <!--<xsl:if test="@type != 'dependent' and count(fields/field[@unique = 'true']) > 0">
-    public override int GetHashCode()
-    {
-      return <xsl:apply-templates select="fields/field[@unique = 'true']" mode="Hash"/>;
-    }</xsl:if>-->
 
     public override int GetHashCode()
     {
       return string.Format("{0}.{1}", GetType().FullName, ID).GetHashCode();
     }
 
+    <!--Temos de verificar esta assunção onde a comparação do estado é-nos dada pelo valor da chave primária-->    
     public bool Equals(<xsl:value-of select="@name"/> obj)
     {
-      if(obj == null) return false;
-        return <xsl:if test="@type = 'dependent'">base.Equals((<xsl:value-of select="@baseEntity"/>)obj)<xsl:if test="count(fields/field[@unique = 'true']) > 0">
-          <xsl:text disable-output-escaping="yes"><![CDATA[ && ]]></xsl:text>
-        </xsl:if>
-      </xsl:if><xsl:apply-templates select="fields/field[@unique = 'true']" mode="Equals"/>;
+      <xsl:choose> <xsl:when test="@type = 'dependent'"> return base.Equals((<xsl:value-of select="@baseEntity"/>)obj); </xsl:when> <xsl:otherwise> if(obj == null) return false; 
+      return obj.ID == ID; </xsl:otherwise> </xsl:choose>  
     }
   }
 }
   </xsl:template>
   <xsl:template match="fields/field" mode="fields">
-    public virtual <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/> { get; set; }</xsl:template>  
-  <xsl:template match="fields/field" mode="IsValid"> Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"><xsl:text disable-output-escaping="yes"><![CDATA[&&]]></xsl:text></xsl:if></xsl:template>
-  <xsl:template match="fields/field[@unique = 'true']" mode="Hash"><xsl:value-of select="@name"/>.GetHashCode()<xsl:if test="position() != last()"> ^ </xsl:if></xsl:template>
-  <xsl:template match="fields/field[@unique = 'true']" mode="Equals"><xsl:value-of select="@name"/>.Equals(obj.<xsl:value-of select="@name"/>)<xsl:if test="position() != last()"><xsl:text disable-output-escaping="yes"><![CDATA[ && ]]></xsl:text></xsl:if></xsl:template>
+    public virtual <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/> { get; set; }
+  </xsl:template>
+  
+  <xsl:template match="fields/field" mode="IsValid">Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"> <xsl:text disable-output-escaping="yes"><![CDATA[&&]]></xsl:text> </xsl:if></xsl:template>
+
 </xsl:stylesheet>
