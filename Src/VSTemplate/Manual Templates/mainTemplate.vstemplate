@@ -1,0 +1,41 @@
+<VSTemplate Type="ProjectGroup" Version="2.0.0"
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+    <TemplateData>
+        <Name>EDM Solution</Name>
+        <Description>Visual Studio solution regarding EDM Project</Description>
+        <Icon>__TemplateIcon.ico</Icon>
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType></ProjectSubType>
+		<CreateNewFolder>false</CreateNewFolder>
+		<DefaultName>EDM.Solution</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<LocationField>Enabled</LocationField>
+    </TemplateData>
+	<TemplateContent>
+		<ProjectCollection>
+			<SolutionFolder Name="3D"/>
+			<SolutionFolder Name="Assembly" TargetFolderName="Assembly">
+				<ProjectItem>EDM.FoundationClasses.dll</ProjectItem>
+				<ProjectItem>Isei.Collections.dll</ProjectItem>
+				<ProjectItem>Isei.Collections.license.txt</ProjectItem>
+				<ProjectItem>Isei.Collections.xml</ProjectItem>
+				<ProjectItem>log4net.dll</ProjectItem>
+				<ProjectItem>log4net.license.txt</ProjectItem>
+				<ProjectItem>log4net.xmls</ProjectItem>
+				<ProjectItem>NHibernate.dll</ProjectItem>
+				<ProjectItem>NHibernate.license.txt</ProjectItem>
+				<ProjectItem>nunit.framework.dll</ProjectItem>
+				<ProjectItem>NUnitAsp.dll</ProjectItem>
+				<ProjectItem>Rhino.Mocks.dll</ProjectItem>
+				<ProjectItem>Rhino.Mocks.xmls</ProjectItem>
+			</SolutionFolder>
+			<ProjectTemplateLink ProjectName="$safeprojectname$.Entity">
+				ISEL.Entity.Template\entityTemplate.vstemplate
+			</ProjectTemplateLink>
+			<ProjectTemplateLink ProjectName="$safeprojectname$.Rtti">
+				ISEL.Rtti.Template\rttiTemplate.vstemplate
+			</ProjectTemplateLink>
+		</ProjectCollection>
+	</TemplateContent>
+</VSTemplate>
