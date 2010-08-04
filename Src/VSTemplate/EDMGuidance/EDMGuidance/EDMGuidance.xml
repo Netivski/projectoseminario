@@ -6,13 +6,13 @@
     Guid="f818f372-d817-44c5-8971-3568881611aa" 
     SchemaVersion="1.0">
 	<Recipes>
+    
     <Recipe Name="CreateSolution">
-      <Types>
-        <xi:include href="TypeAlias.xml" xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="xmlns(gax=http://schemas.microsoft.com/pag/gax-core) xpointer(gax:Types/gax:TypeAlias)" />
-      </Types>
+      <xi:include href="TypeAlias.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
       <Caption>Collects information for the new EDM solution.</Caption>
+      
       <Arguments>
-        
+
         <!-- User Input -->
         <Argument Name="AppCompanyName">
           <Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
@@ -32,7 +32,6 @@
             <MonitorArgument Name="RttiProjectSuffix" />
           </ValueProvider>
         </Argument>
-
         <Argument Name="EntityProjectSuffix">
           <ValueProvider Type="Evaluator" Expression="Entity" />
         </Argument>
@@ -45,6 +44,7 @@
         </Argument>
 
       </Arguments>
+      
       <GatheringServiceData>
         <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
           <Pages>
@@ -59,6 +59,7 @@
           </Pages>
         </Wizard>
       </GatheringServiceData>
+      
       <Actions>
         <Action Name="GetRttiProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
           <Input Name="ProjectName" RecipeArgument="RttiProjectName" />
@@ -72,7 +73,29 @@
           <Input Name="ReferringProject" ActionOutput="GetEntityProject.Project" />
           <Input Name="ReferencedProject" ActionOutput="GetRttiProject.Project" />
         </Action>
+        <!--<Action Name="MoveValidators" Type="EDM.Guidance.Actions.MoveValidatorsAction, EDMGuidance">
+          <Input Name="RTTIProjectName" RecipeArgument="RttiProjectName"/>
+        </Action>-->
       </Actions>
     </Recipe>
-	</Recipes>
+
+    <Recipe Name="SynchronizeMetadata">
+      <xi:include href="TypeAlias.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <Caption>Synchronizes solution with metadata file.</Caption>
+      
+      <Arguments>
+        <Argument Name="Company" Type="System.String"/>
+        <Argument Name="Project" Type="System.String"/>
+      </Arguments>
+      
+      <Actions>
+        <Action Name="SynchronizeEDM" Type="EDM.Guidance.Actions.SynchronizeMetadataAction, EDMGuidance">
+          <Input Name="AppCompany" RecipeArgument="Company"/>
+          <Input Name="AppProject" RecipeArgument="Project"/>
+        </Action>
+      </Actions>
+      
+    </Recipe>
+    
+  </Recipes>
 </GuidancePackage>
