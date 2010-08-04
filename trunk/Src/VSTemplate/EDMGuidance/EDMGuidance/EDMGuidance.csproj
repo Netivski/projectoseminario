@@ -50,6 +50,7 @@
     <NoWarn>1668</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EDM.Generator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -99,6 +100,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\MoveValidators.cs" />
+    <Compile Include="Actions\SynchronizeMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -155,6 +158,7 @@
     <Content Include="TypeAlias.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="_Lib\EDM.Generator.dll" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -184,13 +188,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Actions\" />
     <Folder Include="Converters\" />
     <Folder Include="CustomWizardPages\" />
     <Folder Include="Editors\" />
     <Folder Include="img\" />
     <Folder Include="References\" />
     <Folder Include="Snippets\CSharp\EDMGuidance\" />
+    <Folder Include="Templates\Doc\" />
     <Folder Include="Templates\Items\" />
     <Folder Include="Templates\Projects\" />
     <Folder Include="Templates\Text\" />
