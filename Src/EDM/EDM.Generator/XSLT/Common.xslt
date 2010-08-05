@@ -7,5 +7,8 @@
   <xsl:template name="lt">
     <xsl:text disable-output-escaping="yes"><![CDATA[<]]></xsl:text>
   </xsl:template>
+  <xsl:template name="and">
+    <xsl:text disable-output-escaping="yes"><![CDATA[&& ]]></xsl:text>
+  </xsl:template>
 
 </xsl:stylesheet>

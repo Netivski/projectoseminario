@@ -21,7 +21,7 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
 
     public <xsl:choose><xsl:when test="@type = 'dependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> bool IsValid()
     {
-      return <xsl:if test="@type = 'dependent'"> base.IsValid() <xsl:if test="count(fields/field) > 0"> <xsl:text disable-output-escaping="yes"><![CDATA[ &&]]></xsl:text> </xsl:if> </xsl:if> <xsl:apply-templates select="fields/field" mode="IsValid"/>;
+      return <xsl:if test="@type = 'dependent'"> base.IsValid() <xsl:if test="count(fields/field) > 0"> <xsl:call-template name="and"/></xsl:if></xsl:if> <xsl:apply-templates select="fields/field" mode="IsValid"/>;
     }
 
     public override int GetHashCode()
@@ -42,6 +42,6 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
     public virtual <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/> { get; set; }
   </xsl:template>
   
-  <xsl:template match="fields/field" mode="IsValid">Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"> <xsl:text disable-output-escaping="yes"><![CDATA[&&]]></xsl:text> </xsl:if></xsl:template>
+  <xsl:template match="fields/field" mode="IsValid">Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"> <xsl:call-template name="and"/> </xsl:if></xsl:template>
 
 </xsl:stylesheet>
