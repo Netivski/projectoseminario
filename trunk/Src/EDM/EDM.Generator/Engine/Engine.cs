@@ -42,6 +42,5 @@ namespace EDM.Generator.Engine
 
             context.SetOutput(resultDirectory, context.EDMFile.NameSpace);
         }
-
     }
 }

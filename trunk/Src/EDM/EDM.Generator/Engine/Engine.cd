@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="EDM.Generator.Engine.Engine">
-    <Position X="6.5" Y="1.5" Width="1.5" />
+    <Position X="8" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAICAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAEQAAAA=</HashCode>
       <FileName>Engine\Engine.cs</FileName>
@@ -9,42 +9,42 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="EDM.Generator.Engine.EngineFactory">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="10" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Engine\EngineFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EDM.Generator.Engine.CSharpEngine">
-    <Position X="3.5" Y="3.5" Width="1.5" />
+    <Position X="7" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAE=</HashCode>
       <FileName>Engine\CSharpEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EDM.Generator.Engine.JavaEngine">
-    <Position X="8.5" Y="4" Width="1.5" />
+    <Position X="9.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Engine\JavaEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EDM.Generator.Engine.AbstractStep">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+    <Position X="12.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Engine\AbstractStep.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EDM.Generator.Engine.EDMParserStep">
-    <Position X="11" Y="2.5" Width="1.5" />
+    <Position X="11.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAQIAAAA=</HashCode>
       <FileName>Engine\EDMParserStep.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EDM.Generator.Engine.GeneratedFileInfoStep">
-    <Position X="14" Y="2.5" Width="1.5" />
+    <Position X="13.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAIAgAA=</HashCode>
       <FileName>Engine\GeneratedFileInfoStep.cs</FileName>
@@ -54,14 +54,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="EDM.Generator.Engine.GeneratedFileInfo">
-    <Position X="17.5" Y="3.25" Width="1.5" />
+    <Position X="11.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAABAACBAAAgAAQAIAAAAAAAAAAAABAAAAAQ=</HashCode>
+      <HashCode>AAAAAEAAAABAACBAAAwAAQAMAAAAAAAAAAAABAAAAAQ=</HashCode>
       <FileName>Engine\GeneratedFileInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
-    <Position X="17.5" Y="2.5" Width="1.5" />
+    <Position X="13.25" Y="5.75" Width="1.5" />
     <NestedTypes>
       <Struct Name="System.Collections.Generic.List&lt;T&gt;.Enumerator" Collapsed="true">
         <TypeIdentifier />
@@ -69,7 +69,7 @@
       </Struct>
     </NestedTypes>
     <TypeIdentifier />
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Font Name="Tahoma" Size="8.25" />
 </ClassDiagram>
