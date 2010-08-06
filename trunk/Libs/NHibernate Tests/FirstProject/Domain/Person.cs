@@ -11,6 +11,8 @@ namespace FirstProject
         public String Name { get; set; }
         public String Address { get; set; }
         public int Age { get; set; }
+        public int ShowSize { get; set; }
+        public int Prop1 { get; set; }
 
         public Person() { }
     }

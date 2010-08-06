@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
 
-  <session-factory>
-    <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
-    <property name="dialect">NHibernate.Dialect.MsSql2008</property>
-    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
-    <property name="connection.connection_string">Server=localhost;Initial Catalog=ORM_DB;User Id=sa;Password=root</property>
-    <property name="show_sql">true</property>
-  </session-factory>
+  <hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+    <session-factory>
+      <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+      <property name="dialect">NHibernate.Dialect.MsSql2000Dialect</property>
+      <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+      <property name="connection.connection_string">Server=127.0.0.1\SQLSERVER;Initial Catalog=ORM_DB;User Id=sa;Password=root</property>
+      <property name="show_sql">true</property>
+      <!--<mapping assembly="FirstProject"/>-->
+      <mapping file="C:\Void\ISEL\6º Semestre\PS - Projecto e Seminário\Repositório\trunk\Libs\NHibernate Tests\FirstProject\Mappings\Person.hbm.xml"/>
+    </session-factory>
+  </hibernate-configuration>
 </hibernate-configuration>
