@@ -49,7 +49,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Album.cs" />
+    <Compile Include="Artista.cs" />
+    <Compile Include="Colectanea.cs" />
+    <Compile Include="DataInterfaces\Base\IDaoFactoryBase.cs" />
+    <Compile Include="DataInterfaces\Base\IDaoInterface.cs" />
+    <Compile Include="DataInterfaces\IDaoFactory.cs" />
+    <Compile Include="DataInterfaces\IDaoInterface.cs" />
+    <Compile Include="Data\Base\NHibernateDaoFactoryBase.cs" />
+    <Compile Include="Data\NHibernateDaoFactory.cs" />
+    <Compile Include="Domain\AlbumDomain.cs" />
+    <Compile Include="Domain\ArtistaDomain.cs" />
+    <Compile Include="Domain\ColectaneaDomain.cs" />
+    <Compile Include="Domain\EditorDomain.cs" />
+    <Compile Include="Domain\LPDomain.cs" />
+    <Compile Include="Domain\MusicaDomain.cs" />
+    <Compile Include="Domain\SingleDomain.cs" />
+    <Compile Include="Editor.cs" />
+    <Compile Include="LP.cs" />
+    <Compile Include="Musica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Single.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ISEL.Sample.Rtti\ISEL.Sample.Rtti.csproj">
@@ -58,9 +78,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataInterfaces\Base\" />
-    <Folder Include="Data\Base\" />
-    <Folder Include="Domain\" />
+    <Content Include="Domain\Album.hbm.xml" />
+    <Content Include="Domain\Artista.hbm.xml" />
+    <Content Include="Domain\Colectanea.hbm.xml" />
+    <Content Include="Domain\Editor.hbm.xml" />
+    <Content Include="Domain\hibernate.cfg.xml" />
+    <Content Include="Domain\LP.hbm.xml" />
+    <Content Include="Domain\Musica.hbm.xml" />
+    <Content Include="Domain\Single.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

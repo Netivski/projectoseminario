@@ -6,7 +6,7 @@
 		<string name="nomeArtista"/>
 		<string name="pais" maxLength="3" pattern="[A-Z]{3}"/>
 		<string name="tituloAlbum" maxLength="100"/>
-		<datetime name="dataEdicaoLP"/>
+		<DateTime name="dataEdicaoLP"/>
 		<string name="generoMusical">
 			<enumeration>Rock</enumeration>
 			<enumeration>Pop</enumeration>
