@@ -52,18 +52,26 @@ namespace EDM.FoundationClasses.FoundationType
 
         public List<T> Enumeration { get{ return enumeration;} }
 
-        public T MaxInclusive { get { return maxInclusive == null ? default(T) : maxInclusive.Value; } }
+        //public T MaxInclusive { get { return maxInclusive == null ? default(T) : maxInclusive.Value; } }
 
-        public T MaxExclusive { get { return maxExclusive == null ? default(T) : maxExclusive.Value; } }
+        //public T MaxExclusive { get { return maxExclusive == null ? default(T) : maxExclusive.Value; } }
 
-        public T MinInclusive { get { return minInclusive == null ? default(T) : minInclusive.Value; } }
+        //public T MinInclusive { get { return minInclusive == null ? default(T) : minInclusive.Value; } }
 
-        public T MinExclusive { get { return minExclusive == null ? default(T) : minExclusive.Value; } }
+        //public T MinExclusive { get { return minExclusive == null ? default(T) : minExclusive.Value; } }
 
-        public WhiteSpaceEnum? WhiteSpace {  get { return whiteSpace; }  }
+        public NullableType<T> MaxInclusive { get { return maxInclusive; } }
 
-        public short? TotalDigits {  get { return totalDigits; } }
+        public NullableType<T> MaxExclusive { get { return maxExclusive; } }
 
-        public short? FractionDigits { get { return fractionDigits; } }
+        public NullableType<T> MinInclusive { get { return minInclusive; } }
+
+        public NullableType<T> MinExclusive { get { return minExclusive; } }
+
+        public WhiteSpaceEnum? WhiteSpace {  get { return whiteSpace.GetValueOrDefault(); }  }
+
+        public short? TotalDigits {  get { return totalDigits.GetValueOrDefault(); } }
+
+        public short? FractionDigits { get { return fractionDigits.GetValueOrDefault(); } }
     }
 }

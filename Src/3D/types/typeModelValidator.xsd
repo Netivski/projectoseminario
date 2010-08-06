@@ -143,7 +143,7 @@
 				<xs:element name="float" type="t_Float" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="double" type="t_Double" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="string" type="t_String" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element name="datetime" type="t_Datetime" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="DateTime" type="t_Datetime" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="generatedFileName" type="xs:string" use="required"/>

@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEL.Sample.Ws", "ISEL.Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEL.Sample.Services", "ISEL.Sample.Services\ISEL.Sample.Services.csproj", "{7E29FB31-F19E-40DC-8F96-8FBF9FDCBC40}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{12FC0B79-363A-46DE-A1E4-C43ED9EF93DD}"
+	ProjectSection(SolutionItems) = preProject
+		Persistence\hibernate.cfg.xml = Persistence\hibernate.cfg.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

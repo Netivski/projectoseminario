@@ -36,22 +36,22 @@ namespace EDM.FoundationClasses.FoundationType
         /// <summary>
         /// [Definition:]   maxInclusive is the ·inclusive upper bound· of the ·value space· for a datatype with the ·ordered· property. The value of maxInclusive ·must· be in the ·value space· of the ·base type·. 
         /// </summary>
-        T MaxInclusive { get; }
+        NullableType<T> MaxInclusive { get; }
 
         /// <summary>
         /// [Definition:]   maxExclusive is the ·exclusive upper bound· of the ·value space· for a datatype with the ·ordered· property. The value of maxExclusive  ·must· be in the ·value space· of the ·base type· or be equal to {value} in {base type definition}. 
         /// </summary>
-        T MaxExclusive { get; }
+        NullableType<T> MaxExclusive { get; }
 
         /// <summary>
         /// [Definition:]   minInclusive is the ·inclusive lower bound· of the ·value space· for a datatype with the ·ordered· property. The value of minInclusive ·must· be in the ·value space· of the ·base type·. 
         /// </summary>
-        T MinInclusive { get; }
+        NullableType<T> MinInclusive { get; }
 
         /// <summary>
         /// [Definition:]   minExclusive is the ·exclusive lower bound· of the ·value space· for a datatype with the ·ordered· property. The value of minExclusive  ·must· be in the ·value space· of the ·base type· or be equal to {value} in {base type definition}. 
         /// </summary>        
-        T MinExclusive { get; }
+        NullableType<T> MinExclusive { get; }
 
         /// <summary>
         /// [Definition:]   whiteSpace constrains the ·value space· of types ·derived· from string such that the various behaviors specified in Attribute Value Normalization in [XML 1.0 (Second Edition)] are realized. The value of whiteSpace must be one of {preserve, replace, collapse}.
