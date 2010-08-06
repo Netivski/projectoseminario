@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="EDM.FoundationClasses.FoundationType.NullableType&lt;T&gt;">
+    <Position X="1" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAA=</HashCode>
+      <FileName>FoundationType\NullableType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.FoundationClasses.FoundationType.Validator">
+    <Position X="2.75" Y="5.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>FoundationType\Validator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.FoundationClasses.FoundationType.UserType&lt;T&gt;">
+    <Position X="7.25" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAABAAAEAQAgBQAgoAEBIKCYAQAAmAgAA=</HashCode>
+      <FileName>FoundationType\UserType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="EDM.FoundationClasses.FoundationType.IUserType&lt;T&gt;">
+    <Position X="3.5" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAABQAgIAAAAKAYAQAAgAgAA=</HashCode>
+      <FileName>FoundationType\IUserType.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="EDM.FoundationClasses.FoundationType.WhiteSpaceEnum">
+    <Position X="1" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAACA=</HashCode>
+      <FileName>FoundationType\WhiteSpaceEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
