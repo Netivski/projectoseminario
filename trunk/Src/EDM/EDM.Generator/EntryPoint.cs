@@ -12,7 +12,9 @@ namespace EDM.Generator
             IEngine engine = EngineFactory.GetEngine(target, environment);
 
             engine.SetEDMFile(edmFilePath);
-            engine.SetTransform(Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Generator\XSLT")); //??
+
+            engine.SetTransform("EDM.Generator.XSLT"); //??
+            //engine.SetTransform(Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Generator\XSLT")); //??
             engine.SetOutput(genResultPath);
             engine.Generate();
         }
