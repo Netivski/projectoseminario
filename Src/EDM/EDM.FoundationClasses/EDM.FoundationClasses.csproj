@@ -79,7 +79,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="main.cd" />
+    <None Include="FoundationType\Foundation Type.cd" />
     <None Include="sign_key.snk" />
   </ItemGroup>
   <ItemGroup>
