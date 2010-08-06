@@ -47,6 +47,12 @@ namespace EDM.Generator.Context
             get { return Path.Combine(resultDirectory.FullName, Path.Combine(EntityProjectPath, "Domain")); }
         }
 
+        //For testing purposes
+        public string PersistencePath
+        {
+            get { return Path.Combine(resultDirectory.FullName, "Persistence"); }
+        }
+
         public string EntityDataInterfacesPath
         {
             get { return Path.Combine(resultDirectory.FullName, Path.Combine(EntityProjectPath, "DataInterfaces")); }
