@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="a1e2e4ac-b6ee-42a7-8d4a-8271925ea9d0" name="Ricardo Neto@GUMMIE 2010-03-10 14:19:04" runUser="Gummie\Ricardo Neto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Default Run Configuration" id="f16732d0-4ee3-40f2-b3f7-9af39dd0dbde">
+    <Deployment runDeploymentRoot="c:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\TestResults\Ricardo Neto_GUMMIE 2010-03-10 14_19_04" />
+    <Hosts skipUnhostableTests="false" />
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Error">
+    <Counters total="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="1" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="GUMMIE" outcome="Error" timestamp="2010-03-10T14:19:04.6819838+00:00">
+        <Text>Failed to queue test run 'Ricardo Neto@GUMMIE 2010-03-10 14:19:04': Test Run deployment issue: The location of the file or directory 'c:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\unittests.dll.config' is not trusted.</Text>
+        <Exception>Microsoft.VisualStudio.TestTools.TestManagement.ExecutionException: Test Run deployment issue: The location of the file or directory 'c:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\unittests.dll.config' is not trusted.
+   at Microsoft.VisualStudio.TestTools.TestManagement.DeploymentManager.DoDeployment(TestRun run, FileCopyService fileCopyService)
+   at Microsoft.VisualStudio.TestTools.TestManagement.ControllerProxy.SetupTestRun(TestRun run, Boolean isNewTestRun, FileCopyService&amp; fileCopyService)
+   at Microsoft.VisualStudio.TestTools.TestManagement.ControllerProxy.QueueTestRunWorker(Object state)</Exception>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <Times creation="2010-03-10T14:19:04.2719676+00:00" queuing="2010-03-10T14:19:04.2719676+00:00" start="2010-03-10T14:19:04.2719676+00:00" finish="2010-03-10T14:19:04.6939843+00:00" />
+  <TestDefinitions>
+    <UnitTest name="AlunoTriesPermissionA_Declarative" storage="unittests.dll" id="cb80901f-d401-9c60-db00-756361a50adb">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <TestMethod codeBase="c:/ISEL/_mobile/ISEL/5º Semestre/SI - Segurança Informática/Séries/2ª Série/SI_Serie2/UnitTests/bin/Debug/UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter" className="UnitTests.UnitTest1, UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AlunoTriesPermissionA_Declarative" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="cb80901f-d401-9c60-db00-756361a50adb" executionId="255c12dc-839c-4729-8980-3299de93bc34" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="255c12dc-839c-4729-8980-3299de93bc34" testId="cb80901f-d401-9c60-db00-756361a50adb" testName="AlunoTriesPermissionA_Declarative" computerName="GUMMIE" duration="00:00:00" startTime="0001-01-01T00:00:00.0000000+00:00" endTime="0001-01-01T00:00:00.0000000+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+    </UnitTestResult>
+  </Results>
+</TestRun>

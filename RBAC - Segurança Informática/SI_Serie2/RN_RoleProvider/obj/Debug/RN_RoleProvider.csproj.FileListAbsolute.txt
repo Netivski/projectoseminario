@@ -1,0 +1,21 @@
+C:\ISEL\SI\SI_Serie2\RN_RoleProvider\obj\Debug\ResolveAssemblyReference.cache
+C:\ISEL\SI\SI_Serie2\RN_RoleProvider\bin\Debug\RN_RoleProvider.dll
+C:\ISEL\SI\SI_Serie2\RN_RoleProvider\bin\Debug\RN_RoleProvider.pdb
+C:\ISEL\SI\SI_Serie2\RN_RoleProvider\obj\Debug\RN_RoleProvider.dll
+C:\ISEL\SI\SI_Serie2\RN_RoleProvider\obj\Debug\RN_RoleProvider.pdb
+C:\ISEL\SI\SI_Serie2\RN_RoleProvider\bin\Debug\DataLayer.dll
+C:\ISEL\SI\SI_Serie2\RN_RoleProvider\bin\Debug\DataLayer.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\RN_RoleProvider\bin\Debug\RN_RoleProvider.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\RN_RoleProvider\bin\Debug\RN_RoleProvider.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\RN_RoleProvider\bin\Debug\DataLayer.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\RN_RoleProvider\bin\Debug\DataLayer.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\RN_RoleProvider\obj\Debug\ResolveAssemblyReference.cache
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\RN_RoleProvider\obj\Debug\RN_RoleProvider.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\RN_RoleProvider\obj\Debug\RN_RoleProvider.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\RN_RoleProvider\bin\Debug\RN_RoleProvider.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\RN_RoleProvider\bin\Debug\RN_RoleProvider.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\RN_RoleProvider\bin\Debug\DataLayer.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\RN_RoleProvider\bin\Debug\DataLayer.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\RN_RoleProvider\obj\Debug\ResolveAssemblyReference.cache
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\RN_RoleProvider\obj\Debug\RN_RoleProvider.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\RN_RoleProvider\obj\Debug\RN_RoleProvider.pdb
