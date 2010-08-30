@@ -1,0 +1,5 @@
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\VSSolution\obj\Debug\ResolveAssemblyReference.cache
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\VSSolution\bin\Debug\VSSolution.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\VSSolution\bin\Debug\VSSolution.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\VSSolution\obj\Debug\VSSolution.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\VSSolution\obj\Debug\VSSolution.pdb

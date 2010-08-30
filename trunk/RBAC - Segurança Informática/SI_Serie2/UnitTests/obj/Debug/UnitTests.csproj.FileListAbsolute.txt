@@ -1,0 +1,14 @@
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\UnitTests.dll.config
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\UnitTests.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\UnitTests.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\PDP.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\VSSolution.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\DataLayer.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\RN_RoleProvider.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\PDP.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\DataLayer.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\VSSolution.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\bin\Debug\RN_RoleProvider.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\obj\Debug\ResolveAssemblyReference.cache
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\obj\Debug\UnitTests.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\UnitTests\obj\Debug\UnitTests.pdb

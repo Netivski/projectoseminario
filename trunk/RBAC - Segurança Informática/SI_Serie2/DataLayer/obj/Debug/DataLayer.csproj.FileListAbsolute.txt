@@ -1,0 +1,20 @@
+C:\ISEL\SI\SI_Serie2\DataLayer\bin\Debug\DataLayer.dll
+C:\ISEL\SI\SI_Serie2\DataLayer\bin\Debug\DataLayer.pdb
+C:\ISEL\SI\SI_Serie2\DataLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\ISEL\SI\SI_Serie2\DataLayer\obj\Debug\DataLayer.dll
+C:\ISEL\SI\SI_Serie2\DataLayer\obj\Debug\DataLayer.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\DataLayer\bin\Debug\DataLayer.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\DataLayer\bin\Debug\DataLayer.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\DataLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\DataLayer\obj\Debug\DataLayer.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\VSSolution\SI_Serie2\DataLayer\obj\Debug\DataLayer.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\bin\Debug\DataLayer.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\bin\Debug\DataLayer.pdb
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\obj\Debug\DataLayer.dll
+C:\ISEL\_mobile\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\obj\Debug\DataLayer.pdb
+C:\Void\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\bin\Debug\DataLayer.dll
+C:\Void\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\bin\Debug\DataLayer.pdb
+C:\Void\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Void\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\obj\Debug\DataLayer.dll
+C:\Void\ISEL\5º Semestre\SI - Segurança Informática\Séries\2ª Série\SI_Serie2\DataLayer\obj\Debug\DataLayer.pdb
