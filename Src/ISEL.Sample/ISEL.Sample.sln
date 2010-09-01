@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEL.Sample.Fe", "ISEL.Sample.Fe\ISEL.Sample.Fe.csproj", "{808BECC4-30E1-4A56-B3A6-8FE003175707}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEL.Sample.Rtti", "ISEL.Sample.Rtti\ISEL.Sample.Rtti.csproj", "{9E8F6B15-A4B1-4563-8B36-809CF9A5CECF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEL.Sample.Entity", "ISEL.Sample.Entity\ISEL.Sample.Entity.csproj", "{74732A93-5C0F-498E-AB40-42E4231CBB7F}"
@@ -22,10 +20,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{808BECC4-30E1-4A56-B3A6-8FE003175707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{808BECC4-30E1-4A56-B3A6-8FE003175707}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{808BECC4-30E1-4A56-B3A6-8FE003175707}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{808BECC4-30E1-4A56-B3A6-8FE003175707}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E8F6B15-A4B1-4563-8B36-809CF9A5CECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E8F6B15-A4B1-4563-8B36-809CF9A5CECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E8F6B15-A4B1-4563-8B36-809CF9A5CECF}.Release|Any CPU.ActiveCfg = Release|Any CPU

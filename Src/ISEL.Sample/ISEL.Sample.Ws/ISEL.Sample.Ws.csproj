@@ -81,15 +81,74 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AlbumWs.asmx" />
+    <Content Include="ArtistaWs.asmx" />
+    <Content Include="ColectaneaWs.asmx" />
+    <Content Include="EditorWs.asmx" />
+    <Content Include="LPWs.asmx" />
+    <Content Include="MusicaWs.asmx" />
     <Content Include="Services.asmx" />
+    <Content Include="SingleWs.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumWs.asmx.cs">
+      <DependentUpon>AlbumWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ArtistaWs.asmx.cs">
+      <DependentUpon>ArtistaWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\AlbumBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\ArtistaBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\ColectaneaBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\EditorBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\LPBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\MusicaBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\Service.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\SingleBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColectaneaWs.asmx.cs">
+      <DependentUpon>ColectaneaWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EditorWs.asmx.cs">
+      <DependentUpon>EditorWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LPWs.asmx.cs">
+      <DependentUpon>LPWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MusicaWs.asmx.cs">
+      <DependentUpon>MusicaWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Services.asmx.cs">
       <DependentUpon>Services.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleWs.asmx.cs">
+      <DependentUpon>SingleWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ISEL.Sample.Entity\ISEL.Sample.Entity.csproj">

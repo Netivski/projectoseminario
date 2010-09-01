@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="3dValidator.xsd" companyName="ISEL" projectName="Sample">
+<solution xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="3dValidator.xsd" 
+          companyName="ISEL" 
+          projectName="Sample">
 	<!--Dominio de tipos-->
 	<userTypes generatedFileName="userTypes">
 		<int name="identificador" maxInclusive="5000"/>
@@ -32,7 +34,7 @@
 		<!--Entidade base Artista(idArtista, nome, nacionalidade) Relação 1-* com Musica-->
 		<entity type="base" name="Artista" generatedFileName="Artista">
 			<fields>
-				<field type="identificador" name="idArtista" unique="true"/>
+				<field type="identificador" name="idArtista" unique="true" nillable="true"/>
 				<field type="nomeArtista" name="nome"/>
 				<field type="pais" name="nacionalidade"/>
 			</fields>
@@ -82,9 +84,9 @@
 				<field type="generoMusical" name="genero"/>
 			</fields>
 			<relations>
-				<oneToOne entity="Single" name="single" maxOccurs="1" minOccurs="1"/>
-				<oneToOne entity="LP" name="LP" maxOccurs="1" minOccurs="1"/>
-				<manyToMany entity="Colectanea" name="colectaneas" maxOccurs="unbounded" minOccurs="0"/>
+				<oneToOne entity="Single" name="Single" maxOccurs="1" minOccurs="1"/>
+				<oneToOne entity="LP" name="Longplay" maxOccurs="1" minOccurs="1"/>
+				<manyToMany entity="Colectanea" name="Colectaneas" maxOccurs="unbounded" minOccurs="0"/>
 			</relations>
 		</entity>
 		<!--Entidade base Editor(idEditor, nome, pais) Relação 1-* com Album-->
