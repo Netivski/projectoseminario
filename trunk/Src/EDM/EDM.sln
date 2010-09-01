@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDM.PlugInUI", "EDM.PlugInU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDM.PlugIn", "EDM.PlugIn\EDM.PlugIn.csproj", "{42266BFD-2680-4F51-828B-094B9E987374}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDM.Tester", "EDM.Tester\EDM.Tester.csproj", "{D9476FD6-BCED-4A10-A8A4-F90247DBA791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{42266BFD-2680-4F51-828B-094B9E987374}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42266BFD-2680-4F51-828B-094B9E987374}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42266BFD-2680-4F51-828B-094B9E987374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9476FD6-BCED-4A10-A8A4-F90247DBA791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9476FD6-BCED-4A10-A8A4-F90247DBA791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9476FD6-BCED-4A10-A8A4-F90247DBA791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9476FD6-BCED-4A10-A8A4-F90247DBA791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
