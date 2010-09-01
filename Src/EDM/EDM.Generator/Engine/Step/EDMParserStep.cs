@@ -8,8 +8,10 @@ namespace EDM.Generator.Engine.Step
 {
     internal class EDMParserStep: AbstractStep 
     {
-        const string RTTI_PROJECT_NAME   = "Rtti";
-        const string ENTITY_PROJECT_NAME = "Entity";
+        const string RTTI_PROJECT_NAME    = "Rtti";
+        const string ENTITY_PROJECT_NAME  = "Entity";
+        const string WS_PROJECT_NAME      = "Ws";
+        const string SERVICE_PROJECT_NAME = "Services";
 
         public override void GenerateStep( GeneratorContext context )
         {
@@ -52,12 +54,42 @@ namespace EDM.Generator.Engine.Step
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "assemblyName"     , string.Format("{0}.{1}"    , assemblyName, ENTITY_PROJECT_NAME));
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nameSpace"        , string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "name")));
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "baseNameSpace"    , string.Format("{0}.{1}"    , nameSpace, ENTITY_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "servicesNameSpace", string.Format("{0}.{1}"    , nameSpace, SERVICE_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "wsNameSpace"      , string.Format("{0}.{1}"    , nameSpace, WS_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "wsHeaderNameSpace", "http://tempuri.org/");
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "rttiNameSpace"    , rttiNameSpace);
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "generatedFileName", Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "name"));
 
-                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "targetDomainPath", context.Output.EntityDomainPath);
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "targetDomainPath" , context.Output.EntityDomainPath);
             }
 
+            //002.5 - oneToOne Relation
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, context.EDMFile.XPath.OneToOneRelation);
+            foreach (XmlNode node in nodeList)
+            {
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nameSpace"   , string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "entity")));
+            }
+
+            //002.6 - oneToMany Relation
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, context.EDMFile.XPath.OneToManyRelation);
+            foreach (XmlNode node in nodeList)
+            {
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nameSpace"   , string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "entity")));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "fkName"      , string.Concat( Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node.ParentNode.ParentNode, "name"), "Id"));
+            }
+
+            //002.7 - ManyToMany Relation
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, context.EDMFile.XPath.ManyToManyRelation);
+            foreach (XmlNode node in nodeList)
+            {
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nameSpace"   , string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "entity")));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "tableName"   , string.Concat(Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node.ParentNode.ParentNode, "name"), Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "entity")));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "parentField" , string.Concat( Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node.ParentNode.ParentNode, "name"), "Id"));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "childField"  , string.Concat( Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "entity"), "Id"));                    
+            }
         }
     }
 }

@@ -48,5 +48,26 @@ namespace EDM.Generator.Context
                 return "./fields";
             }
         }
+        public string OneToOneRelation
+        {
+            get
+            {
+                return "//oneToOne";
+            }
+        }
+        public string OneToManyRelation
+        {
+            get
+            {
+                return "//oneToMany";
+            }
+        }
+        public string ManyToManyRelation
+        {
+            get
+            {
+                return "//manyToMany";
+            }
+        }
     }
 }

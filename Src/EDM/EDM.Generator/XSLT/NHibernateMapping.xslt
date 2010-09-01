@@ -16,7 +16,19 @@
 
           <xsl:call-template name="NewLine" />
           <xsl:call-template name="Tab3" />
-          <generator class="assigned" />
+          <xsl:choose>
+            <xsl:when test="count(relations/oneToOne) != 0">
+              <generator class="foreign">                
+                <xsl:apply-templates select="relations/oneToOne" mode="generator"/>
+                <xsl:call-template name="NewLine" />
+                <xsl:call-template name="Tab3" />
+              </generator>                          
+            </xsl:when>
+            <xsl:otherwise>
+              <generator class="assigned" />
+            </xsl:otherwise>
+          </xsl:choose>
+          
 
           <xsl:call-template name="NewLine" />
           <xsl:call-template name="Tab2" />
@@ -25,6 +37,14 @@
 
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab1" />
+
+        <xsl:apply-templates select="relations/oneToOne"   mode="oneToOne" />
+        <xsl:apply-templates select="relations/oneToMany"  mode="oneToMany" />
+        <xsl:apply-templates select="relations/manyToMany" mode="manyToMany" />
+
+        <xsl:call-template name="NewLine" />
+        <xsl:call-template name="Tab1" />
+
       </class>
 
       <xsl:call-template name="NewLine" />
@@ -34,7 +54,43 @@
   <xsl:template match="field" xmlns="urn:nhibernate-mapping-2.2">
     <xsl:call-template name="NewLine" />
     <xsl:call-template name="Tab2" />
-    <property name="{@name}" column="{@name}" not-null="true"/>
+    <property name="{@name}" column="{@name}" not-null="{@nillable}"/>
+  </xsl:template>
+
+  <xsl:template match="oneToOne" mode="generator" xmlns="urn:nhibernate-mapping-2.2">
+    <xsl:call-template name="NewLine" />
+    <xsl:call-template name="Tab3" />
+    <xsl:call-template name="Tab2" />
+    <param name="property">
+      <xsl:value-of select="@name"></xsl:value-of>
+    </param>    
+  </xsl:template>
+
+
+  <xsl:template match="oneToOne" mode="oneToOne" xmlns="urn:nhibernate-mapping-2.2">
+    <xsl:call-template name="NewLine" />
+    <xsl:call-template name="Tab2" />
+    <one-to-one name="{@name}" class="{@nameSpace}, {@assemblyName}"/>
+
+  </xsl:template>
+
+  <xsl:template match="oneToMany" mode="oneToMany" xmlns="urn:nhibernate-mapping-2.2">
+    <xsl:call-template name="NewLine" />
+    <xsl:call-template name="Tab2" />
+    <bag name="{@name}" table="{@entity}" inverse="true"> <xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />      
+      <key column="{@fkName}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />
+      <one-to-many class="{@nameSpace}, {@assemblyName}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab2" />
+    </bag>
+
+  </xsl:template>
+
+  <xsl:template match="manyToMany" mode="manyToMany" xmlns="urn:nhibernate-mapping-2.2">
+    <xsl:call-template name="NewLine" />
+    <xsl:call-template name="Tab2" />
+    <bag name="{@name}" table="{@tableName}" inverse="true"> <xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />      
+      <key column="{@parentField}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />
+      <many-to-many column="{@childField}" class="{@nameSpace}, {@assemblyName}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab2" />
+    </bag>
   </xsl:template>
 
 </xsl:stylesheet>

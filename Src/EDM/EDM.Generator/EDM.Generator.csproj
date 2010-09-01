@@ -114,6 +114,21 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="XSLT\ServicesBase.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XSLT\Services.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XSLT\WsBase.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XSLT\WsAsmxCs.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XSLT\WsAsmx.xslt" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Engine\XML\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
