@@ -53,11 +53,12 @@
 			<xs:element name="field" type="t_field" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- Definição do elemento que representa uma relação 1-1 -->
+
+  <!-- Definição do elemento que representa uma relação 1-1 -->
 	<xs:complexType name="t_oneToOne">
-		<xs:attribute name="name" type="xs:string" use="required"/>
-		<xs:attribute name="entity" type="xs:string" use="required"/>
-		<xs:attribute name="minOccurs" type="t_one" use="required"/>
+		<xs:attribute name="name"      type="xs:string" use="required"/>
+    <xs:attribute name="entity"    type="xs:string" use="required"/>
+    <xs:attribute name="minOccurs" type="t_one" use="required"/>
 		<xs:attribute name="maxOccurs" type="t_zeroOrOne" use="required"/>
 	</xs:complexType>
 	<!-- Definição do elemento que representa uma relação 1-n -->
