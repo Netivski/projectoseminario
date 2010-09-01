@@ -13,8 +13,7 @@ namespace EDM.Generator
 
             engine.SetEDMFile(edmFilePath);
 
-            engine.SetTransform("EDM.Generator.XSLT"); //??
-            //engine.SetTransform(Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Generator\XSLT")); //??
+            engine.SetTransform(); 
             engine.SetOutput(genResultPath);
             engine.Generate();
         }

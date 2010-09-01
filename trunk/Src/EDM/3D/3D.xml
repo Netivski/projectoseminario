@@ -53,8 +53,8 @@
         <oneToMany entity="Musica" name="musicas" minOccurs="1" maxOccurs="unbounded"/>
       </relations>
 		</entity>
-    <!--Entidade dependent de Album, Single() Relação 1-1 com Musica-->
-    <entity type="dependent" name="Single" baseEntity="Album" generatedFileName="Single">
+    <!--Entidade dependent de Album, EP() Relação 1-1 com Musica-->
+    <entity type="dependent" name="EP" baseEntity="Album" generatedFileName="EP">
       <fields></fields>
     </entity>
     <!--Entidade dependent de Album, Colectanea(ano, patrocinador) Relação *-* com Musica-->
@@ -67,7 +67,7 @@
         <manyToMany entity="Musica" name="Musicas" minOccurs="1" maxOccurs="unbounded"/>
       </relations>
 		</entity>
-    <!--Entidade base Musica(idMusica, nome, duracao, genero) Relações: 1-1 com Single, 1-1 com LP, *-* com Colectanea-->
+    <!--Entidade base Musica(idMusica, nome, duracao, genero) Relações: 1-1 com EP, 1-1 com LP, *-* com Colectanea-->
 		<entity type="base" name="Musica" generatedFileName="Musica">
 			<fields>
 				<field type="identificador" name="idMusica" unique="true"/>
@@ -76,7 +76,7 @@
 				<field type="generoMusical" name="genero"/>        
 			</fields>
       <relations>
-        <oneToOne entity="Single" name="single" maxOccurs="1" minOccurs="0"/>
+        <oneToOne entity="EP" name="EP" maxOccurs="1" minOccurs="0"/>
         <oneToOne entity="LP" name="LP" maxOccurs="1" minOccurs="1"/>
         <manyToMany entity="Colectanea" name="colectaneas" maxOccurs="unbounded" minOccurs="0"/>
       </relations>

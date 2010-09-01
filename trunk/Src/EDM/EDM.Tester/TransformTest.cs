@@ -15,8 +15,6 @@ namespace EDM.Tester
     [TestClass]
     public class TransformTest
     {
-        private static string xsltPath;
-
         public TransformTest(){}
 
         private TestContext testContextInstance;
@@ -61,20 +59,19 @@ namespace EDM.Tester
 
         [ClassInitialize]
         public static void init(TestContext ctx)
-        {
-             xsltPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\XSLT");
+        {             
         }
         
         [TestMethod]
         public void transformNotNull()
         {
-            Transform t = new Transform(xsltPath);
+            Transform t = new Transform();
             Assert.IsNotNull(t);
         }
         [TestMethod]
         public void canGetXslCompiledTransform()
         {
-            Transform t = new Transform(xsltPath);
+            Transform t = new Transform();
             XslCompiledTransform trans = t.GetTemplateFile("Entity");
             Assert.IsNotNull(trans);
         }

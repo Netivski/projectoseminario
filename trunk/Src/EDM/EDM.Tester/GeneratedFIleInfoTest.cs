@@ -91,7 +91,7 @@ namespace EDM.Tester
             context = new GeneratorContext();
             context.SetEDMFile(edmFilePath);
             context.SetOutput(outputPath, "TestNameSpace");
-            context.SetTransform(xsltPath);
+            context.SetTransform();
         }
 
         [TestMethod]

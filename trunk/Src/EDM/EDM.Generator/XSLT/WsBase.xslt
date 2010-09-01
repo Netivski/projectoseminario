@@ -3,6 +3,7 @@
   <xsl:include href="Common.xslt"/>
   <xsl:output method="text" indent="yes"/>
   <xsl:template match="entity">
+using System;    
 using System.Web.Services;
 using <xsl:value-of select="@baseNameSpace"/>;
 using <xsl:value-of select="@servicesNameSpace"/>;
@@ -14,41 +15,34 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class <xsl:value-of select="@name"/>BaseWs : System.Web.Services.WebService
     {
-        static <xsl:value-of select="@name"/>Service bp = null;
-
-        static <xsl:value-of select="@name"/>BaseWs()
-        {
-            bp = new <xsl:value-of select="@name"/>Service();
-        }
-
         [WebMethod]
         public long Create(<xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
         {
-            return bp.Create(<xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
+            return <xsl:value-of select="@name"/>Service.Create(<xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
         }
 
         [WebMethod]
         public bool Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
         {
-            return bp.Update(recordId, <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
+            return <xsl:value-of select="@name"/>Service.Update(recordId, <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
         }
 
         [WebMethod]
         public <xsl:value-of select="@name"/> Read(long recordId)
         {
-            return bp.Read(recordId);
+            return <xsl:value-of select="@name"/>Service.Read(recordId);
         }
 
         [WebMethod]
         public <xsl:value-of select="@name"/> ReadByUnique()
         {
-            return bp.ReadByUnique();
+            return <xsl:value-of select="@name"/>Service.ReadByUnique();
         }
 
         [WebMethod]
         public bool Delete(long recordId)
         {
-            return bp.Delete(recordId);
+            return <xsl:value-of select="@name"/>Service.Delete(recordId);
         }
     }
 }

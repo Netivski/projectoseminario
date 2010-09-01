@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
 using System.IO;
 using System.Xml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EDM.Generator.Engine.Step;
 using EDM.Generator.Context;
 using EDM.Generator.Utils.XML;
-using EDM.Generator.Context;
 
 namespace EDM.Tester
 {
@@ -94,7 +90,7 @@ namespace EDM.Tester
             context = new GeneratorContext();
             context.SetEDMFile(edmFilePath);
             context.SetOutput(outputPath, "TestNameSpace");
-            context.SetTransform(xsltPath);
+            context.SetTransform();
         }
 
         [TestMethod]
