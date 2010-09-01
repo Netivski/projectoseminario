@@ -30,9 +30,9 @@ namespace EDM.Generator.Engine
             context.SetEDMFile(edmFilePath);
         }
 
-        public void SetTransform(string xsltPath)
+        public void SetTransform()
         {
-            context.SetTransform(xsltPath);
+            context.SetTransform();
         }
 
         public void SetOutput(string resultDirectory)

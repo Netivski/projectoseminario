@@ -70,9 +70,9 @@ namespace EDM.Generator.Context
             edmFile = new EDMFile(edmFilePath);
         }
 
-        public void SetTransform( string xsltPath )
+        public void SetTransform(  )
         {
-            transform = new Transform(xsltPath);
+            transform = new Transform();
         }
 
         public void SetOutput(string resultDirectory, string nameSpace)

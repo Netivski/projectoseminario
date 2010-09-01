@@ -10,7 +10,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
 {
     public class <xsl:value-of select="@name"/>BaseService
     {        
-        public long Create(<xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
+        public static long Create(<xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
         {
             <xsl:value-of select="@name"/> record = new <xsl:value-of select="@name"/>();
             <xsl:call-template name="resolveRecursiveSetRecord"></xsl:call-template>
@@ -19,10 +19,10 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
             return 0;
         }
         
-        public bool Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
+        public static bool Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
         {
             <xsl:value-of select="@name"/> record = new <xsl:value-of select="@name"/>();
-            record.ID = recordId;
+            //record.ID = recordId;
             <xsl:call-template name="resolveRecursiveSetRecord"></xsl:call-template>
              
              //if( !record.IsValid() ) throw new .... 
@@ -30,17 +30,17 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
             return false;
         }
 
-        public <xsl:value-of select="@name"/> Read(long recordId)
+        public static <xsl:value-of select="@name"/> Read(long recordId)
         {
             return null;
         }
 
-        public <xsl:value-of select="@name"/> ReadByUnique()
+        public static <xsl:value-of select="@name"/> ReadByUnique()
         {
             return null;
         }
 
-        public bool Delete(long recordId)
+        public static bool Delete(long recordId)
         {
             return false;
         }

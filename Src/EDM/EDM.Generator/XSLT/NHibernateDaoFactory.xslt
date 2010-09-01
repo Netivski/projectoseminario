@@ -27,6 +27,7 @@ namespace <xsl:value-of select="@nameSpace"/>.Data
 }
   </xsl:template>
 
+  <!-- 
   <xsl:template match="entity" mode="property">
     public I<xsl:value-of select="@name"/>Dao Get<xsl:value-of select="@name"/>Dao() {
       return new <xsl:value-of select="@name"/>Dao();
@@ -36,4 +37,5 @@ namespace <xsl:value-of select="@nameSpace"/>.Data
   <xsl:template match="entity" mode="declarations">    
     public class <xsl:value-of select="@name"/>Dao : AbstractNHibernateDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="gt"></xsl:call-template>, I<xsl:value-of select="@name"/>Dao { }
   </xsl:template>
+  -->
 </xsl:stylesheet>

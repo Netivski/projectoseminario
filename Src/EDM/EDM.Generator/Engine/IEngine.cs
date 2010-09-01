@@ -6,7 +6,7 @@ namespace EDM.Generator.Engine
     {
         void Generate();
         void SetEDMFile(string edmFilePath);
-        void SetTransform(string xsltPath);
+        void SetTransform();
         void SetOutput(string resultDirectory);
     }
 }
