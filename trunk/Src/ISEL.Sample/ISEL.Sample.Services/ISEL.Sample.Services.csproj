@@ -49,7 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumService.cs" />
+    <Compile Include="ArtistaService.cs" />
+    <Compile Include="Base\AlbumBaseService.cs" />
+    <Compile Include="Base\ArtistaBaseService.cs" />
+    <Compile Include="Base\ColectaneaBaseService.cs" />
+    <Compile Include="Base\EditorBaseService.cs" />
+    <Compile Include="Base\LPBaseService.cs" />
+    <Compile Include="Base\MusicaBaseService.cs" />
+    <Compile Include="Base\Services.cs" />
+    <Compile Include="Base\SingleBaseService.cs" />
+    <Compile Include="ColectaneaService.cs" />
+    <Compile Include="EditorService.cs" />
+    <Compile Include="LPService.cs" />
+    <Compile Include="MusicaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services.cs" />
+    <Compile Include="SingleService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ISEL.Sample.Entity\ISEL.Sample.Entity.csproj">
