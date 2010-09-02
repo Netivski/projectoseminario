@@ -29,6 +29,28 @@
 			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=localhost;Initial Catalog=ORM_DB;User Id=sa;Password=root" serverName="127.0.0.1" instance="SQLSERVER1" username="sa" password="root" catalog="RN_RBAC1"/>
 		</dataEnvironments>
 	</environments>
+  <businessProcesses>
+    <component name="">
+      <businessProcess name="" description="">
+        <input>          
+          <!-- 
+               paramType ( entity, userType )  
+               type - no caso de ser entity especifica o nome da entidade, no caso de ser userType, especifica o usertype.  
+               name - tem que ser unico e sem espaços
+               
+               metodo
+                 metodo de validação de parametros
+                 metodo de com a lógica de negócio
+                 
+               permissão 
+                  nome do componente & nome do processo de negócio               
+          -->
+          <param paramType="" type="" name="" minOccurs="1" maxOccurs="unbounded"></param>
+        </input>
+        <output paramType="" type="" minOccurs="1" maxOccurs="unbounded"/>
+      </businessProcess>
+    </component>
+  </businessProcesses>
 	<!--Definição de entidades-->
 	<entities>
 		<!--Entidade base Artista(idArtista, nome, nacionalidade) Relação 1-* com Musica-->
