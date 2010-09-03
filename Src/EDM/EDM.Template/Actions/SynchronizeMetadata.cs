@@ -44,9 +44,9 @@ namespace EDM.Template.Actions
 
             UpdateProject(vs, "Rtti");
             UpdateProject(vs, "Entity");
-
-            Project domainObjects = ProjectFinder.GetProject(vs, ProjectSufix + "." + "Entity");
-            System.Windows.Forms.MessageBox.Show(domainObjects.GetType().Assembly.FullName);
+            UpdateProject(vs, "Services");
+            UpdateProject(vs, "Ws");
+            UpdateProject(vs, "UnitTests");
         }
 
         public override void Undo()
@@ -70,6 +70,7 @@ namespace EDM.Template.Actions
             //Include files in project with pattern "AppCompany.AppProject.projectName"
 
             Project targetProject = ProjectFinder.GetProject(vs, ProjectSufix + "." + projectName);
+
             string projectPath = Path.GetDirectoryName(targetProject.FullName + "\\");
             foreach (String fileName in Directory.GetFiles(
                                 Path.GetDirectoryName(projectPath),

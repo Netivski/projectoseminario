@@ -3,7 +3,7 @@
   Type="ProjectGroup"
   xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
   <TemplateData>
-    <Name>EDMGuidance Solution</Name>
+    <Name>EDM Solution</Name>
     <Description>EDMGuidance aimed for  the creation of a clean Visual Studio solution</Description>
     <ProjectType>CSharp</ProjectType>
     <SortOrder>90</SortOrder>
@@ -14,11 +14,7 @@
   </TemplateData>
   <TemplateContent>
     <ProjectCollection>
-      <SolutionFolder Name="3D">
-        <SolutionFolder Name="entities"/>
-        <SolutionFolder Name="types"/>
-        <SolutionFolder Name="environments"/>
-      </SolutionFolder>
+      <SolutionFolder Name="3D"/>
       <SolutionFolder Name="Assembly"/>
       <SolutionFolder Name="Persistence"/>
       <ProjectTemplateLink ProjectName="$AppCompanyName$.$AppProjectName$.Entity">
@@ -26,6 +22,15 @@
       </ProjectTemplateLink>
       <ProjectTemplateLink ProjectName="$AppCompanyName$.$AppProjectName$.Rtti">
         Projects\EDM.Rtti\rttiTemplate.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$AppCompanyName$.$AppProjectName$.Services">
+        Projects\EDM.Services\servicesTemplate.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$AppCompanyName$.$AppProjectName$.Ws">
+        Projects\EDM.Ws\wsTemplate.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$AppCompanyName$.$AppProjectName$.UnitTests">
+        Projects\EDM.UnitTests\unitTestsTemplate.vstemplate
       </ProjectTemplateLink>
     </ProjectCollection>
   </TemplateContent>

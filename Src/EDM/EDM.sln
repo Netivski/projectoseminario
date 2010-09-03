@@ -22,6 +22,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDM.PlugInUI", "EDM.PlugInU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDM.Tester", "EDM.Tester\EDM.Tester.csproj", "{D9476FD6-BCED-4A10-A8A4-F90247DBA791}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3D", "3D", "{30968AAB-2B3C-44C0-AA19-92CD2FBE4F2F}"
+	ProjectSection(SolutionItems) = preProject
+		3D\3D.xml = 3D\3D.xml
+		3D\3dValidator.xsd = 3D\3dValidator.xsd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,564 @@
+﻿
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\Users\Ricardo Neto\Desktop\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at C:\Users\Ricardo Neto\Desktop\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\Users\Ricardo Neto\Desktop\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at C:\Users\Ricardo Neto\Desktop\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+System.IO.FileNotFoundException: Could not find file 'I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.Ws\__TemplateIcon.ico'.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+System.IO.FileNotFoundException: Could not find file 'I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.Ws\__TemplateIcon.ico'.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+System.IO.FileNotFoundException: Could not find file 'I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.Ws\__TemplateIcon.ico'.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+Microsoft.Practices.RecipeFramework.RecipeFrameworkException: Unexpected error loading template file name I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.UnitTests\unitTestsTemplate.vstemplate. Make sure that the template is well formed and try again.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+The inner exception System.ArgumentException was thrown with the following error message: The template does not have the correct WizardExtension data..
+   at Microsoft.Practices.RecipeFramework.VisualStudio.Templates.TemplateMetaData.ReadTemplate()
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+Microsoft.Practices.RecipeFramework.RecipeFrameworkException: Unexpected error loading template file name I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.UnitTests\unitTestsTemplate.vstemplate. Make sure that the template is well formed and try again.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+The inner exception System.ArgumentException was thrown with the following error message: The template does not have the correct WizardExtension data..
+   at Microsoft.Practices.RecipeFramework.VisualStudio.Templates.TemplateMetaData.ReadTemplate()
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+Microsoft.Practices.RecipeFramework.RecipeFrameworkException: Unexpected error loading template file name I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.UnitTests\unitTestsTemplate.vstemplate. Make sure that the template is well formed and try again.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+The inner exception System.ArgumentException was thrown with the following error message: The template does not have the correct WizardExtension data..
+   at Microsoft.Practices.RecipeFramework.VisualStudio.Templates.TemplateMetaData.ReadTemplate()
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+System.IO.FileNotFoundException: Could not find file 'I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.UnitTests\__TemplateIcon.ico'.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+System.IO.FileNotFoundException: Could not find file 'I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.UnitTests\__TemplateIcon.ico'.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+System.IO.FileNotFoundException: Could not find file 'I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.UnitTests\__TemplateIcon.ico'.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+System.IO.FileNotFoundException: Could not find file 'I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.UnitTests\__TemplateIcon.ico'.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+System.IO.FileNotFoundException: Could not find file 'I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.UnitTests\__TemplateIcon.ico'.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+An exception occurred during the Install phase.
+System.IO.FileNotFoundException: Could not find file 'I:\EDM\EDM.Template\bin\Debug\Templates\Solutions\Projects\EDM.UnitTests\__TemplateIcon.ico'.
+   at Microsoft.Practices.RecipeFramework.ManifestInstaller.Install(IDictionary stateSaver)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.AssemblyInstaller.Install(IDictionary savedState)
+   at System.Configuration.Install.Installer.Install(IDictionary stateSaver)
+   at System.Configuration.Install.TransactedInstaller.Install(IDictionary savedState)
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.dll assembly's progress.
+The file is located at I:\EDM\EDM.TemplateInstaller\bin\Debug\EDM.TemplateInstaller.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.dll assembly's progress.
+The file is located at C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.Practices.RecipeFramework.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
