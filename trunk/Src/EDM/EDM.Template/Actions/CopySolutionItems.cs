@@ -7,6 +7,7 @@ using EnvDTE;
 using System.IO;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Xml;
 using EnvDTE80;
 using EDM.Template.Utils;
 
@@ -18,11 +19,11 @@ namespace EDM.Template.Actions
     {
         #region Input Properties
 
-        //[Input(Required = true)]
-        //public string Source { get; set; }
+        [Input(Required = true)]
+        public string AppCompany { get; set; }
 
-        //[Input(Required = true)]
-        //public string Destination { get; set; }
+        [Input(Required = true)]
+        public string AppProject { get; set; }
 
         #endregion
 
@@ -32,8 +33,7 @@ namespace EDM.Template.Actions
         {
             List<String> schemaLoc = new List<String>()
                 {
-                    @"3D\3dvalidator.xsd", @"3d\entities\entityValidator.xsd",
-                    @"3d\types\typeModelValidator.xsd", @"3d\environments\environmentValidator.xsd"
+                    @"3D\3dvalidator.xsd", @"3d\3d.xml"
                 };
 
             List<String> asmLoc = new List<string>()
@@ -53,7 +53,7 @@ namespace EDM.Template.Actions
             string asmDirectory = Path.Combine(Path.GetDirectoryName(execAsm.Location), @"Solution Items");
             string solutionDirectory = Path.GetDirectoryName((string)vs.Solution.Properties.Item("Path").Value);
 
-            //Copy the validator files and include them in the solution
+            //Copy validator and template 3D and include them in the solution
             Project folder3D = ProjectFinder.GetProject(vs, "3D");
 
             foreach (String file in schemaLoc)
@@ -79,6 +79,9 @@ namespace EDM.Template.Actions
                 vs.ActiveWindow.Close(EnvDTE.vsSaveChanges.vsSaveChangesNo);
             }
 
+            UpdateDictionaryHeader(
+                Path.Combine(solutionDirectory, @"3d\3d.xml"), solutionDirectory
+            );
         }
 
         public override void Undo()
@@ -86,6 +89,18 @@ namespace EDM.Template.Actions
             throw new Exception("The method or operation is not implemented.");
         }
 
+        #endregion
+
+        #region CopySolutionItemsAction Private Members
+        private void UpdateDictionaryHeader(String filePath, String solutionDirectory)
+        {
+            XmlDocument data = new XmlDocument();
+            data.Load(Path.Combine(solutionDirectory, @"3d\3d.xml"));
+            XmlNode root = data.SelectSingleNode("solution");
+            root.Attributes["companyName"].Value = AppCompany;
+            root.Attributes["projectName"].Value = AppProject;
+            data.Save(Path.Combine(solutionDirectory, @"3d\3d.xml"));
+        }
         #endregion
     }
 }

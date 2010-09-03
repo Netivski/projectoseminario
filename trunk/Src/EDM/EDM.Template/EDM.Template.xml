@@ -1,6 +1,6 @@
 ﻿<GuidancePackage xmlns="http://schemas.microsoft.com/pag/gax-core"
     Name="EDM.Template"
-    Caption="EDM.Template"
+    Caption="EDM Template"
     Description="Guidance package aimed for the creation of a clean EDM Visual Studio solution"
     Guid="3ff2883b-2dfb-4476-aa54-7046f9691a0a"
     SchemaVersion="1.0">
@@ -10,7 +10,7 @@
       <Caption>Collects information for the new EDM solution.</Caption>
 
       <Arguments>
-        
+
         <!-- User Input -->
         <Argument Name="AppCompanyName">
           <Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
@@ -30,6 +30,7 @@
             <MonitorArgument Name="RttiProjectSuffix" />
           </ValueProvider>
         </Argument>
+
         <Argument Name="EntityProjectSuffix">
           <ValueProvider Type="Evaluator" Expression="Entity" />
         </Argument>
@@ -41,6 +42,38 @@
           </ValueProvider>
         </Argument>
 
+        <Argument Name="ServicesProjectSuffix">
+          <ValueProvider Type="Evaluator" Expression="Services" />
+        </Argument>
+        <Argument Name="ServicesProjectName">
+          <ValueProvider Type="Evaluator" Expression="$(AppCompanyName).$(AppProjectName).$(ServicesProjectSuffix)">
+            <MonitorArgument Name="AppCompanyName" />
+            <MonitorArgument Name="AppProjectName" />
+            <MonitorArgument Name="ServicesProjectSuffix" />
+          </ValueProvider>
+        </Argument>
+
+        <Argument Name="WsProjectSuffix">
+          <ValueProvider Type="Evaluator" Expression="Ws" />
+        </Argument>
+        <Argument Name="WsProjectName">
+          <ValueProvider Type="Evaluator" Expression="$(AppCompanyName).$(AppProjectName).$(WsProjectSuffix)">
+            <MonitorArgument Name="AppCompanyName" />
+            <MonitorArgument Name="AppProjectName" />
+            <MonitorArgument Name="WsProjectSuffix" />
+          </ValueProvider>
+        </Argument>
+        
+        <Argument Name="UnitTestsProjectSuffix">
+          <ValueProvider Type="Evaluator" Expression="UnitTests" />
+        </Argument>
+        <Argument Name="UnitTestsProjectName">
+          <ValueProvider Type="Evaluator" Expression="$(AppCompanyName).$(AppProjectName).$(UnitTestsProjectSuffix)">
+            <MonitorArgument Name="AppCompanyName" />
+            <MonitorArgument Name="AppProjectName" />
+            <MonitorArgument Name="UnitTestsProjectSuffix" />
+          </ValueProvider>
+        </Argument>
       </Arguments>
 
       <GatheringServiceData>
@@ -59,19 +92,84 @@
       </GatheringServiceData>
 
       <Actions>
+
         <Action Name="GetRttiProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
           <Input Name="ProjectName" RecipeArgument="RttiProjectName" />
           <Output Name="Project" />
         </Action>
+
         <Action Name="GetEntityProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
           <Input Name="ProjectName" RecipeArgument="EntityProjectName" />
           <Output Name="Project" />
         </Action>
-        <Action Name="AddProjectReference" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+
+        <Action Name="GetServicesProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ProjectName" RecipeArgument="ServicesProjectName" />
+          <Output Name="Project" />
+        </Action>
+
+        <Action Name="GetWsProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ProjectName" RecipeArgument="WsProjectName" />
+          <Output Name="Project" />
+        </Action>
+
+        <Action Name="GetUnitTestsProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ProjectName" RecipeArgument="UnitTestsProjectName" />
+          <Output Name="Project" />
+        </Action>
+
+        <!-- Add reference from 'Entity Project' to 'Rtti Project' -->
+        <Action Name="Entity2Rtti" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
           <Input Name="ReferringProject" ActionOutput="GetEntityProject.Project" />
           <Input Name="ReferencedProject" ActionOutput="GetRttiProject.Project" />
         </Action>
-        <Action Name="CopySolutionItems" Type="EDM.Template.Actions.CopySolutionItemsAction, EDM.Template" />
+
+        <!-- Add reference from 'Services Project' to 'Rtti Project' and 'Entity Project' -->
+        <Action Name="Services2Entity" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetServicesProject.Project" />
+          <Input Name="ReferencedProject" ActionOutput="GetEntityProject.Project" />
+        </Action>
+        <Action Name="Services2Rtti" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetServicesProject.Project" />
+          <Input Name="ReferencedProject" ActionOutput="GetRttiProject.Project" />
+        </Action>
+
+        <!-- Add reference from 'Ws Project' to 'Rtti Project', 'Entity Project' and 'Services Project' -->
+        <Action Name="Ws2Entity" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetWsProject.Project" />
+          <Input Name="ReferencedProject" ActionOutput="GetEntityProject.Project" />
+        </Action>
+        <Action Name="Ws2Rtti" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetWsProject.Project" />
+          <Input Name="ReferencedProject" ActionOutput="GetRttiProject.Project" />
+        </Action>
+        <Action Name="Ws2Services" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetWsProject.Project" />
+          <Input Name="ReferencedProject" ActionOutput="GetServicesProject.Project" />
+        </Action>
+
+        <!-- Add reference from 'UnitTests Project' to all other projects -->
+        <Action Name="UnitTests2Entity" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetUnitTestsProject.Project" />
+          <Input Name="ReferencedProject" ActionOutput="GetEntityProject.Project" />
+        </Action>
+        <Action Name="UnitTests2Rtti" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetUnitTestsProject.Project" />
+          <Input Name="ReferencedProject" ActionOutput="GetRttiProject.Project" />
+        </Action>
+        <Action Name="UnitTests2Services" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetUnitTestsProject.Project" />
+          <Input Name="ReferencedProject" ActionOutput="GetServicesProject.Project" />
+        </Action>
+        <Action Name="UnitTests2Ws" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetUnitTestsProject.Project" />
+          <Input Name="ReferencedProject" ActionOutput="GetWsProject.Project" />
+        </Action>
+        
+        <Action Name="CopySolutionItems" Type="EDM.Template.Actions.CopySolutionItemsAction, EDM.Template">
+          <Input Name="AppCompany" RecipeArgument="AppCompanyName"/>
+          <Input Name="AppProject" RecipeArgument="AppProjectName"/>
+        </Action>
       </Actions>
     </Recipe>
 

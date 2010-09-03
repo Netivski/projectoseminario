@@ -121,23 +121,47 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Solution Items\3D\3dValidator.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\3D\entities\entityValidator.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\3D\environments\environmentValidator.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\3D\types\typeModelValidator.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Utils\ProjectFinder.cs" />
+    <None Include="Solution Items\3D\3d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Templates\Solutions\Projects\EDM.Services\EDM.Services.csproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.Services\servicesTemplate.vstemplate">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.Services\__TemplateIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.Services\Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\AuthoringTests.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\EDM.UnitTests.csproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\unitTestsTemplate.vstemplate">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\__TemplateIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.Ws\Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="ValueProviders\Utils\ProjectFinder.cs" />
     <None Include="Solution Items\Assembly\EDM.FoundationClasses.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -177,6 +201,12 @@
     <None Include="Solution Items\Assembly\Rhino.Mocks.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Templates\Solutions\Projects\EDM.Ws\EDM.Ws.csproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.Ws\Web.Config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templates\Solutions\Projects\EDM.Entity\Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -195,19 +225,28 @@
     <Content Include="Templates\Solutions\Projects\EDM.Entity\entityTemplate.vstemplate">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Solutions\Projects\EDM.Entity\ISEL.Sample.Entity.csproj">
+    <Content Include="Templates\Solutions\Projects\EDM.Entity\EDM.Entity.csproj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Templates\Solutions\Projects\EDM.Entity\__TemplateIcon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Solutions\Projects\EDM.Rtti\ISEL.Sample.Rtti.csproj">
+    <Content Include="Templates\Solutions\Projects\EDM.Rtti\EDM.Rtti.csproj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Templates\Solutions\Projects\EDM.Rtti\rttiTemplate.vstemplate">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Templates\Solutions\Projects\EDM.Rtti\__TemplateIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.Ws\Service.asmx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.Ws\wsTemplate.vstemplate">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\EDM.Ws\__TemplateIcon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TypeAlias.xml">
@@ -254,9 +293,6 @@
     <Folder Include="Lib\" />
     <Folder Include="References\" />
     <Folder Include="Snippets\CSharp\EDM.Template\" />
-    <Folder Include="Solution Items\3D\businessProcesses\" />
-    <Folder Include="Solution Items\3D\permissions\" />
-    <Folder Include="ValueProviders\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <!--<PropertyGroup>

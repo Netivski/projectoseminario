@@ -1,19 +1,24 @@
-<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+﻿<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
   <TemplateData>
-    <Name>EDM Rtti Project</Name>
+    <Name>EDM WebServices Project</Name>
     <Description>&lt;No description available&gt;</Description>
-    <ProjectType>CSharp</ProjectType>
-    <SortOrder>1000</SortOrder>
+    <ProjectType>Web</ProjectType>
+    <ProjectSubType>CSharp</ProjectSubType>
+    <SortOrder>20</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>EDM.ISEL.Rtti</DefaultName>
+    <DefaultName>EDM.ISEL.Ws</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <Icon>__TemplateIcon.ico</Icon>
   </TemplateData>
   <TemplateContent>
-    <Project File="EDM.Rtti.csproj" TargetFileName="$AppCompanyName$.$AppProjectName$.Rtti.csproj" ReplaceParameters="true">
-      <Folder Name="Base" TargetFolderName="Base" />
+    <Project File="EDM.Ws.csproj" TargetFileName="$AppCompanyName$.$AppProjectName$.Ws.csproj" ReplaceParameters="true">
+      <Folder Name="App_Data">
+      </Folder>
+      <Folder Name="Base"/>
+      <ProjectItem>Service.asmx</ProjectItem>
+      <ProjectItem ReplaceParameters="true">web.config</ProjectItem>
       <ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
     </Project>
   </TemplateContent>
@@ -21,8 +26,4 @@
     <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
     <FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
   </WizardExtension>
-  <WizardData>
-    <Template xmlns="http://schemas.microsoft.com/pag/gax-template" SchemaVersion="1.0">
-    </Template>
-  </WizardData>
 </VSTemplate>
