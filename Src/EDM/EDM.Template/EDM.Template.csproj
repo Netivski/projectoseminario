@@ -161,7 +161,7 @@
     <Content Include="Templates\Solutions\Projects\EDM.UnitTests\Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Compile Include="ValueProviders\Utils\ProjectFinder.cs" />
+    <Compile Include="Utils\ProjectFinder.cs" />
     <None Include="Solution Items\Assembly\EDM.FoundationClasses.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -285,14 +285,6 @@
       <Project>{7D9B24A8-4719-49BA-96D8-097EBE724254}</Project>
       <Name>EDM.Generator</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-    <Folder Include="CustomWizardPages\" />
-    <Folder Include="Editors\" />
-    <Folder Include="Lib\" />
-    <Folder Include="References\" />
-    <Folder Include="Snippets\CSharp\EDM.Template\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <!--<PropertyGroup>
