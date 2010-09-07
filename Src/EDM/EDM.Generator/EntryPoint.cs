@@ -9,7 +9,7 @@ namespace EDM.Generator
     {
         public static void Generate(String edmFilePath, string genResultPath, GeneratorTarget target, GeneratorEnvironment environment)
         {
-            IEngine engine = EngineFactory.GetEngine(target, environment);
+            IEngine engine = EngineFactory.GetEngine(target);
 
             engine.SetEDMFile(edmFilePath);
 

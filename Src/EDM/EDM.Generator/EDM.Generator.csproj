@@ -56,10 +56,9 @@
     <Compile Include="Engine\EngineFactory.cs" />
     <Compile Include="Engine\Step\AbstractStep.cs" />
     <Compile Include="Engine\Step\EDMParserStep.cs" />
-    <Compile Include="Engine\Step\GeneratedFileInfo.cs" />
-    <Compile Include="Engine\Step\GeneratedFileInfoStep.cs" />
+    <Compile Include="Engine\Step\Step.cs" />
+    <Compile Include="Engine\Step\GeneratorSteps.cs" />
     <Compile Include="Engine\IEngine.cs" />
-    <Compile Include="Engine\JavaEngine.cs" />
     <Compile Include="Exception\InvalidEDMStateException.cs" />
     <Compile Include="Exception\TargetNotImplementedException.cs" />
     <Compile Include="GeneratortEnvironment.cs" />

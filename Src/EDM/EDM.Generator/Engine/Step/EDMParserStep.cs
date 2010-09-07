@@ -13,7 +13,7 @@ namespace EDM.Generator.Engine.Step
         const string WS_PROJECT_NAME      = "Ws";
         const string SERVICE_PROJECT_NAME = "Services";
 
-        public override void GenerateStep( GeneratorContext context )
+        public override void Generate( GeneratorContext context )
         {
             //001 - Alterar o DOM do context.EDMFile.Content
             //001.1 - Adicionar aos fields o atributo edmType com o respectivo baseType

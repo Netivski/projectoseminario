@@ -18,7 +18,7 @@ namespace EDM.Tester
     [TestClass]
     public class GeneratedFIleInfoTest
     {
-        private static GeneratedFileInfo file;
+        private static Step file;
         private static string outputPath;
         private static string edmFilePath;
         private static string xsltPath;
@@ -97,13 +97,13 @@ namespace EDM.Tester
         [TestMethod]
         public void isItNull()
         {
-            file = new GeneratedFileInfo("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.EDMFile.XPath.UserTypes, true);
+            file = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.EDMFile.XPath.UserTypes, true);
             Assert.IsNotNull(file);
         }
         [TestMethod]
         public void DidGenerateFile()
         {
-            file = new GeneratedFileInfo("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.EDMFile.XPath.UserTypes, true);
+            file = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.EDMFile.XPath.UserTypes, true);
 
             XmlNodeList list = context.EDMFile.Content.SelectNodes(file.XPath);
             foreach (XmlNode node in list)

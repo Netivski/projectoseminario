@@ -11,13 +11,13 @@ namespace EDM.Generator.Engine
     {
         List<AbstractStep> steps = null;
        
-        public CSharpEngine(GeneratorTarget target, GeneratorEnvironment environment): base(target, environment) { }
+        public CSharpEngine(GeneratorTarget target): base(target) { }
 
         void SetSteps()
         {
             steps = new List<AbstractStep>(){
                                                 new EDMParserStep()
-                                               ,new GeneratedFileInfoStep()
+                                               ,new GeneratorSteps()
                                             };       
         }
 
@@ -27,7 +27,7 @@ namespace EDM.Generator.Engine
             {
                 SetSteps();
             }
-            steps.ForEach( step => step.GenerateStep( Context ) ); 
+            steps.ForEach( step => step.Generate( Context ) ); 
         }
     }
 }

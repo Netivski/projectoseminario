@@ -15,7 +15,7 @@ namespace EDM.Generator.Engine
     {
         readonly GeneratorContext context = null;
 
-        public Engine(GeneratorTarget target, GeneratorEnvironment environment)        
+        public Engine(GeneratorTarget target)        
         {
             //context = new Transformer(  target ,environment );
             context = new GeneratorContext();

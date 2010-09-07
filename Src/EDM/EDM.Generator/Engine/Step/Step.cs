@@ -3,12 +3,13 @@ using System.IO;
 using System.Text;
 using EDM.Generator.Exception;
 using EDM.Generator.Context;
+using System.Xml;
 
 namespace EDM.Generator.Engine.Step
 {
-    internal class GeneratedFileInfo
+    internal class Step : AbstractStep
     {
-        public GeneratedFileInfo(string templateName, string outputFile, string xPath, bool mandatory)  
+        public Step(string templateName, string outputFile, string xPath, bool mandatory)  
         {
             if (templateName == null) throw new ArgumentNullException("templateName");
             if (outputFile   == null) throw new ArgumentNullException("outputFile");
@@ -21,7 +22,7 @@ namespace EDM.Generator.Engine.Step
             this.mandatory    = mandatory;
         }
 
-        public GeneratedFileInfo(string templateName, string outputFile, string xPath, bool mandatory, Encoding outputEncoding): this( templateName, outputFile, xPath,mandatory )
+        public Step(string templateName, string outputFile, string xPath, bool mandatory, Encoding outputEncoding): this( templateName, outputFile, xPath,mandatory )
         {
             this.outputEncoding = outputEncoding;
         }
@@ -42,6 +43,18 @@ namespace EDM.Generator.Engine.Step
         public string GetOutputFile(params string[] values)
         {
             return string.Format(OutputFile.FullName, values);
+        }
+
+        public override void Generate(GeneratorContext context)
+        {
+            XmlNodeList nodes = context.EDMFile.Content.SelectNodes(xPath);
+            foreach (XmlNode node in nodes)
+            {
+                string outputFile = GetOutputFile(Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "generatedFileName"));
+                if (!mandatory && File.Exists(outputFile)) continue;
+
+                Utils.TemplateHelper.Render(node, context.Transform.GetTemplateFile(template), outputFile);
+            }
         }
     }
 }
