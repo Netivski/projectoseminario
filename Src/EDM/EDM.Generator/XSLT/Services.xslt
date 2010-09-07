@@ -3,10 +3,13 @@
   <xsl:include href="Common.xslt"/>
   <xsl:output method="text" indent="yes"/>
   <xsl:template match="entity">
+using System;        
+using EDM.FoundationClasses.Patterns;
+
 namespace <xsl:value-of select="@servicesNameSpace"/>
 {
     public class <xsl:value-of select="@name"/>Service: Base.<xsl:value-of select="@name"/>BaseService
-    {
+    {    
     }
 }
   </xsl:template>

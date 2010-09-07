@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace <xsl:value-of select="@servicesNameSpace"/>.Base
 {
     public abstract class <xsl:value-of select="@name"/>BaseService
-    {
+    {        
         <xsl:apply-templates select="businessProcess"/>           
     }
 }
