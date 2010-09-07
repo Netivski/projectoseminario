@@ -22,35 +22,104 @@
 		<int name="anoColectanea"/>
 		<string name="patrocinadorColectanea"/>
 		<string name="nomeEditor" maxLength="50"/>
+    <string name="tipoAlbum">
+      <enumeration>LP</enumeration>
+      <enumeration>EP</enumeration>
+      <enumeration>Colectanea</enumeration>
+    </string>
+    <int name="encomendaQtd" minInclusive="1" maxInclusive="100"></int>
+    <string name="canalVendas">
+      <enumeration>LOJA</enumeration>
+      <enumeration>WEB</enumeration>
+    </string>
+    <int name="idCliente" minExclusive="0" maxInclusive="9999999"/>
+    <string name="idEncomenda" length="20"></string>
+    <string name="estadoEncomenda">
+      <enumeration>Registada</enumeration>
+      <enumeration>Tramitada</enumeration>
+      <enumeration>Esgotada</enumeration>
+      <enumeration>Enviada</enumeration>
+      <enumeration>Anulada</enumeration>
+      <enumeration>Cancelada</enumeration>
+      <enumeration>Concluida</enumeration>
+    </string>
+    <string name="retornoCancelarEncomenda">
+      <enumeration>Cancelada</enumeration>
+      <enumeration>EstadoInvalido</enumeration>
+      <enumeration>PendenteCancelamento</enumeration>
+    </string>
+    <string name="userName"></string>
+    <string name="password"></string>
+    <string name="nomeCompleto"></string>
+    <DateTime name="dtNascimento"></DateTime>
+    <string name="retornoAlteracaoPassword">
+      <enumeration>Sucesso</enumeration>
+      <enumeration>UtilizadorInvalido</enumeration>
+      <enumeration>UtilizadorBloqueado</enumeration>
+    </string>
 	</userTypes>
 	<!--Servidores de BD-->
 	<environments>
 		<dataEnvironments>
-			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=localhost;Initial Catalog=ORM_DB;User Id=sa;Password=root" serverName="127.0.0.1" instance="SQLSERVER1" username="sa" password="root" catalog="RN_RBAC1"/>
+			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=127.0.0.1;Initial Catalog=ORM_DB;User Id=sa;Password=root" serverName="127.0.0.1" instance="SQLSERVER1" username="sa" password="root" catalog="RN_RBAC1"/>
 		</dataEnvironments>
 	</environments>
   <businessProcesses>
-    <component name="">
-      <businessProcess name="" description="">
-        <input>          
-          <!-- 
-               paramType ( entity, userType )  
-               type - no caso de ser entity especifica o nome da entidade, no caso de ser userType, especifica o usertype.  
-               name - tem que ser unico e sem espaços
-               
-               metodo
-                 metodo de validação de parametros
-                 metodo de com a lógica de negócio
-                 
-               permissão 
-                  nome do componente & nome do processo de negócio               
-          -->
-          <param paramType="" type="" name="" minOccurs="1" maxOccurs="unbounded"></param>
-        </input>
-        <output paramType="" type="" minOccurs="1" maxOccurs="unbounded"/>
+    <component name="Venda">      
+      <businessProcess name="EncomendaCliente" description="Processo generico de encomenda">
+        <input>
+          <param type="tipoAlbum" name="tipoAlbum" minOccurs="1" maxOccurs="1"></param>
+          <param type="identificador" name="idAlbum" minOccurs="1" maxOccurs="1"></param>
+          <param type="canalVendas" name="canal" minOccurs="1" maxOccurs="1"></param>
+          <param type="idCliente" name="idCliente" minOccurs="1" maxOccurs="1"></param>
+          <param type="encomendaQtd" name="encomendaQtd" minOccurs="1" maxOccurs="1"></param>          
+        </input> <!-- unbounded -->
+        <output type="idEncomenda" minOccurs="1" maxOccurs="1"/>
       </businessProcess>
+
+      <businessProcess name="ObterEstadoEncomenda" description="Verificação do estado da encomenda">
+        <input>
+          <param type="idEncomenda" name="idEncomenda" minOccurs="1" maxOccurs="1"></param>
+        </input>
+        <!-- unbounded -->
+        <output type="estadoEncomenda" minOccurs="1" maxOccurs="1"/>
+      </businessProcess>
+
+      <businessProcess name="CancelarEncomenda" description="Cancelamento de encomenda">
+        <input>
+          <param type="idEncomenda" name="idEncomenda" minOccurs="1" maxOccurs="1"></param>
+        </input>
+        <!-- unbounded -->
+        <output type="retornoCancelarEncomenda" minOccurs="1" maxOccurs="1"/>
+      </businessProcess>
+      
     </component>
-  </businessProcesses>
+
+    <component name="Registo">
+      <businessProcess name="RegistoCliente" description="Processo generico de registo de cliente">
+        <input>
+          <param type="userName" name="userName" minOccurs="1" maxOccurs="1"></param>
+          <param type="password" name="password" minOccurs="1" maxOccurs="1"></param>
+          <param type="nomeCompleto" name="nomeCompleto" minOccurs="1" maxOccurs="1"></param>
+          <param type="dtNascimento" name="dtNascimento" minOccurs="1" maxOccurs="1"></param>
+        </input>
+        <!-- unbounded -->
+        <output type="idCliente" minOccurs="1" maxOccurs="1"/>
+      </businessProcess>
+
+      <businessProcess name="AlteracaoPassword" description="Processo de alteração de password">
+        <input>
+          <param type="userName" name="userName" minOccurs="1" maxOccurs="1"></param>
+          <param type="password" name="passwordActual" minOccurs="1" maxOccurs="1"></param>
+          <param type="password" name="passwordFutura" minOccurs="1" maxOccurs="1"></param>
+        </input>
+        <!-- unbounded -->
+        <output type="retornoAlteracaoPassword" minOccurs="1" maxOccurs="1"/>
+      </businessProcess>
+
+    </component>
+   
+    </businessProcesses>
 	<!--Definição de entidades-->
 	<entities>
 		<!--Entidade base Artista(idArtista, nome, nacionalidade) Relação 1-* com Musica-->
