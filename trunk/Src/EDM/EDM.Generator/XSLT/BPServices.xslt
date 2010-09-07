@@ -4,10 +4,12 @@
   <xsl:output method="text" indent="yes"/>
   <xsl:template match="component">
 using System;        
+using EDM.FoundationClasses.Patterns;
+
 namespace <xsl:value-of select="@servicesNameSpace"/>
 {
-    public class <xsl:value-of select="@name"/>Service: Base.<xsl:value-of select="@name"/>BaseService
-    {
+    public class <xsl:value-of select="@name"/>Service : Base.<xsl:value-of select="@name"/>BaseService
+    {        
       <xsl:apply-templates select="businessProcess"/>           
     }
 }

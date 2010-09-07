@@ -5,6 +5,7 @@
   <xsl:template match="component">
 using System;    
 using System.Web.Services;
+using EDM.FoundationClasses.Patterns;
 using <xsl:value-of select="@baseNameSpace"/>;
 using <xsl:value-of select="@servicesNameSpace"/>;
 
@@ -15,66 +16,26 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class <xsl:value-of select="@name"/>BaseWs : System.Web.Services.WebService
     {
-        [WebMethod]
-        public long Create(<xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
-        {
-            return <xsl:value-of select="@name"/>Service.Create(<xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
-        }
-
-        [WebMethod]
-        public bool Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
-        {
-            return <xsl:value-of select="@name"/>Service.Update(recordId, <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
-        }
-
-        [WebMethod]
-        public <xsl:value-of select="@name"/> Read(long recordId)
-        {
-            return <xsl:value-of select="@name"/>Service.Read(recordId);
-        }
-
-        [WebMethod]
-        public <xsl:value-of select="@name"/> ReadByUnique()
-        {
-            return <xsl:value-of select="@name"/>Service.ReadByUnique();
-        }
-
-        [WebMethod]
-        public bool Delete(long recordId)
-        {
-            return <xsl:value-of select="@name"/>Service.Delete(recordId);
-        }
+        <xsl:apply-templates select="businessProcess"/>                                 
     }
 }
   </xsl:template>
 
-  <xsl:template match="fields/field" mode="params">
-    <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/><xsl:if test="position() != last()">, </xsl:if>
+  <xsl:template match="businessProcess">    
+        [WebMethod]
+        public <xsl:value-of select="output/@edmType"/>&#160;<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="params"/>)
+        {                              
+          return Singleton<xsl:call-template name="lt"/><xsl:value-of select="../@name"/>Service<xsl:call-template name="gt"/>.Current.<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="call"/>);
+        }        
+</xsl:template>
+
+  <xsl:template match="param" mode="params">
+     <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/><xsl:if test="position() != last()">, </xsl:if>
   </xsl:template>
 
-  <xsl:template match="fields/field" mode="callParams">
+  <xsl:template match="param" mode="call">
     <xsl:value-of select="@name"/><xsl:if test="position() != last()">, </xsl:if>
   </xsl:template>
-
-  <xsl:template name="resolveRecursiveParams">
-    <xsl:apply-templates select="fields/field" mode="params"/>
-    <xsl:if test="@type = 'dependent'">
-      <xsl:if test="count(fields/field) > 0">, </xsl:if>
-      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
-      <xsl:for-each select="//entity[@name=$varBaseEntity]">
-        <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>
-      </xsl:for-each>
-    </xsl:if>
-  </xsl:template>
-
-  <xsl:template name="resolveRecursiveCallParams">
-    <xsl:apply-templates select="fields/field" mode="callParams"/>
-    <xsl:if test="@type = 'dependent'">
-      <xsl:if test="count(fields/field) > 0">, </xsl:if>
-      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
-      <xsl:for-each select="//entity[@name=$varBaseEntity]">
-        <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>
-      </xsl:for-each>
-    </xsl:if>
-  </xsl:template>
+  
+  
 </xsl:stylesheet>

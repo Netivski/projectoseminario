@@ -5,6 +5,7 @@
   <xsl:template match="entity">
 using System;    
 using System.Web.Services;
+using EDM.FoundationClasses.Patterns;
 using <xsl:value-of select="@baseNameSpace"/>;
 using <xsl:value-of select="@servicesNameSpace"/>;
 
@@ -17,32 +18,32 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
     {
         [WebMethod]
         public long Create(<xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
-        {
-            return <xsl:value-of select="@name"/>Service.Create(<xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
+        {        
+            return Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Create(<xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
         }
 
         [WebMethod]
         public bool Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
         {
-            return <xsl:value-of select="@name"/>Service.Update(recordId, <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
+            return Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Update(recordId, <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
         }
 
         [WebMethod]
         public <xsl:value-of select="@name"/> Read(long recordId)
         {
-            return <xsl:value-of select="@name"/>Service.Read(recordId);
+            return Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Read(recordId);
         }
 
         [WebMethod]
         public <xsl:value-of select="@name"/> ReadByUnique()
         {
-            return <xsl:value-of select="@name"/>Service.ReadByUnique();
+            return Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.ReadByUnique();
         }
 
         [WebMethod]
         public bool Delete(long recordId)
         {
-            return <xsl:value-of select="@name"/>Service.Delete(recordId);
+            return Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Delete(recordId);
         }
     }
 }
