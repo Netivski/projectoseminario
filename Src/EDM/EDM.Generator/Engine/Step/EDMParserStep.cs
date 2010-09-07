@@ -25,11 +25,6 @@ namespace EDM.Generator.Engine.Step
             }
             //001.2 - Adicionar ao dataEnvironment o atributo Dialect
             XmlNode dataEnvNode = Utils.XML.Get.GetNode(context.EDMFile.Content, "solution/environments/dataEnvironments/*");
-            //XmlDocument doc = new XmlDocument();
-            //doc.Load(Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Generator\Engine\XML\DialectMapping.xml"));
-            //XmlNode mappingNode = Utils.XML.Get.GetNode(doc, string.Concat("/DialectMapping/Mapping[@type = '", dataEnvNode.Attributes["type"].Value.ToString(), "']"));
-            //Utils.XML.Set.AddAttribute(context.EDMFile.Content, "solution/environments/dataEnvironments/*", "dialect", mappingNode.Attributes["dialect"].Value.ToString());
-            //doc = null;
 
             //002   - Add NameSpace Atribute
             //002.1 - Solution Element
@@ -90,6 +85,37 @@ namespace EDM.Generator.Engine.Step
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "parentField" , string.Concat( Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node.ParentNode.ParentNode, "name"), "Id"));
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "childField"  , string.Concat( Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "entity"), "Id"));                    
             }
+
+            //003 - Alterar o DOM do context.EDMFile.Content - Elemento businessProcesses
+            //003.1 - Adicionar ao elemento generatedFileName
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/businessProcesses/component");
+            foreach (XmlNode node in nodeList)
+            {
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "generatedFileName", node.Attributes["name"].InnerText);
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "baseNameSpace", string.Format("{0}.{1}", nameSpace, ENTITY_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "servicesNameSpace", string.Format("{0}.{1}", nameSpace, SERVICE_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "wsNameSpace", string.Format("{0}.{1}", nameSpace, WS_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "wsHeaderNameSpace", "http://tempuri.org/");
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "rttiNameSpace", rttiNameSpace);
+            }
+                        
+            //003.2 - Adicionar ao elemento businessProcess/input/param param o atributo edmType com o respectivo baseType nos parametros de entrada
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/businessProcesses/component/businessProcess/input/param");
+            foreach (XmlNode node in nodeList)
+            {
+                XmlNode typeNode = Utils.XML.Get.GetNode(context.EDMFile.Content, string.Concat("/solution/userTypes/*[@name = '", node.Attributes["type"].Value.ToString(), "']"));
+                String baseType  = typeNode.Name;
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "edmType", baseType);
+            }
+            //003.3 - Adicionar ao elemento businessProcess/output param o atributo edmType com o respectivo baseType nos parametros de entrada
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/businessProcesses/component/businessProcess/output");
+            foreach (XmlNode node in nodeList)
+            {
+                XmlNode typeNode = Utils.XML.Get.GetNode(context.EDMFile.Content, string.Concat("/solution/userTypes/*[@name = '", node.Attributes["type"].Value.ToString(), "']"));
+                String baseType = typeNode.Name;
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "edmType", baseType);
+            }
+
         }
     }
 }

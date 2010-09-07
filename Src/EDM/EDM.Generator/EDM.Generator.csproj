@@ -130,6 +130,21 @@
     <EmbeddedResource Include="XSLT\WsAsmx.xslt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="XSLT\BPServicesBase.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XSLT\BPServices.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XSLT\BPWsBase.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XSLT\BPWsAsmx.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XSLT\BPWsAsmxCs.xslt" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Engine\XML\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

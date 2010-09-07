@@ -69,5 +69,26 @@ namespace EDM.Generator.Context
                 return "//manyToMany";
             }
         }
+        public string BusinessProcesses
+        {
+            get
+            {
+                return string.Concat(Solution, "/businessProcesses");
+            }
+        }
+        public string Component
+        {
+            get
+            {
+                return string.Concat(BusinessProcesses, "/component");
+            }
+        }
+        public string BusinessProcess
+        {
+            get
+            {
+                return string.Concat(Component, "/businessProcess");
+            }
+        }
     }
 }
