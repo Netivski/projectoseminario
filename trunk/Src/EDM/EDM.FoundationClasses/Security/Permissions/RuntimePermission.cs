@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security;
 using System.Security.Permissions;
+using System.Threading;
 
 namespace EDM.FoundationClasses.Security.Permissions
 {
@@ -42,11 +43,10 @@ namespace EDM.FoundationClasses.Security.Permissions
 
         public void Demand()
         {
-            if (IsUnrestricted())
-                return;
+            if (IsUnrestricted()) return;
 
-            if (PDP.PermissionChecker.CheckUserPermission(Thread.CurrentPrincipal, Name))
-                return;
+            if (PDP.PermissionChecker.CheckUserPermission(Thread.CurrentPrincipal, Name))  return;
+
             throw new SecurityException(Thread.CurrentPrincipal.Identity.Name + " does not have " + Name + " permission.");
         }
 
@@ -54,19 +54,19 @@ namespace EDM.FoundationClasses.Security.Permissions
         {
             if (target == null) return null;
 
-            StringPermission custom = VerifyTypeMatch(target);
+            RuntimePermission custom = VerifyTypeMatch(target);
 
             //In case both permissions are unrestrictered return an unrestrictered one
-            if (this.IsUnrestricted() && custom.IsUnrestricted())
-                return new StringPermission(PermissionState.Unrestricted);
-            return new StringPermission(Utils.IntersectStrings(Name, custom.Name));
+            if (this.IsUnrestricted() && custom.IsUnrestricted()) return new RuntimePermission(PermissionState.Unrestricted);
+
+            return new RuntimePermission(Utils.IntersectStrings(Name, custom.Name));
         }
 
         public bool IsSubsetOf(IPermission target)
         {
             if (target == null) return false;
 
-            StringPermission custom = VerifyTypeMatch(target);
+            RuntimePermission custom = VerifyTypeMatch(target);
 
             if (custom.IsUnrestricted()) return true;
             if (this.IsUnrestricted()) return false;
@@ -78,12 +78,11 @@ namespace EDM.FoundationClasses.Security.Permissions
         {
             if (target == null) return Copy();
 
-            StringPermission custom = VerifyTypeMatch(target);
+            RuntimePermission custom = VerifyTypeMatch(target);
 
-            if (this.IsUnrestricted() || custom.IsUnrestricted())
-                return new StringPermission(PermissionState.Unrestricted);
+            if (this.IsUnrestricted() || custom.IsUnrestricted()) return new RuntimePermission(PermissionState.Unrestricted);
 
-            return new StringPermission(Utils.UnionStrings(Name, custom.Name));
+            return new RuntimePermission(Utils.UnionStrings(Name, custom.Name));
         }
 
         #endregion
@@ -92,7 +91,7 @@ namespace EDM.FoundationClasses.Security.Permissions
 
         public bool IsUnrestricted()
         {
-            return _unrestricted;
+            return Unrestricted;
         }
 
         #endregion
