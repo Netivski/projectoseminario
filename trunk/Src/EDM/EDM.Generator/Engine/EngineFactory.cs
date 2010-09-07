@@ -5,12 +5,12 @@ namespace EDM.Generator.Engine
 {
     internal static class EngineFactory
     {
-        public static IEngine GetEngine(GeneratorTarget target, GeneratorEnvironment environment)
+        public static IEngine GetEngine(GeneratorTarget target)
         {
             switch (target)
             {
                 case GeneratorTarget.CSharp:
-                    return new CSharpEngine(target, environment);
+                    return new CSharpEngine(target);
                 default:
                     throw new TargetNotImplementedException(target);
             }

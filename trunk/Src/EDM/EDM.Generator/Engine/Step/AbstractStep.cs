@@ -5,6 +5,6 @@ namespace EDM.Generator.Engine.Step
 {
     internal abstract class AbstractStep
     {
-        public abstract void GenerateStep( GeneratorContext context );
+        public abstract void Generate( GeneratorContext context );
     }
 }

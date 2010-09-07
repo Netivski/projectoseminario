@@ -61,7 +61,7 @@ namespace EDM.Tester
         [ClassInitialize]
         public static void init(TestContext ctx)
         {
-            eng = EngineFactory.GetEngine(EDM.Generator.GeneratorTarget.CSharp, EDM.Generator.GeneratorEnvironment.EDMBase);
+            eng = EngineFactory.GetEngine(EDM.Generator.GeneratorTarget.CSharp);
         }
 
         [TestMethod]

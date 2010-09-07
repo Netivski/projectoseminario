@@ -67,7 +67,7 @@ namespace EDM.Tester
 
         private void generate()
         {
-            step.GenerateStep(context);
+            step.Generate(context);
             context.EDMFile.Content.Save(Path.Combine(outputPath, "GeneratedXml.xml"));
             doc.Load(Path.Combine(outputPath, "GeneratedXml.xml"));
         }
