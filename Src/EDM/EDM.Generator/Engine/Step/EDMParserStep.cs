@@ -29,22 +29,19 @@ namespace EDM.Generator.Engine.Step
             XmlNodeList nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity");
             foreach (XmlNode node in nodeList)
             {
-                if (keyWordList.Contains(node.Attributes["name"].Value))
-                    throw new KeyWordUsageException(string.Format("Entities cannot be named {0}.", node.Attributes["name"].Value));
+                if (keyWordList.Contains(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Entities cannot be named {0}.", node.Attributes["name"].Value));
             }
             //001.2 - Verificação de fields
             nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity/fields/field");
             foreach (XmlNode node in nodeList)
             {
-                if (keyWordList.Contains(node.Attributes["name"].Value))
-                    throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
+                if (keyWordList.Contains(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
             }
             //001.3 - Verificação de tipos
             nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/userTypes/*");
             foreach (XmlNode node in nodeList)
             {
-                if (keyWordList.Contains(node.Attributes["name"].Value))
-                    throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
+                if (keyWordList.Contains(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
             }
 
             //002 - Alterar o DOM do context.EDMFile.Content
