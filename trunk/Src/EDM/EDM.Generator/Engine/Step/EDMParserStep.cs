@@ -20,28 +20,24 @@ namespace EDM.Generator.Engine.Step
         public override void Generate( GeneratorContext context )
         {
             //001 - Verificação da não existência de conflito entre nomes de entidades, tipos ou fields com as KeyWords de C#
-            XDocument doc = XDocument.Load(Path.Combine(Environment.CurrentDirectory, @"../../../EDM.Generator/Engine/XML/CSharpKeywords.xml"), LoadOptions.None);
-            XElement root = doc.Root;
-
-            List<String> keyWordList = (from c in root.Elements() select c.Value).ToList();
 
             //001.1 - Verificação de entidades
             XmlNodeList nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity");
             foreach (XmlNode node in nodeList)
             {
-                if (keyWordList.Contains(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Entities cannot be named {0}.", node.Attributes["name"].Value));
+                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Entities cannot be named {0}.", node.Attributes["name"].Value));
             }
             //001.2 - Verificação de fields
             nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity/fields/field");
             foreach (XmlNode node in nodeList)
             {
-                if (keyWordList.Contains(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
+                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
             }
             //001.3 - Verificação de tipos
             nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/userTypes/*");
             foreach (XmlNode node in nodeList)
             {
-                if (keyWordList.Contains(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
+                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
             }
 
             //002 - Alterar o DOM do context.EDMFile.Content

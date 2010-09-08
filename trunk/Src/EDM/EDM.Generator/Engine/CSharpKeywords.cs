@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EDM.Generator.Engine.XML
+namespace EDM.Generator.Engine
 {
     internal class CSharpKeywords
     {
