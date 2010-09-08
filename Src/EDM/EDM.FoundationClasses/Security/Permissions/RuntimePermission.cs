@@ -49,7 +49,7 @@ namespace EDM.FoundationClasses.Security.Permissions
         {
             if (IsUnrestricted()) return;
 
-            if (RuntimePermissionChecker.UserHasPermission(Thread.CurrentPrincipal, this))  return;
+            if (RuntimePermissionChecker.HasPermission(Thread.CurrentPrincipal, this))  return;
 
             throw new SecurityException(string.Format("{0} does not have {1} permission", Thread.CurrentPrincipal.Identity.Name, Name) );
         }

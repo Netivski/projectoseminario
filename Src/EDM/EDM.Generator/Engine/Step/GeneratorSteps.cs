@@ -25,14 +25,17 @@ namespace EDM.Generator.Engine.Step
                     ,new Step( "NHibernateDaoFactory"     , Path.Combine( context.Output.EntityDataPath              , "NHibernateDaoFactory.cs"         ), context.EDMFile.XPath.Root     , false )                                 
                     ,new Step( "NHibernateMapping"        , Path.Combine( context.Output.EntityDomainPath            , "{0}.hbm.xml"                     ), context.EDMFile.XPath.Entity   , true  )
                     ,new Step( "NHibernateConfig"         , Path.Combine( context.Output.PersistencePath             , "hibernate.cfg.xml"               ), context.EDMFile.XPath.Solution , true  )
-
-
                     ,new Step( "ServicesBase"             , Path.Combine( context.Output.ServicesBase                , "{0}BaseService.cs"               ), context.EDMFile.XPath.Entity   , true  )
                     ,new Step( "Services"                 , Path.Combine( context.Output.Services                    , "{0}Service.cs"                   ), context.EDMFile.XPath.Entity   , false )
-
                     ,new Step( "WsBase"                   , Path.Combine( context.Output.WsBase                      , "{0}BaseWs.cs"                    ), context.EDMFile.XPath.Entity   , true  )
                     ,new Step( "WsAsmx"                   , Path.Combine( context.Output.WsAsmx                      , "{0}Ws.asmx"                      ), context.EDMFile.XPath.Entity   , false )
                     ,new Step( "WsAsmxCs"                 , Path.Combine( context.Output.WsAsmxCs                    , "{0}Ws.asmx.cs"                   ), context.EDMFile.XPath.Entity   , false )                    
+                    ,new Step( "BPServicesBase"           , Path.Combine( context.Output.ServicesBase                , "{0}BaseService.cs"               ), context.EDMFile.XPath.Component, true  )
+                    ,new Step( "BPServices"               , Path.Combine( context.Output.Services                    , "{0}Service.cs"                   ), context.EDMFile.XPath.Component, false )
+                    ,new Step( "BPWsBase"                 , Path.Combine( context.Output.WsBase                      , "{0}BaseWs.cs"                    ), context.EDMFile.XPath.Component, true  )
+                    ,new Step( "BPWsAsmx"                 , Path.Combine( context.Output.WsAsmx                      , "{0}Ws.asmx"                      ), context.EDMFile.XPath.Component, false )
+                    ,new Step( "BPWsAsmxCs"               , Path.Combine( context.Output.WsAsmxCs                    , "{0}Ws.asmx.cs"                   ), context.EDMFile.XPath.Component, false )                    
+
 
             };
         }

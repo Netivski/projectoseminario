@@ -4,6 +4,9 @@
   <xsl:output method="text" indent="yes"/>
   <xsl:template match="component">
 using System;  
+using System.Security.Permissions;
+using System.Security;
+using EDM.FoundationClasses.Security.Permissions; 
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
 using <xsl:value-of select="@rttiNameSpace"/>;
@@ -26,8 +29,11 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
           <xsl:apply-templates select="input/param" mode="isValid"/>
         }
         
-        protected abstract <xsl:value-of select="output/@edmType"/>&#160;<xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="params"/>);
-    
+        protected abstract <xsl:value-of select="output/@edmType"/>&#160;<xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="params"/>);  
+        
+        <xsl:call-template name="WriteRuntimeSecurity">
+          <xsl:with-param name="methodName" select="@name"></xsl:with-param>
+        </xsl:call-template> 
         public virtual <xsl:value-of select="output/@edmType"/>&#160;<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="params"/>)
         {
           <xsl:value-of select="@name"/>ValidateParameters(<xsl:apply-templates select="input/param" mode="call"/>);

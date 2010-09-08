@@ -7,7 +7,7 @@ namespace EDM.FoundationClasses.Security.Permissions
     //PDP
     internal class RuntimePermissionChecker 
     {
-        public static bool UserHasPermission(IPrincipal principal, RuntimePermission permission)
+        public static bool HasPermission(IPrincipal principal, RuntimePermission permission)
         {
             RuntimeRoleProvider rrp = RuntimeRoleProviderFactory.GetRoleProvider();
             if (rrp == null) return true;
