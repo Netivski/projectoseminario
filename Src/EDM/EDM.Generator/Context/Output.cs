@@ -101,6 +101,9 @@ namespace EDM.Generator.Context
         {
             get { return Path.Combine(WsProjectPath, "Base"); }
         }
-
+        public string UnitTestPath
+        {
+            get { return Path.Combine(resultDirectory.FullName, string.Format("{0}.{1}", nameSpace, "UnitTest"));}
+        }
     }
 }
