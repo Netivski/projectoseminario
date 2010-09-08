@@ -5,11 +5,16 @@ using System.Threading;
 
 namespace EDM.FoundationClasses.Security.Permissions
 {
-    public class RuntimePermission : IPermission, IUnrestrictedPermission, ISecurityEncodable
+    internal class RuntimePermission : IPermission, IUnrestrictedPermission, ISecurityEncodable
     {
+        public PermissionState PermissionState { get; protected set; }
+
         public String Name { get; protected set; }
 
-        public bool Unrestricted{ get; protected set; }
+        public bool Unrestricted
+        {
+            get { return PermissionState == PermissionState.Unrestricted; }
+        }
 
         public RuntimePermission(String name)
         {
@@ -18,36 +23,35 @@ namespace EDM.FoundationClasses.Security.Permissions
 
         public RuntimePermission(PermissionState state): this( state, string.Empty ) {}
 
-        protected RuntimePermission(PermissionState state, string name)
+        internal RuntimePermission(PermissionState state, string name)
         {
-            Unrestricted = state == PermissionState.Unrestricted;
-            Name = name;
+            PermissionState = state; 
+            Name            = name;
         }
 
 
         RuntimePermission VerifyTypeMatch(IPermission target)
         {
-            // ????? tem que ser utilizado o 
+            //if( !( target is RuntimePermission ) ) throw new ... Alterar a implementação
             if (GetType() != target.GetType()) throw new ArgumentException( String.Format("Target permission must be of the {0} type.", GetType().FullName) );
 
             return (RuntimePermission)target;
         }
 
-
         #region IPermission Members
 
         public IPermission Copy()
         {
-            return new RuntimePermission(IsUnrestricted() ? PermissionState.Unrestricted : PermissionState.None, Name);
+            return new RuntimePermission(PermissionState, Name);
         }
 
         public void Demand()
         {
             if (IsUnrestricted()) return;
 
-            if (PDP.PermissionChecker.CheckUserPermission(Thread.CurrentPrincipal, Name))  return;
+            if (RuntimePermissionChecker.UserHasPermission(Thread.CurrentPrincipal, this))  return;
 
-            throw new SecurityException(Thread.CurrentPrincipal.Identity.Name + " does not have " + Name + " permission.");
+            throw new SecurityException(string.Format("{0} does not have {1} permission", Thread.CurrentPrincipal.Identity.Name, Name) );
         }
 
         public IPermission Intersect(IPermission target)
@@ -59,7 +63,7 @@ namespace EDM.FoundationClasses.Security.Permissions
             //In case both permissions are unrestrictered return an unrestrictered one
             if (this.IsUnrestricted() && custom.IsUnrestricted()) return new RuntimePermission(PermissionState.Unrestricted);
 
-            return new RuntimePermission(Utils.IntersectStrings(Name, custom.Name));
+            return Utils.IntersectRuntimePermission(this, custom);
         }
 
         public bool IsSubsetOf(IPermission target)
@@ -82,7 +86,7 @@ namespace EDM.FoundationClasses.Security.Permissions
 
             if (this.IsUnrestricted() || custom.IsUnrestricted()) return new RuntimePermission(PermissionState.Unrestricted);
 
-            return new RuntimePermission(Utils.UnionStrings(Name, custom.Name));
+            return Utils.UnionRuntimePermission(this, custom);
         }
 
         #endregion
