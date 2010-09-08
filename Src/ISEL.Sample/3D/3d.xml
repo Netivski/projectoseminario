@@ -61,7 +61,7 @@
 	<!--Servidores de BD-->
 	<environments>
 		<dataEnvironments>
-			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=127.0.0.1;Initial Catalog=ORM_DB;User Id=sa;Password=root" serverName="127.0.0.1" instance="SQLSERVER1" username="sa" password="root" catalog="RN_RBAC1"/>
+			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=127.0.0.1;Initial Catalog=iselsample;User Id=iselsample;Password=iselsample;" serverName="127.0.0.1" instance="SQLSERVER1" username="iselsample" password="iselsample" catalog="iselsample"/>
 		</dataEnvironments>
 	</environments>
   <businessProcesses>
