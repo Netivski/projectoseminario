@@ -56,6 +56,7 @@
     <Compile Include="Engine\Step\GeneratorSteps.cs" />
     <Compile Include="Engine\IEngine.cs" />
     <Compile Include="Exception\InvalidEDMStateException.cs" />
+    <Compile Include="Exception\KeyWordUsageException.cs" />
     <Compile Include="Exception\TargetNotImplementedException.cs" />
     <Compile Include="GeneratortEnvironment.cs" />
     <Compile Include="Context\GeneratorContext.cs" />
@@ -140,7 +141,8 @@
     <EmbeddedResource Include="XSLT\BPWsAsmxCs.xslt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Engine\XML\" />
+    <Content Include="Engine\XML\CSharpKeywords.xml" />
+    <EmbeddedResource Include="XSLT\UnitTest.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

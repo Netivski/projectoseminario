@@ -34,7 +34,8 @@ namespace EDM.Generator.Engine.Step
                     ,new Step( "BPServices"               , Path.Combine( context.Output.Services                    , "{0}Service.cs"                   ), context.EDMFile.XPath.Component, false )
                     ,new Step( "BPWsBase"                 , Path.Combine( context.Output.WsBase                      , "{0}BaseWs.cs"                    ), context.EDMFile.XPath.Component, true  )
                     ,new Step( "BPWsAsmx"                 , Path.Combine( context.Output.WsAsmx                      , "{0}Ws.asmx"                      ), context.EDMFile.XPath.Component, false )
-                    ,new Step( "BPWsAsmxCs"               , Path.Combine( context.Output.WsAsmxCs                    , "{0}Ws.asmx.cs"                   ), context.EDMFile.XPath.Component, false )                    
+                    ,new Step( "BPWsAsmxCs"               , Path.Combine( context.Output.WsAsmxCs                    , "{0}Ws.asmx.cs"                   ), context.EDMFile.XPath.Component, false )
+                    ,new Step( "UnitTest"                 , Path.Combine( context.Output.UnitTestPath                , "{0}Test.cs"                      ), context.EDMFile.XPath.Entity   , false )
 
 
             };
