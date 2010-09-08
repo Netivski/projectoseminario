@@ -32,8 +32,7 @@ namespace EDM.FoundationClasses.Security.Permissions
 
         RuntimePermission VerifyTypeMatch(IPermission target)
         {
-            //if( !( target is RuntimePermission ) ) throw new ... Alterar a implementação
-            if (GetType() != target.GetType()) throw new ArgumentException( String.Format("Target permission must be of the {0} type.", GetType().FullName) );
+            if ( !(target is RuntimePermission) ) throw new ArgumentException(String.Format("Target permission must be of the {0} type.", GetType().FullName));
 
             return (RuntimePermission)target;
         }
