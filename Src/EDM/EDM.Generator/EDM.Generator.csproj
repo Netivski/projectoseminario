@@ -55,6 +55,7 @@
     <Compile Include="Engine\Step\Step.cs" />
     <Compile Include="Engine\Step\GeneratorSteps.cs" />
     <Compile Include="Engine\IEngine.cs" />
+    <Compile Include="Engine\CSharpKeywords.cs" />
     <Compile Include="Exception\InvalidEDMStateException.cs" />
     <Compile Include="Exception\KeyWordUsageException.cs" />
     <Compile Include="Exception\TargetNotImplementedException.cs" />
@@ -141,7 +142,6 @@
     <EmbeddedResource Include="XSLT\BPWsAsmxCs.xslt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Engine\XML\CSharpKeywords.xml" />
     <EmbeddedResource Include="XSLT\UnitTest.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
