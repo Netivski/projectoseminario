@@ -44,8 +44,6 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
                 && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
-
-            //return IsBaseTypeValid( cType.BaseType, typeof(long) ) &&  false;
         }
 
         public static bool IsValid(IUserType<int> cType, int value)
@@ -56,8 +54,6 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
                 && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
-
-            //return IsBaseTypeValid( cType.BaseType, typeof(int) ) && false;
         }
 
         public static bool IsValid(IUserType<short> cType, short value)
@@ -68,7 +64,6 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
                 && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
-            //return IsBaseTypeValid( cType.BaseType, typeof(short) ) && false;
         }
 
         public static bool IsValid(IUserType<byte> cType, byte value)
@@ -79,7 +74,6 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
                 && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
-            //return IsBaseTypeValid( cType.BaseType, typeof(byte) ) && false;
         }
 
         public static bool IsValid(IUserType<decimal> cType, decimal value)
@@ -91,7 +85,6 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
                 && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
-            //return IsBaseTypeValid( cType.BaseType, typeof(decimal) ) && false;
         }
 
         public static bool IsValid(IUserType<float> cType, float value)
@@ -101,7 +94,6 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
                 && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
-            //return IsBaseTypeValid( cType.BaseType, typeof(float) ) && false;
         }
 
         public static bool IsValid(IUserType<double> cType, double value)
@@ -111,7 +103,6 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
                 && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
-            //return IsBaseTypeValid( cType.BaseType, typeof(double) ) && false;
         }
 
         public static bool IsValid(IUserType<string> cType, string value)
@@ -120,8 +111,6 @@ namespace EDM.FoundationClasses.FoundationType
                 && IsWithinPattern(cType.Pattern, value.ToString())
                 && (value.Length <= cType.MaxLength || cType.MaxLength == 0)
                 && value.Length >= cType.MinLength;
-
-            //return IsBaseTypeValid(cType.BaseType, typeof(string)) && false;
         }
 
         public static bool IsValid(IUserType<DateTime> cType, DateTime value)
@@ -130,9 +119,7 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxInclusive == null ? true : value <= cType.MaxInclusive.Value)
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
-                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
-            
-            //return IsBaseTypeValid( cType.BaseType, typeof(DateTime) ) && false;
+                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);            
         }
 
         public static bool IsValid(IUserType<bool> cType, bool value)
