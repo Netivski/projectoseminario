@@ -10,7 +10,7 @@ namespace EDM.FoundationClasses.Security.Permissions
     {
         public String MethodName  { get; set; }
         public String ClassName   { get; set; }
-        String FullyQualifiedName { get { return string.Format("{0}.{0}", ClassName, MethodName); } }
+        String FullyQualifiedName { get { return string.Format("{0}.{1}", ClassName, MethodName); } }
 
         public RuntimeSecurityAttribute(SecurityAction action) : base(action) { }
 
