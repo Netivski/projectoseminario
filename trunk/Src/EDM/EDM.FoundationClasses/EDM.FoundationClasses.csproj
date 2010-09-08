@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="NHibernate, Version=1.2.0.3001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -78,7 +79,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Security\Permissions\RuntimeSecurityAttribute.cs" />
+    <Compile Include="Security\Permissions\RuntimeRoleProvider.cs" />
+    <Compile Include="Security\Permissions\RuntimeRoleProviderFactory.cs" />
     <Compile Include="Security\Permissions\RuntimePermission.cs" />
+    <Compile Include="Security\Permissions\RuntimePermissionChecker.cs" />
+    <Compile Include="Security\Permissions\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FoundationType\Foundation Type.cd" />
