@@ -31,6 +31,7 @@ namespace EDM.Generator.Engine.Step
             nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity/fields/field");
             foreach (XmlNode node in nodeList)
             {
+                if (node.Attributes["nillable"] == null) Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nillable", bool.FalseString.ToLower());
                 if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
             }
             //001.3 - Verificação de tipos
