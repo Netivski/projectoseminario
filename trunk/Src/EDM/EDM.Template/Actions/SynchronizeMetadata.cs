@@ -1,11 +1,13 @@
 #region Using Directives
 
 using System;
+using System.Linq;
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.RecipeFramework;
 using EnvDTE;
 using System.IO;
 using EDM.Template.Utils;
+using VSLangProj;
 
 #endregion
 
@@ -70,8 +72,8 @@ namespace EDM.Template.Actions
             //Include files in project with pattern "AppCompany.AppProject.projectName"
 
             Project targetProject = ProjectFinder.GetProject(vs, ProjectSufix + "." + projectName);
-
             string projectPath = Path.GetDirectoryName(targetProject.FullName + "\\");
+
             foreach (String fileName in Directory.GetFiles(
                                 Path.GetDirectoryName(projectPath),
                                 "*.*",
@@ -80,9 +82,22 @@ namespace EDM.Template.Actions
                 if (File.GetLastWriteTime(fileName).CompareTo(StartTime) > 0)
                 {
                     targetProject.ProjectItems.AddFromFile(fileName);
+                    if (fileName.EndsWith(".hbm.xml"))
+                    {
+                        vs.Solution.FindProjectItem(fileName)
+                            .Properties.Item("BuildAction").Value = prjBuildAction.prjBuildActionEmbeddedResource;
+
+                    }
                 }
             }
+            //if (projectName == "Entity")
+            //    targetProject.DTE.Events.BuildEvents.OnBuildDone += new _dispBuildEvents_OnBuildDoneEventHandler(BuildEvents_OnBuildDone);
         }
+
+        //void BuildEvents_OnBuildDone(vsBuildScope Scope, vsBuildAction Action)
+        //{
+        //    System.Windows.Forms.MessageBox.Show("Build occurred");
+        //}
 
         #endregion
 
