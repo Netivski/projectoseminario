@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Xml;
 using EnvDTE80;
 using EDM.Template.Utils;
+using VSLangProj;
 
 #endregion
 
