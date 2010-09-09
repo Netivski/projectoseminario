@@ -58,12 +58,14 @@
       <enumeration>UtilizadorBloqueado</enumeration>
     </string>
 	</userTypes>
-	<!--Servidores de BD-->
+	
+  <!--Servidores de BD-->
 	<environments>
 		<dataEnvironments>
 			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=127.0.0.1;Initial Catalog=iselsample;User Id=iselsample;Password=iselsample;" serverName="127.0.0.1" instance="SQLSERVER1" username="iselsample" password="iselsample" catalog="iselsample"/>
 		</dataEnvironments>
 	</environments>
+  
   <businessProcesses>
     <component name="Venda">      
       <businessProcess name="EncomendaCliente" description="Processo generico de encomenda">
@@ -122,74 +124,66 @@
     </businessProcesses>
 	<!--Definição de entidades-->
 	<entities>
-		<!--Entidade base Artista(idArtista, nome, nacionalidade) Relação 1-* com Musica-->
-		<entity type="base" name="Artista" generatedFileName="Artista">
+
+    <!--Entidade base Editor(idEditor, nome, pais) Relação 1-* com Album-->
+    <entity type="base" name="Editor" generatedFileName="Editor">
+      <fields>
+        <field type="nomeEditor" name="nome"/>
+        <field type="pais" name="pais"/>
+      </fields>
+      <relations>
+        <oneToMany entity="Album" name="Albuns" minOccurs="0" maxOccurs="unbounded"/>
+      </relations>
+    </entity>
+
+    <!--Entidade Abstracta Album(idAlbum, titulo) Relação 1-1 com Editor-->
+    <entity type="abstract" name="Album" generatedFileName="Album">
+      <fields>
+        <field type="tituloAlbum" name="titulo"/>
+      </fields>
+      <relations>
+        <oneToOne entity="LP" name="LP" minOccurs="1" maxOccurs="1"/>
+        <oneToOne entity="EP" name="EP" minOccurs="1" maxOccurs="1"/>
+      </relations>
+    </entity>
+
+
+    <!--Entidade dependente de Album, LP(dtEdicao) Relação 1-* com Musica-->
+    <entity type="dependent" name="LP" baseEntity="Album" generatedFileName="LP">
+      <fields>
+        <field type="dataEdicaoLP" name="dtEdicao"/>
+      </fields>
+      <relations>
+        <oneToMany entity="Faixa" name="faixas" minOccurs="1" maxOccurs="unbounded"/>
+      </relations>
+    </entity>
+
+    <!--Entidade dependent de Album, EP() Relação 1-1 com Musica-->
+    <entity type="dependent" name="EP" baseEntity="Album" generatedFileName="EP">
+      <fields/>
+      <relations>
+        <oneToOne entity="Faixa" name="faixa" minOccurs="1" maxOccurs="1"/>
+      </relations>
+    </entity>
+
+
+    <!--Entidade base Artista(idArtista, nome, nacionalidade) Relação 1-* com Musica-->
+		<entity type="base" name="Interprete" generatedFileName="Artista">
 			<fields>
-				<field type="identificador" name="idArtista" unique="true" nillable="true"/>
 				<field type="nomeArtista" name="nome"/>
 				<field type="pais" name="nacionalidade"/>
 			</fields>
 			<relations>
-				<oneToMany entity="Musica" name="musicas" minOccurs="1" maxOccurs="unbounded"/>
-			</relations>
-		</entity>
-		<!--Entidade Abstracta Album(idAlbum, titulo) Relação 1-1 com Editor-->
-		<entity type="abstract" name="Album" generatedFileName="Album">
-			<fields>
-				<field type="identificador" name="idAlbum" unique="true"/>
-				<field type="tituloAlbum" name="titulo"/>
-			</fields>
-			<relations>
-				<oneToOne entity="Editor" name="editor" maxOccurs="1" minOccurs="1"/>
-			</relations>
-		</entity>
-		<!--Entidade dependente de Album, LP(dtEdicao) Relação 1-* com Musica-->
-		<entity type="dependent" name="LP" baseEntity="Album" generatedFileName="LP">
-			<fields>
-				<field type="dataEdicaoLP" name="dtEdicao"/>
-			</fields>
-			<relations>
-				<oneToMany entity="Musica" name="musicas" minOccurs="1" maxOccurs="unbounded"/>
-			</relations>
-		</entity>
-		<!--Entidade dependent de Album, EP() Relação 1-1 com Musica-->
-		<entity type="dependent" name="EP" baseEntity="Album" generatedFileName="EP">
-			<fields/>
-		</entity>
-		<!--Entidade dependent de Album, Colectanea(ano, patrocinador) Relação *-* com Musica-->
-		<entity type="dependent" name="Colectanea" generatedFileName="Colectanea" baseEntity="Album">
-			<fields>
-				<field type="anoColectanea" name="ano"/>
-				<field type="patrocinadorColectanea" name="patrocinador"/>
-			</fields>
-			<relations>
-				<manyToMany entity="Musica" name="Musicas" minOccurs="1" maxOccurs="unbounded"/>
+				<oneToMany entity="Album" name="album" minOccurs="1" maxOccurs="unbounded"/>
 			</relations>
 		</entity>
 		<!--Entidade base Musica(idMusica, nome, duracao, genero) Relações: 1-1 com EP, 1-1 com LP, *-* com Colectanea-->
-		<entity type="base" name="Musica" generatedFileName="Musica">
+		<entity type="base" name="Faixa" generatedFileName="Faixa">
 			<fields>
-				<field type="identificador" name="idMusica" unique="true"/>
 				<field type="nomeMusica" name="nome"/>
 				<field type="tempoMusica" name="duracao"/>
 				<field type="generoMusical" name="genero"/>
 			</fields>
-			<relations>
-				<oneToOne entity="EP" name="EP" maxOccurs="1" minOccurs="1"/>
-				<oneToOne entity="LP" name="Longplay" maxOccurs="1" minOccurs="1"/>
-				<manyToMany entity="Colectanea" name="Colectaneas" maxOccurs="unbounded" minOccurs="0"/>
-			</relations>
-		</entity>
-		<!--Entidade base Editor(idEditor, nome, pais) Relação 1-* com Album-->
-		<entity type="base" name="Editor" generatedFileName="Editor">
-			<fields>
-				<field type="identificador" name="id" unique="true"/>
-				<field type="nomeEditor" name="nome"/>
-				<field type="pais" name="pais"/>
-			</fields>
-			<relations>
-				<oneToMany entity="Album" name="Albuns" minOccurs="0" maxOccurs="unbounded"/>
-			</relations>
 		</entity>
 	</entities>
 </solution>
