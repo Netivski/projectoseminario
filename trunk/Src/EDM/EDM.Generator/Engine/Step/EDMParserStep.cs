@@ -25,27 +25,45 @@ namespace EDM.Generator.Engine.Step
             XmlNodeList nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity");
             foreach (XmlNode node in nodeList)
             {
-                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Entities cannot be named {0}.", node.Attributes["name"].Value));
+                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Entity cannot be named {0}.", node.Attributes["name"].Value));
             }
             //001.2 - Verificação de fields
             nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity/fields/field");
             foreach (XmlNode node in nodeList)
             {
-                if (node.Attributes["nillable"] == null) Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nillable", bool.FalseString.ToLower());
-                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
+                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Field cannot be named {0}.", node.Attributes["name"].Value));
             }
             //001.3 - Verificação de tipos
             nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/userTypes/*");
             foreach (XmlNode node in nodeList)
             {
-                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Fields cannot be named {0}.", node.Attributes["name"].Value));
+                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Type cannot be named {0}.", node.Attributes["name"].Value));
+            }
+            //001.4 - Verificação de components
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/businessProcesses/component");
+            foreach (XmlNode node in nodeList)
+            {
+                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Component cannot be named {0}.", node.Attributes["name"].Value));
+            }
+            //001.5 - Verificação de business process
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/businessProcesses/component/businessProcess");
+            foreach (XmlNode node in nodeList)
+            {
+                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Business Process cannot be named {0}.", node.Attributes["name"].Value));
+            }
+            //001.6 - Verificação de business process params
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/businessProcesses/component/businessProcess/input/param");
+            foreach (XmlNode node in nodeList)
+            {
+                if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Business Process Param cannot be named {0}.", node.Attributes["name"].Value));
             }
 
             //002 - Alterar o DOM do context.EDMFile.Content
-            //002.1 - Adicionar aos fields o atributo edmType com o respectivo baseType
+            //002.1 - Adicionar aos fields o atributo edmType com o respectivo baseType e o atributo nillable
             nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, "/solution/entities/entity/fields/field");
             foreach (XmlNode node in nodeList)
             {
+                if (node.Attributes["nillable"] == null) Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nillable", bool.FalseString.ToLower());
                 String baseType = Utils.XML.Get.GetNode(context.EDMFile.Content, string.Concat( "/solution/userTypes/*[@name = '", node.Attributes["type"].Value.ToString(), "']")).Name;
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, string.Concat("/solution/entities/entity/fields/field[@name = '", node.Attributes["name"].Value.ToString(), "' and @type = '", node.Attributes["type"].Value.ToString(),"']"), "edmType", baseType);
             }
