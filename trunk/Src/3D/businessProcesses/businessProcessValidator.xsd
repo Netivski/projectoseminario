@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Ricardo Neto (Netpat) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- Definição do enumerado correspondente à cardinalidade -->
+	<xs:simpleType name="t_zeroOrMany">
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="unbounded"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:int">
+					<xs:minInclusive value="0"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+	<!-- Definição do tipo que representa um parâmetro -->
+	<xs:complexType name="t_param">
+		<xs:attribute name="type" type="xs:string" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="minOccurs" type="t_zeroOrMany" use="optional" default="1"/>
+		<xs:attribute name="maxOccurs" type="t_zeroOrMany" use="optional" default="1"/>
+	</xs:complexType>
+	<!-- Definição do tipo que representa o conjunto de params -->
+	<xs:complexType name="t_input">
+		<xs:sequence>
+			<xs:element name="param" type="t_param" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Definição do tipo que representa um parâmetro -->
+	<xs:complexType name="t_output">
+		<xs:attribute name="type" type="xs:string" use="required"/>
+		<xs:attribute name="minOccurs" type="t_zeroOrMany" use="optional" default="1"/>
+		<xs:attribute name="maxOccurs" type="t_zeroOrMany" use="optional" default="1"/>
+	</xs:complexType>
+	<!-- Definição do elemento que representa um business process -->
+	<xs:complexType name="t_businessProcess">
+		<xs:sequence>
+			<xs:element name="input" type="t_input">
+				<xs:unique name="un_paramName">
+					<xs:selector xpath="param"/>
+					<xs:field xpath="@name"/>
+				</xs:unique>
+			</xs:element>
+			<xs:element name="output" type="t_output" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="description" type="xs:string" use="required"/>
+	</xs:complexType>
+	<!-- Definição do elemento que representa um conjunto de business processes -->
+	<xs:complexType name="t_component">
+		<xs:sequence>
+			<xs:element name="businessProcess" type="t_businessProcess" minOccurs="1" maxOccurs="unbounded">
+				<xs:unique name="un_busProcName">
+					<xs:selector xpath="businessProcess"/>
+					<xs:field xpath="@name"/>
+				</xs:unique>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<!-- Definição do elemento que representa todos os conjuntos de business processes -->
+	<xs:complexType name="t_businessProcesses">
+		<xs:sequence>
+			<xs:element name="component" type="t_component" minOccurs="1" maxOccurs="unbounded">
+				<xs:unique name="un_componentName">
+					<xs:selector xpath="component"/>
+					<xs:field xpath="@name"/>
+				</xs:unique>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
