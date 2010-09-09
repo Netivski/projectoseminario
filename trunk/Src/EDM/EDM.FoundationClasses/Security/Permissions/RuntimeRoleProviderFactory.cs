@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Configuration;
+using System.Xml;
+using System.Reflection;
+using System.Web.Security;
+using System.Collections;
 
 namespace EDM.FoundationClasses.Security.Permissions
 {
@@ -6,7 +11,7 @@ namespace EDM.FoundationClasses.Security.Permissions
     {
         public static RuntimeRoleProvider GetRoleProvider()
         {
-            return null;
+            return ( Roles.Enabled && Roles.Provider is RuntimeRoleProvider ) ? (RuntimeRoleProvider)Roles.Provider : null;
         }
     }
 }
