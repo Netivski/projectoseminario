@@ -64,14 +64,14 @@
           </ValueProvider>
         </Argument>
         
-        <Argument Name="UnitTestsProjectSuffix">
-          <ValueProvider Type="Evaluator" Expression="UnitTests" />
+        <Argument Name="UnitTestProjectSuffix">
+          <ValueProvider Type="Evaluator" Expression="UnitTest" />
         </Argument>
-        <Argument Name="UnitTestsProjectName">
-          <ValueProvider Type="Evaluator" Expression="$(AppCompanyName).$(AppProjectName).$(UnitTestsProjectSuffix)">
+        <Argument Name="UnitTestProjectName">
+          <ValueProvider Type="Evaluator" Expression="$(AppCompanyName).$(AppProjectName).$(UnitTestProjectSuffix)">
             <MonitorArgument Name="AppCompanyName" />
             <MonitorArgument Name="AppProjectName" />
-            <MonitorArgument Name="UnitTestsProjectSuffix" />
+            <MonitorArgument Name="UnitTestProjectSuffix" />
           </ValueProvider>
         </Argument>
       </Arguments>
@@ -113,8 +113,8 @@
           <Output Name="Project" />
         </Action>
 
-        <Action Name="GetUnitTestsProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
-          <Input Name="ProjectName" RecipeArgument="UnitTestsProjectName" />
+        <Action Name="GetUnitTestProject" Type="Microsoft.Practices.RecipeFramework.Library.Actions.GetProjectAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ProjectName" RecipeArgument="UnitTestProjectName" />
           <Output Name="Project" />
         </Action>
 
@@ -149,20 +149,20 @@
         </Action>
 
         <!-- Add reference from 'UnitTests Project' to all other projects -->
-        <Action Name="UnitTests2Entity" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
-          <Input Name="ReferringProject" ActionOutput="GetUnitTestsProject.Project" />
+        <Action Name="UnitTest2Entity" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetUnitTestProject.Project" />
           <Input Name="ReferencedProject" ActionOutput="GetEntityProject.Project" />
         </Action>
-        <Action Name="UnitTests2Rtti" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
-          <Input Name="ReferringProject" ActionOutput="GetUnitTestsProject.Project" />
+        <Action Name="UnitTest2Rtti" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetUnitTestProject.Project" />
           <Input Name="ReferencedProject" ActionOutput="GetRttiProject.Project" />
         </Action>
-        <Action Name="UnitTests2Services" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
-          <Input Name="ReferringProject" ActionOutput="GetUnitTestsProject.Project" />
+        <Action Name="UnitTest2Services" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetUnitTestProject.Project" />
           <Input Name="ReferencedProject" ActionOutput="GetServicesProject.Project" />
         </Action>
-        <Action Name="UnitTests2Ws" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
-          <Input Name="ReferringProject" ActionOutput="GetUnitTestsProject.Project" />
+        <Action Name="UnitTest2Ws" Type="Microsoft.Practices.RecipeFramework.Library.Solution.Actions.AddProjectReferenceAction, Microsoft.Practices.RecipeFramework.Library">
+          <Input Name="ReferringProject" ActionOutput="GetUnitTestProject.Project" />
           <Input Name="ReferencedProject" ActionOutput="GetWsProject.Project" />
         </Action>
         

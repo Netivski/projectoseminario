@@ -143,22 +143,22 @@
     <Content Include="Templates\Solutions\Projects\EDM.Services\Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\AuthoringTests.txt">
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTest\AuthoringTests.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\EDM.UnitTests.csproj">
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTest\EDM.UnitTest.csproj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\unitTestsTemplate.vstemplate">
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTest\unitTestTemplate.vstemplate">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\__TemplateIcon.ico">
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTest\__TemplateIcon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Templates\Solutions\Projects\EDM.Ws\Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Solutions\Projects\EDM.UnitTests\Properties\AssemblyInfo.cs">
+    <Content Include="Templates\Solutions\Projects\EDM.UnitTest\Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="Utils\ProjectFinder.cs" />
@@ -201,6 +201,9 @@
     <None Include="Solution Items\Assembly\Rhino.Mocks.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Templates\Solutions\Projects\EDM.Ws\EDM.Ws.webproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templates\Solutions\Projects\EDM.Ws\EDM.Ws.csproj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

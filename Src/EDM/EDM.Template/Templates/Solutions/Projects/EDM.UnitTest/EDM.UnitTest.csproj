@@ -36,6 +36,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assembly\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="EDM.FoundationClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\EDM.FoundationClasses.dll</HintPath>
+    </Reference>
 		<Reference Include="System"/>
 		<Reference Include="System.Core">
 			<RequiredTargetFramework>3.5</RequiredTargetFramework>

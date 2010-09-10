@@ -15,10 +15,7 @@ namespace EDM.Generator.Engine
 
         void SetSteps()
         {
-            steps = new List<AbstractStep>(){
-                                                new EDMParserStep()
-                                               ,new GeneratorSteps()
-                                            };       
+            steps = new List<AbstractStep>(){ new GeneratorSteps() };       
         }
 
         public override void Generate()

@@ -5,14 +5,14 @@
     <ProjectType>CSharp</ProjectType>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>EDM.ISEL.UnitTests</DefaultName>
+    <DefaultName>EDM.ISEL.UnitTest</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <Icon>__TemplateIcon.ico</Icon>
   </TemplateData>
   <TemplateContent>
-    <Project File="EDM.UnitTests.csproj" TargetFileName="$AppCompanyName$.$AppProjectName$.UnitTests.csproj" ReplaceParameters="true">
+    <Project File="EDM.UnitTest.csproj" TargetFileName="$AppCompanyName$.$AppProjectName$.UnitTest.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="false">AuthoringTests.txt</ProjectItem>
     </Project>

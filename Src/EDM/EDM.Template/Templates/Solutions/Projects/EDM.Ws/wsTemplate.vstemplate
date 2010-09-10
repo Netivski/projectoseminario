@@ -13,11 +13,12 @@
     <Icon>__TemplateIcon.ico</Icon>
   </TemplateData>
   <TemplateContent>
-    <Project File="EDM.Ws.csproj" TargetFileName="$AppCompanyName$.$AppProjectName$.Ws.csproj" ReplaceParameters="true">
+    <Project File="EDM.Ws.webproj" TargetFileName="$AppCompanyName$.$AppProjectName$.Ws.webproj" ReplaceParameters="true">
       <Folder Name="App_Data">
       </Folder>
       <Folder Name="Base"/>
       <ProjectItem>Service.asmx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$AppCompanyName$.$AppProjectName$.Ws.csproj">EDM.Ws.csproj</ProjectItem>
       <ProjectItem ReplaceParameters="true">web.config</ProjectItem>
       <ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
     </Project>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EDM.Generator.Engine.Step.AbstractStep" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Engine\Step\AbstractStep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.Generator.Engine.Step.Step" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAABAACBAAAwAAQAMAAAAAAAAAAAABEAAAAQ=</HashCode>
+      <FileName>Engine\Step\Step.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.Generator.Engine.Step.EDMParserStep" Collapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABIAAIAACAAAAAAAAUAAAAA=</HashCode>
+      <FileName>Engine\Step\EDMParserStep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.Generator.Engine.Step.GeneratorSteps" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <AssociationLine Name="steps" Type="EDM.Generator.Engine.Step.AbstractStep" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.688" Y="2.75" />
+        <Point X="8.688" Y="2.031" />
+        <Point X="7.25" Y="2.031" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAE=</HashCode>
+      <FileName>Engine\Step\GeneratorSteps.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="steps" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EDM.Generator.Engine.CSharpEngine" Collapsed="true">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAE=</HashCode>
+      <FileName>Engine\CSharpEngine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="steps" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

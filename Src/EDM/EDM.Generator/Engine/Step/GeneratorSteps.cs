@@ -8,12 +8,13 @@ namespace EDM.Generator.Engine.Step
 {
     internal class GeneratorSteps : AbstractStep
     {
-        List<Step> steps = null;
+        List<AbstractStep> steps = null;
 
         void SetSteps(GeneratorContext context)
         {
-            steps = new List<Step>(){
-                     new Step( "BaseTypes"                , Path.Combine( context.Output.RttiBasePath                , "BaseUserTypeMetadata.cs"         ), context.EDMFile.XPath.UserTypes, true  )
+            steps = new List<AbstractStep>(){
+                     new EDMParserStep()
+                    ,new Step( "BaseTypes"                , Path.Combine( context.Output.RttiBasePath                , "BaseUserTypeMetadata.cs"         ), context.EDMFile.XPath.UserTypes, true  )
                     ,new Step( "Types"                    , Path.Combine( context.Output.RttiProjectPath             , "UserTypeMetadata.cs"             ), context.EDMFile.XPath.UserTypes, false )
                     ,new Step( "DomainEntity"             , Path.Combine( context.Output.EntityDomainPath            , "{0}Domain.cs"                    ), context.EDMFile.XPath.Entity   , true  )
                     ,new Step( "Entity"                   , Path.Combine( context.Output.EntityProjectPath           , "{0}.cs"                          ), context.EDMFile.XPath.Entity   , false )
@@ -45,7 +46,7 @@ namespace EDM.Generator.Engine.Step
         {
             SetSteps( context );
 
-            foreach (Step step in steps)
+            foreach (AbstractStep step in steps)
             {
                 step.Generate(context);
 
