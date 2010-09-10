@@ -33,6 +33,8 @@ namespace EDM.Template.Actions
             string solutionPath = (string)vs.Solution.Properties.Item("Path").Value;
             string solutionDir = Path.GetDirectoryName(solutionPath);
 
+
+
             string EDMFilePath = Path.Combine(solutionDir, @"3D\3D.xml");
 
             StartTime = DateTime.Now;
@@ -48,7 +50,7 @@ namespace EDM.Template.Actions
             UpdateProject(vs, "Entity");
             UpdateProject(vs, "Services");
             UpdateProject(vs, "Ws");
-            UpdateProject(vs, "UnitTests");
+            UpdateProject(vs, "UnitTest");
         }
 
         public override void Undo()

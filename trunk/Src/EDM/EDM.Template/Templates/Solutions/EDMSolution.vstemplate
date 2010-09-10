@@ -29,8 +29,8 @@
       <ProjectTemplateLink ProjectName="$AppCompanyName$.$AppProjectName$.Ws">
         Projects\EDM.Ws\wsTemplate.vstemplate
       </ProjectTemplateLink>
-      <ProjectTemplateLink ProjectName="$AppCompanyName$.$AppProjectName$.UnitTests">
-        Projects\EDM.UnitTests\unitTestsTemplate.vstemplate
+      <ProjectTemplateLink ProjectName="$AppCompanyName$.$AppProjectName$.UnitTest">
+        Projects\EDM.UnitTest\unitTestTemplate.vstemplate
       </ProjectTemplateLink>
     </ProjectCollection>
   </TemplateContent>

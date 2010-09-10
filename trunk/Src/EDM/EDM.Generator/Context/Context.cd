@@ -1,51 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="EDM.Generator.Context.GeneratorContext">
-    <Position X="7" Y="0.5" Width="1.5" />
+  <Class Name="EDM.Generator.Context.GeneratorContext" Collapsed="true">
+    <Position X="7" Y="2.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAIAAQACAAEAAAAAAAAAAAAIAA=</HashCode>
+      <HashCode>AAIAAAAAIAAAAAAAAAAIAAQACAAEAAAAAAACAAQAIAA=</HashCode>
       <FileName>Context\GeneratorContext.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="EDMFile" />
-      <Property Name="Output" />
       <Property Name="Transform" />
+      <Property Name="Output" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="EDM.Generator.Context.EDMFile">
-    <Position X="4.5" Y="3.5" Width="1.5" />
+  <Class Name="EDM.Generator.Context.EDMFile" Collapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAACAEAAIgBAAIAAAAAAAAQAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>AAACREAAIgBAAIAACAAAAAQAAAAAAAAAAAAACAAACAA=</HashCode>
       <FileName>Context\EDMFile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="XPath" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="EDM.Generator.Context.EDMXPath">
-    <Position X="1" Y="5.25" Width="1.5" />
+  <Class Name="EDM.Generator.Context.EDMXPath" Collapsed="true">
+    <Position X="5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAACAACAAAAAAAAAAACAAAAAEAAAAAAAA=</HashCode>
+      <HashCode>EAAAABAAEAAAACAACAAAAAAAAAICCAAAAAFAAAgAAIA=</HashCode>
       <FileName>Context\EDMXPath.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EDM.Generator.Context.Output">
+  <Class Name="EDM.Generator.Context.Output" Collapsed="true">
     <Position X="7" Y="3.5" Width="1.5" />
     <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
-      <FileName>Context\Output.cs.cs</FileName>
+      <HashCode>gABQAACEAjAQABAACAAAAAAAAIAABAABAAAJgAAEAEA=</HashCode>
+      <FileName>Context\Output.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EDM.Generator.Context.Transform">
-    <Position X="10.25" Y="3.5" Width="1.5" />
+  <Class Name="EDM.Generator.Context.Transform" Collapsed="true">
+    <Position X="9" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Context\Transform.cs</FileName>
     </TypeIdentifier>
   </Class>

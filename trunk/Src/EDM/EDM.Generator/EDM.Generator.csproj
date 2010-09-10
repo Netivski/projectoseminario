@@ -81,6 +81,7 @@
   <ItemGroup>
     <None Include="Context\Context.cd" />
     <None Include="Engine\Engine.cd" />
+    <None Include="Engine\Step\AbstractStep.cd" />
     <None Include="sign_key.snk" />
   </ItemGroup>
   <ItemGroup>

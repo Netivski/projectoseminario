@@ -1,75 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="EDM.Generator.Engine.Engine">
-    <Position X="8" Y="0.75" Width="1.5" />
+  <Class Name="EDM.Generator.Engine.Engine" Collapsed="true">
+    <Position X="11.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAICAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAEQAAAA=</HashCode>
       <FileName>Engine\Engine.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <ShowAsAssociation>
+      <Property Name="Context" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Right" Position="0.1" />
   </Class>
   <Class Name="EDM.Generator.Engine.EngineFactory">
-    <Position X="10" Y="0.5" Width="1.5" />
+    <Position X="9" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Engine\EngineFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EDM.Generator.Engine.CSharpEngine">
-    <Position X="7" Y="4" Width="1.5" />
+  <Class Name="EDM.Generator.Engine.CSharpEngine" Collapsed="true">
+    <Position X="11.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAE=</HashCode>
       <FileName>Engine\CSharpEngine.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="steps" />
+    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="EDM.Generator.Engine.JavaEngine">
-    <Position X="9.25" Y="4" Width="1.5" />
+  <Class Name="EDM.Generator.Context.GeneratorContext" Collapsed="true">
+    <Position X="8.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
-      <FileName>Engine\JavaEngine.cs</FileName>
+      <HashCode>AAIAAAAAIAAAAAAAAAAIAAQACAAEAAAAAAACAAQAIAA=</HashCode>
+      <FileName>Context\GeneratorContext.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EDM.Generator.Engine.AbstractStep">
-    <Position X="12.25" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>Engine\AbstractStep.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="EDM.Generator.Engine.EDMParserStep">
-    <Position X="11.25" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAQIAAAA=</HashCode>
-      <FileName>Engine\EDMParserStep.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="EDM.Generator.Engine.GeneratedFileInfoStep">
+  <Class Name="EDM.Generator.Engine.Step.AbstractStep" Collapsed="true">
     <Position X="13.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAIAgAA=</HashCode>
-      <FileName>Engine\GeneratedFileInfoStep.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Engine\Step\AbstractStep.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="files" />
-    </ShowAsAssociation>
   </Class>
-  <Class Name="EDM.Generator.Engine.GeneratedFileInfo">
-    <Position X="11.25" Y="5" Width="1.5" />
+  <Interface Name="EDM.Generator.Engine.IEngine">
+    <Position X="13.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAABAACBAAAwAAQAMAAAAAAAAAAAABAAAAAQ=</HashCode>
-      <FileName>Engine\GeneratedFileInfo.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEQAAAA=</HashCode>
+      <FileName>Engine\IEngine.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
-    <Position X="13.25" Y="5.75" Width="1.5" />
-    <NestedTypes>
-      <Struct Name="System.Collections.Generic.List&lt;T&gt;.Enumerator" Collapsed="true">
-        <TypeIdentifier />
-        <Lollipop Position="0.2" />
-      </Struct>
-    </NestedTypes>
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
+  </Interface>
   <Font Name="Tahoma" Size="8.25" />
 </ClassDiagram>

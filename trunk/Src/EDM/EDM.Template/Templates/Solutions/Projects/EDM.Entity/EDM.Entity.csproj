@@ -31,7 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-	<Reference Include="EDM.FoundationClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL">
+	  <Reference Include="EDM.FoundationClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assembly\EDM.FoundationClasses.dll</HintPath>
     </Reference>
