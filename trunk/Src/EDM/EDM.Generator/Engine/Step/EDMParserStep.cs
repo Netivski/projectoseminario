@@ -102,6 +102,61 @@ namespace EDM.Generator.Engine.Step
 
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "targetDomainPath" , context.Output.EntityDomainPath);
             }
+
+            //Resolve Relations
+            //003.6 - oneToMany Relation
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, context.EDMFile.XPath.EntitiesRelationOneToMany);
+            foreach (XmlNode node in nodeList)
+            {
+                string rName      = Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "name");
+                string oneEntity  = Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "oneEntity");
+                string manyEntity = Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "manyEntity");
+                string nillable   = Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "nillable");
+                bool   inverse    = bool.Parse( Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "inverse") );
+                string minOccurs  = Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "minOccurs");
+                string maxOccurs = Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "maxOccurs");
+
+
+                XmlNode oneToManyRelations = context.EDMFile.Content.CreateElement("relations");               
+                XmlNode oneToMany = context.EDMFile.Content.CreateElement("oneToMany");                               
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, oneToMany, "entity", manyEntity);
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, oneToMany, "name", manyEntity);
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, oneToMany, "minOccurs", minOccurs);
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, oneToMany, "maxOccurs", maxOccurs);
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, oneToMany, "nillable", nillable);
+
+                oneToManyRelations.AppendChild(oneToMany);
+                Utils.XML.Get.GetNode(context.EDMFile.Content, string.Concat(context.EDMFile.XPath.Entity, string.Format("[@name = '{0}']", oneEntity))).AppendChild(oneToManyRelations);                
+
+                if (inverse)
+                {
+                    XmlNode manyToOneRelations = context.EDMFile.Content.CreateElement("relations");               
+                    XmlNode manyToOne = context.EDMFile.Content.CreateElement("manyToOne");
+
+                    if (bool.Parse(nillable))
+                    {
+                        minOccurs = "0";
+                        maxOccurs = "1";
+                    }
+                    else
+                    {
+                        minOccurs = "1";
+                        maxOccurs = "1";
+                    }
+
+                    Utils.XML.Set.AddAttribute(context.EDMFile.Content, manyToOne, "entity", oneEntity);
+                    Utils.XML.Set.AddAttribute(context.EDMFile.Content, manyToOne, "name", oneEntity);
+                    Utils.XML.Set.AddAttribute(context.EDMFile.Content, manyToOne, "minOccurs", minOccurs);
+                    Utils.XML.Set.AddAttribute(context.EDMFile.Content, manyToOne, "maxOccurs", maxOccurs);
+                    Utils.XML.Set.AddAttribute(context.EDMFile.Content, manyToOne, "nillable", nillable);
+
+                    manyToOneRelations.AppendChild(manyToOne);
+                    Utils.XML.Get.GetNode(context.EDMFile.Content, string.Concat(context.EDMFile.XPath.Entity, string.Format("[@name = '{0}']", manyEntity))).AppendChild(manyToOneRelations);                
+                }
+            }
+
+
+
             
             //003.5 - oneToOne Relation
             nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, context.EDMFile.XPath.OneToOneRelation);
@@ -116,8 +171,17 @@ namespace EDM.Generator.Engine.Step
             foreach (XmlNode node in nodeList)
             {
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
-                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nameSpace"   , string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "entity")));
-                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "fkName"      , string.Concat( Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node.ParentNode.ParentNode, "name"), "Id"));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nameSpace", string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "entity")));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "fkName", string.Concat(Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node.ParentNode.ParentNode, "name"), "Id"));
+            }
+
+            //003.6 - manyToOne Relation
+            nodeList = Utils.XML.Get.GetNodeList(context.EDMFile.Content, context.EDMFile.XPath.ManyOneToRelation);
+            foreach (XmlNode node in nodeList)
+            {
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "nameSpace", string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "entity")));
+                Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "fkName", string.Concat(Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node.ParentNode.ParentNode, "name"), "Id"));
             }
 
             //003.7 - ManyToMany Relation
@@ -159,7 +223,7 @@ namespace EDM.Generator.Engine.Step
                 XmlNode typeNode = Utils.XML.Get.GetNode(context.EDMFile.Content, string.Concat("/solution/userTypes/*[@name = '", node.Attributes["type"].Value.ToString(), "']"));
                 String baseType = typeNode.Name;
                 Utils.XML.Set.AddAttribute(context.EDMFile.Content, node, "edmType", baseType);
-            }
+            }           
         }
     }
 }

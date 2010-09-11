@@ -48,6 +48,34 @@ namespace EDM.Generator.Context
                 return "./fields";
             }
         }
+        public string EntitiesRelations
+        {
+            get
+            {
+                return string.Concat(Entities, "/relations");
+            }
+        }
+        public string EntitiesRelation
+        {
+            get
+            {
+                return string.Concat(EntitiesRelations, "/relation");
+            }
+        }
+        public string EntitiesRelationOneToMany
+        {
+            get
+            {
+                return string.Concat(EntitiesRelation, "[@type = 'OneToMany']");
+            }
+        }
+        public string EntitiesRelationManyToOne
+        {
+            get
+            {
+                return string.Concat(EntitiesRelation, "[@type = 'ManyToOne']");
+            }
+        }
         public string OneToOneRelation
         {
             get
@@ -60,6 +88,13 @@ namespace EDM.Generator.Context
             get
             {
                 return "//oneToMany";
+            }
+        }
+        public string ManyOneToRelation
+        {
+            get
+            {
+                return "//manyToOne";
             }
         }
         public string ManyToManyRelation
