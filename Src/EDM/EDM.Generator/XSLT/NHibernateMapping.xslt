@@ -37,11 +37,14 @@
 
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab1" />
-
-        <xsl:apply-templates select="relations/oneToOne"   mode="oneToOne" />
-        <xsl:apply-templates select="relations/oneToMany"  mode="oneToMany" />
+        
+        <xsl:apply-templates select="relations/manyToOne"  mode="manyToOne" />
+        <xsl:apply-templates select="relations/oneToMany"  mode="oneToMany" />        
+        <!--
+        <xsl:apply-templates select="relations/oneToOne"   mode="oneToOne" />        
         <xsl:apply-templates select="relations/manyToMany" mode="manyToMany" />
-
+        -->
+        
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab1" />
 
@@ -73,6 +76,15 @@
     <one-to-one name="{@name}" class="{@nameSpace}, {@assemblyName}"/>
 
   </xsl:template>
+  
+  <xsl:template match="manyToOne" mode="manyToOne" xmlns="urn:nhibernate-mapping-2.2">
+    <xsl:call-template name="NewLine" />
+    <xsl:call-template name="Tab2" />
+    <many-to-one name="{@name}"
+       class="{@nameSpace}, {@assemblyName}"
+       column="{@fkName}" cascade="all"/>
+  </xsl:template>
+  
 
   <xsl:template match="oneToMany" mode="oneToMany" xmlns="urn:nhibernate-mapping-2.2">
     <xsl:call-template name="NewLine" />

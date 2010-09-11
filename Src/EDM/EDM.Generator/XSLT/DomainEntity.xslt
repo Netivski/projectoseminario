@@ -19,16 +19,22 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
     public <xsl:value-of select="@name"/>Domain () {}
 
     <xsl:apply-templates select="relations/oneToMany"  mode="privateFields" />
+    <!--    
     <xsl:apply-templates select="relations/manyToMany" mode="privateFields" />
-    
+    -->
     <xsl:apply-templates select="fields/field" mode="fields"/>
-  
-    <xsl:apply-templates select="relations/oneToOne"   mode="oneToOne" />
-    <xsl:apply-templates select="relations/oneToMany"  mode="oneToMany" />
-    <xsl:apply-templates select="relations/manyToMany" mode="manyToMany" />
 
+    <xsl:apply-templates select="relations/oneToMany"  mode="oneToMany" />
+    <xsl:apply-templates select="relations/manyToOne"  mode="manyToOne" />
+    <!--
+    <xsl:apply-templates select="relations/oneToOne"   mode="oneToOne" />    
+    <xsl:apply-templates select="relations/manyToMany" mode="manyToMany" />
+    -->
+    
     <xsl:apply-templates select="relations/oneToMany"  mode="oneToManyMethods" />
+    <!--
     <xsl:apply-templates select="relations/manyToMany" mode="manyToManyMethods" />
+    -->
 
     public <xsl:choose><xsl:when test="@type = 'dependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> bool IsValid()
     {
@@ -66,6 +72,10 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
   <xsl:template match="oneToOne" mode="oneToOne">
     public virtual <xsl:value-of select="@entity"/>&#160;<xsl:value-of select="@name"/> { get; set; }
   </xsl:template>
+
+  <xsl:template match="manyToOne" mode="manyToOne">
+    public virtual <xsl:value-of select="@entity"/>&#160;<xsl:value-of select="@name"/> { get; set; }
+  </xsl:template>  
 
   <xsl:template match="oneToMany" mode="oneToManyMethods">
     public void Add<xsl:value-of select="@entity"/>(<xsl:value-of select="@entity"/> obj) {
