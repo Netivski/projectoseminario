@@ -5,7 +5,7 @@ namespace EDM.Generator.Engine
     internal interface IEngine
     {
         void Generate();
-        void SetEDMFile(string edmFilePath);
+        void SetThreeDFile(string ThreeDFilePath);
         void SetTransform();
         void SetOutput(string resultDirectory);
     }

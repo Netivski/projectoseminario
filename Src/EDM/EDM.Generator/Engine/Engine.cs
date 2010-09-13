@@ -25,9 +25,9 @@ namespace EDM.Generator.Engine
 
         public abstract void Generate();
 
-        public void SetEDMFile(string edmFilePath)
+        public void SetThreeDFile(string threedFilePath)
         {
-            context.SetEDMFile(edmFilePath);
+            context.SetThreeDFile(threedFilePath);
         }
 
         public void SetTransform()
@@ -38,9 +38,9 @@ namespace EDM.Generator.Engine
         public void SetOutput(string resultDirectory)
         {
 
-            if (context.EDMFile == null) throw new InvalidEDMStateException();
+            if (context.ThreeDFile == null) throw new InvalidEDMStateException();
 
-            context.SetOutput(resultDirectory, context.EDMFile.NameSpace);
+            context.SetOutput(resultDirectory, context.ThreeDFile.NameSpace);
         }
     }
 }

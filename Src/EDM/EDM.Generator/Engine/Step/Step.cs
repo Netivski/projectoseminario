@@ -47,10 +47,10 @@ namespace EDM.Generator.Engine.Step
 
         public override void Generate(GeneratorContext context)
         {
-            XmlNodeList nodes = context.EDMFile.Content.SelectNodes(xPath);
+            XmlNodeList nodes = context.ThreeDFile.Content.SelectNodes(xPath);
             foreach (XmlNode node in nodes)
             {
-                string outputFile = GetOutputFile(Utils.XML.Get.GetAttributeValue(context.EDMFile.Content, node, "generatedFileName"));
+                string outputFile = GetOutputFile(Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "generatedFileName"));
                 if (!mandatory && File.Exists(outputFile)) continue;
 
                 Utils.TemplateHelper.Render(node, context.Transform.GetTemplateFile(template), outputFile);
