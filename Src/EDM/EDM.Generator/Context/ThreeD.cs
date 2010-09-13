@@ -5,15 +5,15 @@ using EDM.Generator.Exception;
 
 namespace EDM.Generator.Context
 {
-    internal class EDMFile
+    internal class ThreeD
     {
         readonly FileInfo    edmFile = null;
         readonly XmlDocument content = null;
         readonly EDMXPath    xPath   = null;
 
-        public EDMFile( string filePath ) 
+        public ThreeD( string filePath ) 
         {
-            if (!File.Exists(filePath)) throw new EDMFileNotFoundException(filePath);
+            if (!File.Exists(filePath)) throw new ThreeDNotFoundException(filePath);
 
             try
             {
