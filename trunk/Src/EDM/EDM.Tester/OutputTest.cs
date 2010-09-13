@@ -60,88 +60,112 @@ namespace EDM.Tester
         #endregion
 
         [ClassInitialize]
-        public static void init(TestContext ctx)
+        public static void Init(TestContext ctx)
         {
             dir = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\Generated"));
             output = new Output(dir.FullName, "EDMTest");
         }
 
         [TestMethod]
-        public void outputNotNull()
+        public void OutputNotNull()
         {
             Assert.IsNotNull(output);
         }
         [TestMethod]
-        public void canGetRttiProjectPath()
+        public void CanGetRttiProjectPath()
         {
             String res = output.RttiProjectPath;
             Assert.AreEqual(Path.Combine(dir.FullName, "EDMTest.Rtti"), res);
         }
         [TestMethod]
-        public void canGetRttiBasePath()
+        public void CanGetRttiBasePath()
         {
             String res = output.RttiBasePath;
             Assert.AreEqual(Path.Combine(dir.FullName, @"EDMTest.Rtti\Base"), res);
         }
         [TestMethod]
-        public void canGetEntityProjectPath()
+        public void CanGetEntityProjectPath()
         {
             String res = output.EntityProjectPath;
             Assert.AreEqual(Path.Combine(dir.FullName, "EDMTest.Entity"), res);
         }
         [TestMethod]
-        public void canGetEntityDataPath()
+        public void CanGetEntityDataPath()
         {
             String res = output.EntityDataPath;
             Assert.AreEqual(Path.Combine(dir.FullName, @"EDMTest.Entity\Data"), res);
         }
         [TestMethod]
-        public void canGetEntityDataBasePath()
+        public void CanGetEntityDataBasePath()
         {
             String res = output.EntityDataBasePath;
             Assert.AreEqual(Path.Combine(dir.FullName, @"EDMTest.Entity\Data\Base"), res);
         }
         [TestMethod]
-        public void canGetEntityDomainPath()
+        public void CanGetEntityDomainPath()
         {
             String res = output.EntityDomainPath;
             Assert.AreEqual(Path.Combine(dir.FullName, @"EDMTest.Entity\Domain"), res);
         }
         [TestMethod]
-        public void canGetEntityDataInterfacesPath()
+        public void CanGetPersistencePath()
+        {
+            String res = output.PersistencePath;
+            Assert.AreEqual(Path.Combine(dir.FullName, @"EDMTest.Entity\Domain"), res);
+        }
+        [TestMethod]
+        public void CanGetEntityDataInterfacesPath()
         {
             String res = output.EntityDataInterfacesPath;
             Assert.AreEqual(Path.Combine(dir.FullName, @"EDMTest.Entity\DataInterfaces"), res);
         }
         [TestMethod]
-        public void canGetEntityDataInterfacesBasePath()
+        public void CanGetEntityDataInterfacesBasePath()
         {
             String res = output.EntityDataInterfacesBasePath;
             Assert.AreEqual(Path.Combine(dir.FullName, @"EDMTest.Entity\DataInterfaces\Base"), res);
         }
         [TestMethod]
-        public void canGetFeProjectPath()
+        public void CanGetFeProjectPath()
         {
             String res = output.FeProjectPath;
             Assert.AreEqual(Path.Combine(dir.FullName, "EDMTest.Fe"), res);
         }
         [TestMethod]
-        public void canGetServicesProjectPath()
+        public void CanGetServicesProjectPath()
         {
             String res = output.ServicesProjectPath;
             Assert.AreEqual(Path.Combine(dir.FullName, "EDMTest.Services"), res);
         }
         [TestMethod]
-        public void canGetWsProjectPath()
+        public void CanGetWsProjectPath()
         {
             String res = output.WsProjectPath;
             Assert.AreEqual(Path.Combine(dir.FullName, "EDMTest.Ws"), res);
         }
-        [TestMethod]
-        public void canGetPersistencePath()
+        [TestMethod()]
+        public void CanGetWsAsmx()
         {
-            String res = output.PersistencePath;
-            Assert.AreEqual(Path.Combine(dir.FullName, "EDMTest.Persistence"), res);
+            String res = output.WsAsmx;
+            Assert.AreEqual(Path.Combine(dir.FullName, "EDMTest.Ws"), res);
+        }
+        [TestMethod()]
+        public void CanGetWsAsmxCs()
+        {
+            String res = output.WsAsmxCs;
+            Assert.AreEqual(Path.Combine(dir.FullName, "EDMTest.Ws"), res);
+        }
+        [TestMethod()]
+        public void CanGetWsBase()
+        {
+            String res = output.WsBase;
+            Assert.AreEqual(Path.Combine(dir.FullName, @"EDMTest.Ws\Base"), res);
+        }
+        [TestMethod()]
+        public void CanGetUniTestPath()
+        {
+            String res = output.UnitTestPath;
+            Assert.AreEqual(Path.Combine(dir.FullName, "EDMTest.UnitTest"), res);
         }
     }
 }

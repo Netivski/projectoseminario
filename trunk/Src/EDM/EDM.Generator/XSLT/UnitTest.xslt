@@ -13,40 +13,40 @@ using <xsl:value-of select="@servicesNameSpace"/>;
 
 namespace <xsl:value-of select="@unitTestNameSpace"/>
 {
-  [TestClass()]
+  [TestClass]
   public class <xsl:value-of select="@name"/>Test
   {
     private static <xsl:value-of select="@name"/>Service service = new <xsl:value-of select="@name"/>Service();
     private static long id = 0;
     
-    [TestMethod()]
+    [TestMethod]
     public void CanCreate<xsl:value-of select="@name"/>()
     {
       id = service.Create(<xsl:call-template name="resolveRecursiveParams"/>);
       Assert.IsTrue(id != 0, "Unable to create a <xsl:value-of select="@name"/>");
     }
     
-    [TestMethod()]
+    [TestMethod]
     public void CanUpdate<xsl:value-of select="@name"/>()
     {
       Assert.IsTrue(service.Update(id<xsl:call-template name="resolveRecursiveParamsUpdate"/>), "Unable to update <xsl:value-of select="@name"/>.");
     }
     
-    [TestMethod()]
+    [TestMethod]
     public void CanRead<xsl:value-of select="@name"/>()
     {
       <xsl:value-of select="@name"/> target = service.Read(id);
       Assert.IsNotNull(target, "Unable to read <xsl:value-of select="@name"/>.");
     }
     
-    [TestMethod()]
+    [TestMethod]
     public void CanReadByUnique<xsl:value-of select="@name"/>()
     {
       <xsl:value-of select="@name"/> target = service.ReadByUnique();
       Assert.IsNotNull(target, "Unable to ReadByUnique a <xsl:value-of select="@name"/>");
     }
     
-    [TestMethod()]
+    [TestMethod]
     public void CanDelete<xsl:value-of select="@name"/>()
     {
       Assert.IsTrue(service.Delete(id), "Unable to delete <xsl:value-of select="@name"/>");

@@ -57,7 +57,7 @@ namespace EDM.Tester
         #endregion
 
         [ClassInitialize]
-        public static void init(TestContext ctx)
+        public static void Init(TestContext ctx)
         {
             xpath = new ThreeDXPath();
         }
@@ -68,29 +68,89 @@ namespace EDM.Tester
             Assert.IsNotNull(xpath);
         }
         [TestMethod]
-        public void canGetRoot()
+        public void CanGetRoot()
         {
             Assert.AreEqual(xpath.Root, "/");
         }
         [TestMethod]
-        public void  canGetUserTypes()
+        public void CanGetSolution()
+        {
+            Assert.AreEqual(xpath.Solution, "/solution");
+        }
+        [TestMethod]
+        public void CanGetUserTypes()
         {
             Assert.AreEqual(xpath.UserTypes, "/solution/userTypes");
         }
         [TestMethod]
-        public void canGetEntities()
+        public void CanGetEntities()
         {
             Assert.AreEqual(xpath.Entities, "/solution/entities");
         }
         [TestMethod]
-        public void canGetEntity()
+        public void CanGetEntity()
         {
             Assert.AreEqual(xpath.Entity, "/solution/entities/entity");
         }
         [TestMethod]
-        public void canGetEntityFields()
+        public void CanGetEntityFields()
         {
             Assert.AreEqual(xpath.EntityFields, "./fields");
+        }
+        [TestMethod]
+        public void CanGetEntitiesRelations()
+        {
+            Assert.AreEqual(xpath.EntitiesRelations, "/solution/entities/relations");
+        }
+        [TestMethod]
+        public void CanGetEntitiesRelation()
+        {
+            Assert.AreEqual(xpath.EntitiesRelation, "/solution/entities/relations/relation");
+        }
+        [TestMethod]
+        public void CanGetEntitiesRelationOneToMany()
+        {
+            Assert.AreEqual(xpath.EntitiesRelationOneToMany, "/solution/entities/relations/relation[@type = 'OneToMany']");
+        }
+        [TestMethod]
+        public void CanGetEntitiesRelationManyToOne()
+        {
+            Assert.AreEqual(xpath.EntitiesRelationManyToOne, "/solution/entities/relations/relation[@type = 'ManyToOne']");
+        }
+        [TestMethod]
+        public void CanGetOneToOneRelation()
+        {
+            Assert.AreEqual(xpath.OneToOneRelation, "//oneToOne");
+        }
+        [TestMethod]
+        public void CanGetOneToManyRelation()
+        {
+            Assert.AreEqual(xpath.OneToManyRelation, "//oneToMany");
+        }
+        [TestMethod]
+        public void CanGetManyToOneRelation()
+        {
+            Assert.AreEqual(xpath.ManyOneToRelation, "//manyToOne");
+        }
+        [TestMethod]
+        public void CanGetManyToManyRelation()
+        {
+            Assert.AreEqual(xpath.ManyToManyRelation, "//manyToMany");
+        }
+        [TestMethod]
+        public void CanGetBusinessProcesses()
+        {
+            Assert.AreEqual(xpath.BusinessProcesses, "/solution/businessProcesses");
+        }
+        [TestMethod]
+        public void CanGetComponent()
+        {
+            Assert.AreEqual(xpath.Component, "/solution/businessProcesses/component");
+        }
+        [TestMethod]
+        public void CanGetBusinessProcess()
+        {
+            Assert.AreEqual(xpath.BusinessProcess, "/solution/businessProcesses/component/businessProcess");
         }
     }
 }

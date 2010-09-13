@@ -62,7 +62,7 @@ namespace EDM.Tester
         #endregion
 
         [TestMethod]
-        public void canRenderNode()
+        public void CanRenderNode()
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(new XmlTextReader(Path.Combine(path, @"3D.xml")));

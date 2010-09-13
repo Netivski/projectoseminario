@@ -58,18 +58,18 @@ namespace EDM.Tester
         #endregion
 
         [ClassInitialize]
-        public static void init(TestContext ctx)
+        public static void Init(TestContext ctx)
         {             
         }
         
         [TestMethod]
-        public void transformNotNull()
+        public void TransformNotNull()
         {
             Transform t = new Transform();
             Assert.IsNotNull(t);
         }
         [TestMethod]
-        public void canGetXslCompiledTransform()
+        public void CanGetXslCompiledTransform()
         {
             Transform t = new Transform();
             XslCompiledTransform trans = t.GetTemplateFile("Entity");
