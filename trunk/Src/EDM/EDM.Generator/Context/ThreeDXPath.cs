@@ -76,6 +76,13 @@ namespace EDM.Generator.Context
                 return string.Concat(EntitiesRelation, "[@type = 'ManyToOne']");
             }
         }
+        public string EntitiesRelationManyToMany
+        {
+            get
+            {
+                return string.Concat(EntitiesRelation, "[@type = 'ManyToMany']");
+            }
+        }
         public string OneToOneRelation
         {
             get
