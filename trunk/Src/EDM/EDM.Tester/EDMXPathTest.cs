@@ -13,7 +13,7 @@ namespace EDM.Tester
     [TestClass]
     public class EDMXPathTest
     {
-        private static EDMXPath xpath;
+        private static ThreeDXPath xpath;
         public EDMXPathTest(){}
 
         private TestContext testContextInstance;
@@ -59,7 +59,7 @@ namespace EDM.Tester
         [ClassInitialize]
         public static void init(TestContext ctx)
         {
-            xpath = new EDMXPath();
+            xpath = new ThreeDXPath();
         }
 
         [TestMethod]

@@ -5,24 +5,24 @@ namespace EDM.Generator.Context
 {
     internal class GeneratorContext
     {
-        ThreeD   edmFile   = null;        
-        Transform transform = null;
-        Output    output    = null;
+        ThreeD    threedFile = null;        
+        Transform transform  = null;
+        Output    output     = null;
 
         public GeneratorContext() { }
 
-        public GeneratorContext(ThreeD edmFile, Transform transform, Output output)
+        public GeneratorContext(ThreeD threedFile, Transform transform, Output output)
         {                                    
-            this.edmFile = edmFile;
+            this.threedFile = threedFile;
             this.transform = transform;
             this.output = output;
         }
 
-        public ThreeD EDMFile
+        public ThreeD ThreeDFile
         {
             get
             {
-                return edmFile;
+                return threedFile;
             }
         }
 
@@ -42,25 +42,9 @@ namespace EDM.Generator.Context
             }
         }
 
-        //public GeneratorTarget Target
-        //{
-        //    get
-        //    {
-        //        return target;
-        //    }
-        //}
-
-        //public GeneratorEnvironment Environment
-        //{
-        //    get
-        //    {
-        //        return environment;
-        //    }
-        //}
-
-        public void SetEDMFile(string edmFilePath)
+        public void SetThreeDFile(string threedFilePath)
         {
-            edmFile = new ThreeD(edmFilePath);
+            threedFile = new ThreeD(threedFilePath);
         }
 
         public void SetTransform(  )

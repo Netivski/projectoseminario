@@ -2,9 +2,9 @@
 
 namespace EDM.Generator.Context
 {
-    internal class EDMXPath
+    internal class ThreeDXPath
     {
-        public EDMXPath() { }
+        public ThreeDXPath() { }
 
         public string Root
         {

@@ -75,11 +75,11 @@ namespace EDM.Tester
             Assert.IsInstanceOfType(eng, typeof(CSharpEngine));            
         }
         [TestMethod]
-        public void CanEngineGenerateWithoutEDMFile()
+        public void CanEngineGenerateWithoutThreeDFile()
         {   
             try
             {
-                eng.SetEDMFile("");
+                eng.SetThreeDFile("");
                 eng.Generate();
                 Assert.Fail("Did not generate exception without EDM File");
             }

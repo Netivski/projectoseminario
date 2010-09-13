@@ -20,11 +20,11 @@ namespace EDM.Tester
     {
         private static Step file;
         private static string outputPath;
-        private static string edmFilePath;
+        private static string threedFilePath;
         private static string xsltPath;
         private static GeneratorContext context;
         private static XmlDocument doc;
-        private static EDMXPath xPath;
+        private static ThreeDXPath xPath;
 
         public GeneratedFIleInfoTest()
         {
@@ -77,10 +77,10 @@ namespace EDM.Tester
         public static void init(TestContext ctx)
         {
             outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\Generated\GeneratedFileInfoStepTest");
-            edmFilePath = Path.Combine(outputPath, @"..\..\3D.xml");
+            threedFilePath = Path.Combine(outputPath, @"..\..\3D.xml");
             xsltPath = Path.Combine(outputPath, @"..\..\XSLT");
             doc = new XmlDocument();
-            xPath = new EDMXPath();
+            xPath = new ThreeDXPath();
 
             if (Directory.Exists(outputPath))
                 Directory.Delete(outputPath, true);
@@ -89,7 +89,7 @@ namespace EDM.Tester
             Directory.CreateDirectory(Path.Combine(outputPath, @"TestNameSpace.Rtti\Base"));
 
             context = new GeneratorContext();
-            context.SetEDMFile(edmFilePath);
+            context.SetThreeDFile(threedFilePath);
             context.SetOutput(outputPath, "TestNameSpace");
             context.SetTransform();
         }
@@ -97,18 +97,18 @@ namespace EDM.Tester
         [TestMethod]
         public void isItNull()
         {
-            file = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.EDMFile.XPath.UserTypes, true);
+            file = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.ThreeDFile.XPath.UserTypes, true);
             Assert.IsNotNull(file);
         }
         [TestMethod]
         public void DidGenerateFile()
         {
-            file = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.EDMFile.XPath.UserTypes, true);
+            file = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.ThreeDFile.XPath.UserTypes, true);
 
-            XmlNodeList list = context.EDMFile.Content.SelectNodes(file.XPath);
+            XmlNodeList list = context.ThreeDFile.Content.SelectNodes(file.XPath);
             foreach (XmlNode node in list)
             {
-                string outputFile = file.GetOutputFile(Get.GetAttributeValue(context.EDMFile.Content, node, "generatedFileName"));
+                string outputFile = file.GetOutputFile(Get.GetAttributeValue(context.ThreeDFile.Content, node, "generatedFileName"));
                 TemplateHelper.Render(node, context.Transform.GetTemplateFile(file.TemplateName), outputFile);
             }
 

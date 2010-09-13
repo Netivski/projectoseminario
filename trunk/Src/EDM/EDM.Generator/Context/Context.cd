@@ -7,36 +7,36 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAIAAAAAIAAAAAAAAAAIAAQACAAEAAAAAAACAAQAIAA=</HashCode>
+      <HashCode>AAIAAAAAABAAAAAAAAAIAAQBCAAEAAAAAAAAEAQAAAA=</HashCode>
       <FileName>Context\GeneratorContext.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="EDMFile" />
       <Property Name="Transform" />
       <Property Name="Output" />
+      <Property Name="ThreeDFile" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="EDM.Generator.Context.EDMFile" Collapsed="true">
+  <Class Name="EDM.Generator.Context.ThreeD" Collapsed="true">
     <Position X="5" Y="3.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAACREAAIgBAAIAACAAAAAQAAAAAAAAAAAAACAAACAA=</HashCode>
-      <FileName>Context\EDMFile.cs</FileName>
+      <HashCode>AAACREAAAhBAAIAACAAAAAQAAAAAAAAAAAAACAAACAA=</HashCode>
+      <FileName>Context\ThreeD.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="XPath" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="EDM.Generator.Context.EDMXPath" Collapsed="true">
+  <Class Name="EDM.Generator.Context.ThreeDXPath" Collapsed="true">
     <Position X="5" Y="4.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>EAAAABAAEAAAACAACAAAAAAAAAICCAAAAAFAAAgAAIA=</HashCode>
-      <FileName>Context\EDMXPath.cs</FileName>
+      <HashCode>EQAAABAAEAAAASAACAAAAAAIAAICCAAAAAFAgAiAAIA=</HashCode>
+      <FileName>Context\ThreeDXPath.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EDM.Generator.Context.Output" Collapsed="true">

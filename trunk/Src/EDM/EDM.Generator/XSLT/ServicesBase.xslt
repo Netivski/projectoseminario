@@ -8,6 +8,8 @@ using System.Security.Permissions;
 using System.Security;
 using EDM.FoundationClasses.Security.Permissions;
 using <xsl:value-of select="@baseNameSpace"/>;
+using <xsl:value-of select="@baseNameSpace"/>.DataInterfaces;
+using <xsl:value-of select="@baseNameSpace"/>.Data;
 
 namespace <xsl:value-of select="@servicesNameSpace"/>.Base
 {
@@ -18,25 +20,33 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         </xsl:call-template> 
         public virtual long Create(<xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
         {
-            <xsl:value-of select="@name"/> record = new <xsl:value-of select="@name"/>();
-            <xsl:call-template name="resolveRecursiveSetRecord"></xsl:call-template>
+            <xsl:value-of select="@name"/> record = new <xsl:value-of select="@name"/>(){ <xsl:call-template name="resolveRecursiveSetRecordInline"></xsl:call-template> };            
     
-            //if( !record.IsValid() ) throw new .... 
-            return 0;
+            if (!record.IsValid())
+            {
+                //throw new ArgumentException
+            }
+
+            NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().Save(record);
+
+            return record.ID;
         }
         
         <xsl:call-template name="WriteRuntimeSecurity">
           <xsl:with-param name="methodName" select="'Update'"></xsl:with-param>
         </xsl:call-template> 
-        public virtual bool Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
-        {
-            <xsl:value-of select="@name"/> record = new <xsl:value-of select="@name"/>();
-            //record.ID = recordId;
-            <xsl:call-template name="resolveRecursiveSetRecord"></xsl:call-template>
-             
-             //if( !record.IsValid() ) throw new .... 
-            
-            return false;
+        public virtual void Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
+        {             
+            I<xsl:value-of select="@name"/>Dao dao = NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao();  
+
+            <xsl:value-of select="@name"/> record = dao.GetById(recordId, false);<xsl:call-template name="resolveRecursiveSetRecordRecordBase"></xsl:call-template>            
+
+            if (!record.IsValid())
+            {
+                //throw new ArgumentException
+            }
+
+            dao.SaveOrUpdate(record);                                                         
         }
 
         <xsl:call-template name="WriteRuntimeSecurity">
@@ -44,7 +54,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         </xsl:call-template> 
         public virtual <xsl:value-of select="@name"/> Read(long recordId)
         {
-            return null;
+            return NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().GetById(recordId, false);
         }
 
         <xsl:call-template name="WriteRuntimeSecurity">
@@ -58,9 +68,9 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         <xsl:call-template name="WriteRuntimeSecurity">
           <xsl:with-param name="methodName" select="'Delete'"></xsl:with-param>
         </xsl:call-template> 
-        public virtual bool Delete(long recordId)
+        public virtual void Delete(long recordId)
         {
-            return false;
+            NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().Delete( Read( recordId ) );
         }
     }
 }
@@ -70,10 +80,14 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
      <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/><xsl:if test="position() != last()">, </xsl:if>
   </xsl:template>
 
-  <xsl:template match="fields/field" mode="setRecord">
-            record.<xsl:value-of select="@name"/> = <xsl:value-of select="@name"/>;</xsl:template>
+  <xsl:template match="fields/field" mode="setRecordInLine">
+ <xsl:value-of select="@name"/> = <xsl:value-of select="@name"/><xsl:if test="position() != last()">, </xsl:if>
+</xsl:template>
 
-  <xsl:template name="resolveRecursiveParams">
+  <xsl:template match="fields/field" mode="setRecordRecordBase">
+            record.<xsl:value-of select="@name"/> = <xsl:value-of select="@name"/>;</xsl:template>  
+
+  <xsl:template name="resolveRecursiveParams">    
     <xsl:apply-templates select="fields/field" mode="params"/>
     <xsl:if test="@type = 'dependent'">
       <xsl:if test="count(fields/field) > 0">, </xsl:if>
@@ -84,14 +98,23 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
     </xsl:if>
   </xsl:template>
 
-  <xsl:template name="resolveRecursiveSetRecord">
-    <xsl:apply-templates select="fields/field" mode="setRecord"/>
+  <xsl:template name="resolveRecursiveSetRecordInline">
     <xsl:if test="@type = 'dependent'">
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]">
-        <xsl:call-template name="resolveRecursiveSetRecord"></xsl:call-template>
-      </xsl:for-each>
+        <xsl:call-template name="resolveRecursiveSetRecordInline"></xsl:call-template>, </xsl:for-each>
     </xsl:if>
+    <xsl:apply-templates select="fields/field" mode="setRecordInLine"/>    
   </xsl:template>
 
+  <xsl:template name="resolveRecursiveSetRecordRecordBase">
+    <xsl:if test="@type = 'dependent'">
+      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:call-template name="resolveRecursiveSetRecordRecordBase"></xsl:call-template></xsl:for-each>
+    </xsl:if>
+    <xsl:apply-templates select="fields/field" mode="setRecordRecordBase"/>    
+  </xsl:template>
+  
+  
 </xsl:stylesheet>

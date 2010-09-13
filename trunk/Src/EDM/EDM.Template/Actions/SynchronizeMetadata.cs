@@ -35,12 +35,12 @@ namespace EDM.Template.Actions
 
 
 
-            string EDMFilePath = Path.Combine(solutionDir, @"3D\3D.xml");
+            string threedFilePath = Path.Combine(solutionDir, @"3D\3D.xml");
 
             StartTime = DateTime.Now;
 
             EDM.Generator.EntryPoint.Generate(
-                EDMFilePath,
+                threedFilePath,
                 solutionDir,
                 EDM.Generator.GeneratorTarget.CSharp,
                 EDM.Generator.GeneratorEnvironment.EDMBase

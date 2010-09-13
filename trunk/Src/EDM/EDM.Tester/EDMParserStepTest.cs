@@ -15,12 +15,12 @@ namespace EDM.Tester
     public class EDMParserStepTest
     {
         private static string outputPath;
-        private static string edmFilePath;
+        private static string threedFilePath;
         private static string xsltPath;
         private static AbstractStep step;
         private static GeneratorContext context;
         private static XmlDocument doc;
-        private static EDMXPath xPath;
+        private static ThreeDXPath xPath;
 
 
         public EDMParserStepTest(){}
@@ -68,7 +68,7 @@ namespace EDM.Tester
         private void generate()
         {
             step.Generate(context);
-            context.EDMFile.Content.Save(Path.Combine(outputPath, "GeneratedXml.xml"));
+            context.ThreeDFile.Content.Save(Path.Combine(outputPath, "GeneratedXml.xml"));
             doc.Load(Path.Combine(outputPath, "GeneratedXml.xml"));
         }
 
@@ -76,19 +76,19 @@ namespace EDM.Tester
         public static void init(TestContext ctx)
         {
             outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\Generated\EDMParserStepTest");
-            edmFilePath = Path.Combine(outputPath, @"..\..\3D.xml");
+            threedFilePath = Path.Combine(outputPath, @"..\..\3D.xml");
             xsltPath = Path.Combine(outputPath, @"..\..\XSLT");
             doc = new XmlDocument();
-            xPath = new EDMXPath();
+            xPath = new ThreeDXPath();
 
             if (Directory.Exists(outputPath))
                 Directory.Delete(outputPath, true);
 
             Directory.CreateDirectory(outputPath);
 
-            step = new EDMParserStep();
+            step = new ThreeDPreExecuteStep();
             context = new GeneratorContext();
-            context.SetEDMFile(edmFilePath);
+            context.SetThreeDFile(threedFilePath);
             context.SetOutput(outputPath, "TestNameSpace");
             context.SetTransform();
         }
@@ -122,7 +122,7 @@ namespace EDM.Tester
             if (node == null)
                 Assert.Fail();
             Assert.IsNotNull(node.Attributes["nameSpace"]);
-            Assert.AreEqual(context.EDMFile.NameSpace, node.Attributes["nameSpace"].Value);
+            Assert.AreEqual(context.ThreeDFile.NameSpace, node.Attributes["nameSpace"].Value);
         }
         
         [TestMethod]
@@ -131,7 +131,7 @@ namespace EDM.Tester
             generate();
             XmlNode node = Get.GetNode(doc, xPath.UserTypes);            
             Assert.IsNotNull(node.Attributes["assemblyName"]);
-            Assert.AreEqual(string.Concat(context.EDMFile.BaseName, ".", "Rtti"), node.Attributes["assemblyName"].Value);
+            Assert.AreEqual(string.Concat(context.ThreeDFile.BaseName, ".", "Rtti"), node.Attributes["assemblyName"].Value);
         }
         [TestMethod]
         public void DidAddNameSpaceAttributeToUserType()
@@ -139,7 +139,7 @@ namespace EDM.Tester
             generate();
             XmlNode node = Get.GetNode(doc, xPath.UserTypes);
             Assert.IsNotNull(node.Attributes["nameSpace"]);
-            Assert.AreEqual(string.Concat(context.EDMFile.NameSpace, ".Rtti"), node.Attributes["nameSpace"].Value);
+            Assert.AreEqual(string.Concat(context.ThreeDFile.NameSpace, ".Rtti"), node.Attributes["nameSpace"].Value);
         }
         [TestMethod]
         public void DidAddGeneratedFileNameAttributeToUserType()
@@ -156,7 +156,7 @@ namespace EDM.Tester
             generate();
             XmlNode node = Get.GetNode(doc, xPath.Entities);            
             Assert.IsNotNull(node.Attributes["nameSpace"]);
-            Assert.AreEqual(string.Concat(context.EDMFile.NameSpace, ".Entity"), node.Attributes["nameSpace"].Value);
+            Assert.AreEqual(string.Concat(context.ThreeDFile.NameSpace, ".Entity"), node.Attributes["nameSpace"].Value);
         }
         [TestMethod]
         public void DidAddAssemblyNameAttributeToEntity()
@@ -166,7 +166,7 @@ namespace EDM.Tester
             foreach (XmlNode node in list)
             {
                 Assert.IsNotNull(node.Attributes["assemblyName"]);
-                Assert.AreEqual(string.Concat(context.EDMFile.BaseName, ".Entity"), node.Attributes["assemblyName"].Value);
+                Assert.AreEqual(string.Concat(context.ThreeDFile.BaseName, ".Entity"), node.Attributes["assemblyName"].Value);
             }
         }
         [TestMethod]
@@ -177,7 +177,7 @@ namespace EDM.Tester
             foreach (XmlNode node in list)
             {
                 Assert.IsNotNull(node.Attributes["nameSpace"]);
-                string expected = string.Format("{0}.{1}.{2}", context.EDMFile.NameSpace, "Entity", node.Attributes["name"].Value);
+                string expected = string.Format("{0}.{1}.{2}", context.ThreeDFile.NameSpace, "Entity", node.Attributes["name"].Value);
                 Assert.AreEqual(expected, node.Attributes["nameSpace"].Value);
             }
         }
@@ -189,7 +189,7 @@ namespace EDM.Tester
             foreach (XmlNode node in list)
             {
                 Assert.IsNotNull(node.Attributes["baseNameSpace"]);
-                Assert.AreEqual(string.Format("{0}.{1}", context.EDMFile.NameSpace, "Entity"), node.Attributes["baseNameSpace"].Value);
+                Assert.AreEqual(string.Format("{0}.{1}", context.ThreeDFile.NameSpace, "Entity"), node.Attributes["baseNameSpace"].Value);
             }
         }
         [TestMethod]
@@ -200,7 +200,7 @@ namespace EDM.Tester
             foreach (XmlNode node in list)
             {
                 Assert.IsNotNull(node.Attributes["rttiNameSpace"]);
-                Assert.AreEqual(string.Format("{0}.{1}", context.EDMFile.NameSpace, "Rtti"), node.Attributes["rttiNameSpace"].Value);
+                Assert.AreEqual(string.Format("{0}.{1}", context.ThreeDFile.NameSpace, "Rtti"), node.Attributes["rttiNameSpace"].Value);
             }
         }
         [TestMethod]

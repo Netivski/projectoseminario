@@ -51,21 +51,21 @@
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Engine\EngineFactory.cs" />
     <Compile Include="Engine\Step\AbstractStep.cs" />
-    <Compile Include="Engine\Step\EDMParserStep.cs" />
+    <Compile Include="Engine\Step\ThreeDPreExecuteStep.cs" />
     <Compile Include="Engine\Step\Step.cs" />
     <Compile Include="Engine\Step\GeneratorSteps.cs" />
     <Compile Include="Engine\IEngine.cs" />
     <Compile Include="Engine\CSharpKeywords.cs" />
-    <Compile Include="Exception\InvalidEDMStateException.cs" />
+    <Compile Include="Exception\ThreeDNotFoundException.cs" />
     <Compile Include="Exception\KeyWordUsageException.cs" />
     <Compile Include="Exception\TargetNotImplementedException.cs" />
     <Compile Include="GeneratortEnvironment.cs" />
     <Compile Include="Context\GeneratorContext.cs" />
-    <Compile Include="Context\EDMFile.cs" />
-    <Compile Include="Context\EDMXPath.cs" />
+    <Compile Include="Context\ThreeD.cs" />
+    <Compile Include="Context\ThreeDXPath.cs" />
     <Compile Include="Context\Output.cs" />
     <Compile Include="Context\Transform.cs" />
-    <Compile Include="Exception\EDMFileNotFoundException.cs" />
+    <Compile Include="Exception\InvalidThreeDStateException.cs" />
     <Compile Include="Exception\GeneralException.cs" />
     <Compile Include="Exception\InvalidOutputDirectoryException.cs" />
     <Compile Include="Exception\InvalidTransformDirectoryException.cs" />
@@ -144,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="XSLT\UnitTest.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XSLT\IDaoInterfacePartial.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
