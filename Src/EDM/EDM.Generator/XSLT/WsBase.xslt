@@ -23,9 +23,9 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
         }
 
         [WebMethod]
-        public bool Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
+        public void Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
         {
-            return Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Update(recordId, <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
+            Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Update(recordId, <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
         }
 
         [WebMethod]
@@ -41,9 +41,9 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
         }
 
         [WebMethod]
-        public bool Delete(long recordId)
+        public void Delete(long recordId)
         {
-            return Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Delete(recordId);
+            Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Delete(recordId);
         }
     }
 }

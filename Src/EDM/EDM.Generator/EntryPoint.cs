@@ -7,11 +7,11 @@ namespace EDM.Generator
 {
     public static class EntryPoint
     {
-        public static void Generate(String edmFilePath, string genResultPath, GeneratorTarget target, GeneratorEnvironment environment)
+        public static void Generate(String threedFilePath, string genResultPath, GeneratorTarget target, GeneratorEnvironment environment)
         {
             IEngine engine = EngineFactory.GetEngine(target);
 
-            engine.SetEDMFile(edmFilePath);
+            engine.SetThreeDFile(threedFilePath);
 
             engine.SetTransform(); 
             engine.SetOutput(genResultPath);

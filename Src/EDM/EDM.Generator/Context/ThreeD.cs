@@ -7,9 +7,9 @@ namespace EDM.Generator.Context
 {
     internal class ThreeD
     {
-        readonly FileInfo    edmFile = null;
-        readonly XmlDocument content = null;
-        readonly EDMXPath    xPath   = null;
+        readonly FileInfo    threedFile = null;
+        readonly XmlDocument content    = null;
+        readonly ThreeDXPath    xPath      = null;
 
         public ThreeD( string filePath ) 
         {
@@ -17,10 +17,10 @@ namespace EDM.Generator.Context
 
             try
             {
-                edmFile = new FileInfo(filePath);
-                content = new XmlDocument();
+                threedFile = new FileInfo(filePath);
+                content    = new XmlDocument();
                 content.Load(filePath);
-                xPath   = new EDMXPath();
+                xPath      = new ThreeDXPath();
             }
             catch (System.Exception e)
             {
@@ -30,17 +30,17 @@ namespace EDM.Generator.Context
 
         public string FullName
         {
-            get { return edmFile.FullName; }
+            get { return threedFile.FullName; }
         }
 
         public string Name
         {
-            get { return edmFile.Name; }
+            get { return threedFile.Name; }
         }
 
         public string DirectoryFullName
         {
-            get { return edmFile.Directory.FullName; }
+            get { return threedFile.Directory.FullName; }
         }
 
         public XmlDocument Content
@@ -48,7 +48,7 @@ namespace EDM.Generator.Context
             get { return content; }
         }
 
-        public EDMXPath XPath
+        public ThreeDXPath XPath
         {
             get { return xPath; }
         }

@@ -25,7 +25,7 @@
               </generator>                          
             </xsl:when>
             <xsl:otherwise>
-              <generator class="assigned" />
+              <generator class="identity" />
             </xsl:otherwise>
           </xsl:choose>
           
@@ -89,7 +89,7 @@
   <xsl:template match="oneToMany" mode="oneToMany" xmlns="urn:nhibernate-mapping-2.2">
     <xsl:call-template name="NewLine" />
     <xsl:call-template name="Tab2" />
-    <bag name="{@name}" table="{@entity}" inverse="true"> <xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />      
+    <bag name="_{@name}" access="field" table="{@entity}" inverse="true"> <xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />      
       <key column="{@fkName}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />
       <one-to-many class="{@nameSpace}, {@assemblyName}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab2" />
     </bag>

@@ -14,14 +14,14 @@ namespace <xsl:value-of select="@nameSpace"/>.DataInterfaces.Base
 {
     // There's no need to declare each of the DAO interfaces in its own file, so just add them inline here.
     // But you're certainly welcome to put each declaration into its own file.
-    #region Inline interface declarations
-      <xsl:apply-templates select="entity" mode="declarations"/>
-    #endregion
+    #region Inline interface declarations 
+      <xsl:apply-templates select="entity" mode="base"/>
+    #endregion 
 }
   </xsl:template>
 
-  <xsl:template match="entity" mode="declarations">
-    public interface I<xsl:value-of select="@name"/>Dao : IDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="gt"></xsl:call-template>{ }
+  <xsl:template match="entity" mode="base">
+    public interface I<xsl:value-of select="@name"/>DaoBase : IDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="gt"></xsl:call-template>{ }
   </xsl:template>
-
+  
 </xsl:stylesheet>

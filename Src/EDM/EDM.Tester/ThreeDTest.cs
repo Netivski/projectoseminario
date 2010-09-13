@@ -10,13 +10,13 @@ using EDM.Generator.Context;
 namespace EDM.Tester
 {
     /// <summary>
-    /// Summary description for EDMFileTest
+    /// Summary description for ThreeDTest
     /// </summary>
     [TestClass]
     public class ThreeDTest
     {
         private static string filePath;
-        private static ThreeD edmFile;
+        private static ThreeD threedFile;
 
         public ThreeDTest(){}
 
@@ -64,58 +64,58 @@ namespace EDM.Tester
         [ClassInitialize]
         public static void init(TestContext ctx)
         {
-            filePath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\3D.xml");
-            edmFile = new ThreeD(filePath);
+            filePath   = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\3D.xml");
+            threedFile = new ThreeD(filePath);
         }
         
         [TestMethod]
-        public void EDMFileNotNull()
+        public void ThreeDFileNotNull()
         {
-            Assert.IsNotNull(edmFile);
+            Assert.IsNotNull(threedFile);
         }
         [TestMethod]
         public void canGetFullName()
         {
-            Assert.AreEqual(new FileInfo(filePath).FullName, edmFile.FullName);
+            Assert.AreEqual(new FileInfo(filePath).FullName, threedFile.FullName);
         }
         [TestMethod]
         public void canGetName()
         {
-            Assert.AreEqual(new FileInfo(filePath).Name, edmFile.Name);
+            Assert.AreEqual(new FileInfo(filePath).Name, threedFile.Name);
         }
         [TestMethod]
         public void canGetDirectoryFullName()
         {
-            Assert.AreEqual(new FileInfo(filePath).Directory.FullName, edmFile.DirectoryFullName);
+            Assert.AreEqual(new FileInfo(filePath).Directory.FullName, threedFile.DirectoryFullName);
         }
         [TestMethod]
         public void canGetCompanyName()
         {
-            Assert.AreEqual("ISEL", edmFile.CompanyName);
+            Assert.AreEqual("ISEL", threedFile.CompanyName);
         }
         [TestMethod]
         public void canGetProjectName()
         {
-            Assert.AreEqual("Sample", edmFile.ProjectName);
+            Assert.AreEqual("Sample", threedFile.ProjectName);
         }
         [TestMethod]
         public void canGetNameSpace()
         {
-            Assert.AreEqual("ISEL.Sample", edmFile.NameSpace);
+            Assert.AreEqual("ISEL.Sample", threedFile.NameSpace);
         }
         [TestMethod]
         public void canGetBaseName()
         {
-            Assert.AreEqual("ISEL.Sample", edmFile.BaseName);
+            Assert.AreEqual("ISEL.Sample", threedFile.BaseName);
         }
         [TestMethod]
         public void canGetContent()
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(filePath);
-            Assert.AreEqual(doc.Name, edmFile.Content.Name);
-            Assert.AreEqual(doc.LastChild.Name, edmFile.Content.LastChild.Name);
-            Assert.AreEqual(doc.FirstChild.Name, edmFile.Content.FirstChild.Name);
+            Assert.AreEqual(doc.Name, threedFile.Content.Name);
+            Assert.AreEqual(doc.LastChild.Name, threedFile.Content.LastChild.Name);
+            Assert.AreEqual(doc.FirstChild.Name, threedFile.Content.FirstChild.Name);
         }
     }
 }

@@ -16,8 +16,13 @@ namespace <xsl:value-of select="@nameSpace"/>.DataInterfaces
     // There's no need to declare each of the DAO interfaces in its own file, so just add them inline here.
     // But you're certainly welcome to put each declaration into its own file.
     #region Inline interface declarations
+    <xsl:apply-templates select="entity" mode="declarations"/> 
     #endregion
 }
+  </xsl:template>
+
+  <xsl:template match="entity" mode="declarations">
+    public partial interface I<xsl:value-of select="@name"/>Dao : I<xsl:value-of select="@name"/>DaoBase{ }
   </xsl:template>
 
 </xsl:stylesheet>
