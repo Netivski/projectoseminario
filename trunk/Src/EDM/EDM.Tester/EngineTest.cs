@@ -85,7 +85,7 @@ namespace EDM.Tester
             }
             catch (Exception ex)
             {
-                Assert.IsInstanceOfType(ex, typeof(EDMFileNotFoundException));
+                Assert.IsInstanceOfType(ex, typeof(ThreeDNotFoundException));
             }            
         }
         [TestMethod]
