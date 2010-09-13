@@ -67,32 +67,32 @@ namespace EDM.Tester
         #endregion
         
         [TestMethod]
-        public void canGetNodeList()
+        public void CanGetNodeList()
         {
             XmlNodeList list = Get.GetNodeList(_doc, "/solution/entities/entity");
-            Assert.AreEqual(7, list.Count);
+            Assert.AreEqual(6, list.Count);
         }
         [TestMethod]
-        public void canGetNode()
+        public void CanGetNode()
         {
             XmlNode node = Get.GetNode(_doc, "/solution/entities/*[@name = 'LP']");
             Assert.IsNotNull(node);
         }
         [TestMethod]
-        public void canGetAttributeValueFromNode()
+        public void CanGetAttributeValueFromNode()
         {
             XmlNode node = Get.GetNode(_doc, "/solution/entities/*[@name = 'LP']");
             String value = Get.GetAttributeValue(_doc, node, "baseEntity");
             Assert.AreEqual("Album", value);
         }
         [TestMethod]
-        public void canGetAttributeValueFromXPath()
+        public void CanGetAttributeValueFromXPath()
         {
             String value = Get.GetAttributeValue(_doc, "/solution/entities/*[@name = 'LP']", "baseEntity");
             Assert.AreEqual("Album", value);
         }
         [TestMethod]
-        public void canSetAttributeValue()
+        public void CanSetAttributeValue()
         {
             String beforeValue = Get.GetAttributeValue(_doc, "/solution/entities/*[@name = 'LP']", "baseEntity");
             Set.SetAttributeValue(_doc, "/solution/entities/*[@name = 'LP']", "baseEntity", "newValue");
@@ -101,7 +101,7 @@ namespace EDM.Tester
             Assert.AreEqual("newValue", afterValue);
         }
         [TestMethod]
-        public void canAddAttributeByXPath()
+        public void CanAddAttributeByXPath()
         {
             XmlNode node = Get.GetNode(_doc, "/solution/entities/*[@name = 'LP']");
             XmlAttributeCollection attributes = node.Attributes;
@@ -112,7 +112,7 @@ namespace EDM.Tester
             Assert.AreEqual(attributes[4].Value.ToString(), "value");
         }
         [TestMethod]
-        public void canAddAttributeByNode()
+        public void CanAddAttributeByNode()
         {
             XmlNode node = Get.GetNode(_doc, "/solution/entities/*[@name = 'LP']");
             XmlAttributeCollection attributes = node.Attributes;

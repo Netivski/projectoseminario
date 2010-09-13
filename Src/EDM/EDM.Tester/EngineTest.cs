@@ -59,7 +59,7 @@ namespace EDM.Tester
         #endregion
 
         [ClassInitialize]
-        public static void init(TestContext ctx)
+        public static void Init(TestContext ctx)
         {
             eng = EngineFactory.GetEngine(EDM.Generator.GeneratorTarget.CSharp);
         }

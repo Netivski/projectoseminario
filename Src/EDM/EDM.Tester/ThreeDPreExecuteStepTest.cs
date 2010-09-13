@@ -65,7 +65,7 @@ namespace EDM.Tester
         //
         #endregion
 
-        private void generate()
+        private void Generate()
         {
             step.Generate(context);
             context.ThreeDFile.Content.Save(Path.Combine(outputPath, "GeneratedXml.xml"));
@@ -73,7 +73,7 @@ namespace EDM.Tester
         }
 
         [ClassInitialize]
-        public static void init(TestContext ctx)
+        public static void Init(TestContext ctx)
         {
             outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\Generated\EDMParserStepTest");
             threedFilePath = Path.Combine(outputPath, @"..\..\3D.xml");
@@ -101,13 +101,13 @@ namespace EDM.Tester
         [TestMethod]
         public void CanStepGenerate()
         {
-            generate();
+            Generate();
             Assert.AreNotEqual(0, doc.ChildNodes.Count);
         }        
         [TestMethod]
         public void DidAddEDMTypeAttributeToFields()
         {
-            generate();
+            Generate();
             XmlNodeList list = Get.GetNodeList(doc, string.Concat(xPath.Entity, "/fields/field"));
             foreach (XmlNode node in list)
             {   
@@ -117,7 +117,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddNameSpaceAttributeToSolution()
         {
-            generate();
+            Generate();
             XmlNode node = Get.GetNode(doc, xPath.Solution);
             if (node == null)
                 Assert.Fail();
@@ -128,7 +128,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddAssemblyNameAttributeToUserType()
         {
-            generate();
+            Generate();
             XmlNode node = Get.GetNode(doc, xPath.UserTypes);            
             Assert.IsNotNull(node.Attributes["assemblyName"]);
             Assert.AreEqual(string.Concat(context.ThreeDFile.BaseName, ".", "Rtti"), node.Attributes["assemblyName"].Value);
@@ -136,7 +136,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddNameSpaceAttributeToUserType()
         {
-            generate();
+            Generate();
             XmlNode node = Get.GetNode(doc, xPath.UserTypes);
             Assert.IsNotNull(node.Attributes["nameSpace"]);
             Assert.AreEqual(string.Concat(context.ThreeDFile.NameSpace, ".Rtti"), node.Attributes["nameSpace"].Value);
@@ -144,7 +144,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddGeneratedFileNameAttributeToUserType()
         {
-            generate();
+            Generate();
             XmlNode node = Get.GetNode(doc, xPath.UserTypes);
             Assert.IsNotNull(node.Attributes["generatedFileName"]);
             Assert.AreEqual(string.Empty, node.Attributes["generatedFileName"].Value);
@@ -153,7 +153,7 @@ namespace EDM.Tester
 
         public void DidAddNameSpaceAttributeToEntities()
         {
-            generate();
+            Generate();
             XmlNode node = Get.GetNode(doc, xPath.Entities);            
             Assert.IsNotNull(node.Attributes["nameSpace"]);
             Assert.AreEqual(string.Concat(context.ThreeDFile.NameSpace, ".Entity"), node.Attributes["nameSpace"].Value);
@@ -161,7 +161,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddAssemblyNameAttributeToEntity()
         {
-            generate();
+            Generate();
             XmlNodeList list = Get.GetNodeList(doc, xPath.Entity);
             foreach (XmlNode node in list)
             {
@@ -172,7 +172,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddNameSpaceAttributeToEntity()
         {
-            generate();
+            Generate();
             XmlNodeList list = Get.GetNodeList(doc, xPath.Entity);
             foreach (XmlNode node in list)
             {
@@ -184,7 +184,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddBaseNameSpaceAttributeToEntity()
         {
-            generate();
+            Generate();
             XmlNodeList list = Get.GetNodeList(doc, xPath.Entity);
             foreach (XmlNode node in list)
             {
@@ -195,7 +195,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddRttiNameSpaceAttributeToEntity()
         {
-            generate();
+            Generate();
             XmlNodeList list = Get.GetNodeList(doc, xPath.Entity);
             foreach (XmlNode node in list)
             {
@@ -206,7 +206,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddGeneratedFileNameAttributeToEntity()
         {
-            generate();
+            Generate();
             XmlNodeList list = Get.GetNodeList(doc, xPath.Entity);
             foreach (XmlNode node in list)
             {
@@ -217,7 +217,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidAddTargetDomainPathAttributeToEntity()
         {
-            generate();
+            Generate();
             XmlNodeList list = Get.GetNodeList(doc, xPath.Entity);
             foreach (XmlNode node in list)
             {

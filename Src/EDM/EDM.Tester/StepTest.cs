@@ -13,20 +13,18 @@ using System.Xml;
 namespace EDM.Tester
 {
     /// <summary>
-    /// Summary description for GEneratedFIleInfoTest
+    /// Summary description for StepTest
     /// </summary>
     [TestClass]
-    public class GeneratedFIleInfoTest
+    public class StepTest
     {
-        private static Step file;
+        private static Step step;
         private static string outputPath;
-        private static string threedFilePath;
-        private static string xsltPath;
+        private static string edmFilePath;
         private static GeneratorContext context;
         private static XmlDocument doc;
-        private static ThreeDXPath xPath;
 
-        public GeneratedFIleInfoTest()
+        public StepTest()
         {
             //
             // TODO: Add constructor logic here
@@ -74,13 +72,11 @@ namespace EDM.Tester
         #endregion
 
         [ClassInitialize]
-        public static void init(TestContext ctx)
+        public static void Init(TestContext ctx)
         {
-            outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\Generated\GeneratedFileInfoStepTest");
-            threedFilePath = Path.Combine(outputPath, @"..\..\3D.xml");
-            xsltPath = Path.Combine(outputPath, @"..\..\XSLT");
+            outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\Generated\StepTest");
+            edmFilePath = Path.Combine(outputPath, @"..\..\3D.xml");
             doc = new XmlDocument();
-            xPath = new ThreeDXPath();
 
             if (Directory.Exists(outputPath))
                 Directory.Delete(outputPath, true);
@@ -89,30 +85,30 @@ namespace EDM.Tester
             Directory.CreateDirectory(Path.Combine(outputPath, @"TestNameSpace.Rtti\Base"));
 
             context = new GeneratorContext();
-            context.SetThreeDFile(threedFilePath);
+            context.SetThreeDFile(edmFilePath);
             context.SetOutput(outputPath, "TestNameSpace");
             context.SetTransform();
         }
 
         [TestMethod]
-        public void isItNull()
+        public void IsStepNull()
         {
-            file = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.ThreeDFile.XPath.UserTypes, true);
-            Assert.IsNotNull(file);
+            step = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.ThreeDFile.XPath.UserTypes, true);
+            Assert.IsNotNull(step);
         }
         [TestMethod]
-        public void DidGenerateFile()
+        public void DidStepGenerateFile()
         {
-            file = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.ThreeDFile.XPath.UserTypes, true);
+            step = new Step("BaseTypes", Path.Combine(context.Output.RttiBasePath, "BaseUserTypeMetadata.cs"), context.ThreeDFile.XPath.UserTypes, true);
 
-            XmlNodeList list = context.ThreeDFile.Content.SelectNodes(file.XPath);
+            XmlNodeList list = context.ThreeDFile.Content.SelectNodes(step.XPath);
             foreach (XmlNode node in list)
             {
-                string outputFile = file.GetOutputFile(Get.GetAttributeValue(context.ThreeDFile.Content, node, "generatedFileName"));
-                TemplateHelper.Render(node, context.Transform.GetTemplateFile(file.TemplateName), outputFile);
+                string outputFile = step.GetOutputFile(Get.GetAttributeValue(context.ThreeDFile.Content, node, "generatedFileName"));
+                step.Generate(context);
             }
 
-            Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Rtti\Base"))).GetFiles().Length > 0);
+            Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Rtti\Base"))).GetFiles().Length > 0);            
         }
     }
 }

@@ -62,7 +62,7 @@ namespace EDM.Tester
 
 
         [ClassInitialize]
-        public static void init(TestContext ctx)
+        public static void Init(TestContext ctx)
         {
             filePath   = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\3D.xml");
             threedFile = new ThreeD(filePath);
@@ -74,42 +74,42 @@ namespace EDM.Tester
             Assert.IsNotNull(threedFile);
         }
         [TestMethod]
-        public void canGetFullName()
+        public void CanGetFullName()
         {
             Assert.AreEqual(new FileInfo(filePath).FullName, threedFile.FullName);
         }
         [TestMethod]
-        public void canGetName()
+        public void CanGetName()
         {
             Assert.AreEqual(new FileInfo(filePath).Name, threedFile.Name);
         }
         [TestMethod]
-        public void canGetDirectoryFullName()
+        public void CanGetDirectoryFullName()
         {
             Assert.AreEqual(new FileInfo(filePath).Directory.FullName, threedFile.DirectoryFullName);
         }
         [TestMethod]
-        public void canGetCompanyName()
+        public void CanGetCompanyName()
         {
             Assert.AreEqual("ISEL", threedFile.CompanyName);
         }
         [TestMethod]
-        public void canGetProjectName()
+        public void CanGetProjectName()
         {
             Assert.AreEqual("Sample", threedFile.ProjectName);
         }
         [TestMethod]
-        public void canGetNameSpace()
+        public void CanGetNameSpace()
         {
             Assert.AreEqual("ISEL.Sample", threedFile.NameSpace);
         }
         [TestMethod]
-        public void canGetBaseName()
+        public void CanGetBaseName()
         {
             Assert.AreEqual("ISEL.Sample", threedFile.BaseName);
         }
         [TestMethod]
-        public void canGetContent()
+        public void CanGetContent()
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(filePath);
