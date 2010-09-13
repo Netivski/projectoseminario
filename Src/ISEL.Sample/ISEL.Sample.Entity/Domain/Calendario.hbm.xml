@@ -1,0 +1,15 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ISEL.Sample.Entity.Calendario, ISEL.Sample.Entity" table="Calendario" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="HoraInicio" column="HoraInicio" not-null="true" />
+		<property name="HoraFim" column="HoraFim" not-null="true" />
+		<property name="Sala" column="Sala" not-null="true" />
+	
+		<many-to-one name="Docente" class="ISEL.Sample.Entity.Docente, ISEL.Sample.Entity" column="DocenteId" cascade="all" />
+		<many-to-one name="Ano" class="ISEL.Sample.Entity.Ano, ISEL.Sample.Entity" column="AnoId" cascade="all" />
+		<many-to-one name="Disciplina" class="ISEL.Sample.Entity.Disciplina, ISEL.Sample.Entity" column="DisciplinaId" cascade="all" />
+		<many-to-one name="Turma" class="ISEL.Sample.Entity.Turma, ISEL.Sample.Entity" column="TurmaId" cascade="all" />
+	</class>
+</hibernate-mapping>

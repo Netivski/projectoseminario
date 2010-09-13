@@ -1,0 +1,11 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ISEL.Sample.Entity.Comment, ISEL.Sample.Entity" table="Comment" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="Content" column="Content" not-null="false" />
+		<property name="Create" column="Create" not-null="false" />
+	
+		<many-to-one name="Post" class="ISEL.Sample.Entity.Post, ISEL.Sample.Entity" column="PostId" cascade="all" />
+	</class>
+</hibernate-mapping>

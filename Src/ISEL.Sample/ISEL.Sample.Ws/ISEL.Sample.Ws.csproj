@@ -82,13 +82,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AlbumWs.asmx" />
-    <Content Include="ArtistaWs.asmx" />
-    <Content Include="ColectaneaWs.asmx" />
+    <Content Include="AnoWs.asmx" />
+    <Content Include="BlogWs.asmx" />
+    <Content Include="CalendarioWs.asmx" />
+    <Content Include="CommentWs.asmx" />
+    <Content Include="CursoWs.asmx" />
+    <Content Include="Debug.asmx" />
+    <Content Include="DisciplinaWs.asmx" />
+    <Content Include="DocenteWs.asmx" />
     <Content Include="EditorWs.asmx" />
+    <Content Include="EPWs.asmx" />
+    <Content Include="FaixaWs.asmx" />
+    <EmbeddedResource Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="InterpreteWs.asmx" />
+    <Content Include="LojaWs.asmx" />
     <Content Include="LPWs.asmx" />
-    <Content Include="MusicaWs.asmx" />
-    <Content Include="Services.asmx" />
-    <Content Include="SingleWs.asmx" />
+    <Content Include="PersonWs.asmx" />
+    <Content Include="PostWs.asmx" />
+    <Content Include="RegistoWs.asmx" />
+    <Content Include="TurmaWs.asmx" />
+    <Content Include="VendaWs.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -96,57 +111,138 @@
       <DependentUpon>AlbumWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ArtistaWs.asmx.cs">
-      <DependentUpon>ArtistaWs.asmx</DependentUpon>
+    <Compile Include="AnoWs.asmx.cs">
+      <DependentUpon>AnoWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Base\AlbumBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Base\ArtistaBaseWs.cs">
+    <Compile Include="Base\AnoBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Base\ColectaneaBaseWs.cs">
+    <Compile Include="Base\BlogBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\CalendarioBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\CommentBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\CursoBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\DisciplinaBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\DocenteBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Base\EditorBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Base\EPBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\FaixaBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\InterpreteBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\LojaBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Base\LPBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Base\MusicaBaseWs.cs">
+    <Compile Include="Base\PersonBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Base\Service.cs">
+    <Compile Include="Base\PostBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Base\SingleBaseWs.cs">
+    <Compile Include="Base\RegistoBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ColectaneaWs.asmx.cs">
-      <DependentUpon>ColectaneaWs.asmx</DependentUpon>
+    <Compile Include="Base\TurmaBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\VendaBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BlogWs.asmx.cs">
+      <DependentUpon>BlogWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CalendarioWs.asmx.cs">
+      <DependentUpon>CalendarioWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CommentWs.asmx.cs">
+      <DependentUpon>CommentWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CursoWs.asmx.cs">
+      <DependentUpon>CursoWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Debug.asmx.cs">
+      <DependentUpon>Debug.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DisciplinaWs.asmx.cs">
+      <DependentUpon>DisciplinaWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DocenteWs.asmx.cs">
+      <DependentUpon>DocenteWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EditorWs.asmx.cs">
       <DependentUpon>EditorWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="EPWs.asmx.cs">
+      <DependentUpon>EPWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FaixaWs.asmx.cs">
+      <DependentUpon>FaixaWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterpreteWs.asmx.cs">
+      <DependentUpon>InterpreteWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LojaWs.asmx.cs">
+      <DependentUpon>LojaWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LPWs.asmx.cs">
       <DependentUpon>LPWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MusicaWs.asmx.cs">
-      <DependentUpon>MusicaWs.asmx</DependentUpon>
+    <Compile Include="PersonWs.asmx.cs">
+      <DependentUpon>PersonWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Services.asmx.cs">
-      <DependentUpon>Services.asmx</DependentUpon>
+    <Compile Include="PostWs.asmx.cs">
+      <DependentUpon>PostWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SingleWs.asmx.cs">
-      <DependentUpon>SingleWs.asmx</DependentUpon>
+    <Compile Include="RegistoWs.asmx.cs">
+      <DependentUpon>RegistoWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TurmaWs.asmx.cs">
+      <DependentUpon>TurmaWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VendaWs.asmx.cs">
+      <DependentUpon>VendaWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

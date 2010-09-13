@@ -1,0 +1,14 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ISEL.Sample.Entity.Editor, ISEL.Sample.Entity" table="Editor" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="Nome" column="Nome" not-null="false" />
+		<property name="Pais" column="Pais" not-null="false" />
+	
+		<bag name="_Albuns" access="field" table="Album" inverse="true">
+			<key column="EditorId" />
+			<one-to-many class="ISEL.Sample.Entity.Album, ISEL.Sample.Entity" />
+		</bag>
+	</class>
+</hibernate-mapping>

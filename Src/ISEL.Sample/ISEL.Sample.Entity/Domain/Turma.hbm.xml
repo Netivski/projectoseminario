@@ -1,0 +1,10 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ISEL.Sample.Entity.Turma, ISEL.Sample.Entity" table="Turma" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="Nome" column="Nome" not-null="false" />
+	
+		<many-to-one name="Curso" class="ISEL.Sample.Entity.Curso, ISEL.Sample.Entity" column="CursoId" cascade="all" />
+	</class>
+</hibernate-mapping>

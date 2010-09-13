@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="AlbumWs.asmx.cs" Class="ISEL.Sample.Ws.AlbumWs" %>

@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="TurmaWs.asmx.cs" Class="ISEL.Sample.Ws.TurmaWs" %>
