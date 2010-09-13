@@ -9,7 +9,7 @@
   <xsl:template match="entities">
 using EDM.FoundationClasses.Persistence.Core;
 using EDM.FoundationClasses.Persistence.Data;
-using <xsl:value-of select="@nameSpace"/>.Data.Base;
+using <xsl:value-of select="@nameSpace"/>;
 using <xsl:value-of select="@nameSpace"/>.DataInterfaces;
 using <xsl:value-of select="@nameSpace"/>.DataInterfaces.Base;
 
@@ -17,14 +17,11 @@ using <xsl:value-of select="@nameSpace"/>.DataInterfaces.Base;
 
 namespace <xsl:value-of select="@nameSpace"/>.Data
 {
-    /// <summary>
-    /// Exposes access to NHibernate DAO classes.  Motivation for this DAO
-    /// framework can be found at http://www.hibernate.org/328.html.
-    /// </summary>
-    public class NHibernateDaoFactory : NHibernateDaoFactoryBase
-    {
-    }
+   <xsl:apply-templates select="entity" mode="declarations"/>
 }
   </xsl:template>
 
+  <xsl:template match="entity" mode="declarations">    
+    public partial class <xsl:value-of select="@name"/>Dao : AbstractNHibernateDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="gt"></xsl:call-template>, I<xsl:value-of select="@name"/>Dao { }
+  </xsl:template>
 </xsl:stylesheet>
