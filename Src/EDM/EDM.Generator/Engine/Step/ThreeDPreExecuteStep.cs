@@ -119,6 +119,55 @@ namespace EDM.Generator.Engine.Step
             }
 
             //Resolve Relations
+            //003.7 - ManyToMany Relation
+            nodeList = Utils.XML.Get.GetNodeList(context.ThreeDFile.Content, context.ThreeDFile.XPath.EntitiesRelationManyToMany);
+            foreach (XmlNode node in nodeList)
+            {
+                string entityName = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "entityName");
+                string minOccurs = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "minOccurs");
+                string maxOccurs = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "maxOccurs");
+
+                XmlNode associativeEntity = Utils.XML.Get.GetNode(context.ThreeDFile.Content, string.Concat(context.ThreeDFile.XPath.Entity, string.Format("[@name = '{0}']", entityName)));
+                XmlNode associativeEntityFieldsNode = associativeEntity.SelectSingleNode("./fields");
+                XmlNode entitiesNode = context.ThreeDFile.Content.CreateElement("entities");
+                associativeEntityFieldsNode.AppendChild(entitiesNode);
+
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, entitiesNode, "minOccurs", minOccurs);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, entitiesNode, "maxOccurs", maxOccurs);
+
+                XmlNodeList relationEntities = node.SelectNodes("./entity");
+                foreach (XmlNode relationEntity in relationEntities)
+                {
+                    entitiesNode.AppendChild(relationEntity);
+
+                    string inverseStr = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "inverse");
+                    bool inverse;
+                    Boolean.TryParse(inverseStr, out inverse);
+                    if (inverse)
+                    {
+                        string relationName = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "relationName");
+                        string name = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "name");
+                        string nillable = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "nillable");
+
+                        XmlNode oneToManyRelations = GetEntityRelationsNode(context, name);
+                        XmlNode oneToMany = context.ThreeDFile.Content.CreateElement("oneToMany");
+                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "entity", entityName);
+                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "name", relationName);
+                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "minOccurs", minOccurs);
+                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "maxOccurs", maxOccurs);
+                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "nillable", nillable);
+
+                        oneToManyRelations.AppendChild(oneToMany);
+                    }
+                }
+
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "nameSpace", string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "entity")));
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "tableName", string.Concat(Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node.ParentNode.ParentNode, "name"), Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "entity")));
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "parentField", string.Concat(Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node.ParentNode.ParentNode, "name"), "Id"));
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "childField", string.Concat(Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "entity"), "Id"));
+            }
+
             //003.6 - oneToMany Relation
             nodeList = Utils.XML.Get.GetNodeList(context.ThreeDFile.Content, context.ThreeDFile.XPath.EntitiesRelationOneToMany);
             foreach (XmlNode node in nodeList)
@@ -229,61 +278,7 @@ namespace EDM.Generator.Engine.Step
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "nameSpace", string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "entity")));
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "fkName", string.Concat(Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "name"), "Id"));
-            }
-
-            //003.7 - ManyToMany Relation
-            nodeList = Utils.XML.Get.GetNodeList(context.ThreeDFile.Content, context.ThreeDFile.XPath.EntitiesRelationManyToMany);
-            foreach (XmlNode node in nodeList)
-            {
-                string entityName = Utils.XML.Get.GetAttributeValue( context.ThreeDFile.Content, node, "entityName" );
-                string minOccurs  = Utils.XML.Get.GetAttributeValue( context.ThreeDFile.Content, node, "minOccurs" );
-                string maxOccurs  = Utils.XML.Get.GetAttributeValue( context.ThreeDFile.Content, node, "maxOccurs" );
-
-                XmlNode associativeEntity = Utils.XML.Get.GetNode(context.ThreeDFile.Content, string.Concat(context.ThreeDFile.XPath.Entity, string.Format("[@name = '{0}']", entityName)));
-                XmlNode associativeEntityFieldsNode = associativeEntity.SelectSingleNode("./fields");
-                XmlNode entitiesNode = context.ThreeDFile.Content.CreateElement("entities");
-                associativeEntityFieldsNode.AppendChild(entitiesNode);
-
-                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, entitiesNode, "minOccurs", minOccurs);
-                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, entitiesNode, "maxOccurs", maxOccurs);
-
-                XmlNodeList relationEntities = node.SelectNodes("./entity");
-                foreach (XmlNode relationEntity in relationEntities)
-                {
-                    entitiesNode.AppendChild(relationEntity);
-
-                    string inverseStr = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "inverse");
-                    bool inverse;
-                    Boolean.TryParse( inverseStr, out inverse );
-                    if (inverse)
-                    {
-                        string relationName = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "relationName");
-                        string name = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "name");
-                        string nillable = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "nillable");
-
-                        XmlNode oneToManyRelations = GetEntityRelationsNode(context, name);
-                        XmlNode oneToMany = context.ThreeDFile.Content.CreateElement("oneToMany");
-                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "entity", entityName);
-                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "name", relationName);
-                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "minOccurs", minOccurs);
-                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "maxOccurs", maxOccurs);
-                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "nillable", nillable);
-
-                        oneToManyRelations.AppendChild(oneToMany);
-                    }
-                }
-               
-
-
-
-
-
-                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
-                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "nameSpace"   , string.Format("{0}.{1}.{2}", nameSpace, ENTITY_PROJECT_NAME, Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "entity")));
-                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "tableName"   , string.Concat(Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node.ParentNode.ParentNode, "name"), Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "entity")));
-                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "parentField" , string.Concat( Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node.ParentNode.ParentNode, "name"), "Id"));
-                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "childField"  , string.Concat( Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "entity"), "Id"));                    
-            }
+            }         
 
             //004 - Alterar o DOM do context.ThreeDFile.Content - Elemento businessProcesses
             //004.1 - Adicionar ao elemento generatedFileName

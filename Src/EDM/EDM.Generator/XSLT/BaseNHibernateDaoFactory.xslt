@@ -41,16 +41,6 @@ namespace <xsl:value-of select="@nameSpace"/>.Data.Base
 
     <xsl:apply-templates select="entity" mode="property"/>
 
-        #region Inline DAO implementations
-
-        /// <summary>
-        /// Concrete DAO for accessing instances of <see cref="Customer" /> from DB.
-        /// This should be extracted into its own class-file if it needs to extend the
-        /// inherited DAO functionality.
-        /// </summary>
-        <xsl:apply-templates select="entity" mode="declarations"/>
-
-        #endregion
     }
 }
   </xsl:template>
@@ -59,9 +49,5 @@ namespace <xsl:value-of select="@nameSpace"/>.Data.Base
     public I<xsl:value-of select="@name"/>Dao Get<xsl:value-of select="@name"/>Dao() {
       return new <xsl:value-of select="@name"/>Dao();
     }
-  </xsl:template>
-
-  <xsl:template match="entity" mode="declarations">    
-    public class <xsl:value-of select="@name"/>Dao : AbstractNHibernateDao<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@name"/>, long<xsl:call-template name="gt"></xsl:call-template>, I<xsl:value-of select="@name"/>Dao { }
   </xsl:template>
 </xsl:stylesheet>
