@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="LojaWs.asmx.cs" Class="ISEL.Sample.Ws.LojaWs" %>

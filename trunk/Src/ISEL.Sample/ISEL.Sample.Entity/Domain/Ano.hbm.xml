@@ -1,0 +1,10 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ISEL.Sample.Entity.Ano, ISEL.Sample.Entity" table="Ano" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="Ano" column="Ano" not-null="false" />
+		<property name="Semestre" column="Semestre" not-null="false" />
+	
+	</class>
+</hibernate-mapping>

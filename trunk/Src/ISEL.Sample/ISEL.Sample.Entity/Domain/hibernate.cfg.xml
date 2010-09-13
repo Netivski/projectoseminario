@@ -1,0 +1,29 @@
+﻿<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+	<session-factory>
+		<property name="connection.provider">
+      NHibernate.Connection.DriverConnectionProvider
+		</property>
+		<property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
+		<property name="show_sql">true</property>
+		<property name="connection.connection_string">
+			Server=127.0.0.1;Initial Catalog=iselsample;User Id=iselsample;Password=iselsample;
+		</property>
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Calendario.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Docente.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Ano.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Disciplina.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Turma.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Curso.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Person.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Blog.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Post.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Comment.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Editor.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Album.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\LP.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\EP.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Faixa.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Interprete.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Loja.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

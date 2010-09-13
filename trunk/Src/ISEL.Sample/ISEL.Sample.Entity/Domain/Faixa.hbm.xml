@@ -1,0 +1,13 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ISEL.Sample.Entity.Faixa, ISEL.Sample.Entity" table="Faixa" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="Nome" column="Nome" not-null="false" />
+		<property name="Duracao" column="Duracao" not-null="false" />
+		<property name="Genero" column="Genero" not-null="false" />
+	
+		<many-to-one name="LP" class="ISEL.Sample.Entity.LP, ISEL.Sample.Entity" column="LPId" cascade="all" />
+		<many-to-one name="EP" class="ISEL.Sample.Entity.EP, ISEL.Sample.Entity" column="EPId" cascade="all" />
+	</class>
+</hibernate-mapping>

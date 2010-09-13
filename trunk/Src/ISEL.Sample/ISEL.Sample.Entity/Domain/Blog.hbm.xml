@@ -1,0 +1,14 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ISEL.Sample.Entity.Blog, ISEL.Sample.Entity" table="Blog" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="Nome" column="Nome" not-null="false" />
+	
+		<many-to-one name="Owner" class="ISEL.Sample.Entity.Person, ISEL.Sample.Entity" column="OwnerId" cascade="all" />
+		<bag name="_Posts" access="field" table="Post" inverse="true">
+			<key column="BlogId" />
+			<one-to-many class="ISEL.Sample.Entity.Post, ISEL.Sample.Entity" />
+		</bag>
+	</class>
+</hibernate-mapping>

@@ -3,13 +3,33 @@
           companyName="ISEL" 
           projectName="Sample">
 	<!--Dominio de tipos-->
-	<userTypes generatedFileName="userTypes">
-		<int name="identificador" maxInclusive="5000"/>
-		<string name="nomeArtista"/>
+	<userTypes>
+    <string name="horaInicioCalendario" pattern="[0-9]{2}:[0-9]{2}" length="5"/>
+    <string name="horaFimCalendario" pattern="[0-9]{2}:[0-9]{2}" length="5"/>
+    <string name="salaCalendario" length="10"/>
+    <string name="nomeDocente" length="100"></string>
+    <string name="nomeDisciplina" length="100"></string>
+    <string name="nomeTurma" length="100"></string>
+    <string name="nomeCurso" length="100"></string>
+    <int name="numeroDocente" minExclusive="1" maxInclusive="99999"></int>
+    <int name="anoAno" minInclusive="2010" maxInclusive="2070"></int>
+    <string name="semestreAno" length="10" >
+      <enumeration>Inverno</enumeration>
+      <enumeration>Verao</enumeration>
+    </string>
+    <string name="nomePerson" length="100"></string>
+    <string name="nomeBlog" length="100"></string>
+    <string name="namePost" length="100"></string>
+    <string name="contentComment" length="100"></string>
+    <DateTime name="createPost"/>
+    <DateTime name="createComment"/>
+    <int name="identificador" maxInclusive="5000"/>
+		<string name="nomeArtista" length="100"/>
 		<string name="pais" maxLength="3" pattern="[A-Z]{3}"/>
 		<string name="tituloAlbum" maxLength="100"/>
-		<DateTime name="dataEdicaoLP"/>
-		<string name="generoMusical">
+    <DateTime name="dataEdicaoLP"/>
+    <DateTime name="DtLancamentoEP"/>    
+    <string name="generoMusical">
 			<enumeration>Rock</enumeration>
 			<enumeration>Pop</enumeration>
 			<enumeration>Reggae</enumeration>
@@ -17,7 +37,7 @@
 			<enumeration>Jazz</enumeration>
 			<enumeration>Classica</enumeration>
 		</string>
-		<string name="nomeMusica"/>
+		<string name="nomeMusica" length="100"/>
 		<string name="tempoMusica" pattern="[0-9]{2}:[0-9]{2}"/>
 		<int name="anoColectanea"/>
 		<string name="patrocinadorColectanea"/>
@@ -25,7 +45,6 @@
     <string name="tipoAlbum">
       <enumeration>LP</enumeration>
       <enumeration>EP</enumeration>
-      <enumeration>Colectanea</enumeration>
     </string>
     <int name="encomendaQtd" minInclusive="1" maxInclusive="100"></int>
     <string name="canalVendas">
@@ -57,12 +76,13 @@
       <enumeration>UtilizadorInvalido</enumeration>
       <enumeration>UtilizadorBloqueado</enumeration>
     </string>
+    <string name="nomeLoja" length="100"></string>
 	</userTypes>
 	
   <!--Servidores de BD-->
 	<environments>
 		<dataEnvironments>
-			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=127.0.0.1;Initial Catalog=iselsample;User Id=iselsample;Password=iselsample;" serverName="127.0.0.1" instance="SQLSERVER1" username="iselsample" password="iselsample" catalog="iselsample"/>
+			<provider name="FirstBDServer" type="MsSql2005" connectionString="Server=127.0.0.1;Initial Catalog=iselsample;User Id=iselsample;Password=iselsample;" serverName="127.0.0.1" instance="SQLSERVER1" username="iselsample" password="iselsample" catalog="iselsample"/>
 		</dataEnvironments>
 	</environments>
   
@@ -125,65 +145,156 @@
 
 	<!--Definição de entidades-->
 	<entities>
+    
+    <entity type="base" name="Calendario">
+      <fields>
+        <field type="horaInicioCalendario" name="HoraInicio" nillable="true"/>
+        <field type="horaFimCalendario" name="HoraFim" nillable="true"/>
+        <field type="salaCalendario"   name="Sala" nillable="true"/>
+      </fields>
+    </entity>
 
-		<!-- Entidade base Editor(idEditor, nome, pais) Relação 1-* com Album-->
-		<entity type="base" name="Editor" generatedFileName="Editor">
+    <entity type="base" name="Docente">
+      <fields>
+        <field type="nomeDocente" name="Nome"/>
+        <field type="numeroDocente" name="Numero"/>
+      </fields>
+    </entity>
+
+    <entity type="base" name="Ano">
+      <fields>
+        <field type="anoAno" name="Ano"/>
+        <field type="semestreAno" name="Semestre"/>
+      </fields>
+    </entity>
+      
+    <entity type="base" name="Disciplina">
+      <fields>
+        <field type="nomeDisciplina" name="Nome"/>
+      </fields>
+    </entity>
+
+    <entity type="base" name="Turma">
+      <fields>
+        <field type="nomeTurma" name="Nome"/>
+      </fields>
+    </entity>
+
+    <entity type="base" name="Curso">
+      <fields>
+        <field type="nomeCurso" name="Nome"/>
+      </fields>
+    </entity>
+    
+    <entity type="base" name="Person">
+      <fields>
+        <field type="nomePerson" name="Nome"/>
+      </fields>
+    </entity>
+
+    <entity type="base" name="Blog">
+      <fields>
+        <field type="nomeBlog" name="Nome"/>
+      </fields>
+    </entity>
+
+    <entity type="base" name="Post">
+      <fields>
+        <field type="namePost" name="Name"/>
+        <field type="createPost" name="Create"/>
+      </fields>
+    </entity>
+
+    <entity type="base" name="Comment">
+      <fields>
+        <field type="contentComment" name="Content"/>
+        <field type="createComment" name="Create"/>
+      </fields>
+    </entity>
+
+    <!-- Entidade base Editor(idEditor, nome, pais) Relação 1-* com Album-->
+		<entity type="base" name="Editor">
 		  <fields>
-			<field type="nomeEditor" name="nome"/>
-			<field type="pais" name="pais"/>
+			  <field type="nomeEditor" name="Nome"/>
+			  <field type="pais" name="Pais"/>
 		  </fields>
-		  <relations>
-			<oneToMany entity="Album" name="Albuns" minOccurs="0" maxOccurs="unbounded"/>
-		  </relations>
 		</entity>
 	
 		<!-- Entidade Abstracta Album(idAlbum, titulo) Relação 1-1 com Editor-->
-		<entity type="abstract" name="Album" generatedFileName="Album">
+		<entity type="abstract" name="Album">
 		  <fields>
-			<field type="tituloAlbum" name="titulo"/>
+			  <field type="tituloAlbum" name="Titulo"/>
 		  </fields>
-		  <relations>
-			<oneToOne entity="LP" name="LP" minOccurs="1" maxOccurs="1"/>
-			<oneToOne entity="EP" name="EP" minOccurs="1" maxOccurs="1"/>
-		  </relations>
 		</entity>
 	
 		<!-- Entidade dependente de Album, LP(dtEdicao) Relação 1-* com Faixa-->
-		<entity type="dependent" name="LP" baseEntity="Album" generatedFileName="LP">
+		<entity type="dependent" name="LP" baseEntity="Album">
 		  <fields>
-			<field type="dataEdicaoLP" name="dtEdicao"/>
+			  <field type="dataEdicaoLP" name="DtEdicao"/>
 		  </fields>
-		  <relations>
-			<oneToMany entity="Faixa" name="faixas" minOccurs="1" maxOccurs="unbounded"/>
-		  </relations>
 		</entity>
 	
 		<!-- Entidade dependent de Album, EP() Relação 1-* com Faixa-->
-		<entity type="dependent" name="EP" baseEntity="Album" generatedFileName="EP">
-		  <fields/>
-		  <relations>
-			<oneToMany entity="Faixa" name="faixa" minOccurs="1" maxOccurs="4"/>
-		  </relations>
-		</entity>
-	
-		<!-- Entidade base Interprete(nome, nacionalidade) Relação 1-* com Album-->
-		<entity type="base" name="Interprete" generatedFileName="Artista">
+		<entity type="dependent" name="EP" baseEntity="Album">
+      <fields>
+        <field type="dataEdicaoLP" name="DtLancamento"/>
+      </fields>
+    </entity>
+
+    <!-- Entidade base Faixa(nome, duracao, genero) -->
+    <entity type="base" name="Faixa">
+      <fields>
+        <field type="nomeMusica" name="Nome"/>
+        <field type="tempoMusica" name="Duracao"/>
+        <field type="generoMusical" name="Genero"/>
+      </fields>
+    </entity>
+
+    <!-- Entidade base Interprete(nome, nacionalidade) Relação 1-* com Album-->
+		<entity type="base" name="Interprete">
 			<fields>
-				<field type="nomeArtista" name="nome"/>
-				<field type="pais" name="nacionalidade"/>
-			</fields>
-			<relations>
-				<oneToMany entity="Album" name="album" minOccurs="1" maxOccurs="unbounded"/>
-			</relations>
-		</entity>
-	
-		<!-- Entidade base Faixa(nome, duracao, genero) -->
-		<entity type="base" name="Faixa" generatedFileName="Faixa">
-			<fields>
-				<field type="nomeMusica" name="nome"/>
-				<field type="tempoMusica" name="duracao"/>
-				<field type="generoMusical" name="genero"/>
+				<field type="nomeArtista" name="Nome"/>
+				<field type="pais" name="Nacionalidade"/>
 			</fields>
 		</entity>
-	</entities>
+
+    <!-- Entidade base Faixa(nome, duracao, genero) -->
+    <entity type="base" name="Loja">
+      <fields>
+        <field type="nomeLoja" name="Nome"/>
+      </fields>
+    </entity>
+
+    <relations>
+      <!-- Empty Relations ( Sample ) -->
+      <!--
+        <relation type="OneToOne" name="" baseEntity="" extendedEntity="" minOccurs="1" maxOccurs="1"></relation>
+        <relation type="OneToMany" name="" oneEntity="" manyEntity="" nillable="" minOccurs="1" maxOccurs="1" inverse="true|false"></relation>
+        <relation type="ManyToOne" name="" manyEntity="" oneEntity="" nillable="" minOccurs="1" maxOccurs="1" inverse="true|false"></relation>
+        <relation type="ManyToMany" entityName="" minOccurs="1" maxOccurs="unbounded">
+          <entity name="" nillable="" inverse="true|false" relationName=""/>
+        </relation>
+      -->
+           
+      <relation type="OneToMany" name="Albuns" oneEntity="Editor" manyEntity="Album" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="true"></relation>
+      <relation type="OneToMany" name="Albuns" oneEntity="Interprete" manyEntity="Album" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="false"></relation>
+      <relation type="OneToMany" name="Faixas" oneEntity="LP" manyEntity="Faixa" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="true"></relation>
+      <relation type="OneToMany" name="Faixas" oneEntity="EP" manyEntity="Faixa" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="true"></relation>
+
+      <relation type="OneToMany" name="Comments" oneEntity="Post" manyEntity="Comment" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="true"></relation>
+      <relation type="ManyToOne" name="Owner" manyEntity="Blog" oneEntity="Person" nillable="false" minOccurs="1" maxOccurs="1" inverse="false"></relation>
+      <relation type="OneToMany" name="Posts" oneEntity="Blog" manyEntity="Post" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="false"></relation>
+
+      <relation type="ManyToOne" name="Curso" manyEntity="Turma" oneEntity="Curso" nillable="false" minOccurs="1" maxOccurs="1" inverse="true"></relation>      
+      <relation type="ManyToMany" entityName="Calendario" minOccurs="1" maxOccurs="unbounded">
+        <entity name="Docente" nillable="false" inverse="true" relationName="Lecciona"/>
+        <entity name="Ano" nillable="false" inverse="false"/>
+        <entity name="Disciplina" nillable="false" inverse="false"/>
+        <entity name="Turma" nillable="false" inverse="false"/>
+      </relation>
+
+    </relations>
+
+
+  </entities>
 </solution>

@@ -196,7 +196,6 @@
 				<xs:element name="DateTime" type="t_Datetime" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:choice>
 		</xs:sequence>
-		<xs:attribute name="generatedFileName" type="xs:string" use="required"/>
 	</xs:complexType>
 	
 	<!-- ================== VALIDAÇÃO DE ENTIDADES ================== -->
@@ -272,7 +271,6 @@
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string" use="required"/>
-		<xs:attribute name="generatedFileName" type="xs:string" use="required"/>
 		<xs:attribute name="type" type="t_entityType" use="required"/>
 		<xs:attribute name="baseEntity" use="optional"/>
 	</xs:complexType>
