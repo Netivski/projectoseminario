@@ -19,9 +19,9 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
     public <xsl:value-of select="@name"/>Domain () {}
 
     <xsl:apply-templates select="relations/oneToMany"  mode="privateFields" />
-    <!--    
-    <xsl:apply-templates select="relations/manyToMany" mode="privateFields" />
-    -->
+
+    <xsl:apply-templates select="fields/entities/entity" mode="associativeEntities" />
+
     <xsl:apply-templates select="fields/field" mode="fields"/>
 
     <xsl:apply-templates select="relations/oneToMany"  mode="oneToMany" />
@@ -63,10 +63,6 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
     IList<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@entity"/><xsl:call-template name="gt"></xsl:call-template> _<xsl:value-of select="@name"/> = new List<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@entity"/><xsl:call-template name="gt"></xsl:call-template>();  
   </xsl:template>
 
-  <xsl:template match="manyToMany" mode="privateFields">
-    IList<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@entity"/><xsl:call-template name="gt"></xsl:call-template> _<xsl:value-of select="@name"/> = new List<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@entity"/><xsl:call-template name="gt"></xsl:call-template>();
-  </xsl:template>
-
   <xsl:template match="fields/field" mode="IsValid">Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"> <xsl:call-template name="and"/> </xsl:if></xsl:template>
 
   <xsl:template match="oneToOne" mode="oneToOne">
@@ -90,21 +86,7 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
         }
     }    
   </xsl:template>
-  
-  <xsl:template match="manyToMany" mode="manyToManyMethods">
-    public void Add<xsl:value-of select="@entity"/>(<xsl:value-of select="@entity"/> obj) {
-        if (obj != null <xsl:call-template name="and"></xsl:call-template> !_<xsl:value-of select="@name"/>.Contains(obj)) {
-            _<xsl:value-of select="@name"/>.Add(obj);
-        }
-    }
-
-    public void Remove<xsl:value-of select="@entity"/>(<xsl:value-of select="@entity"/> obj) {
-        if (obj != null <xsl:call-template name="and"></xsl:call-template> _<xsl:value-of select="@name"/>.Contains(obj)) {
-            _<xsl:value-of select="@name"/>.Remove(obj);
-        }
-    }    
-  </xsl:template>
-  
+    
 
   <xsl:template match="oneToMany" mode="oneToMany">
     public virtual IList<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@entity"/><xsl:call-template name="gt"></xsl:call-template>&#160;<xsl:value-of select="@name"/> {
@@ -113,11 +95,8 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
     }     
   </xsl:template>
 
-  <xsl:template match="manyToMany" mode="manyToMany">
-    public virtual IList<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@entity"/><xsl:call-template name="gt"></xsl:call-template>&#160;<xsl:value-of select="@name"/> {
-        get { return new List<xsl:call-template name="lt"></xsl:call-template><xsl:value-of select="@entity"/><xsl:call-template name="gt"></xsl:call-template>(_<xsl:value-of select="@name"/>).AsReadOnly(); }
-        protected set { _<xsl:value-of select="@name"/> = value; }
-    }
+  <xsl:template match="entity" mode="associativeEntities">
+    public virtual <xsl:value-of select="@name"/>&#160;<xsl:value-of select="@name"/> { get; set; }
   </xsl:template>
 
 </xsl:stylesheet>
