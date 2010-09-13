@@ -11,10 +11,10 @@ namespace EDM.Tester
     /// Summary description for EDMXPathTest
     /// </summary>
     [TestClass]
-    public class EDMXPathTest
+    public class ThreeDXPathTest
     {
         private static ThreeDXPath xpath;
-        public EDMXPathTest(){}
+        public ThreeDXPathTest(){}
 
         private TestContext testContextInstance;
 

@@ -12,7 +12,7 @@ namespace EDM.Tester
     /// Summary description for EDMParserStepTest
     /// </summary>
     [TestClass]
-    public class EDMParserStepTest
+    public class ThreeDPreExecuteStepTest
     {
         private static string outputPath;
         private static string threedFilePath;
@@ -23,7 +23,7 @@ namespace EDM.Tester
         private static ThreeDXPath xPath;
 
 
-        public EDMParserStepTest(){}
+        public ThreeDPreExecuteStepTest(){}
 
         private TestContext testContextInstance;
 
