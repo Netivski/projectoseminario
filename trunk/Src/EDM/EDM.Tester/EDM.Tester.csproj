@@ -54,8 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ThreeDTest.cs" />
-    <Compile Include="EDMParserStepTest.cs" />
-    <Compile Include="EDMXPathTest.cs" />
+    <Compile Include="ThreeDPreExecuteStepTest.cs" />
+    <Compile Include="ThreeDXPathTest.cs" />
     <Compile Include="EngineTest.cs" />
     <Compile Include="GeneratedFIleInfoTest.cs" />
     <Compile Include="OutputTest.cs" />
