@@ -36,7 +36,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         {
           if( !Validator.IsValid(UserTypeMetadata.<xsl:value-of select="output/@type"/>, result) )
           {
-            throw new EDMArgumentException("ValidatePosCondition", "<xsl:value-of select="output/@type"/>", result.ToString());
+            throw new EDMPosConditionException("<xsl:value-of select="@name"/>", "<xsl:value-of select="output/@type"/>", result.ToString());
           }
         }
         <xsl:call-template name="WriteRuntimeSecurity"><xsl:with-param name="methodName" select="@name"></xsl:with-param></xsl:call-template> 
@@ -61,7 +61,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
   <xsl:template match="param" mode="isValid">
           if( !Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) )
           {
-            throw new EDMArgumentException("<xsl:value-of select="../../@name"/>ValidatePreCondition", "<xsl:value-of select="@type"/>", <xsl:value-of select="@name"/>.ToString());
+            throw new EDMPreConditionException("<xsl:value-of select="../../@name"/>", "<xsl:value-of select="@type"/>", <xsl:value-of select="@name"/>.ToString());
           }
   </xsl:template>
 
