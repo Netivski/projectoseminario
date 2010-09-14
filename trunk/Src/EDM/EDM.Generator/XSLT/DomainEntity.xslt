@@ -7,14 +7,15 @@ using System;
 using EDM.FoundationClasses.Entity;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception;
+using EDM.FoundationClasses.Exception.FoundationType;
 using <xsl:value-of select="@rttiNameSpace"/>;
 using System.Collections.Generic;
 
 namespace <xsl:value-of select="@baseNameSpace"/>.Domain
 {
   [Serializable]
-  public <xsl:if test="@type = 'abstract'">abstract</xsl:if> class <xsl:value-of select="@name"/>Domain : <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'"><xsl:value-of select="@baseEntity"/></xsl:when><xsl:otherwise>DomainObject<xsl:call-template name="lt"></xsl:call-template>long<xsl:call-template name="gt"></xsl:call-template>, IEntity
-  </xsl:otherwise></xsl:choose>
+  public <xsl:if test="@type = 'abstract'">abstract</xsl:if> class <xsl:value-of select="@name"/>Domain : <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'"><xsl:value-of select="@baseEntity"/></xsl:when><xsl:otherwise>DomainObject<xsl:call-template name="lt"></xsl:call-template>long<xsl:call-template name="gt"></xsl:call-template>, IEntity</xsl:otherwise></xsl:choose>
   {
     public <xsl:value-of select="@name"/>Domain () {}
 
@@ -27,10 +28,30 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
     
     <xsl:apply-templates select="relations/oneToMany"  mode="oneToManyMethods" />
 
-    public <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> bool IsValid()
+    public <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> bool IsValid
     {
-      return <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'"> base.IsValid() <xsl:if test="count(fields/field) > 0"> <xsl:call-template name="and"/></xsl:if></xsl:if> <xsl:apply-templates select="fields/field" mode="IsValid"/>;
+      get
+      {
+        return <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'"> base.IsValid <xsl:if test="count(fields/field) > 0"> <xsl:call-template name="and"/></xsl:if></xsl:if> <xsl:apply-templates select="fields/field" mode="IsValid"/>;
+      }
     }
+    
+    public <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> EntityStateException StateException
+    {
+      get
+      {
+        if (this.IsValid) return null;
+        
+        EntityStateException ese = new EntityStateException("<xsl:value-of select="@name"/>");
+        <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
+            ese.Add(base.StateException);  
+        </xsl:if>
+    
+        <xsl:apply-templates select="fields/field" mode="StateException"/>
+    
+        return ese;
+      }
+    }    
 
     public override int GetHashCode()
     {
@@ -46,6 +67,14 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
   }
 }
   </xsl:template>
+  
+  <xsl:template match="fields/field" mode="StateException">
+        if( !Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) )
+        {
+          ese.Add( new GeneralArgumentException<xsl:call-template name="lt"/><xsl:value-of select="@edmType"/><xsl:call-template name="gt"/>( "<xsl:value-of select="@name"/>", "<xsl:value-of select="@type"/>", <xsl:value-of select="@name"/>) );
+        }
+  </xsl:template>
+  
   <xsl:template match="fields/field" mode="fields">
     public virtual <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/> { get; set; }
   </xsl:template>

@@ -6,6 +6,8 @@ namespace EDM.FoundationClasses.Exception
     {
         public GeneralException(): base() { }
 
+        public GeneralException(string message) : base(message) { }
+
         public GeneralException(string message, System.Exception innerException) : base(message, innerException) { }
 
     }
