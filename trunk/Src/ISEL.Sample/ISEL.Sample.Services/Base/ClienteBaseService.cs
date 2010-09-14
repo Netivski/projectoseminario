@@ -19,7 +19,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ClienteBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(double CreditoMaximo, string Nome, DateTime DtNascimento, string NIF)
         {
-            Cliente record = new Cliente(){ Nome = Nome, DtNascimento = DtNascimento, NIF = NIF, CreditoMaximo = CreditoMaximo };            
+            Cliente record = new Cliente(){ CreditoMaximo = CreditoMaximo, Nome = Nome, DtNascimento = DtNascimento, NIF = NIF };            
     
             if (!record.IsValid) throw record.StateException;
 

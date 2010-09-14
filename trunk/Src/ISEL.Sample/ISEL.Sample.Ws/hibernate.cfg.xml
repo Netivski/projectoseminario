@@ -32,5 +32,6 @@
 		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Faixa.hbm.xml" />
 		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Interprete.hbm.xml" />
 		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\Loja.hbm.xml" />
+		<mapping file="C:\TSPPIRES\Personal\my.life\ISEL\3 Ano\6º Semestre\PS\trunk\Src\ISEL.Sample\ISEL.Sample.Entity\Domain\LojaAlbum.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

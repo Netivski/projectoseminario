@@ -6,5 +6,9 @@
 		<property name="Titulo" column="Titulo" not-null="false" />
 	
 		<many-to-one name="Editor" class="ISEL.Sample.Entity.Editor, ISEL.Sample.Entity" column="EditorId" cascade="all" />
+		<bag name="_Lojas" access="field" table="LojaAlbum" inverse="true">
+			<key column="AlbumId" />
+			<one-to-many class="ISEL.Sample.Entity.LojaAlbum, ISEL.Sample.Entity" />
+		</bag>
 	</class>
 </hibernate-mapping>

@@ -111,6 +111,7 @@
     <Compile Include="Domain\EPDomain.cs" />
     <Compile Include="Domain\FaixaDomain.cs" />
     <Compile Include="Domain\InterpreteDomain.cs" />
+    <Compile Include="Domain\LojaAlbumDomain.cs" />
     <Compile Include="Domain\LojaDomain.cs" />
     <Compile Include="Domain\LPDomain.cs" />
     <Compile Include="Domain\ManagerDomain.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Faixa.cs" />
     <Compile Include="Interprete.cs" />
     <Compile Include="Loja.cs" />
+    <Compile Include="LojaAlbum.cs" />
     <Compile Include="LP.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Person.cs" />
@@ -174,6 +176,9 @@
     <EmbeddedResource Include="Domain\Empregado.hbm.xml" />
     <EmbeddedResource Include="Domain\Manager.hbm.xml" />
     <EmbeddedResource Include="Domain\Pessoa.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\LojaAlbum.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

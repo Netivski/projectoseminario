@@ -128,6 +128,10 @@ namespace ISEL.Sample.Entity.Data.Base
       return new LojaDao();
     }
   
+    public ILojaAlbumDao GetLojaAlbumDao() {
+      return new LojaAlbumDao();
+    }
+  
 
     }
 }

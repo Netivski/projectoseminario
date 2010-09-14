@@ -19,7 +19,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {
-            Director record = new Director(){ Nome = Nome, DtNascimento = DtNascimento, NIF = NIF, Numero = Numero, DtAdmissao = DtAdmissao, LimiteCartaoCredito = LimiteCartaoCredito, LimiteAprovacao = LimiteAprovacao };            
+            Director record = new Director(){ LimiteCartaoCredito = LimiteCartaoCredito, LimiteAprovacao = LimiteAprovacao, Numero = Numero, DtAdmissao = DtAdmissao, Nome = Nome, DtNascimento = DtNascimento, NIF = NIF };            
     
             if (!record.IsValid) throw record.StateException;
 

@@ -68,6 +68,7 @@
     <Compile Include="Base\EPBaseService.cs" />
     <Compile Include="Base\FaixaBaseService.cs" />
     <Compile Include="Base\InterpreteBaseService.cs" />
+    <Compile Include="Base\LojaAlbumBaseService.cs" />
     <Compile Include="Base\LojaBaseService.cs" />
     <Compile Include="Base\LPBaseService.cs" />
     <Compile Include="Base\ManagerBaseService.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="EPService.cs" />
     <Compile Include="FaixaService.cs" />
     <Compile Include="InterpreteService.cs" />
+    <Compile Include="LojaAlbumService.cs" />
     <Compile Include="LojaService.cs" />
     <Compile Include="LPService.cs" />
     <Compile Include="ManagerService.cs" />

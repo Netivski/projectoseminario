@@ -24,8 +24,10 @@ namespace ISEL.Sample.Entity.Domain
     public override bool IsValid
     {
       get
-      {
+      { 
+        
         return  base.IsValid && Validator.IsValid(UserTypeMetadata.numeroEmpregado, Numero) && Validator.IsValid(UserTypeMetadata.dtAdmissaoEmpregado, DtAdmissao) ;
+          
       }
     }
     
@@ -34,6 +36,7 @@ namespace ISEL.Sample.Entity.Domain
       get
       {
         if (this.IsValid) return null;
+        
         
         EntityStateException ese = new EntityStateException("Empregado");
         
@@ -51,6 +54,8 @@ namespace ISEL.Sample.Entity.Domain
   
     
         return ese;
+          
+          
       }
     }    
 
