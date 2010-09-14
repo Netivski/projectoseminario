@@ -32,6 +32,19 @@ namespace EDM.Generator.Engine.Step
             return relationsNode;
         }
 
+        string GetMasterEntity(GeneratorContext context, XmlNode entity)
+        {
+            string baseEntity = Utils.XML.Get.GetAttributeValue( context.ThreeDFile.Content, entity, "baseEntity" );
+            if (!string.IsNullOrEmpty(baseEntity))
+            {
+                XmlNode baseEntityNode = Utils.XML.Get.GetNode(context.ThreeDFile.Content, string.Concat(context.ThreeDFile.XPath.Entity, string.Format("[@name = '{0}']", baseEntity)));
+                baseEntity = GetMasterEntity(context, baseEntityNode);
+            }
+
+            return string.IsNullOrEmpty(baseEntity) ? Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, entity, "name") : baseEntity;
+        }
+
+
         public override void Generate( GeneratorContext context )
         {
             //001 - Verificação da não existência de conflito entre nomes de entidades, tipos ou fields com as KeyWords de C#
@@ -40,6 +53,9 @@ namespace EDM.Generator.Engine.Step
             XmlNodeList nodeList = Utils.XML.Get.GetNodeList(context.ThreeDFile.Content, "/solution/entities/entity");
             foreach (XmlNode node in nodeList)
             {
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "masterEntity", GetMasterEntity(context, node)); 
+
+
                 if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Entity cannot be named {0}.", node.Attributes["name"].Value));
             }
             //001.2 - Verificação de fields
@@ -138,17 +154,18 @@ namespace EDM.Generator.Engine.Step
                 XmlNodeList relationEntities = node.SelectNodes("./entity");
                 foreach (XmlNode relationEntity in relationEntities)
                 {
-                    entitiesNode.AppendChild(relationEntity);
+                    entitiesNode.AppendChild(relationEntity.Clone());
 
+                    string relationName = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "relationName");
+                    string name         = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "name");
+                    string nillable     = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "nillable");
+
+                    #region - Resolve oneToMany Relation
                     string inverseStr = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "inverse");
                     bool inverse;
                     Boolean.TryParse(inverseStr, out inverse);
                     if (inverse)
                     {
-                        string relationName = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "relationName");
-                        string name = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "name");
-                        string nillable = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, relationEntity, "nillable");
-
                         XmlNode oneToManyRelations = GetEntityRelationsNode(context, name);
                         XmlNode oneToMany = context.ThreeDFile.Content.CreateElement("oneToMany");
                         Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "entity", entityName);
@@ -159,6 +176,31 @@ namespace EDM.Generator.Engine.Step
 
                         oneToManyRelations.AppendChild(oneToMany);
                     }
+                    #endregion
+
+                    #region - Resolve manyToOne Relation
+                    XmlNode manyToOneRelations = GetEntityRelationsNode(context, entityName);
+                    XmlNode manyToOne = context.ThreeDFile.Content.CreateElement("manyToOne");
+                    if (bool.Parse(nillable))
+                    {
+                        minOccurs = "0";
+                        maxOccurs = "1";
+                    }
+                    else
+                    {
+                        minOccurs = "1";
+                        maxOccurs = "1";
+                    }
+
+                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "entity", name);
+                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "name", name);
+                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "minOccurs", minOccurs);
+                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "maxOccurs", maxOccurs);
+                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "nillable", nillable);
+
+
+                    manyToOneRelations.AppendChild(manyToOne);
+                    #endregion
                 }
 
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));
@@ -272,7 +314,7 @@ namespace EDM.Generator.Engine.Step
             }
 
             //003.6 - manyToOne Relation
-            nodeList = Utils.XML.Get.GetNodeList(context.ThreeDFile.Content, context.ThreeDFile.XPath.ManyOneToRelation);
+            nodeList = Utils.XML.Get.GetNodeList(context.ThreeDFile.Content, context.ThreeDFile.XPath.ManyToOneRelation);
             foreach (XmlNode node in nodeList)
             {
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "assemblyName", string.Format("{0}.{1}", assemblyName, ENTITY_PROJECT_NAME));

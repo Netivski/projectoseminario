@@ -13,32 +13,23 @@ using System.Collections.Generic;
 namespace <xsl:value-of select="@baseNameSpace"/>.Domain
 {
   [Serializable]
-  public <xsl:if test="@type = 'abstract'">abstract</xsl:if> class <xsl:value-of select="@name"/>Domain : <xsl:choose><xsl:when test="@type = 'dependent'"><xsl:value-of select="@baseEntity"/></xsl:when><xsl:otherwise>DomainObject<xsl:call-template name="lt"></xsl:call-template>long<xsl:call-template name="gt"></xsl:call-template>, IEntity
+  public <xsl:if test="@type = 'abstract'">abstract</xsl:if> class <xsl:value-of select="@name"/>Domain : <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'"><xsl:value-of select="@baseEntity"/></xsl:when><xsl:otherwise>DomainObject<xsl:call-template name="lt"></xsl:call-template>long<xsl:call-template name="gt"></xsl:call-template>, IEntity
   </xsl:otherwise></xsl:choose>
   {
     public <xsl:value-of select="@name"/>Domain () {}
 
     <xsl:apply-templates select="relations/oneToMany"  mode="privateFields" />
 
-    <xsl:apply-templates select="fields/entities/entity" mode="associativeEntities" />
-
     <xsl:apply-templates select="fields/field" mode="fields"/>
 
     <xsl:apply-templates select="relations/oneToMany"  mode="oneToMany" />
     <xsl:apply-templates select="relations/manyToOne"  mode="manyToOne" />
-    <!--
-    <xsl:apply-templates select="relations/oneToOne"   mode="oneToOne" />    
-    <xsl:apply-templates select="relations/manyToMany" mode="manyToMany" />
-    -->
     
     <xsl:apply-templates select="relations/oneToMany"  mode="oneToManyMethods" />
-    <!--
-    <xsl:apply-templates select="relations/manyToMany" mode="manyToManyMethods" />
-    -->
 
-    public <xsl:choose><xsl:when test="@type = 'dependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> bool IsValid()
+    public <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> bool IsValid()
     {
-      return <xsl:if test="@type = 'dependent'"> base.IsValid() <xsl:if test="count(fields/field) > 0"> <xsl:call-template name="and"/></xsl:if></xsl:if> <xsl:apply-templates select="fields/field" mode="IsValid"/>;
+      return <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'"> base.IsValid() <xsl:if test="count(fields/field) > 0"> <xsl:call-template name="and"/></xsl:if></xsl:if> <xsl:apply-templates select="fields/field" mode="IsValid"/>;
     }
 
     public override int GetHashCode()
@@ -49,7 +40,7 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
     <!--Temos de verificar esta assunção onde a comparação do estado é-nos dada pelo valor da chave primária-->    
     public bool Equals(<xsl:value-of select="@name"/> obj)
     {
-      <xsl:choose> <xsl:when test="@type = 'dependent'"> return base.Equals((<xsl:value-of select="@baseEntity"/>)obj); </xsl:when> <xsl:otherwise> if(obj == null) return false; 
+      <xsl:choose> <xsl:when test="@type = 'dependent' or @type = 'abstractdependent'"> return base.Equals((<xsl:value-of select="@baseEntity"/>)obj); </xsl:when> <xsl:otherwise> if(obj == null) return false; 
       return obj.ID == ID; </xsl:otherwise> </xsl:choose>  
     }
   }
@@ -64,10 +55,6 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
   </xsl:template>
 
   <xsl:template match="fields/field" mode="IsValid">Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"> <xsl:call-template name="and"/> </xsl:if></xsl:template>
-
-  <xsl:template match="oneToOne" mode="oneToOne">
-    public virtual <xsl:value-of select="@entity"/>&#160;<xsl:value-of select="@name"/> { get; set; }
-  </xsl:template>
 
   <xsl:template match="manyToOne" mode="manyToOne">
     public virtual <xsl:value-of select="@entity"/>&#160;<xsl:value-of select="@name"/> { get; set; }
@@ -94,9 +81,5 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
         protected set { _<xsl:value-of select="@name"/> = value; }
     }     
   </xsl:template>
-
-  <xsl:template match="entity" mode="associativeEntities">
-    public virtual <xsl:value-of select="@name"/>&#160;<xsl:value-of select="@name"/> { get; set; }
-  </xsl:template>
-
+  
 </xsl:stylesheet>

@@ -89,7 +89,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
 
   <xsl:template name="resolveRecursiveParams">    
     <xsl:apply-templates select="fields/field" mode="params"/>
-    <xsl:if test="@type = 'dependent'">
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
       <xsl:if test="count(fields/field) > 0">, </xsl:if>
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]">
@@ -99,7 +99,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
   </xsl:template>
 
   <xsl:template name="resolveRecursiveSetRecordInline">
-    <xsl:if test="@type = 'dependent'">
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]">
         <xsl:call-template name="resolveRecursiveSetRecordInline"></xsl:call-template>, </xsl:for-each>
@@ -108,7 +108,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
   </xsl:template>
 
   <xsl:template name="resolveRecursiveSetRecordRecordBase">
-    <xsl:if test="@type = 'dependent'">
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]">
         <xsl:call-template name="resolveRecursiveSetRecordRecordBase"></xsl:call-template></xsl:for-each>
