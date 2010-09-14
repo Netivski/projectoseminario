@@ -8,42 +8,24 @@
 
       <xsl:call-template name="NewLine" />
       <xsl:call-template name="Tab1" />
-      <class name="{@nameSpace}, {@assemblyName}" table="{@name}" lazy="false">
+      <class name="{@nameSpace}, {@assemblyName}" table="{@masterEntity}" lazy="false">
 
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab2" />
         <id name="ID" column="Id">
-
           <xsl:call-template name="NewLine" />
           <xsl:call-template name="Tab3" />
-          <xsl:choose>
-            <xsl:when test="count(relations/oneToOne) != 0">
-              <generator class="foreign">                
-                <xsl:apply-templates select="relations/oneToOne" mode="generator"/>
-                <xsl:call-template name="NewLine" />
-                <xsl:call-template name="Tab3" />
-              </generator>                          
-            </xsl:when>
-            <xsl:otherwise>
-              <generator class="identity" />
-            </xsl:otherwise>
-          </xsl:choose>
-          
-
+              <generator class="identity" />          
           <xsl:call-template name="NewLine" />
           <xsl:call-template name="Tab2" />
         </id>
-        <xsl:apply-templates select="fields/field"/>
+        <xsl:call-template name="resolveRecursiveFields"></xsl:call-template>
 
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab1" />
         
         <xsl:apply-templates select="relations/manyToOne"  mode="manyToOne" />
         <xsl:apply-templates select="relations/oneToMany"  mode="oneToMany" />        
-        <!--
-        <xsl:apply-templates select="relations/oneToOne"   mode="oneToOne" />        
-        <xsl:apply-templates select="relations/manyToMany" mode="manyToMany" />
-        -->
         
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab1" />
@@ -54,27 +36,21 @@
     </hibernate-mapping>
   </xsl:template>
 
+  <xsl:template name="resolveRecursiveFields">
+    <xsl:apply-templates select="fields/field"/>
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
+      <xsl:if test="count(fields/field) > 0"> </xsl:if>
+      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:call-template name="resolveRecursiveFields"></xsl:call-template>
+      </xsl:for-each>
+    </xsl:if>
+  </xsl:template>
+
   <xsl:template match="field" xmlns="urn:nhibernate-mapping-2.2">
     <xsl:call-template name="NewLine" />
     <xsl:call-template name="Tab2" />
     <property name="{@name}" column="{@name}" not-null="{@nillable}"/>
-  </xsl:template>
-
-  <xsl:template match="oneToOne" mode="generator" xmlns="urn:nhibernate-mapping-2.2">
-    <xsl:call-template name="NewLine" />
-    <xsl:call-template name="Tab3" />
-    <xsl:call-template name="Tab2" />
-    <param name="property">
-      <xsl:value-of select="@name"></xsl:value-of>
-    </param>    
-  </xsl:template>
-
-
-  <xsl:template match="oneToOne" mode="oneToOne" xmlns="urn:nhibernate-mapping-2.2">
-    <xsl:call-template name="NewLine" />
-    <xsl:call-template name="Tab2" />
-    <one-to-one name="{@name}" class="{@nameSpace}, {@assemblyName}"/>
-
   </xsl:template>
   
   <xsl:template match="manyToOne" mode="manyToOne" xmlns="urn:nhibernate-mapping-2.2">

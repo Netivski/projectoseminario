@@ -28,7 +28,7 @@ namespace EDM.Generator.Engine.Step
                     ,new Step( "DAOImplementation"        , Path.Combine( context.Output.EntityDataPath              , "DAOImplementation.cs"            ), context.ThreeDFile.XPath.Root     , false )                                 
                     ,new Step( "NHibernateDaoFactory"     , Path.Combine( context.Output.EntityDataPath              , "NHibernateDaoFactory.cs"         ), context.ThreeDFile.XPath.Root     , false )                                 
                     ,new Step( "NHibernateMapping"        , Path.Combine( context.Output.EntityDomainPath            , "{0}.hbm.xml"                     ), context.ThreeDFile.XPath.Entity   , true  )
-                    ,new Step( "NHibernateConfig"         , Path.Combine( context.Output.PersistencePath             , "hibernate.cfg.xml"               ), context.ThreeDFile.XPath.Solution , true  )
+                    ,new Step( "NHibernateConfig"         , Path.Combine( context.Output.WsAsmx                      , "hibernate.cfg.xml"               ), context.ThreeDFile.XPath.Solution , true  )
                     ,new Step( "ServicesBase"             , Path.Combine( context.Output.ServicesBase                , "{0}BaseService.cs"               ), context.ThreeDFile.XPath.Entity   , true  )
                     ,new Step( "Services"                 , Path.Combine( context.Output.Services                    , "{0}Service.cs"                   ), context.ThreeDFile.XPath.Entity   , false )
                     ,new Step( "WsBase"                   , Path.Combine( context.Output.WsBase                      , "{0}BaseWs.cs"                    ), context.ThreeDFile.XPath.Entity   , true  )

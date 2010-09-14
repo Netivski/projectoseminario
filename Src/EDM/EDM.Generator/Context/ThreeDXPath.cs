@@ -97,7 +97,7 @@ namespace EDM.Generator.Context
                 return "//oneToMany";
             }
         }
-        public string ManyOneToRelation
+        public string ManyToOneRelation
         {
             get
             {
