@@ -23,9 +23,9 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
         }
 
         [WebMethod]
-        public void Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
+        public void Update(long recordId<xsl:call-template name="resolveUpdateRecursiveParams"></xsl:call-template>)
         {
-            Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Update(recordId, <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>);
+            Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Update(recordId<xsl:call-template name="resolveUpdateRecursiveCallParams"></xsl:call-template>);
         }
 
         [WebMethod]
@@ -36,6 +36,32 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
     }
 }
   </xsl:template>
+
+  <xsl:template match="fields/field" mode="updateCallParams">, <xsl:value-of select="@name"/></xsl:template>
+
+  <xsl:template name="resolveUpdateRecursiveCallParams">
+    <xsl:apply-templates select="fields/field" mode="updateCallParams"/>
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
+      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:call-template name="resolveUpdateRecursiveCallParams"></xsl:call-template>
+      </xsl:for-each>
+    </xsl:if>
+  </xsl:template>
+
+
+  <xsl:template match="fields/field" mode="updateParams">, <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/></xsl:template>
+
+  <xsl:template name="resolveUpdateRecursiveParams">
+    <xsl:apply-templates select="fields/field" mode="updateParams"/>
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
+      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:call-template name="resolveUpdateRecursiveParams"></xsl:call-template>
+      </xsl:for-each>
+    </xsl:if>
+  </xsl:template>
+
 
   <xsl:template match="fields/field" mode="params">
     <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/><xsl:if test="position() != last()">, </xsl:if>

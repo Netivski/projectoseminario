@@ -31,8 +31,15 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
     public <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'">override</xsl:when><xsl:otherwise>virtual</xsl:otherwise></xsl:choose> bool IsValid
     {
       get
-      {
+      { 
+        <xsl:choose >
+          <xsl:when test="count(fields/field) > 0">
         return <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'"> base.IsValid <xsl:if test="count(fields/field) > 0"> <xsl:call-template name="and"/></xsl:if></xsl:if> <xsl:apply-templates select="fields/field" mode="IsValid"/>;
+          </xsl:when>
+          <xsl:otherwise>
+        return true;
+          </xsl:otherwise>
+        </xsl:choose>
       }
     }
     
@@ -42,6 +49,8 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
       {
         if (this.IsValid) return null;
         
+        <xsl:choose>
+          <xsl:when test="count(fields/field) > 0">
         EntityStateException ese = new EntityStateException("<xsl:value-of select="@name"/>");
         <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
             ese.Add(base.StateException);  
@@ -50,6 +59,12 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
         <xsl:apply-templates select="fields/field" mode="StateException"/>
     
         return ese;
+          </xsl:when>
+          <xsl:otherwise>
+        return null;    
+          </xsl:otherwise>
+        </xsl:choose>
+          
       }
     }    
 
