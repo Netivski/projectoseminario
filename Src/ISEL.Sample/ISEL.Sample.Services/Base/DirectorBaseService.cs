@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetDirectorDao().Save(record);
+            DaoFactory.Current.GetDirectorDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {             
-            IDirectorDao dao = NHibernateDaoFactory.Current.GetDirectorDao();  
+            IDirectorDao dao = DaoFactory.Current.GetDirectorDao();  
 
             Director record = dao.GetById(recordId, false);
             record.Nome = Nome;
@@ -52,7 +52,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Director Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetDirectorDao().GetById(recordId, false);
+            return DaoFactory.Current.GetDirectorDao().GetById(recordId, false);
         }
 
          
@@ -69,13 +69,13 @@ namespace ISEL.Sample.Services.Base
             record.NIF = NIF; 
   
 
-            return NHibernateDaoFactory.Current.GetDirectorDao().GetUniqueByExample(record, "LimiteCartaoCredito", "LimiteAprovacao", "Numero", "DtAdmissao", "Nome", "DtNascimento" );
+            return DaoFactory.Current.GetDirectorDao().GetUniqueByExample(record, "LimiteCartaoCredito", "LimiteAprovacao", "Numero", "DtAdmissao", "Nome", "DtNascimento" );
         }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetDirectorDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetDirectorDao().Delete( Read( recordId ) );
         }
     }
 }

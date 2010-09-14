@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetEPDao().Save(record);
+            DaoFactory.Current.GetEPDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EPBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, DateTime DtLancamento, string Titulo)
         {             
-            IEPDao dao = NHibernateDaoFactory.Current.GetEPDao();  
+            IEPDao dao = DaoFactory.Current.GetEPDao();  
 
             EP record = dao.GetById(recordId, false);
             record.Titulo = Titulo;
@@ -47,14 +47,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EPBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual EP Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetEPDao().GetById(recordId, false);
+            return DaoFactory.Current.GetEPDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EPBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetEPDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetEPDao().Delete( Read( recordId ) );
         }
     }
 }

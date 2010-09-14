@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetCalendarioDao().Save(record);
+            DaoFactory.Current.GetCalendarioDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CalendarioBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string HoraInicio, string HoraFim, string Sala)
         {             
-            ICalendarioDao dao = NHibernateDaoFactory.Current.GetCalendarioDao();  
+            ICalendarioDao dao = DaoFactory.Current.GetCalendarioDao();  
 
             Calendario record = dao.GetById(recordId, false);
             record.HoraInicio = HoraInicio;
@@ -48,14 +48,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CalendarioBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Calendario Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetCalendarioDao().GetById(recordId, false);
+            return DaoFactory.Current.GetCalendarioDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CalendarioBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetCalendarioDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetCalendarioDao().Delete( Read( recordId ) );
         }
     }
 }

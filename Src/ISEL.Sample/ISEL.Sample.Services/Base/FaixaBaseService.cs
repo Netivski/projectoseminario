@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetFaixaDao().Save(record);
+            DaoFactory.Current.GetFaixaDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="FaixaBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Nome, string Duracao, string Genero)
         {             
-            IFaixaDao dao = NHibernateDaoFactory.Current.GetFaixaDao();  
+            IFaixaDao dao = DaoFactory.Current.GetFaixaDao();  
 
             Faixa record = dao.GetById(recordId, false);
             record.Nome = Nome;
@@ -48,14 +48,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="FaixaBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Faixa Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetFaixaDao().GetById(recordId, false);
+            return DaoFactory.Current.GetFaixaDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="FaixaBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetFaixaDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetFaixaDao().Delete( Read( recordId ) );
         }
     }
 }

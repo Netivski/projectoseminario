@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetLojaDao().Save(record);
+            DaoFactory.Current.GetLojaDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="LojaBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Nome)
         {             
-            ILojaDao dao = NHibernateDaoFactory.Current.GetLojaDao();  
+            ILojaDao dao = DaoFactory.Current.GetLojaDao();  
 
             Loja record = dao.GetById(recordId, false);
             record.Nome = Nome;            
@@ -46,14 +46,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="LojaBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Loja Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetLojaDao().GetById(recordId, false);
+            return DaoFactory.Current.GetLojaDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="LojaBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetLojaDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetLojaDao().Delete( Read( recordId ) );
         }
     }
 }

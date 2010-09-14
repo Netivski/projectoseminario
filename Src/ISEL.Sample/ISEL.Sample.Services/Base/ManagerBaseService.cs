@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetManagerDao().Save(record);
+            DaoFactory.Current.GetManagerDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, int LitrosCombustivel, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {             
-            IManagerDao dao = NHibernateDaoFactory.Current.GetManagerDao();  
+            IManagerDao dao = DaoFactory.Current.GetManagerDao();  
 
             Manager record = dao.GetById(recordId, false);
             record.Nome = Nome;
@@ -51,7 +51,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Manager Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetManagerDao().GetById(recordId, false);
+            return DaoFactory.Current.GetManagerDao().GetById(recordId, false);
         }
 
          
@@ -68,13 +68,13 @@ namespace ISEL.Sample.Services.Base
             record.NIF = NIF; 
   
 
-            return NHibernateDaoFactory.Current.GetManagerDao().GetUniqueByExample(record, "LitrosCombustivel", "Numero", "DtAdmissao", "Nome", "DtNascimento" );
+            return DaoFactory.Current.GetManagerDao().GetUniqueByExample(record, "LitrosCombustivel", "Numero", "DtAdmissao", "Nome", "DtNascimento" );
         }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetManagerDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetManagerDao().Delete( Read( recordId ) );
         }
     }
 }

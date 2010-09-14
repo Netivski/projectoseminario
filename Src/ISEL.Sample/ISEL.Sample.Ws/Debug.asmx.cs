@@ -66,19 +66,19 @@ namespace ISEL.Sample.Ws
         [WebMethod]
         public void AlbumChangeEditor(long albumId, long editorId)
         {
-            NHibernateDaoFactory.Current.GetAlbumDao().GetById(albumId, false).Editor = NHibernateDaoFactory.Current.GetEditorDao().GetById(editorId, false);
+            DaoFactory.Current.GetAlbumDao().GetById(albumId, false).Editor = DaoFactory.Current.GetEditorDao().GetById(editorId, false);
         }
 
         [WebMethod]
         public string ReadAlbumEditor(long albumId)
         {
-            return NHibernateDaoFactory.Current.GetAlbumDao().GetById(albumId, false).Editor.Nome;
+            return DaoFactory.Current.GetAlbumDao().GetById(albumId, false).Editor.Nome;
         }
 
         [WebMethod]
         public void UpdateAlbumEditorNome(long albumId, string editorNome)
         {
-            NHibernateDaoFactory.Current.GetAlbumDao().GetById(albumId, false).Editor.Nome = editorNome;
+            DaoFactory.Current.GetAlbumDao().GetById(albumId, false).Editor.Nome = editorNome;
         }
 
         [WebMethod]
@@ -93,7 +93,7 @@ namespace ISEL.Sample.Ws
                 //throw new ArgumentException
             }
 
-            NHibernateDaoFactory.Current.GetEditorDao().Save(record);
+            DaoFactory.Current.GetEditorDao().Save(record);
 
             return record.ID;
         }
@@ -101,7 +101,7 @@ namespace ISEL.Sample.Ws
         [WebMethod]
         public string ReadEditorAlbum(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetEditorDao().GetById(recordId, false).Albuns[0].Titulo;
+            return DaoFactory.Current.GetEditorDao().GetById(recordId, false).Albuns[0].Titulo;
         }
 
 

@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetEditorDao().Save(record);
+            DaoFactory.Current.GetEditorDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EditorBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Nome, string Pais)
         {             
-            IEditorDao dao = NHibernateDaoFactory.Current.GetEditorDao();  
+            IEditorDao dao = DaoFactory.Current.GetEditorDao();  
 
             Editor record = dao.GetById(recordId, false);
             record.Nome = Nome;
@@ -47,14 +47,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EditorBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Editor Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetEditorDao().GetById(recordId, false);
+            return DaoFactory.Current.GetEditorDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EditorBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetEditorDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetEditorDao().Delete( Read( recordId ) );
         }
     }
 }
