@@ -1,0 +1,74 @@
+﻿
+using System;    
+using System.Security.Permissions;
+using System.Security;
+using EDM.FoundationClasses.Security.Permissions;
+using ISEL.Sample.Entity;
+using ISEL.Sample.Entity.DataInterfaces;
+using ISEL.Sample.Entity.Data;
+
+namespace ISEL.Sample.Services.Base
+{
+    public class ManagerBaseService
+    {   
+        
+        [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="Create", Unrestricted = false)] 
+        public virtual long Create(int LitrosCombustivel, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        {
+            Manager record = new Manager(){ Nome = Nome, DtNascimento = DtNascimento, NIF = NIF, Numero = Numero, DtAdmissao = DtAdmissao, LitrosCombustivel = LitrosCombustivel };            
+    
+            if (!record.IsValid())
+            {
+                //throw new ArgumentException
+            }
+
+            NHibernateDaoFactory.Current.GetManagerDao().Save(record);
+
+            return record.ID;
+        }
+        
+        
+        [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="Update", Unrestricted = false)] 
+        public virtual void Update(long recordId, int LitrosCombustivel, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        {             
+            IManagerDao dao = NHibernateDaoFactory.Current.GetManagerDao();  
+
+            Manager record = dao.GetById(recordId, false);
+            record.Nome = Nome;
+            record.DtNascimento = DtNascimento;
+            record.NIF = NIF;
+            record.Numero = Numero;
+            record.DtAdmissao = DtAdmissao;
+            record.LitrosCombustivel = LitrosCombustivel;            
+
+            if (!record.IsValid())
+            {
+                //throw new ArgumentException
+            }
+
+            dao.SaveOrUpdate(record);                                                         
+        }
+
+        
+        [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="Read", Unrestricted = false)] 
+        public virtual Manager Read(long recordId)
+        {
+            return NHibernateDaoFactory.Current.GetManagerDao().GetById(recordId, false);
+        }
+
+        
+        [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="ReadByUnique", Unrestricted = false)] 
+        public virtual Manager ReadByUnique()
+        {
+            return null;
+        }
+
+        
+        [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="Delete", Unrestricted = false)] 
+        public virtual void Delete(long recordId)
+        {
+            NHibernateDaoFactory.Current.GetManagerDao().Delete( Read( recordId ) );
+        }
+    }
+}
+  

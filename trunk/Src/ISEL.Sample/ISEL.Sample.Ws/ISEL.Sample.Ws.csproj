@@ -85,9 +85,13 @@
     <Content Include="AnoWs.asmx" />
     <Content Include="BlogWs.asmx" />
     <Content Include="CalendarioWs.asmx" />
+    <Content Include="ClienteWs.asmx" />
     <Content Include="CommentWs.asmx" />
     <Content Include="CursoWs.asmx" />
     <Content Include="Debug.asmx" />
+    <Content Include="DirectorPrimeiraLinhaWs.asmx" />
+    <Content Include="DirectorSegundaLinhaWs.asmx" />
+    <Content Include="DirectorWs.asmx" />
     <Content Include="DisciplinaWs.asmx" />
     <Content Include="DocenteWs.asmx" />
     <Content Include="EditorWs.asmx" />
@@ -99,7 +103,9 @@
     <Content Include="InterpreteWs.asmx" />
     <Content Include="LojaWs.asmx" />
     <Content Include="LPWs.asmx" />
+    <Content Include="ManagerWs.asmx" />
     <Content Include="PersonWs.asmx" />
+    <Content Include="PessoaWs.asmx" />
     <Content Include="PostWs.asmx" />
     <Content Include="RegistoWs.asmx" />
     <Content Include="TurmaWs.asmx" />
@@ -127,10 +133,22 @@
     <Compile Include="Base\CalendarioBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Base\ClienteBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Base\CommentBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Base\CursoBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\DirectorBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\DirectorPrimeiraLinhaBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\DirectorSegundaLinhaBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Base\DisciplinaBaseWs.cs">
@@ -140,6 +158,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Base\EditorBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\EmpregadoBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Base\EPBaseWs.cs">
@@ -157,7 +178,13 @@
     <Compile Include="Base\LPBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Base\ManagerBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Base\PersonBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\PessoaBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Base\PostBaseWs.cs">
@@ -180,6 +207,10 @@
       <DependentUpon>CalendarioWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ClienteWs.asmx.cs">
+      <DependentUpon>ClienteWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CommentWs.asmx.cs">
       <DependentUpon>CommentWs.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -190,6 +221,18 @@
     </Compile>
     <Compile Include="Debug.asmx.cs">
       <DependentUpon>Debug.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DirectorPrimeiraLinhaWs.asmx.cs">
+      <DependentUpon>DirectorPrimeiraLinhaWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DirectorSegundaLinhaWs.asmx.cs">
+      <DependentUpon>DirectorSegundaLinhaWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DirectorWs.asmx.cs">
+      <DependentUpon>DirectorWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DisciplinaWs.asmx.cs">
@@ -224,8 +267,16 @@
       <DependentUpon>LPWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ManagerWs.asmx.cs">
+      <DependentUpon>ManagerWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PersonWs.asmx.cs">
       <DependentUpon>PersonWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PessoaWs.asmx.cs">
+      <DependentUpon>PessoaWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="PostWs.asmx.cs">

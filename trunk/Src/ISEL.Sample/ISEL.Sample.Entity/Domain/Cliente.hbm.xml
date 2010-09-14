@@ -1,0 +1,12 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ISEL.Sample.Entity.Cliente, ISEL.Sample.Entity" table="Pessoa" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="CreditoMaximo" column="CreditoMaximo" not-null="true" />
+		<property name="Nome" column="Nome" not-null="false" />
+		<property name="DtNascimento" column="DtNascimento" not-null="false" />
+		<property name="NIF" column="NIF" not-null="false" />
+	
+	</class>
+</hibernate-mapping>

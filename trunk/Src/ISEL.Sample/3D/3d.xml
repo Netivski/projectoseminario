@@ -4,6 +4,16 @@
           projectName="Sample">
 	<!--Dominio de tipos-->
 	<userTypes>
+    <string name="nomePessoa" length="100"></string>
+    <DateTime name="dtNascimentoPessoa"></DateTime>
+    <string name="nifPessoa" pattern="[0-9]{9}"></string>
+    <int name="numeroEmpregado" minInclusive="1" maxInclusive="2000"></int>
+    <DateTime name="dtAdmissaoEmpregado"></DateTime>
+    <int name="litrosCombustivelManager" minInclusive="0" maxInclusive="100"></int>
+    <double name="limiteCartaoCreditoDirector" minExclusive="0" maxInclusive="1500"></double>
+    <string name="nomeDepartamentoDirectorPrimeiraLinha" length="100"></string>
+    <int name="antiguidadeDirectorSegundaLinha" minInclusive="0" maxInclusive="35"></int>
+    <double name="creditoMaximoCliente" minExclusive="0" maxInclusive="15000"></double>
     <string name="horaInicioCalendario" pattern="[0-9]{2}:[0-9]{2}" length="5"/>
     <string name="horaFimCalendario" pattern="[0-9]{2}:[0-9]{2}" length="5"/>
     <string name="salaCalendario" length="10"/>
@@ -145,7 +155,52 @@
 
 	<!--Definição de entidades-->
 	<entities>
-    
+
+    <entity type="abstract" name="Pessoa">
+      <fields>
+        <field type="nomePessoa" name="Nome"/>
+        <field type="dtNascimentoPessoa" name="DtNascimento"/>
+        <field type="nifPessoa" name="NIF" />
+      </fields>
+    </entity>
+
+    <entity type="abstractdependent" name="Empregado" baseEntity="Pessoa">
+      <fields>
+        <field type="numeroEmpregado" name="Numero"/>
+        <field type="dtAdmissaoEmpregado" name="DtAdmissao"/>
+      </fields>
+    </entity>
+
+    <entity type="dependent" name="Manager" baseEntity="Empregado">
+      <fields>
+        <field type="litrosCombustivelManager" name="LitrosCombustivel"/>
+      </fields>
+    </entity>
+
+    <entity type="abstractdependent" name="Director" baseEntity="Empregado">
+      <fields>
+        <field type="limiteCartaoCreditoDirector" name="LimiteCartaoCredito"/>
+      </fields>
+    </entity>
+
+    <entity type="dependent" name="DirectorPrimeiraLinha" baseEntity="Director">
+      <fields>
+        <field type="nomeDepartamentoDirectorPrimeiraLinha" name="NomeDepartamento"/>
+      </fields>
+    </entity>
+
+    <entity type="dependent" name="DirectorSegundaLinha" baseEntity="Director">
+      <fields>
+        <field type="antiguidadeDirectorSegundaLinha" name="Antiguidade" nillable="true"/>
+      </fields>
+    </entity>
+
+    <entity type="dependent" name="Cliente" baseEntity="Pessoa">
+      <fields>
+        <field type="creditoMaximoCliente" name="CreditoMaximo" nillable="true"/>
+      </fields>
+    </entity>
+
     <entity type="base" name="Calendario">
       <fields>
         <field type="horaInicioCalendario" name="HoraInicio" nillable="true"/>

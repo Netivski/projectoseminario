@@ -10,6 +10,20 @@ using ISEL.Sample.Entity.DataInterfaces.Base;
 namespace ISEL.Sample.Entity.Data
 {
        
+    public partial class PessoaDao : AbstractNHibernateDao<Pessoa, long>, IPessoaDao { }
+      
+    public partial class EmpregadoDao : AbstractNHibernateDao<Empregado, long>, IEmpregadoDao { }
+      
+    public partial class ManagerDao : AbstractNHibernateDao<Manager, long>, IManagerDao { }
+      
+    public partial class DirectorDao : AbstractNHibernateDao<Director, long>, IDirectorDao { }
+      
+    public partial class DirectorPrimeiraLinhaDao : AbstractNHibernateDao<DirectorPrimeiraLinha, long>, IDirectorPrimeiraLinhaDao { }
+      
+    public partial class DirectorSegundaLinhaDao : AbstractNHibernateDao<DirectorSegundaLinha, long>, IDirectorSegundaLinhaDao { }
+      
+    public partial class ClienteDao : AbstractNHibernateDao<Cliente, long>, IClienteDao { }
+      
     public partial class CalendarioDao : AbstractNHibernateDao<Calendario, long>, ICalendarioDao { }
       
     public partial class DocenteDao : AbstractNHibernateDao<Docente, long>, IDocenteDao { }

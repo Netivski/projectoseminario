@@ -10,6 +10,20 @@ namespace ISEL.Sample.Entity.DataInterfaces
     // But you're certainly welcome to put each declaration into its own file.
     #region Inline interface declarations
     
+    public partial interface IPessoaDao : IPessoaDaoBase{ }
+  
+    public partial interface IEmpregadoDao : IEmpregadoDaoBase{ }
+  
+    public partial interface IManagerDao : IManagerDaoBase{ }
+  
+    public partial interface IDirectorDao : IDirectorDaoBase{ }
+  
+    public partial interface IDirectorPrimeiraLinhaDao : IDirectorPrimeiraLinhaDaoBase{ }
+  
+    public partial interface IDirectorSegundaLinhaDao : IDirectorSegundaLinhaDaoBase{ }
+  
+    public partial interface IClienteDao : IClienteDaoBase{ }
+  
     public partial interface ICalendarioDao : ICalendarioDaoBase{ }
   
     public partial interface IDocenteDao : IDocenteDaoBase{ }

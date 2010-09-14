@@ -1,9 +1,10 @@
 ﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-	<class name="ISEL.Sample.Entity.EP, ISEL.Sample.Entity" table="EP" lazy="false">
+	<class name="ISEL.Sample.Entity.EP, ISEL.Sample.Entity" table="Album" lazy="false">
 		<id name="ID" column="Id">
 			<generator class="identity" />
 		</id>
 		<property name="DtLancamento" column="DtLancamento" not-null="false" />
+		<property name="Titulo" column="Titulo" not-null="false" />
 	
 		<bag name="_Faixas" access="field" table="Faixa" inverse="true">
 			<key column="EPId" />

@@ -1,0 +1,15 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ISEL.Sample.Entity.DirectorSegundaLinha, ISEL.Sample.Entity" table="Pessoa" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="Antiguidade" column="Antiguidade" not-null="true" />
+		<property name="LimiteCartaoCredito" column="LimiteCartaoCredito" not-null="false" />
+		<property name="Numero" column="Numero" not-null="false" />
+		<property name="DtAdmissao" column="DtAdmissao" not-null="false" />
+		<property name="Nome" column="Nome" not-null="false" />
+		<property name="DtNascimento" column="DtNascimento" not-null="false" />
+		<property name="NIF" column="NIF" not-null="false" />
+	
+	</class>
+</hibernate-mapping>

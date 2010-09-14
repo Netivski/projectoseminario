@@ -9,6 +9,20 @@ namespace ISEL.Sample.Entity.DataInterfaces.Base
     // But you're certainly welcome to put each declaration into its own file.
     #region Inline interface declarations 
       
+    public interface IPessoaDaoBase : IDao<Pessoa, long>{ }
+  
+    public interface IEmpregadoDaoBase : IDao<Empregado, long>{ }
+  
+    public interface IManagerDaoBase : IDao<Manager, long>{ }
+  
+    public interface IDirectorDaoBase : IDao<Director, long>{ }
+  
+    public interface IDirectorPrimeiraLinhaDaoBase : IDao<DirectorPrimeiraLinha, long>{ }
+  
+    public interface IDirectorSegundaLinhaDaoBase : IDao<DirectorSegundaLinha, long>{ }
+  
+    public interface IClienteDaoBase : IDao<Cliente, long>{ }
+  
     public interface ICalendarioDaoBase : IDao<Calendario, long>{ }
   
     public interface IDocenteDaoBase : IDao<Docente, long>{ }
