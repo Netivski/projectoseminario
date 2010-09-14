@@ -13,7 +13,7 @@
     <Icon>__TemplateIcon.ico</Icon>
   </TemplateData>
   <TemplateContent>
-    <Project File="EDM.Ws.webproj" TargetFileName="$AppCompanyName$.$AppProjectName$.Ws.webproj" ReplaceParameters="true">
+    <Project File="EDM.Ws.csproj" TargetFileName="$AppCompanyName$.$AppProjectName$.Ws.csproj" ReplaceParameters="true">
       <Folder Name="App_Data">
       </Folder>
       <Folder Name="Base"/>
