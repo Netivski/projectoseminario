@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public EP Read(long recordId)
-        {
-            return Singleton<EPService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public EP ReadByUnique()
-        {
-            return Singleton<EPService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<EPService>.Current.Delete(recordId);

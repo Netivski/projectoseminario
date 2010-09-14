@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Manager Read(long recordId)
-        {
-            return Singleton<ManagerService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Manager ReadByUnique()
-        {
-            return Singleton<ManagerService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<ManagerService>.Current.Delete(recordId);

@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Album Read(long recordId)
-        {
-            return Singleton<AlbumService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Album ReadByUnique()
-        {
-            return Singleton<AlbumService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<AlbumService>.Current.Delete(recordId);

@@ -3,6 +3,9 @@ using System;
 using System.Security.Permissions;
 using System.Security;
 using EDM.FoundationClasses.Security.Permissions;
+using EDM.FoundationClasses.FoundationType;
+using EDM.FoundationClasses.Persistence.Core;
+using ISEL.Sample.Rtti;
 using ISEL.Sample.Entity;
 using ISEL.Sample.Entity.DataInterfaces;
 using ISEL.Sample.Entity.Data;
@@ -13,9 +16,9 @@ namespace ISEL.Sample.Services.Base
     {   
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorPrimeiraLinhaBaseService", MethodName="Create", Unrestricted = false)] 
-        public virtual long Create(string NomeDepartamento, double LimiteCartaoCredito, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        public virtual long Create(string NomeDepartamento, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {
-            DirectorPrimeiraLinha record = new DirectorPrimeiraLinha(){ Nome = Nome, DtNascimento = DtNascimento, NIF = NIF, Numero = Numero, DtAdmissao = DtAdmissao, LimiteCartaoCredito = LimiteCartaoCredito, NomeDepartamento = NomeDepartamento };            
+            DirectorPrimeiraLinha record = new DirectorPrimeiraLinha(){ Nome = Nome, DtNascimento = DtNascimento, NIF = NIF, Numero = Numero, DtAdmissao = DtAdmissao, LimiteCartaoCredito = LimiteCartaoCredito, LimiteAprovacao = LimiteAprovacao, NomeDepartamento = NomeDepartamento };            
     
             if (!record.IsValid())
             {
@@ -29,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorPrimeiraLinhaBaseService", MethodName="Update", Unrestricted = false)] 
-        public virtual void Update(long recordId, string NomeDepartamento, double LimiteCartaoCredito, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        public virtual void Update(long recordId, string NomeDepartamento, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {             
             IDirectorPrimeiraLinhaDao dao = NHibernateDaoFactory.Current.GetDirectorPrimeiraLinhaDao();  
 
@@ -40,6 +43,7 @@ namespace ISEL.Sample.Services.Base
             record.Numero = Numero;
             record.DtAdmissao = DtAdmissao;
             record.LimiteCartaoCredito = LimiteCartaoCredito;
+            record.LimiteAprovacao = LimiteAprovacao;
             record.NomeDepartamento = NomeDepartamento;            
 
             if (!record.IsValid())
@@ -57,13 +61,22 @@ namespace ISEL.Sample.Services.Base
             return NHibernateDaoFactory.Current.GetDirectorPrimeiraLinhaDao().GetById(recordId, false);
         }
 
-        
+         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorPrimeiraLinhaBaseService", MethodName="ReadByUnique", Unrestricted = false)] 
-        public virtual DirectorPrimeiraLinha ReadByUnique()
+        public virtual DirectorPrimeiraLinha ReadByUnique(string NIF)
         {
-            return null;
-        }
+            DirectorPrimeiraLinha record = new DirectorPrimeiraLinha();
+            
+            if( !Validator.IsValid(UserTypeMetadata.nifPessoa, NIF) )
+            {
+              // throw new Ex .... 
+            }                    
+  
+            record.NIF = NIF; 
+  
 
+            return NHibernateDaoFactory.Current.GetDirectorPrimeiraLinhaDao().GetUniqueByExample(record, "NomeDepartamento", "LimiteCartaoCredito", "LimiteAprovacao", "Numero", "DtAdmissao", "Nome", "DtNascimento" );
+        }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorPrimeiraLinhaBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)

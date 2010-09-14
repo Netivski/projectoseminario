@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Disciplina Read(long recordId)
-        {
-            return Singleton<DisciplinaService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Disciplina ReadByUnique()
-        {
-            return Singleton<DisciplinaService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<DisciplinaService>.Current.Delete(recordId);

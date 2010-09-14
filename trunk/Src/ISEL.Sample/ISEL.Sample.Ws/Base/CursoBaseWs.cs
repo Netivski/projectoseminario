@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Curso Read(long recordId)
-        {
-            return Singleton<CursoService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Curso ReadByUnique()
-        {
-            return Singleton<CursoService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<CursoService>.Current.Delete(recordId);

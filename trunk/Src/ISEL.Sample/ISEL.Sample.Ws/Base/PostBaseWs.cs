@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Post Read(long recordId)
-        {
-            return Singleton<PostService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Post ReadByUnique()
-        {
-            return Singleton<PostService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<PostService>.Current.Delete(recordId);

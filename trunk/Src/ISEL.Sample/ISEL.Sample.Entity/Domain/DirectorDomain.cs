@@ -16,10 +16,12 @@ namespace ISEL.Sample.Entity.Domain
     
     public virtual double LimiteCartaoCredito { get; set; }
   
+    public virtual double LimiteAprovacao { get; set; }
+  
 
     public override bool IsValid()
     {
-      return  base.IsValid() && Validator.IsValid(UserTypeMetadata.limiteCartaoCreditoDirector, LimiteCartaoCredito) ;
+      return  base.IsValid() && Validator.IsValid(UserTypeMetadata.limiteCartaoCreditoDirector, LimiteCartaoCredito) && Validator.IsValid(UserTypeMetadata.limiteAprovacaoDirector, LimiteAprovacao) ;
     }
 
     public override int GetHashCode()

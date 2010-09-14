@@ -2,11 +2,11 @@
 using System;  
 using System.Security.Permissions;
 using System.Security;
+using System.Collections.Generic;
 using EDM.FoundationClasses.Security.Permissions; 
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
 using ISEL.Sample.Rtti;
-using System.Collections.Generic;
 
 
 namespace ISEL.Sample.Services.Base

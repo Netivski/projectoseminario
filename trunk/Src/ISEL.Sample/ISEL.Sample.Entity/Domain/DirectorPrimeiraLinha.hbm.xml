@@ -5,6 +5,7 @@
 		</id>
 		<property name="NomeDepartamento" column="NomeDepartamento" not-null="false" />
 		<property name="LimiteCartaoCredito" column="LimiteCartaoCredito" not-null="false" />
+		<property name="LimiteAprovacao" column="LimiteAprovacao" not-null="false" />
 		<property name="Numero" column="Numero" not-null="false" />
 		<property name="DtAdmissao" column="DtAdmissao" not-null="false" />
 		<property name="Nome" column="Nome" not-null="false" />

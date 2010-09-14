@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Editor Read(long recordId)
-        {
-            return Singleton<EditorService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Editor ReadByUnique()
-        {
-            return Singleton<EditorService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<EditorService>.Current.Delete(recordId);

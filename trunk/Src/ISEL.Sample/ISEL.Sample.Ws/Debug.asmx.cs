@@ -21,6 +21,13 @@ namespace ISEL.Sample.Ws
     // [System.Web.Script.Services.ScriptService]
     public class Debug : System.Web.Services.WebService
     {
+        
+        [WebMethod]
+        public string ReadByUnique(string NIF)
+        {
+            DirectorSegundaLinha record = Singleton<DirectorSegundaLinhaService>.Current.ReadByUnique(NIF);
+            return record == null? "null": record.Nome;
+        }
 
         [WebMethod]
         public long CreateEmpregado(int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
@@ -29,9 +36,9 @@ namespace ISEL.Sample.Ws
         }
 
         [WebMethod]
-        public long CreateDirectorSegundaLinha(int Antiguidade, double LimiteCartaoCredito, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        public long CreateDirectorSegundaLinha(int Antiguidade, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {
-            return Singleton<DirectorSegundaLinhaService>.Current.Create(Antiguidade, LimiteCartaoCredito, Numero, DtAdmissao, Nome, DtNascimento, NIF);
+            return Singleton<DirectorSegundaLinhaService>.Current.Create(Antiguidade, LimiteCartaoCredito, LimiteAprovacao, Numero, DtAdmissao, Nome, DtNascimento, NIF);
         }
 
         [WebMethod]

@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public LP Read(long recordId)
-        {
-            return Singleton<LPService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public LP ReadByUnique()
-        {
-            return Singleton<LPService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<LPService>.Current.Delete(recordId);

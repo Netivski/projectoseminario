@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Faixa Read(long recordId)
-        {
-            return Singleton<FaixaService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Faixa ReadByUnique()
-        {
-            return Singleton<FaixaService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<FaixaService>.Current.Delete(recordId);

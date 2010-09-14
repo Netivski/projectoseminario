@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Interprete Read(long recordId)
-        {
-            return Singleton<InterpreteService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Interprete ReadByUnique()
-        {
-            return Singleton<InterpreteService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<InterpreteService>.Current.Delete(recordId);

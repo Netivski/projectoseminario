@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Comment Read(long recordId)
-        {
-            return Singleton<CommentService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Comment ReadByUnique()
-        {
-            return Singleton<CommentService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<CommentService>.Current.Delete(recordId);

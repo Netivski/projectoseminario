@@ -25,6 +25,8 @@ namespace ISEL.Sample.Rtti.Base
   
         public static IUserType<double> limiteCartaoCreditoDirector = new UserType<double>(0, 0, 0, null, null, null, new NullableType<double>(0), new NullableType<double>(1500), null, 0, null, null);
   
+        public static IUserType<double> limiteAprovacaoDirector = new UserType<double>(0, 0, 0, null, null, null, new NullableType<double>(0), new NullableType<double>(1200), null, 0, null, null);
+  
         public static IUserType<string> nomeDepartamentoDirectorPrimeiraLinha = new UserType<string>(100, 0, 0, null, null, null, null, null, null, 0, null, null);
   
         public static IUserType<int> antiguidadeDirectorSegundaLinha = new UserType<int>(0, 0, 0, null, null, new NullableType<int>(0), null, new NullableType<int>(35), null, 0, null, null);
