@@ -130,7 +130,6 @@ namespace EDM.Tester
         public void DidGenerateAllEntityDataInterfacesBaseFiles()
         {
             Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\Base\IDaoFactoryBase.cs")));
-            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\Base\IDaoInterface.cs")));
         }
         [TestMethod]
         public void DidGenerateAllEntityDataInterfacesFiles()
@@ -138,6 +137,89 @@ namespace EDM.Tester
             Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\IDaoFactory.cs")));
             Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\IDaoInterface.cs")));
             Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\IDaoInterfacePartial.cs")));
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityBaseServiceFiles()
+        {
+            XmlNodeList entitiesList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Entity);
+            foreach (XmlNode node in entitiesList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Services\Base\", node.Attributes["name"].Value, "BaseService.cs"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityServicesFiles()
+        {
+            XmlNodeList entitiesList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Entity);
+            foreach (XmlNode node in entitiesList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Services\", node.Attributes["name"].Value, "Service.cs"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllBPBaseServicesFiles()
+        {
+            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.BusinessProcess);
+            foreach (XmlNode node in BPList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Services\Base\", node.Attributes["name"].Value, "BaseService.cs"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllBPServicesFiles()
+        {
+            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.BusinessProcess);
+            foreach (XmlNode node in BPList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Services\", node.Attributes["name"].Value, "Service.cs"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityWsBaseFiles()
+        {
+            XmlNodeList entitiesList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Entity);
+            foreach (XmlNode node in entitiesList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Ws\Base\", node.Attributes["name"].Value, "BaseWs.cs"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityWsFiles()
+        {
+            XmlNodeList entitiesList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Entity);
+            foreach (XmlNode node in entitiesList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Ws\", node.Attributes["name"].Value, "Ws.asmx"))));
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Ws\", node.Attributes["name"].Value, "Ws.asmx.cs"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllBPWsBaseFiles()
+        {
+            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.BusinessProcess);
+            foreach (XmlNode node in BPList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Ws\Base\", node.Attributes["name"].Value, "BaseWs.cs"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllBPWsFiles()
+        {
+            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.BusinessProcess);
+            foreach (XmlNode node in BPList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Ws\", node.Attributes["name"].Value, "Ws.asmx"))));
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Ws\", node.Attributes["name"].Value, "Ws.asmx.cs"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityTestFiles()
+        {
+            XmlNodeList entitiesList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Entity);
+            foreach (XmlNode node in entitiesList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.UnitTest\", node.Attributes["name"].Value, "Test.cs"))));
+            }
         }
     }
 }
