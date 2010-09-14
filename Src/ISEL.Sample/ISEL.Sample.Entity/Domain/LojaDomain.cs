@@ -16,14 +16,35 @@ namespace ISEL.Sample.Entity.Domain
     public LojaDomain () {}
 
     
+    IList<LojaAlbum> _Albuns = new List<LojaAlbum>();  
+  
     public virtual string Nome { get; set; }
+  
+    public virtual IList<LojaAlbum> Albuns {
+        get { return new List<LojaAlbum>(_Albuns).AsReadOnly(); }
+        protected set { _Albuns = value; }
+    }     
+  
+    public void AddLojaAlbum(LojaAlbum obj) {
+        if (obj != null &&  !_Albuns.Contains(obj)) {
+            _Albuns.Add(obj);
+        }
+    }
+
+    public void RemoveLojaAlbum(LojaAlbum obj) {
+        if (obj != null &&  _Albuns.Contains(obj)) {
+            _Albuns.Remove(obj);
+        }
+    }    
   
 
     public virtual bool IsValid
     {
       get
-      {
+      { 
+        
         return Validator.IsValid(UserTypeMetadata.nomeLoja, Nome) ;
+          
       }
     }
     
@@ -32,6 +53,7 @@ namespace ISEL.Sample.Entity.Domain
       get
       {
         if (this.IsValid) return null;
+        
         
         EntityStateException ese = new EntityStateException("Loja");
         
@@ -42,6 +64,8 @@ namespace ISEL.Sample.Entity.Domain
   
     
         return ese;
+          
+          
       }
     }    
 

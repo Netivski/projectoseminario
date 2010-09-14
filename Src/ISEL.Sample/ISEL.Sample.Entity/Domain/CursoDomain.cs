@@ -41,8 +41,10 @@ namespace ISEL.Sample.Entity.Domain
     public virtual bool IsValid
     {
       get
-      {
+      { 
+        
         return Validator.IsValid(UserTypeMetadata.nomeCurso, Nome) ;
+          
       }
     }
     
@@ -51,6 +53,7 @@ namespace ISEL.Sample.Entity.Domain
       get
       {
         if (this.IsValid) return null;
+        
         
         EntityStateException ese = new EntityStateException("Curso");
         
@@ -61,6 +64,8 @@ namespace ISEL.Sample.Entity.Domain
   
     
         return ese;
+          
+          
       }
     }    
 

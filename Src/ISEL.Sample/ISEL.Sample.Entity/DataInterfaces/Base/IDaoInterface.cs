@@ -57,6 +57,8 @@ namespace ISEL.Sample.Entity.DataInterfaces.Base
   
     public interface ILojaDaoBase : IDao<Loja, long>{ }
   
+    public interface ILojaAlbumDaoBase : IDao<LojaAlbum, long>{ }
+  
     #endregion 
 }
   

@@ -19,7 +19,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EPBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(DateTime DtLancamento, string Titulo)
         {
-            EP record = new EP(){ Titulo = Titulo, DtLancamento = DtLancamento };            
+            EP record = new EP(){ DtLancamento = DtLancamento, Titulo = Titulo };            
     
             if (!record.IsValid) throw record.StateException;
 

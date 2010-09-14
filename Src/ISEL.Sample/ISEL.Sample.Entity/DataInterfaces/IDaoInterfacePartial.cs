@@ -57,6 +57,8 @@ namespace ISEL.Sample.Entity.DataInterfaces
     public partial interface IInterpreteDao : IInterpreteDaoBase{ }
   
     public partial interface ILojaDao : ILojaDaoBase{ }
+  
+    public partial interface ILojaAlbumDao : ILojaAlbumDaoBase{ }
    
     #endregion
 }

@@ -19,7 +19,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(int LitrosCombustivel, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {
-            Manager record = new Manager(){ Nome = Nome, DtNascimento = DtNascimento, NIF = NIF, Numero = Numero, DtAdmissao = DtAdmissao, LitrosCombustivel = LitrosCombustivel };            
+            Manager record = new Manager(){ LitrosCombustivel = LitrosCombustivel, Numero = Numero, DtAdmissao = DtAdmissao, Nome = Nome, DtNascimento = DtNascimento, NIF = NIF };            
     
             if (!record.IsValid) throw record.StateException;
 

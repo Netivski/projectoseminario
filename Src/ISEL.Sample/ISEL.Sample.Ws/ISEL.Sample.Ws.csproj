@@ -95,12 +95,14 @@
     <Content Include="DisciplinaWs.asmx" />
     <Content Include="DocenteWs.asmx" />
     <Content Include="EditorWs.asmx" />
+    <Content Include="EmpregadoWs.asmx" />
     <Content Include="EPWs.asmx" />
     <Content Include="FaixaWs.asmx" />
     <EmbeddedResource Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="InterpreteWs.asmx" />
+    <Content Include="LojaAlbumWs.asmx" />
     <Content Include="LojaWs.asmx" />
     <Content Include="LPWs.asmx" />
     <Content Include="ManagerWs.asmx" />
@@ -170,6 +172,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Base\InterpreteBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\LojaAlbumBaseWs.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Base\LojaBaseWs.cs">
@@ -247,6 +252,10 @@
       <DependentUpon>EditorWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="EmpregadoWs.asmx.cs">
+      <DependentUpon>EmpregadoWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EPWs.asmx.cs">
       <DependentUpon>EPWs.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -257,6 +266,10 @@
     </Compile>
     <Compile Include="InterpreteWs.asmx.cs">
       <DependentUpon>InterpreteWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LojaAlbumWs.asmx.cs">
+      <DependentUpon>LojaAlbumWs.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="LojaWs.asmx.cs">

@@ -34,8 +34,10 @@ namespace ISEL.Sample.Entity.Domain
     public virtual bool IsValid
     {
       get
-      {
+      { 
+        
         return Validator.IsValid(UserTypeMetadata.horaInicioCalendario, HoraInicio) && Validator.IsValid(UserTypeMetadata.horaFimCalendario, HoraFim) && Validator.IsValid(UserTypeMetadata.salaCalendario, Sala) ;
+          
       }
     }
     
@@ -44,6 +46,7 @@ namespace ISEL.Sample.Entity.Domain
       get
       {
         if (this.IsValid) return null;
+        
         
         EntityStateException ese = new EntityStateException("Calendario");
         
@@ -64,6 +67,8 @@ namespace ISEL.Sample.Entity.Domain
   
     
         return ese;
+          
+          
       }
     }    
 

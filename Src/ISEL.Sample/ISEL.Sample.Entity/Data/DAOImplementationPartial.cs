@@ -57,6 +57,8 @@ namespace ISEL.Sample.Entity.Data
     public partial class InterpreteDao : AbstractNHibernateDao<Interprete, long>, IInterpreteDao { }
       
     public partial class LojaDao : AbstractNHibernateDao<Loja, long>, ILojaDao { }
+      
+    public partial class LojaAlbumDao : AbstractNHibernateDao<LojaAlbum, long>, ILojaAlbumDao { }
   
 }
   

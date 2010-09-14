@@ -43,8 +43,10 @@ namespace ISEL.Sample.Entity.Domain
     public virtual bool IsValid
     {
       get
-      {
+      { 
+        
         return Validator.IsValid(UserTypeMetadata.nomeArtista, Nome) && Validator.IsValid(UserTypeMetadata.pais, Nacionalidade) ;
+          
       }
     }
     
@@ -53,6 +55,7 @@ namespace ISEL.Sample.Entity.Domain
       get
       {
         if (this.IsValid) return null;
+        
         
         EntityStateException ese = new EntityStateException("Interprete");
         
@@ -68,6 +71,8 @@ namespace ISEL.Sample.Entity.Domain
   
     
         return ese;
+          
+          
       }
     }    
 

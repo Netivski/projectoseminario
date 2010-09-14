@@ -322,6 +322,11 @@
       </fields>
     </entity>
 
+    <entity type="base" name="LojaAlbum">
+      <fields/>
+    </entity>
+
+
     <relations>
       <!-- Empty Relations ( Sample ) -->
       <!--
@@ -349,6 +354,11 @@
         <entity name="Disciplina" nillable="false" inverse="false"/>
         <entity name="Turma" nillable="false" inverse="false"/>
       </relation>
+
+      <relation type="ManyToMany" entityName="LojaAlbum" minOccurs="1" maxOccurs="unbounded">
+        <entity name="Loja" nillable="false" inverse="true" relationName="Albuns"/>
+        <entity name="Album" nillable="false" inverse="true" relationName="Lojas"/>
+      </relation>      
 
     </relations>
 
