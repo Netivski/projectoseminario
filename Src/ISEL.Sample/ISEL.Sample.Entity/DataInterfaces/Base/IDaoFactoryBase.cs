@@ -12,6 +12,20 @@ namespace ISEL.Sample.Entity.DataInterfaces.Base
     public interface IDaoFactoryBase
     {
       
+    IPessoaDao GetPessoaDao();
+  
+    IEmpregadoDao GetEmpregadoDao();
+  
+    IManagerDao GetManagerDao();
+  
+    IDirectorDao GetDirectorDao();
+  
+    IDirectorPrimeiraLinhaDao GetDirectorPrimeiraLinhaDao();
+  
+    IDirectorSegundaLinhaDao GetDirectorSegundaLinhaDao();
+  
+    IClienteDao GetClienteDao();
+  
     ICalendarioDao GetCalendarioDao();
   
     IDocenteDao GetDocenteDao();

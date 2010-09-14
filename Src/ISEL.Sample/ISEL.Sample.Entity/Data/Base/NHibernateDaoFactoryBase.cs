@@ -32,6 +32,34 @@ namespace ISEL.Sample.Entity.Data.Base
 
 
     
+    public IPessoaDao GetPessoaDao() {
+      return new PessoaDao();
+    }
+  
+    public IEmpregadoDao GetEmpregadoDao() {
+      return new EmpregadoDao();
+    }
+  
+    public IManagerDao GetManagerDao() {
+      return new ManagerDao();
+    }
+  
+    public IDirectorDao GetDirectorDao() {
+      return new DirectorDao();
+    }
+  
+    public IDirectorPrimeiraLinhaDao GetDirectorPrimeiraLinhaDao() {
+      return new DirectorPrimeiraLinhaDao();
+    }
+  
+    public IDirectorSegundaLinhaDao GetDirectorSegundaLinhaDao() {
+      return new DirectorSegundaLinhaDao();
+    }
+  
+    public IClienteDao GetClienteDao() {
+      return new ClienteDao();
+    }
+  
     public ICalendarioDao GetCalendarioDao() {
       return new CalendarioDao();
     }

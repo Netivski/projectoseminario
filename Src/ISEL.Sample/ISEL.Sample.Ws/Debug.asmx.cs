@@ -23,6 +23,24 @@ namespace ISEL.Sample.Ws
     {
 
         [WebMethod]
+        public long CreateEmpregado(int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        {
+            return Singleton<EmpregadoService>.Current.Create( Numero, DtAdmissao, Nome, DtNascimento, NIF );
+        }
+
+        [WebMethod]
+        public long CreateDirectorSegundaLinha(int Antiguidade, double LimiteCartaoCredito, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        {
+            return Singleton<DirectorSegundaLinhaService>.Current.Create(Antiguidade, LimiteCartaoCredito, Numero, DtAdmissao, Nome, DtNascimento, NIF);
+        }
+
+        [WebMethod]
+        public long CreateManager(int LitrosCombustivel, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        {
+            return Singleton<ManagerService>.Current.Create(LitrosCombustivel, Numero, DtAdmissao, Nome, DtNascimento, NIF);
+        }
+
+        [WebMethod]
         public string ManyToOne(long albumId)
         {
             //Person person;
@@ -32,6 +50,8 @@ namespace ISEL.Sample.Ws
             
 
             //IDocenteDao
+
+
 
             return string.Empty;
         }

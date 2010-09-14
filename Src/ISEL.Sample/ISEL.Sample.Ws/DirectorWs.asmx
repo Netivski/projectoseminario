@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="DirectorWs.asmx.cs" Class="ISEL.Sample.Ws.DirectorWs" %>

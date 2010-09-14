@@ -11,6 +11,26 @@ namespace ISEL.Sample.Rtti.Base
       protected BaseUserTypeMetadata() { }
       
       
+        public static IUserType<string> nomePessoa = new UserType<string>(100, 0, 0, null, null, null, null, null, null, 0, null, null);
+  
+        public static IUserType<DateTime> dtNascimentoPessoa = new UserType<DateTime>(0, 0, 0, null, null, null, null, null, null, 0, null, null);
+  
+        public static IUserType<string> nifPessoa = new UserType<string>(0, 0, 0, "[0-9]{9}", null, null, null, null, null, 0, null, null);
+  
+        public static IUserType<int> numeroEmpregado = new UserType<int>(0, 0, 0, null, null, new NullableType<int>(1), null, new NullableType<int>(2000), null, 0, null, null);
+  
+        public static IUserType<DateTime> dtAdmissaoEmpregado = new UserType<DateTime>(0, 0, 0, null, null, null, null, null, null, 0, null, null);
+  
+        public static IUserType<int> litrosCombustivelManager = new UserType<int>(0, 0, 0, null, null, new NullableType<int>(0), null, new NullableType<int>(100), null, 0, null, null);
+  
+        public static IUserType<double> limiteCartaoCreditoDirector = new UserType<double>(0, 0, 0, null, null, null, new NullableType<double>(0), new NullableType<double>(1500), null, 0, null, null);
+  
+        public static IUserType<string> nomeDepartamentoDirectorPrimeiraLinha = new UserType<string>(100, 0, 0, null, null, null, null, null, null, 0, null, null);
+  
+        public static IUserType<int> antiguidadeDirectorSegundaLinha = new UserType<int>(0, 0, 0, null, null, new NullableType<int>(0), null, new NullableType<int>(35), null, 0, null, null);
+  
+        public static IUserType<double> creditoMaximoCliente = new UserType<double>(0, 0, 0, null, null, null, new NullableType<double>(0), new NullableType<double>(15000), null, 0, null, null);
+  
         public static IUserType<string> horaInicioCalendario = new UserType<string>(5, 0, 0, "[0-9]{2}:[0-9]{2}", null, null, null, null, null, 0, null, null);
   
         public static IUserType<string> horaFimCalendario = new UserType<string>(5, 0, 0, "[0-9]{2}:[0-9]{2}", null, null, null, null, null, 0, null, null);
