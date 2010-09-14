@@ -130,7 +130,7 @@ namespace EDM.Tester
         [TestMethod]
         public void CanGetManyToOneRelation()
         {
-            Assert.AreEqual(xpath.ManyOneToRelation, "//manyToOne");
+            Assert.AreEqual(xpath.ManyToOneRelation, "//manyToOne");
         }
         [TestMethod]
         public void CanGetManyToManyRelation()
