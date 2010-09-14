@@ -7,25 +7,24 @@ using ISEL.Sample.Entity.DataInterfaces.Base;
 
 
 
-namespace ISEL.Sample.Entity.Data.Base
+namespace ISEL.Sample.Entity.Data
 {
     /// <summary>
     /// Exposes access to NHibernate DAO classes.  Motivation for this DAO
     /// framework can be found at http://www.hibernate.org/328.html.
     /// </summary>
-    public class NHibernateDaoFactoryBase : IDaoFactory
+    public partial class DaoFactory : IDaoFactory
     {
+      static readonly DaoFactory current = null;
 
-      static readonly NHibernateDaoFactoryBase current = null;
+      protected DaoFactory() { }
 
-      protected NHibernateDaoFactoryBase() { }
-
-      static NHibernateDaoFactoryBase()
+      static DaoFactory()
       {
-        current = new NHibernateDaoFactoryBase();
+        current = new DaoFactory();
       }
 
-      public static NHibernateDaoFactoryBase Current
+      public static DaoFactory Current
       {
         get { return current; }
       }
