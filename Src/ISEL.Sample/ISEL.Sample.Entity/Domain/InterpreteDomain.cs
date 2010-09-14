@@ -3,6 +3,8 @@ using System;
 using EDM.FoundationClasses.Entity;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using System.Collections.Generic;
 
@@ -10,7 +12,6 @@ namespace ISEL.Sample.Entity.Domain
 {
   [Serializable]
   public  class InterpreteDomain : DomainObject<long>, IEntity
-  
   {
     public InterpreteDomain () {}
 
@@ -39,10 +40,36 @@ namespace ISEL.Sample.Entity.Domain
     }    
   
 
-    public virtual bool IsValid()
+    public virtual bool IsValid
     {
-      return Validator.IsValid(UserTypeMetadata.nomeArtista, Nome) && Validator.IsValid(UserTypeMetadata.pais, Nacionalidade) ;
+      get
+      {
+        return Validator.IsValid(UserTypeMetadata.nomeArtista, Nome) && Validator.IsValid(UserTypeMetadata.pais, Nacionalidade) ;
+      }
     }
+    
+    public virtual EntityStateException StateException
+    {
+      get
+      {
+        if (this.IsValid) return null;
+        
+        EntityStateException ese = new EntityStateException("Interprete");
+        
+        if( !Validator.IsValid(UserTypeMetadata.nomeArtista, Nome) )
+        {
+          ese.Add( new GeneralArgumentException<string>( "Nome", "nomeArtista", Nome) );
+        }
+  
+        if( !Validator.IsValid(UserTypeMetadata.pais, Nacionalidade) )
+        {
+          ese.Add( new GeneralArgumentException<string>( "Nacionalidade", "pais", Nacionalidade) );
+        }
+  
+    
+        return ese;
+      }
+    }    
 
     public override int GetHashCode()
     {

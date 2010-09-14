@@ -3,6 +3,8 @@ using System;
 using EDM.FoundationClasses.Entity;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using System.Collections.Generic;
 
@@ -36,10 +38,33 @@ namespace ISEL.Sample.Entity.Domain
     }    
   
 
-    public override bool IsValid()
+    public override bool IsValid
     {
-      return  base.IsValid() && Validator.IsValid(UserTypeMetadata.dataEdicaoLP, DtEdicao) ;
+      get
+      {
+        return  base.IsValid && Validator.IsValid(UserTypeMetadata.dataEdicaoLP, DtEdicao) ;
+      }
     }
+    
+    public override EntityStateException StateException
+    {
+      get
+      {
+        if (this.IsValid) return null;
+        
+        EntityStateException ese = new EntityStateException("LP");
+        
+            ese.Add(base.StateException);  
+        
+        if( !Validator.IsValid(UserTypeMetadata.dataEdicaoLP, DtEdicao) )
+        {
+          ese.Add( new GeneralArgumentException<DateTime>( "DtEdicao", "dataEdicaoLP", DtEdicao) );
+        }
+  
+    
+        return ese;
+      }
+    }    
 
     public override int GetHashCode()
     {

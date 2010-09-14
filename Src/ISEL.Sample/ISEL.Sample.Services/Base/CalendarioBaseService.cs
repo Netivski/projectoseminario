@@ -5,6 +5,7 @@ using System.Security;
 using EDM.FoundationClasses.Security.Permissions;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using ISEL.Sample.Entity;
 using ISEL.Sample.Entity.DataInterfaces;
@@ -20,10 +21,7 @@ namespace ISEL.Sample.Services.Base
         {
             Calendario record = new Calendario(){ HoraInicio = HoraInicio, HoraFim = HoraFim, Sala = Sala };            
     
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             NHibernateDaoFactory.Current.GetCalendarioDao().Save(record);
 
@@ -41,10 +39,7 @@ namespace ISEL.Sample.Services.Base
             record.HoraFim = HoraFim;
             record.Sala = Sala;            
 
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             dao.SaveOrUpdate(record);                                                         
         }

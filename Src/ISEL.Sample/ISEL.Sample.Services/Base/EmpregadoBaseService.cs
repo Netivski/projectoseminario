@@ -5,6 +5,7 @@ using System.Security;
 using EDM.FoundationClasses.Security.Permissions;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using ISEL.Sample.Entity;
 using ISEL.Sample.Entity.DataInterfaces;
@@ -20,10 +21,7 @@ namespace ISEL.Sample.Services.Base
         {
             Empregado record = new Empregado(){ Nome = Nome, DtNascimento = DtNascimento, NIF = NIF, Numero = Numero, DtAdmissao = DtAdmissao };            
     
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             NHibernateDaoFactory.Current.GetEmpregadoDao().Save(record);
 
@@ -43,10 +41,7 @@ namespace ISEL.Sample.Services.Base
             record.Numero = Numero;
             record.DtAdmissao = DtAdmissao;            
 
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             dao.SaveOrUpdate(record);                                                         
         }
@@ -66,7 +61,7 @@ namespace ISEL.Sample.Services.Base
             
             if( !Validator.IsValid(UserTypeMetadata.nifPessoa, NIF) )
             {
-              // throw new Ex .... 
+              throw new GeneralArgumentException<string>( "NIF", "nifPessoa", NIF);
             }                    
   
             record.NIF = NIF; 

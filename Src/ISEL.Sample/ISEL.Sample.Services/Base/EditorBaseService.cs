@@ -5,6 +5,7 @@ using System.Security;
 using EDM.FoundationClasses.Security.Permissions;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using ISEL.Sample.Entity;
 using ISEL.Sample.Entity.DataInterfaces;
@@ -20,10 +21,7 @@ namespace ISEL.Sample.Services.Base
         {
             Editor record = new Editor(){ Nome = Nome, Pais = Pais };            
     
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             NHibernateDaoFactory.Current.GetEditorDao().Save(record);
 
@@ -40,10 +38,7 @@ namespace ISEL.Sample.Services.Base
             record.Nome = Nome;
             record.Pais = Pais;            
 
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             dao.SaveOrUpdate(record);                                                         
         }

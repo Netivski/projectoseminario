@@ -3,6 +3,8 @@ using System;
 using EDM.FoundationClasses.Entity;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using System.Collections.Generic;
 
@@ -10,7 +12,6 @@ namespace ISEL.Sample.Entity.Domain
 {
   [Serializable]
   public  class BlogDomain : DomainObject<long>, IEntity
-  
   {
     public BlogDomain () {}
 
@@ -39,10 +40,31 @@ namespace ISEL.Sample.Entity.Domain
     }    
   
 
-    public virtual bool IsValid()
+    public virtual bool IsValid
     {
-      return Validator.IsValid(UserTypeMetadata.nomeBlog, Nome) ;
+      get
+      {
+        return Validator.IsValid(UserTypeMetadata.nomeBlog, Nome) ;
+      }
     }
+    
+    public virtual EntityStateException StateException
+    {
+      get
+      {
+        if (this.IsValid) return null;
+        
+        EntityStateException ese = new EntityStateException("Blog");
+        
+        if( !Validator.IsValid(UserTypeMetadata.nomeBlog, Nome) )
+        {
+          ese.Add( new GeneralArgumentException<string>( "Nome", "nomeBlog", Nome) );
+        }
+  
+    
+        return ese;
+      }
+    }    
 
     public override int GetHashCode()
     {
