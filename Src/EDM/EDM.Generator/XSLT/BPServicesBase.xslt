@@ -3,12 +3,13 @@
   <xsl:include href="Common.xslt"/>
   <xsl:output method="text" indent="yes"/>
   <xsl:template match="component">
-using System;  
+using System;
 using System.Security.Permissions;
 using System.Security;
-using EDM.FoundationClasses.Security.Permissions; 
+using EDM.FoundationClasses.Security.Permissions;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception.FoundationType;
 using <xsl:value-of select="@rttiNameSpace"/>;
 using System.Collections.Generic;
 
@@ -24,21 +25,27 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
 
   <xsl:template match="businessProcess">    
         #region - <xsl:value-of select="@name"/>
-        protected virtual void&#160;<xsl:value-of select="@name"/>ValidateParameters(<xsl:apply-templates select="input/param" mode="params"/>)
+        protected virtual void&#160;<xsl:value-of select="@name"/>ValidatePreCondition(<xsl:apply-templates select="input/param" mode="params"/>)
         {
           <xsl:apply-templates select="input/param" mode="isValid"/>
         }
         
         protected abstract <xsl:value-of select="output/@edmType"/>&#160;<xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="params"/>);  
         
-        <xsl:call-template name="WriteRuntimeSecurity">
-          <xsl:with-param name="methodName" select="@name"></xsl:with-param>
-        </xsl:call-template> 
+        protected virtual void&#160;<xsl:value-of select="@name"/>ValidatePosCondition(<xsl:value-of select="output/@edmType"/> result)
+        {
+          if( !Validator.IsValid(UserTypeMetadata.<xsl:value-of select="output/@type"/>, result) )
+          {
+            throw new EDMArgumentException("ValidatePosCondition", "<xsl:value-of select="output/@type"/>", result.ToString());
+          }
+        }
+        <xsl:call-template name="WriteRuntimeSecurity"><xsl:with-param name="methodName" select="@name"></xsl:with-param></xsl:call-template> 
         public virtual <xsl:value-of select="output/@edmType"/>&#160;<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="params"/>)
         {
-          <xsl:value-of select="@name"/>ValidateParameters(<xsl:apply-templates select="input/param" mode="call"/>);
-                    
-          return <xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="call"/>);
+          <xsl:value-of select="@name"/>ValidatePreCondition(<xsl:apply-templates select="input/param" mode="call"/>);
+          <xsl:value-of select="output/@edmType"/> result = <xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="call"/>);
+          <xsl:value-of select="@name"/>ValidatePosCondition(result);
+          return result;
         }
         #endregion
 </xsl:template>
@@ -54,7 +61,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
   <xsl:template match="param" mode="isValid">
           if( !Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) )
           {
-            // throw new Ex .... 
+            throw new EDMArgumentException("<xsl:value-of select="../../@name"/>ValidatePreCondition", "<xsl:value-of select="@type"/>", <xsl:value-of select="@name"/>.ToString());
           }
   </xsl:template>
 
