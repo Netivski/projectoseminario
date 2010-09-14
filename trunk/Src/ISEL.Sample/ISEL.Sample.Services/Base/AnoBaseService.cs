@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetAnoDao().Save(record);
+            DaoFactory.Current.GetAnoDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="AnoBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, int Ano, string Semestre)
         {             
-            IAnoDao dao = NHibernateDaoFactory.Current.GetAnoDao();  
+            IAnoDao dao = DaoFactory.Current.GetAnoDao();  
 
             Ano record = dao.GetById(recordId, false);
             record.Ano = Ano;
@@ -47,14 +47,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="AnoBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Ano Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetAnoDao().GetById(recordId, false);
+            return DaoFactory.Current.GetAnoDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="AnoBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetAnoDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetAnoDao().Delete( Read( recordId ) );
         }
     }
 }

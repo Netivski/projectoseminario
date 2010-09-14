@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetEmpregadoDao().Save(record);
+            DaoFactory.Current.GetEmpregadoDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EmpregadoBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {             
-            IEmpregadoDao dao = NHibernateDaoFactory.Current.GetEmpregadoDao();  
+            IEmpregadoDao dao = DaoFactory.Current.GetEmpregadoDao();  
 
             Empregado record = dao.GetById(recordId, false);
             record.Nome = Nome;
@@ -50,7 +50,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EmpregadoBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Empregado Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetEmpregadoDao().GetById(recordId, false);
+            return DaoFactory.Current.GetEmpregadoDao().GetById(recordId, false);
         }
 
          
@@ -67,13 +67,13 @@ namespace ISEL.Sample.Services.Base
             record.NIF = NIF; 
   
 
-            return NHibernateDaoFactory.Current.GetEmpregadoDao().GetUniqueByExample(record, "Numero", "DtAdmissao", "Nome", "DtNascimento" );
+            return DaoFactory.Current.GetEmpregadoDao().GetUniqueByExample(record, "Numero", "DtAdmissao", "Nome", "DtNascimento" );
         }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EmpregadoBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetEmpregadoDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetEmpregadoDao().Delete( Read( recordId ) );
         }
     }
 }

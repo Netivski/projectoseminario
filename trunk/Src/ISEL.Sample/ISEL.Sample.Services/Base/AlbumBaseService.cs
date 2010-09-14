@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetAlbumDao().Save(record);
+            DaoFactory.Current.GetAlbumDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="AlbumBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Titulo)
         {             
-            IAlbumDao dao = NHibernateDaoFactory.Current.GetAlbumDao();  
+            IAlbumDao dao = DaoFactory.Current.GetAlbumDao();  
 
             Album record = dao.GetById(recordId, false);
             record.Titulo = Titulo;            
@@ -46,14 +46,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="AlbumBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Album Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetAlbumDao().GetById(recordId, false);
+            return DaoFactory.Current.GetAlbumDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="AlbumBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetAlbumDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetAlbumDao().Delete( Read( recordId ) );
         }
     }
 }

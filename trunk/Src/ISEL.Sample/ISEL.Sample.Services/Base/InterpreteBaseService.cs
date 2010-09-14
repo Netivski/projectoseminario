@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetInterpreteDao().Save(record);
+            DaoFactory.Current.GetInterpreteDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="InterpreteBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Nome, string Nacionalidade)
         {             
-            IInterpreteDao dao = NHibernateDaoFactory.Current.GetInterpreteDao();  
+            IInterpreteDao dao = DaoFactory.Current.GetInterpreteDao();  
 
             Interprete record = dao.GetById(recordId, false);
             record.Nome = Nome;
@@ -47,14 +47,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="InterpreteBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Interprete Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetInterpreteDao().GetById(recordId, false);
+            return DaoFactory.Current.GetInterpreteDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="InterpreteBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetInterpreteDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetInterpreteDao().Delete( Read( recordId ) );
         }
     }
 }

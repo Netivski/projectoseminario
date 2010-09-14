@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetDisciplinaDao().Save(record);
+            DaoFactory.Current.GetDisciplinaDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DisciplinaBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Nome)
         {             
-            IDisciplinaDao dao = NHibernateDaoFactory.Current.GetDisciplinaDao();  
+            IDisciplinaDao dao = DaoFactory.Current.GetDisciplinaDao();  
 
             Disciplina record = dao.GetById(recordId, false);
             record.Nome = Nome;            
@@ -46,14 +46,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DisciplinaBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Disciplina Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetDisciplinaDao().GetById(recordId, false);
+            return DaoFactory.Current.GetDisciplinaDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DisciplinaBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetDisciplinaDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetDisciplinaDao().Delete( Read( recordId ) );
         }
     }
 }

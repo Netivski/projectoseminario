@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetDirectorPrimeiraLinhaDao().Save(record);
+            DaoFactory.Current.GetDirectorPrimeiraLinhaDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorPrimeiraLinhaBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string NomeDepartamento, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {             
-            IDirectorPrimeiraLinhaDao dao = NHibernateDaoFactory.Current.GetDirectorPrimeiraLinhaDao();  
+            IDirectorPrimeiraLinhaDao dao = DaoFactory.Current.GetDirectorPrimeiraLinhaDao();  
 
             DirectorPrimeiraLinha record = dao.GetById(recordId, false);
             record.Nome = Nome;
@@ -53,7 +53,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorPrimeiraLinhaBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual DirectorPrimeiraLinha Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetDirectorPrimeiraLinhaDao().GetById(recordId, false);
+            return DaoFactory.Current.GetDirectorPrimeiraLinhaDao().GetById(recordId, false);
         }
 
          
@@ -70,13 +70,13 @@ namespace ISEL.Sample.Services.Base
             record.NIF = NIF; 
   
 
-            return NHibernateDaoFactory.Current.GetDirectorPrimeiraLinhaDao().GetUniqueByExample(record, "NomeDepartamento", "LimiteCartaoCredito", "LimiteAprovacao", "Numero", "DtAdmissao", "Nome", "DtNascimento" );
+            return DaoFactory.Current.GetDirectorPrimeiraLinhaDao().GetUniqueByExample(record, "NomeDepartamento", "LimiteCartaoCredito", "LimiteAprovacao", "Numero", "DtAdmissao", "Nome", "DtNascimento" );
         }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorPrimeiraLinhaBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetDirectorPrimeiraLinhaDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetDirectorPrimeiraLinhaDao().Delete( Read( recordId ) );
         }
     }
 }

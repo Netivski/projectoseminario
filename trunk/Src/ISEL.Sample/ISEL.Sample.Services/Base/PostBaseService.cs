@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetPostDao().Save(record);
+            DaoFactory.Current.GetPostDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="PostBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Name, DateTime Create)
         {             
-            IPostDao dao = NHibernateDaoFactory.Current.GetPostDao();  
+            IPostDao dao = DaoFactory.Current.GetPostDao();  
 
             Post record = dao.GetById(recordId, false);
             record.Name = Name;
@@ -47,14 +47,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="PostBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Post Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetPostDao().GetById(recordId, false);
+            return DaoFactory.Current.GetPostDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="PostBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetPostDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetPostDao().Delete( Read( recordId ) );
         }
     }
 }

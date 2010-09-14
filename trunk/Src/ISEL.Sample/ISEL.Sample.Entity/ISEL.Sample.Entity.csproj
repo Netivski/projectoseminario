@@ -81,14 +81,14 @@
     <Compile Include="Comment.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="DataInterfaces\Base\IDaoFactoryBase.cs" />
-    <Compile Include="DataInterfaces\Base\IDaoInterface.cs" />
+    <Compile Include="DataInterfaces\Base\IDaoInterfaceBase.cs" />
     <Compile Include="DataInterfaces\IDaoFactory.cs" />
     <Compile Include="DataInterfaces\IDaoInterface.cs" />
     <Compile Include="DataInterfaces\IDaoInterfacePartial.cs" />
-    <Compile Include="Data\Base\NHibernateDaoFactoryBase.cs" />
+    <Compile Include="Data\DaoFactory.cs" />
+    <Compile Include="Data\DaoFactoryPartial.cs" />
     <Compile Include="Data\DAOImplementation.cs" />
     <Compile Include="Data\DAOImplementationPartial.cs" />
-    <Compile Include="Data\NHibernateDaoFactory.cs" />
     <Compile Include="Director.cs" />
     <Compile Include="DirectorPrimeiraLinha.cs" />
     <Compile Include="DirectorSegundaLinha.cs" />

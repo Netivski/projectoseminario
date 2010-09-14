@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetCommentDao().Save(record);
+            DaoFactory.Current.GetCommentDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CommentBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Content, DateTime Create)
         {             
-            ICommentDao dao = NHibernateDaoFactory.Current.GetCommentDao();  
+            ICommentDao dao = DaoFactory.Current.GetCommentDao();  
 
             Comment record = dao.GetById(recordId, false);
             record.Content = Content;
@@ -47,14 +47,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CommentBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Comment Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetCommentDao().GetById(recordId, false);
+            return DaoFactory.Current.GetCommentDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CommentBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetCommentDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetCommentDao().Delete( Read( recordId ) );
         }
     }
 }

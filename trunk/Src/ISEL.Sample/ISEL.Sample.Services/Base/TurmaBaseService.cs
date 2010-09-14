@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetTurmaDao().Save(record);
+            DaoFactory.Current.GetTurmaDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="TurmaBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Nome)
         {             
-            ITurmaDao dao = NHibernateDaoFactory.Current.GetTurmaDao();  
+            ITurmaDao dao = DaoFactory.Current.GetTurmaDao();  
 
             Turma record = dao.GetById(recordId, false);
             record.Nome = Nome;            
@@ -46,14 +46,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="TurmaBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Turma Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetTurmaDao().GetById(recordId, false);
+            return DaoFactory.Current.GetTurmaDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="TurmaBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetTurmaDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetTurmaDao().Delete( Read( recordId ) );
         }
     }
 }

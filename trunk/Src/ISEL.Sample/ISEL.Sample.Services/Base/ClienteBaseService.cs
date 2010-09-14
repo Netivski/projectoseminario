@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetClienteDao().Save(record);
+            DaoFactory.Current.GetClienteDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ClienteBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, double CreditoMaximo, string Nome, DateTime DtNascimento, string NIF)
         {             
-            IClienteDao dao = NHibernateDaoFactory.Current.GetClienteDao();  
+            IClienteDao dao = DaoFactory.Current.GetClienteDao();  
 
             Cliente record = dao.GetById(recordId, false);
             record.Nome = Nome;
@@ -49,7 +49,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ClienteBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Cliente Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetClienteDao().GetById(recordId, false);
+            return DaoFactory.Current.GetClienteDao().GetById(recordId, false);
         }
 
          
@@ -66,13 +66,13 @@ namespace ISEL.Sample.Services.Base
             record.NIF = NIF; 
   
 
-            return NHibernateDaoFactory.Current.GetClienteDao().GetUniqueByExample(record, "CreditoMaximo", "Nome", "DtNascimento" );
+            return DaoFactory.Current.GetClienteDao().GetUniqueByExample(record, "CreditoMaximo", "Nome", "DtNascimento" );
         }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ClienteBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetClienteDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetClienteDao().Delete( Read( recordId ) );
         }
     }
 }

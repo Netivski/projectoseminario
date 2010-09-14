@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetBlogDao().Save(record);
+            DaoFactory.Current.GetBlogDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="BlogBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Nome)
         {             
-            IBlogDao dao = NHibernateDaoFactory.Current.GetBlogDao();  
+            IBlogDao dao = DaoFactory.Current.GetBlogDao();  
 
             Blog record = dao.GetById(recordId, false);
             record.Nome = Nome;            
@@ -46,14 +46,14 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="BlogBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Blog Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetBlogDao().GetById(recordId, false);
+            return DaoFactory.Current.GetBlogDao().GetById(recordId, false);
         }
 
          
         [RuntimeSecurity(SecurityAction.Demand, ClassName="BlogBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetBlogDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetBlogDao().Delete( Read( recordId ) );
         }
     }
 }

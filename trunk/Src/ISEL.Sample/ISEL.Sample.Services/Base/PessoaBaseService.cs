@@ -23,7 +23,7 @@ namespace ISEL.Sample.Services.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.GetPessoaDao().Save(record);
+            DaoFactory.Current.GetPessoaDao().Save(record);
 
             return record.ID;
         }
@@ -32,7 +32,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="PessoaBaseService", MethodName="Update", Unrestricted = false)] 
         public virtual void Update(long recordId, string Nome, DateTime DtNascimento, string NIF)
         {             
-            IPessoaDao dao = NHibernateDaoFactory.Current.GetPessoaDao();  
+            IPessoaDao dao = DaoFactory.Current.GetPessoaDao();  
 
             Pessoa record = dao.GetById(recordId, false);
             record.Nome = Nome;
@@ -48,7 +48,7 @@ namespace ISEL.Sample.Services.Base
         [RuntimeSecurity(SecurityAction.Demand, ClassName="PessoaBaseService", MethodName="Read", Unrestricted = false)] 
         public virtual Pessoa Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.GetPessoaDao().GetById(recordId, false);
+            return DaoFactory.Current.GetPessoaDao().GetById(recordId, false);
         }
 
          
@@ -65,13 +65,13 @@ namespace ISEL.Sample.Services.Base
             record.NIF = NIF; 
   
 
-            return NHibernateDaoFactory.Current.GetPessoaDao().GetUniqueByExample(record, "Nome", "DtNascimento" );
+            return DaoFactory.Current.GetPessoaDao().GetUniqueByExample(record, "Nome", "DtNascimento" );
         }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="PessoaBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.GetPessoaDao().Delete( Read( recordId ) );
+            DaoFactory.Current.GetPessoaDao().Delete( Read( recordId ) );
         }
     }
 }
