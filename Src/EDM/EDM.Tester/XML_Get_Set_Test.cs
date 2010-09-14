@@ -70,7 +70,7 @@ namespace EDM.Tester
         public void CanGetNodeList()
         {
             XmlNodeList list = Get.GetNodeList(_doc, "/solution/entities/entity");
-            Assert.AreEqual(6, list.Count);
+            Assert.AreEqual(7, list.Count);
         }
         [TestMethod]
         public void CanGetNode()
