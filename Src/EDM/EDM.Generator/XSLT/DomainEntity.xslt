@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace <xsl:value-of select="@baseNameSpace"/>.Domain
 {
   [Serializable]
-  public <xsl:if test="@type = 'abstract'">abstract</xsl:if> class <xsl:value-of select="@name"/>Domain : <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'"><xsl:value-of select="@baseEntity"/></xsl:when><xsl:otherwise>DomainObject<xsl:call-template name="lt"></xsl:call-template>long<xsl:call-template name="gt"></xsl:call-template>, IEntity</xsl:otherwise></xsl:choose>
+  public <xsl:if test="@type = 'abstract' or @type = 'abstractdependent'">abstract</xsl:if> class <xsl:value-of select="@name"/>Domain : <xsl:choose><xsl:when test="@type = 'dependent' or @type = 'abstractdependent'"><xsl:value-of select="@baseEntity"/></xsl:when><xsl:otherwise>DomainObject<xsl:call-template name="lt"></xsl:call-template>long<xsl:call-template name="gt"></xsl:call-template>, IEntity</xsl:otherwise></xsl:choose>
   {
     public <xsl:value-of select="@name"/>Domain () {}
 

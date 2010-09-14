@@ -59,7 +59,7 @@ namespace <xsl:value-of select="@unitTestNameSpace"/>
   </xsl:template>
 
   <xsl:template name="resolveRecursiveParams">
-    <xsl:apply-templates select="fields/field" mode="params"></xsl:apply-templates><xsl:if test="@type = 'dependent'"><xsl:if test="count(fields/field) > 0">, </xsl:if>
+    <xsl:apply-templates select="fields/field" mode="params"></xsl:apply-templates><xsl:if test="@type = 'dependent' or @type = 'abstractdependent'"><xsl:if test="count(fields/field) > 0">, </xsl:if>
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]"><xsl:call-template name="resolveRecursiveParams"></xsl:call-template></xsl:for-each>
     </xsl:if>
@@ -67,7 +67,7 @@ namespace <xsl:value-of select="@unitTestNameSpace"/>
 
   <xsl:template name="resolveRecursiveParamsUpdate">
     <xsl:if test="count(fields/field) > 0">, </xsl:if>
-    <xsl:apply-templates select="fields/field" mode="update"></xsl:apply-templates><xsl:if test="@type = 'dependent'">
+    <xsl:apply-templates select="fields/field" mode="update"></xsl:apply-templates><xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]"><xsl:call-template name="resolveRecursiveParamsUpdate"></xsl:call-template></xsl:for-each>
     </xsl:if>
@@ -75,7 +75,7 @@ namespace <xsl:value-of select="@unitTestNameSpace"/>
 
   <xsl:template name="resolveRecursiveParamsVerifyUpdate">    
     <xsl:apply-templates select="fields/field" mode="verifyUpdate"></xsl:apply-templates>
-    <xsl:if test="@type = 'dependent'">      
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">      
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]"><xsl:call-template name="resolveRecursiveParamsVerifyUpdate"></xsl:call-template></xsl:for-each>
     </xsl:if>
