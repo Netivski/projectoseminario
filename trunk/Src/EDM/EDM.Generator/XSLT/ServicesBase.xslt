@@ -36,7 +36,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         <xsl:call-template name="WriteRuntimeSecurity">
           <xsl:with-param name="methodName" select="'Update'"></xsl:with-param>
         </xsl:call-template> 
-        public virtual void Update(long recordId, <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
+        public virtual void Update(long recordId<xsl:call-template name="resolveUpdateRecursiveParams"></xsl:call-template>)
         {             
             I<xsl:value-of select="@name"/>Dao dao = NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao();  
 
@@ -79,6 +79,18 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
     }
 }
   </xsl:template>
+  
+  <xsl:template match="fields/field" mode="updateParams">, <xsl:value-of select="@edmType"/>&#160;<xsl:value-of select="@name"/></xsl:template>
+
+  <xsl:template name="resolveUpdateRecursiveParams">
+    <xsl:apply-templates select="fields/field" mode="updateParams"/>
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
+      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:call-template name="resolveUpdateRecursiveParams"></xsl:call-template>
+      </xsl:for-each>
+    </xsl:if>
+  </xsl:template>  
   
   <xsl:template match="field" mode="ReadByUniqueExcludeFields">, "<xsl:value-of select="@name"/>"</xsl:template>
 
@@ -161,12 +173,13 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
   </xsl:template>
 
   <xsl:template name="resolveRecursiveSetRecordInline">
+    <xsl:apply-templates select="fields/field" mode="setRecordInLine"/>
     <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
-      <xsl:for-each select="//entity[@name=$varBaseEntity]">
-        <xsl:call-template name="resolveRecursiveSetRecordInline"></xsl:call-template>, </xsl:for-each>
-    </xsl:if>
-    <xsl:apply-templates select="fields/field" mode="setRecordInLine"/>    
+      <xsl:if test="count(fields/field) > 0">, </xsl:if>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]">        
+        <xsl:call-template name="resolveRecursiveSetRecordInline"></xsl:call-template> </xsl:for-each>
+    </xsl:if>    
   </xsl:template>
 
   <xsl:template name="resolveRecursiveSetRecordRecordBase">
