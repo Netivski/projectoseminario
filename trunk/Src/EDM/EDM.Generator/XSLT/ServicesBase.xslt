@@ -28,7 +28,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
     
             if (!record.IsValid) throw record.StateException;
 
-            NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().Save(record);
+            DaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().Save(record);
 
             return record.ID;
         }
@@ -38,7 +38,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         </xsl:call-template> 
         public virtual void Update(long recordId<xsl:call-template name="resolveUpdateRecursiveParams"></xsl:call-template>)
         {             
-            I<xsl:value-of select="@name"/>Dao dao = NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao();  
+            I<xsl:value-of select="@name"/>Dao dao = DaoFactory.Current.Get<xsl:value-of select="@name"/>Dao();  
 
             <xsl:value-of select="@name"/> record = dao.GetById(recordId, false);<xsl:call-template name="resolveRecursiveSetRecordRecordBase"></xsl:call-template>            
 
@@ -52,7 +52,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         </xsl:call-template> 
         public virtual <xsl:value-of select="@name"/> Read(long recordId)
         {
-            return NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().GetById(recordId, false);
+            return DaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().GetById(recordId, false);
         }
 
          <xsl:if test="@writeReadByUnique = 'true'">
@@ -65,7 +65,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
             <xsl:call-template name="ReadByUniqueIsValidRecursive"/>
             <xsl:call-template name="ReadByUniqueSetFieldsRecursive"/>
 
-            return NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().GetUniqueByExample(record<xsl:call-template name="ReadByUniqueExcludeFieldsRecursive"/> );
+            return DaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().GetUniqueByExample(record<xsl:call-template name="ReadByUniqueExcludeFieldsRecursive"/> );
         }
         </xsl:if>
 
@@ -74,7 +74,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         </xsl:call-template> 
         public virtual void Delete(long recordId)
         {
-            NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().Delete( Read( recordId ) );
+            DaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().Delete( Read( recordId ) );
         }
     }
 }

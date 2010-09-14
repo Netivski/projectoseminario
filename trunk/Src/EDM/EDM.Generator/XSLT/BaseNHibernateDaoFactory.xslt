@@ -15,25 +15,24 @@ using <xsl:value-of select="@nameSpace"/>.DataInterfaces.Base;
 
 
 
-namespace <xsl:value-of select="@nameSpace"/>.Data.Base
+namespace <xsl:value-of select="@nameSpace"/>.Data
 {
     /// <summary>
     /// Exposes access to NHibernate DAO classes.  Motivation for this DAO
     /// framework can be found at http://www.hibernate.org/328.html.
     /// </summary>
-    public class NHibernateDaoFactoryBase : IDaoFactory
+    public partial class DaoFactory : IDaoFactory
     {
+      static readonly DaoFactory current = null;
 
-      static readonly NHibernateDaoFactoryBase current = null;
+      protected DaoFactory() { }
 
-      protected NHibernateDaoFactoryBase() { }
-
-      static NHibernateDaoFactoryBase()
+      static DaoFactory()
       {
-        current = new NHibernateDaoFactoryBase();
+        current = new DaoFactory();
       }
 
-      public static NHibernateDaoFactoryBase Current
+      public static DaoFactory Current
       {
         get { return current; }
       }
