@@ -7,6 +7,10 @@ using System;
 using System.Security.Permissions;
 using System.Security;
 using EDM.FoundationClasses.Security.Permissions;
+using EDM.FoundationClasses.FoundationType;
+using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception.FoundationType;
+using <xsl:value-of select="@rttiNameSpace"/>;
 using <xsl:value-of select="@baseNameSpace"/>;
 using <xsl:value-of select="@baseNameSpace"/>.DataInterfaces;
 using <xsl:value-of select="@baseNameSpace"/>.Data;
@@ -22,10 +26,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         {
             <xsl:value-of select="@name"/> record = new <xsl:value-of select="@name"/>(){ <xsl:call-template name="resolveRecursiveSetRecordInline"></xsl:call-template> };            
     
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().Save(record);
 
@@ -41,10 +42,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
 
             <xsl:value-of select="@name"/> record = dao.GetById(recordId, false);<xsl:call-template name="resolveRecursiveSetRecordRecordBase"></xsl:call-template>            
 
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             dao.SaveOrUpdate(record);                                                         
         }
@@ -57,13 +55,19 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
             return NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().GetById(recordId, false);
         }
 
+         <xsl:if test="@writeReadByUnique = 'true'">
         <xsl:call-template name="WriteRuntimeSecurity">
           <xsl:with-param name="methodName" select="'ReadByUnique'"></xsl:with-param>
         </xsl:call-template> 
-        public virtual <xsl:value-of select="@name"/> ReadByUnique()
+        public virtual <xsl:value-of select="@name"/> ReadByUnique(<xsl:call-template name="readByUniqueResolveRecursiveParams"/>)
         {
-            return null;
+            <xsl:value-of select="@name"/> record = new <xsl:value-of select="@name"/>();
+            <xsl:call-template name="ReadByUniqueIsValidRecursive"/>
+            <xsl:call-template name="ReadByUniqueSetFieldsRecursive"/>
+
+            return NHibernateDaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().GetUniqueByExample(record<xsl:call-template name="ReadByUniqueExcludeFieldsRecursive"/> );
         }
+        </xsl:if>
 
         <xsl:call-template name="WriteRuntimeSecurity">
           <xsl:with-param name="methodName" select="'Delete'"></xsl:with-param>
@@ -74,6 +78,64 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         }
     }
 }
+  </xsl:template>
+  
+  <xsl:template match="field" mode="ReadByUniqueExcludeFields">, "<xsl:value-of select="@name"/>"</xsl:template>
+
+  <xsl:template name="ReadByUniqueExcludeFieldsRecursive">
+    <xsl:apply-templates select="fields/field[@unique != 'true']" mode="ReadByUniqueExcludeFields"/>
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
+      <xsl:if test="count(fields/field[@unique != 'true']) > 0"> </xsl:if>
+      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]"><xsl:call-template name="ReadByUniqueExcludeFieldsRecursive"></xsl:call-template></xsl:for-each>
+    </xsl:if>
+  </xsl:template>
+
+
+  <xsl:template match="field" mode="ReadByUniqueSetFields">
+            record.<xsl:value-of select="@name"/> = <xsl:value-of select="@name"/>; 
+  </xsl:template>
+
+  <xsl:template name="ReadByUniqueSetFieldsRecursive">
+    <xsl:apply-templates select="fields/field[@unique = 'true']" mode="ReadByUniqueSetFields"/>
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
+      <xsl:if test="count(fields/field[@unique = 'true']) > 0">, </xsl:if>
+      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:call-template name="ReadByUniqueSetFieldsRecursive"></xsl:call-template>
+      </xsl:for-each>
+    </xsl:if>    
+  </xsl:template>
+
+
+  <xsl:template match="field" mode="ReadByUniqueIsValid">
+            if( !Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) )
+            {
+              throw new GeneralArgumentException<xsl:call-template name="lt"/><xsl:value-of select="@edmType"/><xsl:call-template name="gt"/>( "<xsl:value-of select="@name"/>", "<xsl:value-of select="@type"/>", <xsl:value-of select="@name"/>);
+            }                    
+  </xsl:template>
+
+  <xsl:template name="ReadByUniqueIsValidRecursive">
+    <xsl:apply-templates select="fields/field[@unique = 'true']" mode="ReadByUniqueIsValid"/>
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
+      <xsl:if test="count(fields/field[@unique = 'true']) > 0">, </xsl:if>
+      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:call-template name="ReadByUniqueIsValidRecursive"></xsl:call-template>
+      </xsl:for-each>
+    </xsl:if>    
+  </xsl:template>
+
+
+  <xsl:template name="readByUniqueResolveRecursiveParams">
+    <xsl:apply-templates select="fields/field[@unique = 'true']" mode="params"/>
+    <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
+      <xsl:if test="count(fields/field[@unique = 'true']) > 0">, </xsl:if>
+      <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:call-template name="readByUniqueResolveRecursiveParams"></xsl:call-template>
+      </xsl:for-each>
+    </xsl:if>    
   </xsl:template>
 
   <xsl:template match="fields/field" mode="params">

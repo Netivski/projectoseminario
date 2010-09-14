@@ -29,18 +29,6 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
         }
 
         [WebMethod]
-        public <xsl:value-of select="@name"/> Read(long recordId)
-        {
-            return Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public <xsl:value-of select="@name"/> ReadByUnique()
-        {
-            return Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Delete(recordId);

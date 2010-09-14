@@ -52,9 +52,10 @@
   <ItemGroup>
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Environment\IEnvironment.cs" />
-    <Compile Include="Exception\FoundationType\EDMArgumentException.cs" />
-    <Compile Include="Exception\FoundationType\EDMPosConditionException.cs" />
-    <Compile Include="Exception\FoundationType\EDMPreConditionException.cs" />
+    <Compile Include="Exception\EntityStateException.cs" />
+    <Compile Include="Exception\FoundationType\GeneralArgumentException.cs" />
+    <Compile Include="Exception\FoundationType\PosConditionException.cs" />
+    <Compile Include="Exception\FoundationType\PreConditionException.cs" />
     <Compile Include="Exception\FoundationType\InvalidBaseTypeException.cs" />
     <Compile Include="Exception\GeneralException.cs" />
     <Compile Include="FoundationType\NullableType.cs" />

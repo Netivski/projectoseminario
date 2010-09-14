@@ -35,8 +35,8 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         protected virtual void&#160;<xsl:value-of select="@name"/>ValidatePosCondition(<xsl:value-of select="output/@edmType"/> result)
         {
           if( !Validator.IsValid(UserTypeMetadata.<xsl:value-of select="output/@type"/>, result) )
-          {
-            throw new EDMPosConditionException("<xsl:value-of select="@name"/>", "<xsl:value-of select="output/@type"/>", result.ToString());
+          {          
+            throw new PosConditionException<xsl:call-template name="lt"/><xsl:value-of select="output/@edmType"/><xsl:call-template name="gt"/>("<xsl:value-of select="@name"/>", "<xsl:value-of select="output/@type"/>", result);
           }
         }
         <xsl:call-template name="WriteRuntimeSecurity"><xsl:with-param name="methodName" select="@name"></xsl:with-param></xsl:call-template> 
@@ -61,7 +61,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
   <xsl:template match="param" mode="isValid">
           if( !Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) )
           {
-            throw new EDMPreConditionException("<xsl:value-of select="../../@name"/>", "<xsl:value-of select="@type"/>", <xsl:value-of select="@name"/>.ToString());
+            throw new PreConditionException<xsl:call-template name="lt"/><xsl:value-of select="@edmType"/><xsl:call-template name="gt"/>("<xsl:value-of select="../../@name"/>", "<xsl:value-of select="@name"/>", "<xsl:value-of select="@type"/>", <xsl:value-of select="@name"/>);
           }
   </xsl:template>
 

@@ -1,9 +1,11 @@
 ﻿using System;
+using EDM.FoundationClasses.Exception;
 
 namespace EDM.FoundationClasses.Entity
 {
     public interface IEntity
     {
-        bool IsValid();
+        bool IsValid { get; }
+        EntityStateException StateException { get; }
     }
 }

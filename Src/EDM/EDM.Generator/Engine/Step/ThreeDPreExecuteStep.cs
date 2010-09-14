@@ -44,6 +44,23 @@ namespace EDM.Generator.Engine.Step
             return string.IsNullOrEmpty(baseEntity) ? Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, entity, "name") : baseEntity;
         }
 
+        string GetWriteReadByUnique(GeneratorContext context, XmlNode entity)
+        {
+            string entityType = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, entity, "type");
+            string entityName = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, entity, "name");
+            string baseEntity = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, entity, "baseEntity");
+
+            if (entity.SelectNodes("./fields/field[@unique = 'true']").Count > 0) return "true";
+
+            if (entityType == "dependent" || entityType == "abstractdependent")
+            {
+                XmlNode baseEntityNode = Utils.XML.Get.GetNode(context.ThreeDFile.Content, string.Concat(context.ThreeDFile.XPath.Entity, string.Format("[@name = '{0}']", baseEntity)));
+                return GetWriteReadByUnique(context, baseEntityNode);
+            }
+
+            return "false";
+        }        
+
 
         public override void Generate( GeneratorContext context )
         {
@@ -53,8 +70,8 @@ namespace EDM.Generator.Engine.Step
             XmlNodeList nodeList = Utils.XML.Get.GetNodeList(context.ThreeDFile.Content, "/solution/entities/entity");
             foreach (XmlNode node in nodeList)
             {
-                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "masterEntity", GetMasterEntity(context, node)); 
-
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "masterEntity", GetMasterEntity(context, node));
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "writeReadByUnique", GetWriteReadByUnique(context, node)); 
 
                 if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Entity cannot be named {0}.", node.Attributes["name"].Value));
             }
@@ -62,6 +79,9 @@ namespace EDM.Generator.Engine.Step
             nodeList = Utils.XML.Get.GetNodeList(context.ThreeDFile.Content, "/solution/entities/entity/fields/field");
             foreach (XmlNode node in nodeList)
             {
+                string unique = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, node, "unique");
+                if (string.IsNullOrEmpty(unique)) Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "unique", "false");
+
                 if (CSharpKeywords.IsReserved(node.Attributes["name"].Value)) throw new KeyWordUsageException(string.Format("Field cannot be named {0}.", node.Attributes["name"].Value));
             }
             //001.3 - Verificação de tipos
