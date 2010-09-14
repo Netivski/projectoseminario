@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EDM.Generator.Engine.Step;
 using EDM.Generator.Context;
+using EDM.Generator.Utils.XML;
 using System.Xml;
 using System.IO;
 
@@ -21,6 +22,7 @@ namespace EDM.Tester
         private static string edmFilePath;
         private static GeneratorContext context;
         private static XmlDocument doc;
+        private static ThreeDXPath xPath;
 
         public GeneratorStepsTest()
         {
@@ -50,16 +52,16 @@ namespace EDM.Tester
         [ClassInitialize]
         public static void Init(TestContext ctx)
         {
+            xPath = new ThreeDXPath();
             outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\Generated\GeneratorStepsTest");
-            edmFilePath = Path.Combine(outputPath, @"..\..\3D.xml");
-            doc = new XmlDocument();
+            edmFilePath = Path.Combine(outputPath, @"..\..\3D.xml");            
 
             if (Directory.Exists(outputPath))
                 Directory.Delete(outputPath, true);
 
             Directory.CreateDirectory(outputPath);            
             Directory.CreateDirectory(Path.Combine(outputPath, @"TestNameSpace.Rtti\Base"));
-            Directory.CreateDirectory(Path.Combine(outputPath, @"TestNameSpace.Entity\Data\Base"));
+            Directory.CreateDirectory(Path.Combine(outputPath, @"TestNameSpace.Entity\Data"));
             Directory.CreateDirectory(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\Base"));
             Directory.CreateDirectory(Path.Combine(outputPath, @"TestNameSpace.Entity\Domain"));
             Directory.CreateDirectory(Path.Combine(outputPath, @"TestNameSpace.Services\Base"));
@@ -72,21 +74,15 @@ namespace EDM.Tester
             context.SetTransform();
 
             steps = new GeneratorSteps();
-        }
 
-        [TestMethod]
-        public void IsNotNull()
-        {
-            Assert.IsNotNull(steps);
-        }
-        [TestMethod]
-        public void DidGenerateAllFiles()
-        {
             steps.Generate(context);
+        }
 
+        [TestMethod]
+        public void DidGenerateAnyFiles()
+        {
             Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Rtti\Base"))).GetFiles().Length > 0);
             Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Rtti"))).GetFiles().Length > 0);
-            Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Entity\Data\Base"))).GetFiles().Length > 0);
             Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Entity\Data"))).GetFiles().Length > 0);
             Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\Base"))).GetFiles().Length > 0);
             Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces"))).GetFiles().Length > 0);
@@ -96,6 +92,52 @@ namespace EDM.Tester
             Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.UnitTest"))).GetFiles().Length > 0);
             Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Ws\Base"))).GetFiles().Length > 0);
             Assert.IsTrue((new DirectoryInfo(Path.Combine(outputPath, @"TestNameSpace.Ws"))).GetFiles().Length > 0);
+        }
+        [TestMethod]
+        public void DidGenerateAllUserTypeFiles()
+        {
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Rtti\Base\BaseUserTypeMetadata.cs")));
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Rtti\UserTypeMetadata.cs")));
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityDomainFiles()
+        {
+            XmlNodeList entitiesList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Entity);
+            foreach (XmlNode node in entitiesList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Entity\Domain\", node.Attributes["name"].Value, "Domain.cs"))));
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Entity\Domain\", node.Attributes["name"].Value, ".hbm.xml"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityFiles()
+        {
+            XmlNodeList entitiesList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Entity);
+            foreach (XmlNode node in entitiesList)
+            {
+                Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Entity\", node.Attributes["name"].Value, ".cs"))));
+            }
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityDataFiles()
+        {
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\Data\DaoFactory.cs")));
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\Data\DaoFactoryPartial.cs")));
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\Data\DAOImplementation.cs")));
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\Data\DAOImplementationPartial.cs")));
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityDataInterfacesBaseFiles()
+        {
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\Base\IDaoFactoryBase.cs")));
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\Base\IDaoInterface.cs")));
+        }
+        [TestMethod]
+        public void DidGenerateAllEntityDataInterfacesFiles()
+        {
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\IDaoFactory.cs")));
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\IDaoInterface.cs")));
+            Assert.IsTrue(File.Exists(Path.Combine(outputPath, @"TestNameSpace.Entity\DataInterfaces\IDaoInterfacePartial.cs")));
         }
     }
 }
