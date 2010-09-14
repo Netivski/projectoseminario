@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Pessoa Read(long recordId)
-        {
-            return Singleton<PessoaService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Pessoa ReadByUnique()
-        {
-            return Singleton<PessoaService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<PessoaService>.Current.Delete(recordId);

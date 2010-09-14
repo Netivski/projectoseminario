@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Ano Read(long recordId)
-        {
-            return Singleton<AnoService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Ano ReadByUnique()
-        {
-            return Singleton<AnoService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<AnoService>.Current.Delete(recordId);

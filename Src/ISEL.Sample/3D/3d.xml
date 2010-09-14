@@ -11,6 +11,7 @@
     <DateTime name="dtAdmissaoEmpregado"></DateTime>
     <int name="litrosCombustivelManager" minInclusive="0" maxInclusive="100"></int>
     <double name="limiteCartaoCreditoDirector" minExclusive="0" maxInclusive="1500"></double>
+    <double name="limiteAprovacaoDirector" minExclusive="0" maxInclusive="1200"></double>
     <string name="nomeDepartamentoDirectorPrimeiraLinha" length="100"></string>
     <int name="antiguidadeDirectorSegundaLinha" minInclusive="0" maxInclusive="35"></int>
     <double name="creditoMaximoCliente" minExclusive="0" maxInclusive="15000"></double>
@@ -160,7 +161,7 @@
       <fields>
         <field type="nomePessoa" name="Nome"/>
         <field type="dtNascimentoPessoa" name="DtNascimento"/>
-        <field type="nifPessoa" name="NIF" />
+        <field type="nifPessoa" name="NIF" unique="true" />
       </fields>
     </entity>
 
@@ -180,6 +181,7 @@
     <entity type="abstractdependent" name="Director" baseEntity="Empregado">
       <fields>
         <field type="limiteCartaoCreditoDirector" name="LimiteCartaoCredito"/>
+        <field type="limiteAprovacaoDirector" name="LimiteAprovacao"/>
       </fields>
     </entity>
 

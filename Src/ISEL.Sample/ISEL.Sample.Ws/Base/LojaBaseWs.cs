@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Loja Read(long recordId)
-        {
-            return Singleton<LojaService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Loja ReadByUnique()
-        {
-            return Singleton<LojaService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<LojaService>.Current.Delete(recordId);

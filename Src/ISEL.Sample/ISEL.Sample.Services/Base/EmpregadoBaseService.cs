@@ -3,6 +3,9 @@ using System;
 using System.Security.Permissions;
 using System.Security;
 using EDM.FoundationClasses.Security.Permissions;
+using EDM.FoundationClasses.FoundationType;
+using EDM.FoundationClasses.Persistence.Core;
+using ISEL.Sample.Rtti;
 using ISEL.Sample.Entity;
 using ISEL.Sample.Entity.DataInterfaces;
 using ISEL.Sample.Entity.Data;
@@ -55,13 +58,22 @@ namespace ISEL.Sample.Services.Base
             return NHibernateDaoFactory.Current.GetEmpregadoDao().GetById(recordId, false);
         }
 
-        
+         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EmpregadoBaseService", MethodName="ReadByUnique", Unrestricted = false)] 
-        public virtual Empregado ReadByUnique()
+        public virtual Empregado ReadByUnique(string NIF)
         {
-            return null;
-        }
+            Empregado record = new Empregado();
+            
+            if( !Validator.IsValid(UserTypeMetadata.nifPessoa, NIF) )
+            {
+              // throw new Ex .... 
+            }                    
+  
+            record.NIF = NIF; 
+  
 
+            return NHibernateDaoFactory.Current.GetEmpregadoDao().GetUniqueByExample(record, "Numero", "DtAdmissao", "Nome", "DtNascimento" );
+        }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EmpregadoBaseService", MethodName="Delete", Unrestricted = false)] 
         public virtual void Delete(long recordId)

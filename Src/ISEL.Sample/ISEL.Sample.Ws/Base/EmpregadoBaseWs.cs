@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Empregado Read(long recordId)
-        {
-            return Singleton<EmpregadoService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Empregado ReadByUnique()
-        {
-            return Singleton<EmpregadoService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<EmpregadoService>.Current.Delete(recordId);

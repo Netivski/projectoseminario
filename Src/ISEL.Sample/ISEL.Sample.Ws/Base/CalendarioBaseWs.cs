@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Calendario Read(long recordId)
-        {
-            return Singleton<CalendarioService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Calendario ReadByUnique()
-        {
-            return Singleton<CalendarioService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<CalendarioService>.Current.Delete(recordId);

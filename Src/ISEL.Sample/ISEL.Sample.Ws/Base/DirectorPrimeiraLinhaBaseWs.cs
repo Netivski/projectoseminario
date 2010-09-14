@@ -13,27 +13,15 @@ namespace ISEL.Sample.Ws.Base
     public class DirectorPrimeiraLinhaBaseWs : System.Web.Services.WebService
     {
         [WebMethod]
-        public long Create(string NomeDepartamento, double LimiteCartaoCredito, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        public long Create(string NomeDepartamento, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {        
-            return Singleton<DirectorPrimeiraLinhaService>.Current.Create(NomeDepartamento, LimiteCartaoCredito, Numero, DtAdmissao, Nome, DtNascimento, NIF);
+            return Singleton<DirectorPrimeiraLinhaService>.Current.Create(NomeDepartamento, LimiteCartaoCredito, LimiteAprovacao, Numero, DtAdmissao, Nome, DtNascimento, NIF);
         }
 
         [WebMethod]
-        public void Update(long recordId, string NomeDepartamento, double LimiteCartaoCredito, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        public void Update(long recordId, string NomeDepartamento, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {
-            Singleton<DirectorPrimeiraLinhaService>.Current.Update(recordId, NomeDepartamento, LimiteCartaoCredito, Numero, DtAdmissao, Nome, DtNascimento, NIF);
-        }
-
-        [WebMethod]
-        public DirectorPrimeiraLinha Read(long recordId)
-        {
-            return Singleton<DirectorPrimeiraLinhaService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public DirectorPrimeiraLinha ReadByUnique()
-        {
-            return Singleton<DirectorPrimeiraLinhaService>.Current.ReadByUnique();
+            Singleton<DirectorPrimeiraLinhaService>.Current.Update(recordId, NomeDepartamento, LimiteCartaoCredito, LimiteAprovacao, Numero, DtAdmissao, Nome, DtNascimento, NIF);
         }
 
         [WebMethod]

@@ -21,6 +21,7 @@ CREATE TABLE [dbo].[Pessoa](
 	[NIF] [varchar](9) NULL,
 	[LitrosCombustivel] [int] NULL,
 	[CreditoMaximo] [numeric](18, 3) NULL,
+        [LimiteAprovacao] [numeric](18, 3) NULL,
  CONSTRAINT [PK_Pessoa] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

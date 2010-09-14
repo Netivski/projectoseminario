@@ -25,18 +25,6 @@ namespace ISEL.Sample.Ws.Base
         }
 
         [WebMethod]
-        public Turma Read(long recordId)
-        {
-            return Singleton<TurmaService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Turma ReadByUnique()
-        {
-            return Singleton<TurmaService>.Current.ReadByUnique();
-        }
-
-        [WebMethod]
         public void Delete(long recordId)
         {
             Singleton<TurmaService>.Current.Delete(recordId);

@@ -13,27 +13,15 @@ namespace ISEL.Sample.Ws.Base
     public class DirectorBaseWs : System.Web.Services.WebService
     {
         [WebMethod]
-        public long Create(double LimiteCartaoCredito, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        public long Create(double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {        
-            return Singleton<DirectorService>.Current.Create(LimiteCartaoCredito, Numero, DtAdmissao, Nome, DtNascimento, NIF);
+            return Singleton<DirectorService>.Current.Create(LimiteCartaoCredito, LimiteAprovacao, Numero, DtAdmissao, Nome, DtNascimento, NIF);
         }
 
         [WebMethod]
-        public void Update(long recordId, double LimiteCartaoCredito, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        public void Update(long recordId, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {
-            Singleton<DirectorService>.Current.Update(recordId, LimiteCartaoCredito, Numero, DtAdmissao, Nome, DtNascimento, NIF);
-        }
-
-        [WebMethod]
-        public Director Read(long recordId)
-        {
-            return Singleton<DirectorService>.Current.Read(recordId);
-        }
-
-        [WebMethod]
-        public Director ReadByUnique()
-        {
-            return Singleton<DirectorService>.Current.ReadByUnique();
+            Singleton<DirectorService>.Current.Update(recordId, LimiteCartaoCredito, LimiteAprovacao, Numero, DtAdmissao, Nome, DtNascimento, NIF);
         }
 
         [WebMethod]
