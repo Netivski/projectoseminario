@@ -8,6 +8,7 @@ using EnvDTE;
 using System.IO;
 using EDM.Template.Utils;
 using VSLangProj;
+using System.Collections.Generic;
 
 #endregion
 
@@ -84,11 +85,20 @@ namespace EDM.Template.Actions
                 if (File.GetLastWriteTime(fileName).CompareTo(StartTime) > 0)
                 {
                     targetProject.ProjectItems.AddFromFile(fileName);
+
                     if (fileName.EndsWith(".hbm.xml"))
                     {
+                        //Deal with NHibernate mappings
                         vs.Solution.FindProjectItem(fileName)
                             .Properties.Item("BuildAction").Value = prjBuildAction.prjBuildActionEmbeddedResource;
-
+                    }
+                    else if (fileName.EndsWith(".cfg.xml"))
+                    {
+                        //Deal with NHibernate configuration file
+                        vs.Solution.FindProjectItem(fileName)
+                            .Properties.Item("BuildAction").Value = prjBuildAction.prjBuildActionEmbeddedResource;
+                        vs.Solution.FindProjectItem(fileName)
+                            .Properties.Item("CopyToOutputDirectory").Value = 1;
                     }
                 }
             }

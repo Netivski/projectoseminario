@@ -3,7 +3,7 @@
     <Name>EDM Unit Tests Project</Name>
     <Description>&lt;No description available&gt;</Description>
     <ProjectType>CSharp</ProjectType>
-    <SortOrder>1000</SortOrder>
+    <SortOrder>100</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>EDM.ISEL.UnitTest</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
@@ -21,8 +21,13 @@
     <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
     <FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
   </WizardExtension>
+  <WizardExtension>
+    <Assembly>Microsoft.VisualStudio.QualityTools.Wizard.TestProjectWizards</Assembly>
+    <FullClassName>Microsoft.VisualStudio.TestTools.TestProjectWizards.TestProjectWizardExtension</FullClassName>
+  </WizardExtension>
   <WizardData>
     <Template xmlns="http://schemas.microsoft.com/pag/gax-template" SchemaVersion="1.0">
     </Template>
   </WizardData>
+  
 </VSTemplate>

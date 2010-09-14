@@ -2,8 +2,10 @@
   <TemplateData>
     <Name>EDM WebServices Project</Name>
     <Description>&lt;No description available&gt;</Description>
-    <ProjectType>Web</ProjectType>
-    <ProjectSubType>CSharp</ProjectSubType>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>Web</ProjectSubType>
+    <TemplateGroupID>Web</TemplateGroupID>
+    <TemplateID>Microsoft.WAP.CSharp.WebService</TemplateID>
     <SortOrder>20</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>EDM.ISEL.Ws</DefaultName>
