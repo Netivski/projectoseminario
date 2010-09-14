@@ -88,7 +88,7 @@ namespace ISEL.Sample.Ws
 
             record.AddAlbum(new Album() { Titulo = titulo });
 
-            if (!record.IsValid())
+            if (!record.IsValid)
             {
                 //throw new ArgumentException
             }

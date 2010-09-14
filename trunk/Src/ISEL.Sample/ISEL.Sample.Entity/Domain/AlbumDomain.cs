@@ -3,6 +3,8 @@ using System;
 using EDM.FoundationClasses.Entity;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using System.Collections.Generic;
 
@@ -10,7 +12,6 @@ namespace ISEL.Sample.Entity.Domain
 {
   [Serializable]
   public abstract class AlbumDomain : DomainObject<long>, IEntity
-  
   {
     public AlbumDomain () {}
 
@@ -20,10 +21,31 @@ namespace ISEL.Sample.Entity.Domain
     public virtual Editor Editor { get; set; }
   
 
-    public virtual bool IsValid()
+    public virtual bool IsValid
     {
-      return Validator.IsValid(UserTypeMetadata.tituloAlbum, Titulo) ;
+      get
+      {
+        return Validator.IsValid(UserTypeMetadata.tituloAlbum, Titulo) ;
+      }
     }
+    
+    public virtual EntityStateException StateException
+    {
+      get
+      {
+        if (this.IsValid) return null;
+        
+        EntityStateException ese = new EntityStateException("Album");
+        
+        if( !Validator.IsValid(UserTypeMetadata.tituloAlbum, Titulo) )
+        {
+          ese.Add( new GeneralArgumentException<string>( "Titulo", "tituloAlbum", Titulo) );
+        }
+  
+    
+        return ese;
+      }
+    }    
 
     public override int GetHashCode()
     {

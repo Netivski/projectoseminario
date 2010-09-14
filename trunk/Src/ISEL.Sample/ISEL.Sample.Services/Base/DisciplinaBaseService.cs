@@ -5,6 +5,7 @@ using System.Security;
 using EDM.FoundationClasses.Security.Permissions;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using ISEL.Sample.Entity;
 using ISEL.Sample.Entity.DataInterfaces;
@@ -20,10 +21,7 @@ namespace ISEL.Sample.Services.Base
         {
             Disciplina record = new Disciplina(){ Nome = Nome };            
     
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             NHibernateDaoFactory.Current.GetDisciplinaDao().Save(record);
 
@@ -39,10 +37,7 @@ namespace ISEL.Sample.Services.Base
             Disciplina record = dao.GetById(recordId, false);
             record.Nome = Nome;            
 
-            if (!record.IsValid())
-            {
-                //throw new ArgumentException
-            }
+            if (!record.IsValid) throw record.StateException;
 
             dao.SaveOrUpdate(record);                                                         
         }

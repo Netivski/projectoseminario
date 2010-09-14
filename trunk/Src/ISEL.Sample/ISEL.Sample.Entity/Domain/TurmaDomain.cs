@@ -3,6 +3,8 @@ using System;
 using EDM.FoundationClasses.Entity;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using System.Collections.Generic;
 
@@ -10,7 +12,6 @@ namespace ISEL.Sample.Entity.Domain
 {
   [Serializable]
   public  class TurmaDomain : DomainObject<long>, IEntity
-  
   {
     public TurmaDomain () {}
 
@@ -20,10 +21,31 @@ namespace ISEL.Sample.Entity.Domain
     public virtual Curso Curso { get; set; }
   
 
-    public virtual bool IsValid()
+    public virtual bool IsValid
     {
-      return Validator.IsValid(UserTypeMetadata.nomeTurma, Nome) ;
+      get
+      {
+        return Validator.IsValid(UserTypeMetadata.nomeTurma, Nome) ;
+      }
     }
+    
+    public virtual EntityStateException StateException
+    {
+      get
+      {
+        if (this.IsValid) return null;
+        
+        EntityStateException ese = new EntityStateException("Turma");
+        
+        if( !Validator.IsValid(UserTypeMetadata.nomeTurma, Nome) )
+        {
+          ese.Add( new GeneralArgumentException<string>( "Nome", "nomeTurma", Nome) );
+        }
+  
+    
+        return ese;
+      }
+    }    
 
     public override int GetHashCode()
     {

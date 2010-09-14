@@ -3,6 +3,8 @@ using System;
 using EDM.FoundationClasses.Entity;
 using EDM.FoundationClasses.FoundationType;
 using EDM.FoundationClasses.Persistence.Core;
+using EDM.FoundationClasses.Exception;
+using EDM.FoundationClasses.Exception.FoundationType;
 using ISEL.Sample.Rtti;
 using System.Collections.Generic;
 
@@ -10,7 +12,6 @@ namespace ISEL.Sample.Entity.Domain
 {
   [Serializable]
   public  class EditorDomain : DomainObject<long>, IEntity
-  
   {
     public EditorDomain () {}
 
@@ -39,10 +40,36 @@ namespace ISEL.Sample.Entity.Domain
     }    
   
 
-    public virtual bool IsValid()
+    public virtual bool IsValid
     {
-      return Validator.IsValid(UserTypeMetadata.nomeEditor, Nome) && Validator.IsValid(UserTypeMetadata.pais, Pais) ;
+      get
+      {
+        return Validator.IsValid(UserTypeMetadata.nomeEditor, Nome) && Validator.IsValid(UserTypeMetadata.pais, Pais) ;
+      }
     }
+    
+    public virtual EntityStateException StateException
+    {
+      get
+      {
+        if (this.IsValid) return null;
+        
+        EntityStateException ese = new EntityStateException("Editor");
+        
+        if( !Validator.IsValid(UserTypeMetadata.nomeEditor, Nome) )
+        {
+          ese.Add( new GeneralArgumentException<string>( "Nome", "nomeEditor", Nome) );
+        }
+  
+        if( !Validator.IsValid(UserTypeMetadata.pais, Pais) )
+        {
+          ese.Add( new GeneralArgumentException<string>( "Pais", "pais", Pais) );
+        }
+  
+    
+        return ese;
+      }
+    }    
 
     public override int GetHashCode()
     {
