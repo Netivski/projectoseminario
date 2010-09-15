@@ -170,6 +170,11 @@
           <Input Name="AppCompany" RecipeArgument="AppCompanyName"/>
           <Input Name="AppProject" RecipeArgument="AppProjectName"/>
         </Action>
+
+        <Action Name="AttachBuildHandler" Type="EDM.Template.Actions.AttachBuildEventHandlerAction, EDM.Template">
+          <Input Name="AppCompany" RecipeArgument="AppCompanyName"/>
+          <Input Name="AppProject" RecipeArgument="AppProjectName"/>
+        </Action>
       </Actions>
     </Recipe>
 
