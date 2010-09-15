@@ -51,6 +51,10 @@
     <NoWarn>1668</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\EDM.FoundationClasses\Persistence\Assembly\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -103,7 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\AttachBuildEventHandler.cs" />
     <Compile Include="Actions\CopySolutionItems.cs" />
+    <Compile Include="Actions\GenerateSchema.cs" />
     <Compile Include="Actions\SynchronizeMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
