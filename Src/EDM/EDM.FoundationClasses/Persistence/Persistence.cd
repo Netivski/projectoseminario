@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EDM.FoundationClasses.Persistence.Data.NHibernateSessionManager" Collapsed="true">
+    <Position X="2.75" Y="2.75" Width="2.25" />
+    <NestedTypes>
+      <Class Name="EDM.FoundationClasses.Persistence.Data.NHibernateSessionManager.Nested" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Persistence\Data\NHibernateSessionManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAABIAAAAAACAAIAgACAAAAAEQIAQEAAEAMAIAA=</HashCode>
+      <FileName>Persistence\Data\NHibernateSessionManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ContextSession" />
+      <Property Name="ContextTransaction" />
+      <Property Name="Instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EDM.FoundationClasses.Persistence.Data.AbstractNHibernateDao&lt;T, IdT&gt;" Collapsed="true">
+    <Position X="3.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAIAABAAAAAAAAgAAAAABAAEAgAAAAgAAAAAAkIA=</HashCode>
+      <FileName>Persistence\Data\AbstractNHibernateDao.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="NHibernateSession" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Right" Position="0.1" />
+  </Class>
+  <Class Name="EDM.FoundationClasses.Persistence.Core.DomainObject&lt;IdT&gt;" Collapsed="true">
+    <Position X="3.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAAAAAAAAAAAYAAAAAAQAAIAgA=</HashCode>
+      <FileName>Persistence\Core\DomainObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.FoundationClasses.Persistence.Core.Check" Collapsed="true">
+    <Position X="1.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAAABAAAAAAAAAAAAAAAAAAAQAABAAgAAAIAA=</HashCode>
+      <FileName>Persistence\Core\DesignByContract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="EDM.FoundationClasses.Persistence.Core.IDao&lt;T, IdT&gt;">
+    <Position X="6.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAABAAAAAAAAAAAAAAAAAEAgAAAAgAAAAAAkIA=</HashCode>
+      <FileName>Persistence\Core\IDao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NHibernate.ISession" Collapsed="true">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="NHibernate.ITransaction" Collapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
