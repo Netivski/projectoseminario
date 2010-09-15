@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EDM.FoundationClasses.Security.Permissions.RuntimePermission" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAABAAAACAAAFAAQAAwABAAAAAAAQAQAAAAQ=</HashCode>
+      <FileName>Security\Permissions\RuntimePermission.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EDM.FoundationClasses.Security.Permissions.RuntimePermissionChecker" Collapsed="true">
+    <Position X="5" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Security\Permissions\RuntimePermissionChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.FoundationClasses.Security.Permissions.RuntimeRoleProvider" Collapsed="true">
+    <Position X="5" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAiAAAAAAAAEEAgAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Security\Permissions\RuntimeRoleProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.FoundationClasses.Security.Permissions.RuntimeRoleProviderFactory" Collapsed="true">
+    <Position X="5" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Security\Permissions\RuntimeRoleProviderFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EDM.FoundationClasses.Security.Permissions.RuntimeSecurityAttribute" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAiAAAAAAAAAAEAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Security\Permissions\RuntimeSecurityAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
