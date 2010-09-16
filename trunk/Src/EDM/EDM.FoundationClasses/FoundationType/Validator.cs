@@ -8,12 +8,6 @@ namespace EDM.FoundationClasses.FoundationType
     public static class Validator
     {
 
-        /*
-         * Alterei a interface IUserType para retornar NullableType<T> em vez de T
-         * Parece-me melhor utilizar os Nullables do Runtime porque conseguem o mesmo resultado
-         * Não fiz a alteração pois não se ficava por aqui, é preciso alterar os XSLT's também
-         * */
-
         static int NumberOfFactionDigits(string value)
         {
             string[] sep;
@@ -43,7 +37,8 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxInclusive == null ? true : value <= cType.MaxInclusive.Value)
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
-                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
+                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value)
+                && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value));
         }
 
         public static bool IsValid(IUserType<int> cType, int value)
@@ -53,7 +48,8 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxInclusive == null ? true : value <= cType.MaxInclusive.Value)
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
-                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
+                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value)
+                && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value));
         }
 
         public static bool IsValid(IUserType<short> cType, short value)
@@ -63,7 +59,8 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxInclusive == null ? true : value <= cType.MaxInclusive.Value)
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
-                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
+                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value)
+                && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value));
         }
 
         public static bool IsValid(IUserType<byte> cType, byte value)
@@ -73,7 +70,8 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxInclusive == null ? true : value <= cType.MaxInclusive.Value)
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
-                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
+                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value)
+                && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value));
         }
 
         public static bool IsValid(IUserType<decimal> cType, decimal value)
@@ -84,7 +82,8 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxInclusive == null ? true : value <= cType.MaxInclusive.Value)
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
-                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
+                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value)
+                && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value));
         }
 
         public static bool IsValid(IUserType<float> cType, float value)
@@ -93,7 +92,8 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxInclusive == null ? true : value <= cType.MaxInclusive.Value)
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
-                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
+                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value)
+                && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value));
         }
 
         public static bool IsValid(IUserType<double> cType, double value)
@@ -102,7 +102,8 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxInclusive == null ? true : value <= cType.MaxInclusive.Value)
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
-                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);
+                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value)
+                && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value));
         }
 
         public static bool IsValid(IUserType<string> cType, string value)
@@ -110,7 +111,8 @@ namespace EDM.FoundationClasses.FoundationType
             return (value.ToString().Length <= cType.Length || cType.Length == 0)
                 && IsWithinPattern(cType.Pattern, value.ToString())
                 && (value.Length <= cType.MaxLength || cType.MaxLength == 0)
-                && value.Length >= cType.MinLength;
+                && value.Length >= cType.MinLength
+                && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value));
         }
 
         public static bool IsValid(IUserType<DateTime> cType, DateTime value)
@@ -119,7 +121,8 @@ namespace EDM.FoundationClasses.FoundationType
                 && (cType.MaxInclusive == null ? true : value <= cType.MaxInclusive.Value)
                 && (cType.MaxExclusive == null ? true : value < cType.MaxExclusive.Value)
                 && (cType.MinInclusive == null ? true : value >= cType.MinInclusive.Value)
-                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value);            
+                && (cType.MinExclusive == null ? true : value > cType.MinExclusive.Value)
+                && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value));            
         }
 
         public static bool IsValid(IUserType<bool> cType, bool value)
