@@ -159,7 +159,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidGenerateAllBPBaseServicesFiles()
         {
-            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.BusinessProcess);
+            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Component);
             foreach (XmlNode node in BPList)
             {
                 Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Services\Base\", node.Attributes["name"].Value, "BaseService.cs"))));
@@ -168,7 +168,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidGenerateAllBPServicesFiles()
         {
-            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.BusinessProcess);
+            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Component);
             foreach (XmlNode node in BPList)
             {
                 Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Services\", node.Attributes["name"].Value, "Service.cs"))));
@@ -196,7 +196,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidGenerateAllBPWsBaseFiles()
         {
-            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.BusinessProcess);
+            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Component);
             foreach (XmlNode node in BPList)
             {
                 Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Ws\Base\", node.Attributes["name"].Value, "BaseWs.cs"))));
@@ -205,7 +205,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidGenerateAllBPWsFiles()
         {
-            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.BusinessProcess);
+            XmlNodeList BPList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Component);
             foreach (XmlNode node in BPList)
             {
                 Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.Ws\", node.Attributes["name"].Value, "Ws.asmx"))));

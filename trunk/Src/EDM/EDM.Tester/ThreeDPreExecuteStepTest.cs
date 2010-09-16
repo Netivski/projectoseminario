@@ -75,7 +75,7 @@ namespace EDM.Tester
         [ClassInitialize]
         public static void Init(TestContext ctx)
         {
-            outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\Generated\EDMParserStepTest");
+            outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\EDM.Tester\SampleFiles\Generated\ThreeDPreExecuteStepTest");
             threedFilePath = Path.Combine(outputPath, @"..\..\3D.xml");
             xsltPath = Path.Combine(outputPath, @"..\..\XSLT");
             doc = new XmlDocument();
