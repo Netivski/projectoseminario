@@ -92,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FoundationType\Foundation Type.cd" />
+    <None Include="Persistence\Persistence.cd" />
+    <None Include="Security\Permissions\Permissions.cd" />
     <None Include="sign_key.snk" />
   </ItemGroup>
   <ItemGroup>
