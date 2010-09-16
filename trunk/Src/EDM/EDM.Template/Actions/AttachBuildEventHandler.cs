@@ -22,11 +22,11 @@ namespace EDM.Template.Actions
         #region IAction Members
         public override void Execute()
         {
-            m_ApplicationObject = GetService<DTE>(true);
-            m_BuildEvents = m_ApplicationObject.Events.BuildEvents;
-            m_BuildEvents.OnBuildProjConfigDone += new _dispBuildEvents_OnBuildProjConfigDoneEventHandler(m_BuildEvents_OnBuildProjConfigDone);
-            System.Windows.Forms.MessageBox.Show(
-                "|" + AppCompany + "." + AppProject + "| Handler registered!");
+            //m_ApplicationObject = GetService<DTE>(true);
+            //m_BuildEvents = m_ApplicationObject.Events.BuildEvents;
+            //m_BuildEvents.OnBuildProjConfigDone += new _dispBuildEvents_OnBuildProjConfigDoneEventHandler(m_BuildEvents_OnBuildProjConfigDone);
+            //System.Windows.Forms.MessageBox.Show(
+            //    "|" + AppCompany + "." + AppProject + "| Handler registered!");
         }
 
         public override void Undo()
