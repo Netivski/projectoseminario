@@ -69,8 +69,8 @@ namespace EDM.Tester
         [TestMethod]
         public void CanGetNodeList()
         {
-            XmlNodeList list = Get.GetNodeList(_doc, "/solution/entities/entity");
-            Assert.AreEqual(7, list.Count);
+            XmlNodeList list = Get.GetNodeList(_doc, "/solution/*");
+            Assert.AreEqual(4, list.Count);
         }
         [TestMethod]
         public void CanGetNode()
@@ -104,23 +104,19 @@ namespace EDM.Tester
         public void CanAddAttributeByXPath()
         {
             XmlNode node = Get.GetNode(_doc, "/solution/entities/*[@name = 'LP']");
-            XmlAttributeCollection attributes = node.Attributes;
-            Assert.AreEqual(attributes.Count, 4);
-            Set.AddAttribute(_doc, "/solution/entities/*[@name = 'LP']", "newAttributeName", "value");
-            attributes = node.Attributes;
-            Assert.AreEqual(attributes.Count, 5);
-            Assert.AreEqual(attributes[4].Value.ToString(), "value");
+            int nodeCount = node.Attributes.Count;            
+            Set.AddAttribute(_doc, "/solution/entities/*[@name = 'LP']", "newAttributeName", "value");            
+            Assert.AreEqual(node.Attributes.Count, nodeCount + 1);
+            Assert.AreEqual(node.Attributes[nodeCount].Value.ToString(), "value");
         }
         [TestMethod]
         public void CanAddAttributeByNode()
         {
             XmlNode node = Get.GetNode(_doc, "/solution/entities/*[@name = 'LP']");
-            XmlAttributeCollection attributes = node.Attributes;
-            Assert.AreEqual(attributes.Count, 4);
-            Set.AddAttribute(_doc, node, "newAttributeName", "value");
-            attributes = node.Attributes;
-            Assert.AreEqual(attributes.Count, 5);
-            Assert.AreEqual(attributes[4].Value.ToString(), "value");
+            int nodeCount = node.Attributes.Count;            
+            Set.AddAttribute(_doc, node, "newAttributeName", "value");            
+            Assert.AreEqual(node.Attributes.Count, nodeCount + 1);
+            Assert.AreEqual(node.Attributes[nodeCount].Value.ToString(), "value");
         }
     }
 }

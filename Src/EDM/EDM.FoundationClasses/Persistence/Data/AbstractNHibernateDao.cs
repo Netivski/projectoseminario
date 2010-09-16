@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NHibernate;
-using NHibernate.Expression;
+using NHibernate.Criterion;
 using EDM.FoundationClasses.Persistence.Core;
 
 namespace EDM.FoundationClasses.Persistence.Data
