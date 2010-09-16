@@ -100,16 +100,7 @@ namespace EDM.Tester
             Assert.IsTrue(Validator.IsValid(_longType, 987));
             _longType = new UserType<long>(0, 0, 0, "[0-9]{3}", new List<long>{ 123, 234, 345, 456 }, null, null, null, null, null, 3, 0);
             Assert.IsTrue(Validator.IsValid(_longType, 345));
-            //Assert.IsFalse(Validator.IsValid(_longType, 987));
-            
-            //------------------------------------------------------------------------------
-            //---- Assert.IsFalse(Validator.IsValid(_longType, 987));
-            //----
-            //---- a propriedade enumeration não está a ser validada
-            //----
-            //---- Acrescentar em Validator<long>
-            //---- && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value)) 
-            //------------------------------------------------------------------------------
+            Assert.IsFalse(Validator.IsValid(_longType, 987));
 
             //minInclusive
             _longType = new UserType<long>(0, 0, 0, "\\b\\d{2,3}", null, new NullableType<long>(110), null, null, null, null, 3, 0);
@@ -165,16 +156,7 @@ namespace EDM.Tester
             Assert.IsTrue(Validator.IsValid(_intType, 987));
             _intType = new UserType<int>(0, 0, 0, "\\b\\d{2,3}", new List<int> { 123, 234, 345, 456 }, null, null, null, null, null, 3, 0);
             Assert.IsTrue(Validator.IsValid(_intType, 345));
-            //Assert.IsFalse(Validator.IsValid(_intType, 987));
-
-            //------------------------------------------------------------------------------
-            //---- Assert.IsFalse(Validator.IsValid(_intType, 987));
-            //----
-            //---- a propriedade enumeration não está a ser validada
-            //----
-            //---- Acrescentar em Validator<int>
-            //---- && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value)) 
-            //------------------------------------------------------------------------------
+            Assert.IsFalse(Validator.IsValid(_intType, 987));
 
             //minInclusive
             _intType = new UserType<int>(0, 0, 0, "\\b\\d{2,3}", null, new NullableType<int>(110), null, null, null, null, 3, 0);
@@ -230,16 +212,7 @@ namespace EDM.Tester
             Assert.IsTrue(Validator.IsValid(_shortType, 987));
             _shortType = new UserType<short>(0, 0, 0, "\\b\\d{2,3}", new List<short> { 123, 234, 345, 456 }, null, null, null, null, null, 3, 0);
             Assert.IsTrue(Validator.IsValid(_shortType, 345));
-            //Assert.IsFalse(Validator.IsValid(_shortType, 987));
-
-            //------------------------------------------------------------------------------
-            //---- Assert.IsFalse(Validator.IsValid(_shortType, 987));
-            //----
-            //---- a propriedade enumeration não está a ser validada
-            //----
-            //---- Acrescentar em Validator<short>
-            //---- && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value)) 
-            //------------------------------------------------------------------------------
+            Assert.IsFalse(Validator.IsValid(_shortType, 987));
 
             //minInclusive
             _shortType = new UserType<short>(0, 0, 0, "\\b\\d{2,3}", null, new NullableType<short>(110), null, null, null, null, 3, 0);
@@ -295,16 +268,7 @@ namespace EDM.Tester
             Assert.IsTrue(Validator.IsValid(_byteType, 115));
             _byteType = new UserType<byte>(0, 0, 0, "\\b\\d{2,3}", new List<byte> { 101, 110, 120, 130 }, null, null, null, null, null, 3, 0);
             Assert.IsTrue(Validator.IsValid(_byteType, 110));
-            //Assert.IsFalse(Validator.IsValid(_byteType, 115));
-
-            //------------------------------------------------------------------------------
-            //---- Assert.IsFalse(Validator.IsValid(_byteType, 987));
-            //----
-            //---- a propriedade enumeration não está a ser validada
-            //----
-            //---- Acrescentar em Validator<byte>
-            //---- && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value)) 
-            //------------------------------------------------------------------------------
+            Assert.IsFalse(Validator.IsValid(_byteType, 115));
 
             //minInclusive
             _byteType = new UserType<byte>(0, 0, 0, "\\b\\d{2,3}", null, new NullableType<byte>(110), null, null, null, null, 3, 0);
@@ -366,16 +330,7 @@ namespace EDM.Tester
             Assert.IsTrue(Validator.IsValid(_decimalType, new Decimal(12.3)));
             _decimalType = new UserType<decimal>(0, 0, 0, "\\b\\d{2,3},\\d{1}\\b", new List<decimal> { new Decimal(12.1), new Decimal(12.2), new Decimal(12.3), new Decimal(12.4) }, null, null, null, null, null, 5, 2);
             Assert.IsTrue(Validator.IsValid(_decimalType, new Decimal(12.1)));
-            //Assert.IsFalse(Validator.IsValid(_decimalType, new Decimal(12.6)));
-
-            //------------------------------------------------------------------------------
-            //---- Assert.IsFalse(Validator.IsValid(_decimalType, new Decimal(12.6)));
-            //----
-            //---- a propriedade enumeration não está a ser validada
-            //----
-            //---- Acrescentar em Validator<decimal>
-            //---- && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value)) 
-            //------------------------------------------------------------------------------
+            Assert.IsFalse(Validator.IsValid(_decimalType, new Decimal(12.6)));
 
             //minInclusive
             _decimalType = new UserType<decimal>(0, 0, 0, "\\b\\d{2,3},\\d{1}\\b", null, new NullableType<decimal>(new Decimal(12.3)), null, null, null, null, 5, 2);
@@ -424,16 +379,7 @@ namespace EDM.Tester
             Assert.IsTrue(Validator.IsValid(_floatType, 12.3f));
             _floatType = new UserType<float>(0, 0, 0, "\\b\\d{2,3},\\d{1}\\b", new List<float> { 12.1f, 12.2f, 12.3f, 12.4f }, null, null, null, null, null, null, null);
             Assert.IsTrue(Validator.IsValid(_floatType, 12.1f));
-            //Assert.IsFalse(Validator.IsValid(_floatType, 12.6f));
-
-            //------------------------------------------------------------------------------
-            //---- Assert.IsFalse(Validator.IsValid(_floatType, 12.6f));
-            //----
-            //---- a propriedade enumeration não está a ser validada
-            //----
-            //---- Acrescentar em Validator<float>
-            //---- && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value)) 
-            //------------------------------------------------------------------------------
+            Assert.IsFalse(Validator.IsValid(_floatType, 12.6f));
 
             //minInclusive
             _floatType = new UserType<float>(0, 0, 0, "\\b\\d{2,3},\\d{1}\\b", null, new NullableType<float>(12.3f), null, null, null, null, null, null);
@@ -482,16 +428,7 @@ namespace EDM.Tester
             Assert.IsTrue(Validator.IsValid(_doubleType, 12.3));
             _doubleType = new UserType<double>(0, 0, 0, "\\b\\d{2,3},\\d{1}\\b", new List<double> { 12.1, 12.2, 12.3, 12.4 }, null, null, null, null, null, null, null);
             Assert.IsTrue(Validator.IsValid(_doubleType, 12.1));
-            //Assert.IsFalse(Validator.IsValid(_doubleType, 12.6));
-
-            //------------------------------------------------------------------------------
-            //---- Assert.IsFalse(Validator.IsValid(_doubleType, 12.6));
-            //----
-            //---- a propriedade enumeration não está a ser validada
-            //----
-            //---- Acrescentar em Validator<double>
-            //---- && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value)) 
-            //------------------------------------------------------------------------------
+            Assert.IsFalse(Validator.IsValid(_doubleType, 12.6));
 
             //minInclusive
             _doubleType = new UserType<double>(0, 0, 0, "\\b\\d{2,3},\\d{1}\\b", null, new NullableType<double>(12.3), null, null, null, null, null, null);
@@ -556,24 +493,8 @@ namespace EDM.Tester
             Assert.IsTrue(Validator.IsValid(_stringType, "1+1=2 e 1+2=3"));
             _stringType = new UserType<String>(0, 0, 0, @"1\+1=2", new List<String> { "1*1=2", "1-1=2", "1+1=2", "12.4" }, null, null, null, null, null, null, null);
             Assert.IsTrue(Validator.IsValid(_stringType, "1+1=2"));
-            //Assert.IsFalse(Validator.IsValid(_stringType, "1+1=2 e 1+2=3"));
-
-            //------------------------------------------------------------------------------
-            //---- Assert.IsFalse(Validator.IsValid(_stringType, "1+1=2 e 1+2=3"));
-            //----
-            //---- a propriedade enumeration não está a ser validada
-            //----
-            //---- Acrescentar em Validator<string>
-            //---- && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value)) 
-            //------------------------------------------------------------------------------
-
-            //WhiteSpace
-
-            _stringType = new UserType<string>(30, 5, 30, @"1\+1=2 2", null, null, null, null, null, WhiteSpaceEnum.Collapse, null, null);
-            //Assert.IsTrue(Validator.IsValid(_stringType, "1+1=2  2"));
-
-            //Qual deveria ser o comportamento quando especificado o WhiteSpaceEnum????
-            //  nunca está a ser utilizado em Validator
+            Assert.IsFalse(Validator.IsValid(_stringType, "1+1=2 e 1+2=3"));            
+            
         }
         [TestMethod]
         public void DateTimeTypeValidationTest()
@@ -588,25 +509,11 @@ namespace EDM.Tester
             //  maxExclusive
             //  minExclusive
 
-            //TODO
-            //pattern
-            //_dateTimeType = new UserType<DateTime>(0, 0, 0, "", null, null, null, null, null, null, null, null);
-            //Assert.IsTrue(Validator.IsValid(_dateTimeType, new DateTime(2010, 08, 17)));
-            
 
             //enumeration            
             _dateTimeType = new UserType<DateTime>(0, 0, 0, null, new List<DateTime> { new DateTime(2010, 08, 17), new DateTime(2010, 05, 25) }, null, null, null, null, null, null, null);
             Assert.IsTrue(Validator.IsValid(_dateTimeType, new DateTime(2010, 08, 17)));
-            //Assert.IsFalse(Validator.IsValid(_dateTimeType, new DateTime(2010, 08, 18)));
-
-            //------------------------------------------------------------------------------
-            //---- Assert.IsFalse(Validator.IsValid(_dateTimeType, new DateTime(2010, 08, 18)));
-            //----
-            //---- a propriedade enumeration não está a ser validada
-            //----
-            //---- Acrescentar em Validator<dateTime>
-            //---- && (cType.Enumeration == null ? true : cType.Enumeration.Contains(value)) 
-            //------------------------------------------------------------------------------
+            Assert.IsFalse(Validator.IsValid(_dateTimeType, new DateTime(2010, 08, 18)));
 
             //minInclusive
             _dateTimeType = new UserType<DateTime>(0, 0, 0, null, null, new NullableType<DateTime>(new DateTime(2010, 08, 17)), null, null, null, null, null, null);

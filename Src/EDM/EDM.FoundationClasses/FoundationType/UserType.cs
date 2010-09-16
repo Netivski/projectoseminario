@@ -52,14 +52,6 @@ namespace EDM.FoundationClasses.FoundationType
 
         public List<T> Enumeration { get{ return enumeration;} }
 
-        //public T MaxInclusive { get { return maxInclusive == null ? default(T) : maxInclusive.Value; } }
-
-        //public T MaxExclusive { get { return maxExclusive == null ? default(T) : maxExclusive.Value; } }
-
-        //public T MinInclusive { get { return minInclusive == null ? default(T) : minInclusive.Value; } }
-
-        //public T MinExclusive { get { return minExclusive == null ? default(T) : minExclusive.Value; } }
-
         public NullableType<T> MaxInclusive { get { return maxInclusive; } }
 
         public NullableType<T> MaxExclusive { get { return maxExclusive; } }
