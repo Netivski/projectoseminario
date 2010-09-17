@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace ISEL.Sample.Entity.Domain
 {
   [Serializable]
-  public  class EmpregadoDomain : Pessoa
+  public abstract class EmpregadoDomain : Pessoa
   {
     public EmpregadoDomain () {}
 

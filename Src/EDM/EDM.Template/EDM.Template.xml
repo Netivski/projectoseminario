@@ -201,5 +201,28 @@
 
     </Recipe>
 
+    <Recipe Name="GenerateSchema">
+      <xi:include href="TypeAlias.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <Caption>Generate database schema</Caption>
+
+      <HostData>
+        <Icon ID="172" />
+        <CommandBar Name="Solution"/>
+      </HostData>
+
+      <Arguments>
+        <Argument Name="SchemaCompany" Type="System.String"/>
+        <Argument Name="SchemaProject" Type="System.String"/>
+      </Arguments>
+
+      <Actions>
+        <Action Name="GenerateDBSchema" Type="EDM.Template.Actions.GenerateSchemaAction, EDM.Template">
+          <Input Name="AppCompany" RecipeArgument="SchemaCompany"/>
+          <Input Name="AppProject" RecipeArgument="SchemaProject"/>
+        </Action>
+      </Actions>
+
+    </Recipe>
+
   </Recipes>
 </GuidancePackage>

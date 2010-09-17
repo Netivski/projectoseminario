@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace ISEL.Sample.Entity.Domain
 {
   [Serializable]
-  public  class DirectorDomain : Empregado
+  public abstract class DirectorDomain : Empregado
   {
     public DirectorDomain () {}
 
