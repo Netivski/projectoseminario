@@ -55,6 +55,18 @@
             </Entry>
           </InitialState> 
         </RecipeReference>
+        <RecipeReference Name="GenerateSchema" Target="/">
+          <InitialState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <Entry>
+              <Key>SchemaCompany</Key>
+              <Value>$AppCompanyName$</Value>
+            </Entry>
+            <Entry>
+              <Key>SchemaProject</Key>
+              <Value>$AppProjectName$</Value>
+            </Entry>
+          </InitialState>
+        </RecipeReference>
       </References>
     </Template>
   </WizardData>
