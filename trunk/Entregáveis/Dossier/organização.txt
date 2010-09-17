@@ -1,0 +1,23 @@
+Este ficheiro descreve a estrutura de pastas incluídas no cd. 
+Nota: Quando considerado necessário, foi incluído um readme.txt a descrever o conteúdo da pasta que o contém.
+
+A pasta "Bibliotecas" contém as bibliotecas de terceiros utilizadas pela solução EDM.
+
+A pasta "Código Fonte" contém a pasta da solução desenvolvida
+
+A pasta "Entregas" contém:
+	-A proposta de projecto com o nome "pp266573192332223.pdf".
+
+	-O relatório de progresso com o nome "rp266573192332223.pdf".
+
+	-O cartaz do projecto com o nome "c266573192332223.jpg".
+
+	-As apresentações individuais com os nomes "a26657.pptx", "a31923.ppsx" e "a32223.pptx".
+
+A pasta "Executáveis" contém os ficheiros de instalação da solução EDM.
+
+A pasta "Manual de Utilização" contém um ficheiro de texto onde são indicados os passos necessários para a instalação e utilização da solução EDM.
+
+A pasta "Resumo" contém um documento com um resumo do projecto, denominado "r266573192332223.pdf".
+
+A pasta "Relatório Final" contém o documento que constitui o relatório final do projecto realizado, com o nome "rf266573192332223.pdf".
