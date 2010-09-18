@@ -27,6 +27,14 @@
 
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab2" />
+        <property name="use_proxy_validator">false</property>
+
+        <xsl:call-template name="NewLine" />
+        <xsl:call-template name="Tab2" />
+        <property name="proxyfactory.factory_class"> NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu </property>
+        
+        <xsl:call-template name="NewLine" />
+        <xsl:call-template name="Tab2" />
         <property name="connection.connection_string">
           
           <xsl:call-template name="NewLine" />

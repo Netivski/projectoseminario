@@ -30,22 +30,29 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
           <xsl:apply-templates select="input/param" mode="isValid"/>
         }
         
-        protected abstract <xsl:value-of select="output/@edmType"/>&#160;<xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="params"/>);  
+        protected abstract <xsl:choose><xsl:when test="count(output/@edmType) = 1"><xsl:value-of select="output/@edmType"/></xsl:when><xsl:otherwise>void</xsl:otherwise></xsl:choose> &#160;<xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="params"/>);  
         
+        <xsl:if test="count(output/@edmType) = 1">
         protected virtual void&#160;<xsl:value-of select="@name"/>ValidatePosCondition(<xsl:value-of select="output/@edmType"/> result)
         {
           if( !Validator.IsValid(UserTypeMetadata.<xsl:value-of select="output/@type"/>, result) )
           {          
             throw new PosConditionException<xsl:call-template name="lt"/><xsl:value-of select="output/@edmType"/><xsl:call-template name="gt"/>("<xsl:value-of select="@name"/>", "<xsl:value-of select="output/@type"/>", result);
           }
-        }
+          }
+        </xsl:if>
         <xsl:call-template name="WriteRuntimeSecurity"><xsl:with-param name="methodName" select="@name"></xsl:with-param></xsl:call-template> 
-        public virtual <xsl:value-of select="output/@edmType"/>&#160;<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="params"/>)
+        public virtual <xsl:choose><xsl:when test="count(output/@edmType) = 1"><xsl:value-of select="output/@edmType"/></xsl:when><xsl:otherwise>void</xsl:otherwise></xsl:choose>&#160;<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="params"/>)
         {
           <xsl:value-of select="@name"/>ValidatePreCondition(<xsl:apply-templates select="input/param" mode="call"/>);
-          <xsl:value-of select="output/@edmType"/> result = <xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="call"/>);
+          <xsl:choose>
+            <xsl:when test="count(output/@edmType) = 1">
+          <xsl:value-of select="output/@edmType"/> result = <xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="call"/>);          
           <xsl:value-of select="@name"/>ValidatePosCondition(result);
           return result;
+            </xsl:when>
+            <xsl:otherwise><xsl:value-of select="@name"/>Logic(<xsl:apply-templates select="input/param" mode="call"/>);</xsl:otherwise>
+          </xsl:choose>          
         }
         #endregion
 </xsl:template>
