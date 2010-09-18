@@ -23,9 +23,9 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
 
   <xsl:template match="businessProcess">    
         [WebMethod]
-        public <xsl:value-of select="output/@edmType"/>&#160;<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="params"/>)
+        public <xsl:choose><xsl:when test="count(output/@edmType) = 1"><xsl:value-of select="output/@edmType"/></xsl:when><xsl:otherwise>void</xsl:otherwise></xsl:choose>&#160;<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="params"/>)
         {                              
-          return Singleton<xsl:call-template name="lt"/><xsl:value-of select="../@name"/>Service<xsl:call-template name="gt"/>.Current.<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="call"/>);
+          <xsl:if test="count(output/@edmType) = 1">return</xsl:if> Singleton<xsl:call-template name="lt"/><xsl:value-of select="../@name"/>Service<xsl:call-template name="gt"/>.Current.<xsl:value-of select="@name"/>(<xsl:apply-templates select="input/param" mode="call"/>);
         }        
 </xsl:template>
 
