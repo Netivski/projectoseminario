@@ -19,6 +19,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
 {
     public class <xsl:value-of select="@name"/>BaseService
     {   
+       <xsl:if test="@type != 'abstract' and @type != 'abstractdependent'">    
         <xsl:call-template name="WriteRuntimeSecurity">
           <xsl:with-param name="methodName" select="'Create'"></xsl:with-param>
         </xsl:call-template> 
@@ -76,6 +77,7 @@ namespace <xsl:value-of select="@servicesNameSpace"/>.Base
         {
             DaoFactory.Current.Get<xsl:value-of select="@name"/>Dao().Delete( Read( recordId ) );
         }
+        </xsl:if>                
     }
 }
   </xsl:template>
