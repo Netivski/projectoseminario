@@ -92,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FoundationType\Foundation Type.cd" />
+    <None Include="Persistence\Assembly\nhibernate-configuration.xsd" />
+    <None Include="Persistence\Assembly\nhibernate-mapping.xsd" />
     <None Include="Persistence\Persistence.cd" />
     <None Include="Security\Permissions\Permissions.cd" />
     <None Include="sign_key.snk" />
@@ -103,6 +105,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Persistence\Assembly\Antlr3.Runtime.dll" />
     <Content Include="Persistence\Assembly\EDM.FoundationClasses.dll" />
     <Content Include="Persistence\Assembly\Iesi.Collections.dll" />
     <Content Include="Persistence\Assembly\Iesi.Collections.license.txt" />
@@ -110,8 +113,10 @@
     <Content Include="Persistence\Assembly\log4net.dll" />
     <Content Include="Persistence\Assembly\log4net.license.txt" />
     <Content Include="Persistence\Assembly\log4net.xml" />
+    <Content Include="Persistence\Assembly\NHibernate.ByteCode.LinFu.dll" />
     <Content Include="Persistence\Assembly\NHibernate.dll" />
     <Content Include="Persistence\Assembly\NHibernate.license.txt" />
+    <Content Include="Persistence\Assembly\NHibernate.xml" />
     <Content Include="Persistence\Assembly\nunit.framework.dll" />
     <Content Include="Persistence\Assembly\NUnitAsp.dll" />
     <Content Include="Persistence\Assembly\Rhino.Mocks.dll" />

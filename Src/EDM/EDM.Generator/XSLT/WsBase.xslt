@@ -16,6 +16,7 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class <xsl:value-of select="@name"/>BaseWs : System.Web.Services.WebService
     {
+        <xsl:if test="@type != 'abstract' and @type != 'abstractdependent'">
         [WebMethod]
         public long Create(<xsl:call-template name="resolveRecursiveParams"></xsl:call-template>)
         {        
@@ -33,6 +34,7 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
         {
             Singleton<xsl:call-template name="lt"/><xsl:value-of select="@name"/>Service<xsl:call-template name="gt"/>.Current.Delete(recordId);
         }
+        </xsl:if>
     }
 }
   </xsl:template>
