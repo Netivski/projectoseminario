@@ -8,6 +8,11 @@ using ISEL.Sample.Entity.DataInterfaces;
 using ISEL.Sample.Entity.Data;
 using ISEL.Sample.Services;
 using EDM.FoundationClasses.Patterns;
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Tool.hbm2ddl;
+using System.IO;
+using System.Text;
 
 namespace ISEL.Sample.Ws
 {
@@ -21,6 +26,42 @@ namespace ISEL.Sample.Ws
     // [System.Web.Script.Services.ScriptService]
     public class Debug : System.Web.Services.WebService
     {
+
+        public class GetSchemaResult
+        {
+            public string SchemaExport { get; set; }
+            public string SchemaUpdate { get; set; }
+        }
+
+        [WebMethod]
+        public GetSchemaResult GetSchema()
+        {
+            Configuration cfg = new Configuration();
+            cfg.Configure();
+            SchemaExport s = new SchemaExport(cfg);
+            SchemaUpdate su = new SchemaUpdate(cfg);
+
+            StringBuilder schemaExport = new StringBuilder();
+            s.Execute(txt => schemaExport.Append(txt), false, false);
+            StringBuilder schemaUpdate = new StringBuilder();
+            su.Execute(txt => schemaUpdate.Append(txt), false);
+
+            return new GetSchemaResult() { SchemaExport = schemaExport.ToString(), SchemaUpdate = schemaUpdate.ToString() };
+        }
+
+        [WebMethod]
+        public List<string> GetAlbunsLoja(long lojaId)
+        {
+            Loja loja = Singleton<LojaService>.Current.Read(lojaId);
+            List<string> rObj = new List<string>();
+            foreach ( LojaAlbum album in loja.Albuns) rObj.Add( album.Album.Titulo );
+
+            loja.RemoveLojaAlbum(loja.Albuns[0]);
+
+            return rObj;
+            
+        }
+
         
         [WebMethod]
         public string ReadByUnique(string NIF)
@@ -29,11 +70,11 @@ namespace ISEL.Sample.Ws
             return record == null? "null": record.Nome;
         }
 
-        [WebMethod]
-        public long CreateEmpregado(int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
-        {
-            return Singleton<EmpregadoService>.Current.Create( Numero, DtAdmissao, Nome, DtNascimento, NIF );
-        }
+        //[WebMethod]
+        //public long CreateEmpregado(int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
+        //{
+        //    return Singleton<EmpregadoService>.Current.Create( Numero, DtAdmissao, Nome, DtNascimento, NIF );
+        //}
 
         [WebMethod]
         public long CreateDirectorSegundaLinha(int Antiguidade, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
@@ -86,14 +127,12 @@ namespace ISEL.Sample.Ws
         {
             Editor record = new Editor() { Nome = nome, Pais = pais };
 
-            record.AddAlbum(new Album() { Titulo = titulo });
-
-            if (!record.IsValid)
-            {
-                //throw new ArgumentException
-            }
+            LP lp = null;
+            record.AddAlbum(lp =  new LP() { Titulo = titulo });
 
             DaoFactory.Current.GetEditorDao().Save(record);
+
+            DaoFactory.Current.GetLPDao().Save(lp);
 
             return record.ID;
         }

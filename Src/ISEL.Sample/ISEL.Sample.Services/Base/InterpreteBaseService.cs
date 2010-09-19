@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class InterpreteBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="InterpreteBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(string Nome, string Nacionalidade)
         {
@@ -56,6 +56,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetInterpreteDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

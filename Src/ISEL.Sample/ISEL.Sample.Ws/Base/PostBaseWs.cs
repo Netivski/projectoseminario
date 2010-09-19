@@ -12,16 +12,17 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class PostBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
-        public long Create(string Name, DateTime Create)
+        public long Create(string Name, DateTime CreateDt)
         {        
-            return Singleton<PostService>.Current.Create(Name, Create);
+            return Singleton<PostService>.Current.Create(Name, CreateDt);
         }
 
         [WebMethod]
-        public void Update(long recordId, string Name, DateTime Create)
+        public void Update(long recordId, string Name, DateTime CreateDt)
         {
-            Singleton<PostService>.Current.Update(recordId, Name, Create);
+            Singleton<PostService>.Current.Update(recordId, Name, CreateDt);
         }
 
         [WebMethod]
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<PostService>.Current.Delete(recordId);
         }
+        
     }
 }
   

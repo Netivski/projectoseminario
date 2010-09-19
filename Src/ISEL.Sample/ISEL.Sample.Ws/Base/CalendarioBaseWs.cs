@@ -12,6 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class CalendarioBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
         public long Create(string HoraInicio, string HoraFim, string Sala)
         {        
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<CalendarioService>.Current.Delete(recordId);
         }
+        
     }
 }
   

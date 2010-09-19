@@ -4,7 +4,7 @@
 			<generator class="identity" />
 		</id>
 		<property name="Name" column="Name" not-null="false" />
-		<property name="Create" column="Create" not-null="false" />
+		<property name="CreateDt" column="CreateDt" not-null="false" />
 	
 		<bag name="_Comments" access="field" table="Comment" inverse="true">
 			<key column="PostId" />

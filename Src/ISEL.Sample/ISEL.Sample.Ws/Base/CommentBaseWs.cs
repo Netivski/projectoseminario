@@ -12,16 +12,17 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class CommentBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
-        public long Create(string Content, DateTime Create)
+        public long Create(string Content, DateTime CreateDt)
         {        
-            return Singleton<CommentService>.Current.Create(Content, Create);
+            return Singleton<CommentService>.Current.Create(Content, CreateDt);
         }
 
         [WebMethod]
-        public void Update(long recordId, string Content, DateTime Create)
+        public void Update(long recordId, string Content, DateTime CreateDt)
         {
-            Singleton<CommentService>.Current.Update(recordId, Content, Create);
+            Singleton<CommentService>.Current.Update(recordId, Content, CreateDt);
         }
 
         [WebMethod]
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<CommentService>.Current.Delete(recordId);
         }
+        
     }
 }
   

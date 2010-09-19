@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class TurmaBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="TurmaBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(string Nome)
         {
@@ -55,6 +55,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetTurmaDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

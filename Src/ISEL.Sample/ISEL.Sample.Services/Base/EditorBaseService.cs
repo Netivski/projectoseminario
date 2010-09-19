@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class EditorBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EditorBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(string Nome, string Pais)
         {
@@ -56,6 +56,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetEditorDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

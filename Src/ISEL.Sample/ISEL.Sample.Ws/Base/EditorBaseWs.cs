@@ -12,6 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class EditorBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
         public long Create(string Nome, string Pais)
         {        
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<EditorService>.Current.Delete(recordId);
         }
+        
     }
 }
   

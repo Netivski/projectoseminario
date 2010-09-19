@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class ClienteBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ClienteBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(double CreditoMaximo, string Nome, DateTime DtNascimento, string NIF)
         {
@@ -74,6 +74,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetClienteDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

@@ -12,6 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class AnoBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
         public long Create(int Ano, string Semestre)
         {        
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<AnoService>.Current.Delete(recordId);
         }
+        
     }
 }
   

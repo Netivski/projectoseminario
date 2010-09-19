@@ -12,6 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class EPBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
         public long Create(DateTime DtLancamento, string Titulo)
         {        
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<EPService>.Current.Delete(recordId);
         }
+        
     }
 }
   

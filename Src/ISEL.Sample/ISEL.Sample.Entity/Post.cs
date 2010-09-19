@@ -8,8 +8,8 @@ using ISEL.Sample.Rtti;
 namespace ISEL.Sample.Entity
 {
   [Serializable]
-  public class Post : Domain.PostDomain
-    {
+  public  class Post : Domain.PostDomain
+  {
     public Post () {}
   }
 }

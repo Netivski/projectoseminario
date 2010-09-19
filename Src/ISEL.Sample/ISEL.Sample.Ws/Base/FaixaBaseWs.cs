@@ -12,6 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class FaixaBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
         public long Create(string Nome, string Duracao, string Genero)
         {        
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<FaixaService>.Current.Delete(recordId);
         }
+        
     }
 }
   

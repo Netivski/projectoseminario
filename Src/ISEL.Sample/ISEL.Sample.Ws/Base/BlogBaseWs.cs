@@ -12,6 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class BlogBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
         public long Create(string Nome)
         {        
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<BlogService>.Current.Delete(recordId);
         }
+        
     }
 }
   

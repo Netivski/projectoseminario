@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class ManagerBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ManagerBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(int LitrosCombustivel, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {
@@ -76,6 +76,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetManagerDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class LPBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="LPBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(DateTime DtEdicao, string Titulo)
         {
@@ -56,6 +56,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetLPDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

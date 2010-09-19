@@ -18,7 +18,7 @@ namespace ISEL.Sample.Entity.Domain
     
     public virtual string Content { get; set; }
   
-    public virtual DateTime Create { get; set; }
+    public virtual DateTime CreateDt { get; set; }
   
     public virtual Post Post { get; set; }
   
@@ -28,7 +28,7 @@ namespace ISEL.Sample.Entity.Domain
       get
       { 
         
-        return Validator.IsValid(UserTypeMetadata.contentComment, Content) && Validator.IsValid(UserTypeMetadata.createComment, Create) ;
+        return Validator.IsValid(UserTypeMetadata.contentComment, Content) && Validator.IsValid(UserTypeMetadata.createComment, CreateDt) ;
           
       }
     }
@@ -47,9 +47,9 @@ namespace ISEL.Sample.Entity.Domain
           ese.Add( new GeneralArgumentException<string>( "Content", "contentComment", Content) );
         }
   
-        if( !Validator.IsValid(UserTypeMetadata.createComment, Create) )
+        if( !Validator.IsValid(UserTypeMetadata.createComment, CreateDt) )
         {
-          ese.Add( new GeneralArgumentException<DateTime>( "Create", "createComment", Create) );
+          ese.Add( new GeneralArgumentException<DateTime>( "CreateDt", "createComment", CreateDt) );
         }
   
     

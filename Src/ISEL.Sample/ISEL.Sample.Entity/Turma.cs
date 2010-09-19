@@ -8,8 +8,8 @@ using ISEL.Sample.Rtti;
 namespace ISEL.Sample.Entity
 {
   [Serializable]
-  public class Turma : Domain.TurmaDomain
-    {
+  public  class Turma : Domain.TurmaDomain
+  {
     public Turma () {}
   }
 }

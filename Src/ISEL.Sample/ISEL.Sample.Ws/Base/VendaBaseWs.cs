@@ -14,6 +14,12 @@ namespace ISEL.Sample.Ws.Base
     {
             
         [WebMethod]
+        public void BpTest()
+        {                              
+           Singleton<VendaService>.Current.BpTest();
+        }        
+    
+        [WebMethod]
         public string EncomendaCliente(string tipoAlbum, int idAlbum, string canal, int idCliente, int encomendaQtd)
         {                              
           return Singleton<VendaService>.Current.EncomendaCliente(tipoAlbum, idAlbum, canal, idCliente, encomendaQtd);

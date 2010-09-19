@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class FaixaBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="FaixaBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(string Nome, string Duracao, string Genero)
         {
@@ -57,6 +57,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetFaixaDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

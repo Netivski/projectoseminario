@@ -93,12 +93,13 @@
   <!--Servidores de BD-->
 	<environments>
 		<dataEnvironments>
-			<provider name="FirstBDServer" type="MsSql2005" connectionString="Server=127.0.0.1;Initial Catalog=iselsample;User Id=iselsample;Password=iselsample;" serverName="127.0.0.1" instance="SQLSERVER1" username="iselsample" password="iselsample" catalog="iselsample"/>
+			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=127.0.0.1;Initial Catalog=iselsample;User Id=iselsample;Password=iselsample;" serverName="127.0.0.1" instance="SQLSERVER1" username="iselsample" password="iselsample" catalog="iselsample"/>
 		</dataEnvironments>
 	</environments>
   
   <businessProcesses>
-    <component name="Venda">      
+    <component name="Venda">
+      <businessProcess name="BpTest" description="Teste de geração de processo de negócio sem parametros e sem retorno"></businessProcess>
       <businessProcess name="EncomendaCliente" description="Processo generico de encomenda">
         <input>
           <param type="tipoAlbum" name="tipoAlbum" minOccurs="1" maxOccurs="1"></param>
@@ -258,14 +259,14 @@
     <entity type="base" name="Post">
       <fields>
         <field type="namePost" name="Name"/>
-        <field type="createPost" name="Create"/>
+        <field type="createPost" name="CreateDt"/>
       </fields>
     </entity>
 
     <entity type="base" name="Comment">
       <fields>
         <field type="contentComment" name="Content"/>
-        <field type="createComment" name="Create"/>
+        <field type="createComment" name="CreateDt"/>
       </fields>
     </entity>
 
