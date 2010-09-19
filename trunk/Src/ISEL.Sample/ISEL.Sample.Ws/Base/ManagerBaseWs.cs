@@ -12,6 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class ManagerBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
         public long Create(int LitrosCombustivel, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {        
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<ManagerService>.Current.Delete(recordId);
         }
+        
     }
 }
   

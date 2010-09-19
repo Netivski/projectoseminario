@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class CursoBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CursoBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(string Nome)
         {
@@ -55,6 +55,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetCursoDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

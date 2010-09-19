@@ -15,11 +15,11 @@ namespace ISEL.Sample.Services.Base
 {
     public class CommentBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CommentBaseService", MethodName="Create", Unrestricted = false)] 
-        public virtual long Create(string Content, DateTime Create)
+        public virtual long Create(string Content, DateTime CreateDt)
         {
-            Comment record = new Comment(){ Content = Content, Create = Create };            
+            Comment record = new Comment(){ Content = Content, CreateDt = CreateDt };            
     
             if (!record.IsValid) throw record.StateException;
 
@@ -30,13 +30,13 @@ namespace ISEL.Sample.Services.Base
         
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CommentBaseService", MethodName="Update", Unrestricted = false)] 
-        public virtual void Update(long recordId, string Content, DateTime Create)
+        public virtual void Update(long recordId, string Content, DateTime CreateDt)
         {             
             ICommentDao dao = DaoFactory.Current.GetCommentDao();  
 
             Comment record = dao.GetById(recordId, false);
             record.Content = Content;
-            record.Create = Create;            
+            record.CreateDt = CreateDt;            
 
             if (!record.IsValid) throw record.StateException;
 
@@ -56,6 +56,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetCommentDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

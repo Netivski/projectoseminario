@@ -8,8 +8,8 @@ using ISEL.Sample.Rtti;
 namespace ISEL.Sample.Entity
 {
   [Serializable]
-  public class DirectorSegundaLinha : Domain.DirectorSegundaLinhaDomain
-    {
+  public  class DirectorSegundaLinha : Domain.DirectorSegundaLinhaDomain
+  {
     public DirectorSegundaLinha () {}
   }
 }

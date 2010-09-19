@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class CalendarioBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CalendarioBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(string HoraInicio, string HoraFim, string Sala)
         {
@@ -57,6 +57,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetCalendarioDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

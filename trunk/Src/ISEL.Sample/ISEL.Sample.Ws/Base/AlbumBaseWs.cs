@@ -12,23 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class AlbumBaseWs : System.Web.Services.WebService
     {
-        [WebMethod]
-        public long Create(string Titulo)
-        {        
-            return Singleton<AlbumService>.Current.Create(Titulo);
-        }
-
-        [WebMethod]
-        public void Update(long recordId, string Titulo)
-        {
-            Singleton<AlbumService>.Current.Update(recordId, Titulo);
-        }
-
-        [WebMethod]
-        public void Delete(long recordId)
-        {
-            Singleton<AlbumService>.Current.Delete(recordId);
-        }
+        
     }
 }
   

@@ -12,6 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class ClienteBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
         public long Create(double CreditoMaximo, string Nome, DateTime DtNascimento, string NIF)
         {        
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<ClienteService>.Current.Delete(recordId);
         }
+        
     }
 }
   

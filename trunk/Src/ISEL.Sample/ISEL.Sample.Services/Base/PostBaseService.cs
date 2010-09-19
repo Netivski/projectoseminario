@@ -15,11 +15,11 @@ namespace ISEL.Sample.Services.Base
 {
     public class PostBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="PostBaseService", MethodName="Create", Unrestricted = false)] 
-        public virtual long Create(string Name, DateTime Create)
+        public virtual long Create(string Name, DateTime CreateDt)
         {
-            Post record = new Post(){ Name = Name, Create = Create };            
+            Post record = new Post(){ Name = Name, CreateDt = CreateDt };            
     
             if (!record.IsValid) throw record.StateException;
 
@@ -30,13 +30,13 @@ namespace ISEL.Sample.Services.Base
         
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="PostBaseService", MethodName="Update", Unrestricted = false)] 
-        public virtual void Update(long recordId, string Name, DateTime Create)
+        public virtual void Update(long recordId, string Name, DateTime CreateDt)
         {             
             IPostDao dao = DaoFactory.Current.GetPostDao();  
 
             Post record = dao.GetById(recordId, false);
             record.Name = Name;
-            record.Create = Create;            
+            record.CreateDt = CreateDt;            
 
             if (!record.IsValid) throw record.StateException;
 
@@ -56,6 +56,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetPostDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   

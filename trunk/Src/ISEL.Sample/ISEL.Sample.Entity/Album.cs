@@ -8,8 +8,8 @@ using ISEL.Sample.Rtti;
 namespace ISEL.Sample.Entity
 {
   [Serializable]
-  public class Album : Domain.AlbumDomain
-    {
+  public abstract class Album : Domain.AlbumDomain
+  {
     public Album () {}
   }
 }

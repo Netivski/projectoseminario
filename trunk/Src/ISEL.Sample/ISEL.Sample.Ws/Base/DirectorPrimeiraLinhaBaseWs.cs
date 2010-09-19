@@ -12,6 +12,7 @@ namespace ISEL.Sample.Ws.Base
     [System.ComponentModel.ToolboxItem(false)]
     public class DirectorPrimeiraLinhaBaseWs : System.Web.Services.WebService
     {
+        
         [WebMethod]
         public long Create(string NomeDepartamento, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {        
@@ -29,6 +30,7 @@ namespace ISEL.Sample.Ws.Base
         {
             Singleton<DirectorPrimeiraLinhaService>.Current.Delete(recordId);
         }
+        
     }
 }
   

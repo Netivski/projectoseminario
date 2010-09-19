@@ -41,7 +41,8 @@ namespace ISEL.Sample.Services.Base
   
         }
         
-        protected abstract int RegistoClienteLogic(string userName, string password, string nomeCompleto, DateTime dtNascimento);  
+        protected abstract int  RegistoClienteLogic(string userName, string password, string nomeCompleto, DateTime dtNascimento);  
+        
         
         protected virtual void RegistoClienteValidatePosCondition(int result)
         {
@@ -49,15 +50,16 @@ namespace ISEL.Sample.Services.Base
           {          
             throw new PosConditionException<int>("RegistoCliente", "idCliente", result);
           }
-        }
+          }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="RegistoClienteBaseService", MethodName="RegistoCliente", Unrestricted = false)] 
         public virtual int RegistoCliente(string userName, string password, string nomeCompleto, DateTime dtNascimento)
         {
           RegistoClienteValidatePreCondition(userName, password, nomeCompleto, dtNascimento);
-          int result = RegistoClienteLogic(userName, password, nomeCompleto, dtNascimento);
+          int result = RegistoClienteLogic(userName, password, nomeCompleto, dtNascimento);          
           RegistoClienteValidatePosCondition(result);
           return result;
+                      
         }
         #endregion
     
@@ -82,7 +84,8 @@ namespace ISEL.Sample.Services.Base
   
         }
         
-        protected abstract string AlteracaoPasswordLogic(string userName, string passwordActual, string passwordFutura);  
+        protected abstract string  AlteracaoPasswordLogic(string userName, string passwordActual, string passwordFutura);  
+        
         
         protected virtual void AlteracaoPasswordValidatePosCondition(string result)
         {
@@ -90,15 +93,16 @@ namespace ISEL.Sample.Services.Base
           {          
             throw new PosConditionException<string>("AlteracaoPassword", "retornoAlteracaoPassword", result);
           }
-        }
+          }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="AlteracaoPasswordBaseService", MethodName="AlteracaoPassword", Unrestricted = false)] 
         public virtual string AlteracaoPassword(string userName, string passwordActual, string passwordFutura)
         {
           AlteracaoPasswordValidatePreCondition(userName, passwordActual, passwordFutura);
-          string result = AlteracaoPasswordLogic(userName, passwordActual, passwordFutura);
+          string result = AlteracaoPasswordLogic(userName, passwordActual, passwordFutura);          
           AlteracaoPasswordValidatePosCondition(result);
           return result;
+                      
         }
         #endregion
            

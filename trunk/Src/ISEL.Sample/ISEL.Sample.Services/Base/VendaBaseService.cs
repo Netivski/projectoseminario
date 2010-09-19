@@ -15,6 +15,23 @@ namespace ISEL.Sample.Services.Base
     public abstract class VendaBaseService
     {        
             
+        #region - BpTest
+        protected virtual void BpTestValidatePreCondition()
+        {
+          
+        }
+        
+        protected abstract void  BpTestLogic();  
+        
+        
+        [RuntimeSecurity(SecurityAction.Demand, ClassName="BpTestBaseService", MethodName="BpTest", Unrestricted = false)] 
+        public virtual void BpTest()
+        {
+          BpTestValidatePreCondition();
+          BpTestLogic();          
+        }
+        #endregion
+    
         #region - EncomendaCliente
         protected virtual void EncomendaClienteValidatePreCondition(string tipoAlbum, int idAlbum, string canal, int idCliente, int encomendaQtd)
         {
@@ -46,7 +63,8 @@ namespace ISEL.Sample.Services.Base
   
         }
         
-        protected abstract string EncomendaClienteLogic(string tipoAlbum, int idAlbum, string canal, int idCliente, int encomendaQtd);  
+        protected abstract string  EncomendaClienteLogic(string tipoAlbum, int idAlbum, string canal, int idCliente, int encomendaQtd);  
+        
         
         protected virtual void EncomendaClienteValidatePosCondition(string result)
         {
@@ -54,15 +72,16 @@ namespace ISEL.Sample.Services.Base
           {          
             throw new PosConditionException<string>("EncomendaCliente", "idEncomenda", result);
           }
-        }
+          }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="EncomendaClienteBaseService", MethodName="EncomendaCliente", Unrestricted = false)] 
         public virtual string EncomendaCliente(string tipoAlbum, int idAlbum, string canal, int idCliente, int encomendaQtd)
         {
           EncomendaClienteValidatePreCondition(tipoAlbum, idAlbum, canal, idCliente, encomendaQtd);
-          string result = EncomendaClienteLogic(tipoAlbum, idAlbum, canal, idCliente, encomendaQtd);
+          string result = EncomendaClienteLogic(tipoAlbum, idAlbum, canal, idCliente, encomendaQtd);          
           EncomendaClienteValidatePosCondition(result);
           return result;
+                      
         }
         #endregion
     
@@ -77,7 +96,8 @@ namespace ISEL.Sample.Services.Base
   
         }
         
-        protected abstract string ObterEstadoEncomendaLogic(string idEncomenda);  
+        protected abstract string  ObterEstadoEncomendaLogic(string idEncomenda);  
+        
         
         protected virtual void ObterEstadoEncomendaValidatePosCondition(string result)
         {
@@ -85,15 +105,16 @@ namespace ISEL.Sample.Services.Base
           {          
             throw new PosConditionException<string>("ObterEstadoEncomenda", "estadoEncomenda", result);
           }
-        }
+          }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="ObterEstadoEncomendaBaseService", MethodName="ObterEstadoEncomenda", Unrestricted = false)] 
         public virtual string ObterEstadoEncomenda(string idEncomenda)
         {
           ObterEstadoEncomendaValidatePreCondition(idEncomenda);
-          string result = ObterEstadoEncomendaLogic(idEncomenda);
+          string result = ObterEstadoEncomendaLogic(idEncomenda);          
           ObterEstadoEncomendaValidatePosCondition(result);
           return result;
+                      
         }
         #endregion
     
@@ -108,7 +129,8 @@ namespace ISEL.Sample.Services.Base
   
         }
         
-        protected abstract string CancelarEncomendaLogic(string idEncomenda);  
+        protected abstract string  CancelarEncomendaLogic(string idEncomenda);  
+        
         
         protected virtual void CancelarEncomendaValidatePosCondition(string result)
         {
@@ -116,15 +138,16 @@ namespace ISEL.Sample.Services.Base
           {          
             throw new PosConditionException<string>("CancelarEncomenda", "retornoCancelarEncomenda", result);
           }
-        }
+          }
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="CancelarEncomendaBaseService", MethodName="CancelarEncomenda", Unrestricted = false)] 
         public virtual string CancelarEncomenda(string idEncomenda)
         {
           CancelarEncomendaValidatePreCondition(idEncomenda);
-          string result = CancelarEncomendaLogic(idEncomenda);
+          string result = CancelarEncomendaLogic(idEncomenda);          
           CancelarEncomendaValidatePosCondition(result);
           return result;
+                      
         }
         #endregion
            

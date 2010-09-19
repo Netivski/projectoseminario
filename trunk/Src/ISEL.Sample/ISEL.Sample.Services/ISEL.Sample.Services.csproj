@@ -75,8 +75,10 @@
     <Compile Include="Base\PersonBaseService.cs" />
     <Compile Include="Base\PessoaBaseService.cs" />
     <Compile Include="Base\PostBaseService.cs" />
+    <Compile Include="Base\RegistoBaseImplementationService.cs" />
     <Compile Include="Base\RegistoBaseService.cs" />
     <Compile Include="Base\TurmaBaseService.cs" />
+    <Compile Include="Base\VendaBaseImplementationService.cs" />
     <Compile Include="Base\VendaBaseService.cs" />
     <Compile Include="BlogService.cs" />
     <Compile Include="CalendarioService.cs" />

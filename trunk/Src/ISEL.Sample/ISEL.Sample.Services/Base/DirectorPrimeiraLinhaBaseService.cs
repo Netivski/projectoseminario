@@ -15,7 +15,7 @@ namespace ISEL.Sample.Services.Base
 {
     public class DirectorPrimeiraLinhaBaseService
     {   
-        
+       
         [RuntimeSecurity(SecurityAction.Demand, ClassName="DirectorPrimeiraLinhaBaseService", MethodName="Create", Unrestricted = false)] 
         public virtual long Create(string NomeDepartamento, double LimiteCartaoCredito, double LimiteAprovacao, int Numero, DateTime DtAdmissao, string Nome, DateTime DtNascimento, string NIF)
         {
@@ -78,6 +78,7 @@ namespace ISEL.Sample.Services.Base
         {
             DaoFactory.Current.GetDirectorPrimeiraLinhaDao().Delete( Read( recordId ) );
         }
+                        
     }
 }
   
