@@ -32,53 +32,14 @@ namespace EDM.Template.Actions
 
         public override void Execute()
         {
-            List<String> schemaLoc = new List<String>()
-                {
-                    @"3D\3dvalidator.xsd", @"3d\3d.xml"
-                };
-
-            List<String> asmLoc = new List<string>()
-                {
-                    @"Assembly\EDM.FoundationClasses.dll", @"Assembly\Iesi.Collections.dll",
-                    @"Assembly\Iesi.Collections.license.txt", @"Assembly\Iesi.Collections.xml",
-                    @"Assembly\log4net.dll", @"Assembly\log4net.license.txt",
-                    @"Assembly\log4net.xml", @"Assembly\NHibernate.dll",
-                    @"Assembly\NHibernate.license.txt", @"Assembly\nunit.framework.dll",
-                    @"Assembly\NUnitAsp.dll", @"Assembly\Rhino.Mocks.dll",
-                    @"Assembly\Rhino.Mocks.xml"
-                };
-
             Assembly execAsm = Assembly.GetExecutingAssembly();
             DTE vs = GetService<DTE>();
 
             string asmDirectory = Path.Combine(Path.GetDirectoryName(execAsm.Location), @"Solution Items");
             string solutionDirectory = Path.GetDirectoryName((string)vs.Solution.Properties.Item("Path").Value);
 
-            //Copy validator and template 3D and include them in the solution
-            Project folder3D = ProjectFinder.GetProject(vs, "3D");
-
-            foreach (String file in schemaLoc)
-            {
-                File.Copy(
-                    Path.Combine(asmDirectory, file),
-                    Path.Combine(solutionDirectory, file)
-                );
-                folder3D.ProjectItems.AddFromFile(Path.Combine(solutionDirectory, file));
-                vs.ActiveWindow.Close(EnvDTE.vsSaveChanges.vsSaveChangesNo);
-            }
-
-            //Copy the external assemblies and include them in the solution
-            Project folderAsm = ProjectFinder.GetProject(vs, "Assembly");
-
-            foreach (String file in asmLoc)
-            {
-                File.Copy(
-                    Path.Combine(asmDirectory, file),
-                    Path.Combine(solutionDirectory, file)
-                );
-                folderAsm.ProjectItems.AddFromFile(Path.Combine(solutionDirectory, file));
-                vs.ActiveWindow.Close(EnvDTE.vsSaveChanges.vsSaveChangesNo);
-            }
+            DoCopy(vs, asmDirectory, solutionDirectory, "3D");
+            DoCopy(vs, asmDirectory, solutionDirectory, "Assembly");
 
             UpdateDictionaryHeader(
                 Path.Combine(solutionDirectory, @"3d\3d.xml"), solutionDirectory
@@ -101,6 +62,25 @@ namespace EDM.Template.Actions
             root.Attributes["companyName"].Value = AppCompany;
             root.Attributes["projectName"].Value = AppProject;
             data.Save(Path.Combine(solutionDirectory, @"3d\3d.xml"));
+        }
+
+        private void DoCopy(DTE vs, String srcLocation, String destLocation, String folderName)
+        {
+            String sourceDir = Path.Combine(srcLocation, folderName);
+            String targetDir = Path.Combine(destLocation, folderName);
+
+            Project targetProj = ProjectFinder.GetProject(vs, folderName);
+
+            foreach (String file in Directory.GetFiles(sourceDir))
+            {
+                File.Copy(
+                    Path.GetFullPath(file),
+                    Path.Combine(targetDir, Path.GetFileName(file)),
+                    true
+                );
+                targetProj.ProjectItems.AddFromFile(Path.Combine(targetDir, Path.GetFileName(file)));
+                vs.ActiveWindow.Close(EnvDTE.vsSaveChanges.vsSaveChangesNo);
+            }
         }
         #endregion
     }

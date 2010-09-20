@@ -102,15 +102,7 @@ namespace EDM.Template.Actions
                     }
                 }
             }
-            //if (projectName == "Entity")
-            //    targetProject.DTE.Events.BuildEvents.OnBuildDone += new _dispBuildEvents_OnBuildDoneEventHandler(BuildEvents_OnBuildDone);
         }
-
-        //void BuildEvents_OnBuildDone(vsBuildScope Scope, vsBuildAction Action)
-        //{
-        //    System.Windows.Forms.MessageBox.Show("Build occurred");
-        //}
-
         #endregion
 
     }
