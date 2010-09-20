@@ -215,7 +215,7 @@ namespace EDM.Tester
         [TestMethod]
         public void DidGenerateAllEntityTestFiles()
         {
-            XmlNodeList entitiesList = Get.GetNodeList(context.ThreeDFile.Content, xPath.Entity);
+            XmlNodeList entitiesList = Get.GetNodeList(context.ThreeDFile.Content, xPath.EntityNotAbstract);
             foreach (XmlNode node in entitiesList)
             {
                 Assert.IsTrue(File.Exists(Path.Combine(outputPath, string.Concat(@"TestNameSpace.UnitTest\", node.Attributes["name"].Value, "Test.cs"))));
