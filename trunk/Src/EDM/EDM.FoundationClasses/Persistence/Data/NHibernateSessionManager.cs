@@ -159,19 +159,12 @@ namespace EDM.FoundationClasses.Persistence.Data
         {
             ITransaction transaction = ContextTransaction;
 
-            try
+            if (HasOpenTransaction())
             {
-                if (HasOpenTransaction())
-                {
-                    transaction.Rollback();
-                }
+                transaction.Rollback();
+            }
 
-                ContextTransaction = null;
-            }
-            finally
-            {
-                CloseSession();
-            }
+            ContextTransaction = null;
         }
 
         /// <summary>
