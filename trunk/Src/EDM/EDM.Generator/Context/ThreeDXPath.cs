@@ -132,5 +132,12 @@ namespace EDM.Generator.Context
                 return string.Concat(Component, "/businessProcess");
             }
         }
+        public string EntityNotAbstract
+        {
+            get
+            {
+                return string.Concat(Entity,"[@type != 'abstract' and @type != 'abstractdependent']");
+            }
+        }
     }
 }
