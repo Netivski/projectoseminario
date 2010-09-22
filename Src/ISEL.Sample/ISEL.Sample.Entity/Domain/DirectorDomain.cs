@@ -16,9 +16,28 @@ namespace ISEL.Sample.Entity.Domain
     public DirectorDomain () {}
 
     
+    IList<DirectorAlbum> _Albuns = new List<DirectorAlbum>();  
+  
     public virtual double LimiteCartaoCredito { get; set; }
   
     public virtual double LimiteAprovacao { get; set; }
+  
+    public virtual IList<DirectorAlbum> Albuns {
+        get { return new List<DirectorAlbum>(_Albuns).AsReadOnly(); }
+        protected set { _Albuns = value; }
+    }     
+  
+    public void AddDirectorAlbum(DirectorAlbum obj) {
+        if (obj != null &&  !_Albuns.Contains(obj)) {
+            _Albuns.Add(obj);
+        }
+    }
+
+    public void RemoveDirectorAlbum(DirectorAlbum obj) {
+        if (obj != null &&  _Albuns.Contains(obj)) {
+            _Albuns.Remove(obj);
+        }
+    }    
   
 
     public override bool IsValid

@@ -327,6 +327,10 @@
       <fields/>
     </entity>
 
+    <entity type="base" name="DirectorAlbum">
+      <fields/>
+    </entity>    
+
 
     <relations>
       <!-- Empty Relations ( Sample ) -->
@@ -359,8 +363,14 @@
       <relation type="ManyToMany" entityName="LojaAlbum" minOccurs="1" maxOccurs="unbounded">
         <entity name="Loja" nillable="false" inverse="true" relationName="Albuns"/>
         <entity name="Album" nillable="false" inverse="true" relationName="Lojas"/>
-      </relation>      
+      </relation>
 
+
+      <relation type="ManyToMany" entityName="DirectorAlbum" minOccurs="1" maxOccurs="unbounded">
+        <entity name="Director" nillable="false" inverse="true" relationName="Albuns"/>
+        <entity name="Album" nillable="false" inverse="true" relationName="Director"/>
+      </relation>
+       
     </relations>
 
 

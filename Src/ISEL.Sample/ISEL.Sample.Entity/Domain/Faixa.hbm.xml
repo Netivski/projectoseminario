@@ -1,5 +1,5 @@
 ﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-	<class name="ISEL.Sample.Entity.Faixa, ISEL.Sample.Entity" table="Faixa" lazy="false">
+	<class name="ISEL.Sample.Entity.Faixa, ISEL.Sample.Entity" table="Faixa" lazy="false" abstract="false">
 		<id name="ID" column="Id">
 			<generator class="identity" />
 		</id>

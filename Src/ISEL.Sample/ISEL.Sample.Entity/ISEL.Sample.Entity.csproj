@@ -90,6 +90,7 @@
     <Compile Include="Data\DAOImplementation.cs" />
     <Compile Include="Data\DAOImplementationPartial.cs" />
     <Compile Include="Director.cs" />
+    <Compile Include="DirectorAlbum.cs" />
     <Compile Include="DirectorPrimeiraLinha.cs" />
     <Compile Include="DirectorSegundaLinha.cs" />
     <Compile Include="Disciplina.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Domain\ClienteDomain.cs" />
     <Compile Include="Domain\CommentDomain.cs" />
     <Compile Include="Domain\CursoDomain.cs" />
+    <Compile Include="Domain\DirectorAlbumDomain.cs" />
     <Compile Include="Domain\DirectorDomain.cs" />
     <Compile Include="Domain\DirectorPrimeiraLinhaDomain.cs" />
     <Compile Include="Domain\DirectorSegundaLinhaDomain.cs" />
@@ -179,6 +181,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Domain\LojaAlbum.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Domain\DirectorAlbum.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

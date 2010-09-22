@@ -34,6 +34,18 @@ namespace ISEL.Sample.Ws
         }
 
         [WebMethod]
+        public List<string> GetDirectorAlbum(long directorId)
+        {
+            Director director = DaoFactory.Current.GetDirectorDao().GetById(directorId, false); 
+
+            List<string> rObj = new List<string>();
+            foreach (DirectorAlbum album in director.Albuns) rObj.Add(string.Concat(album.Album.Titulo, album.Album.GetType().Name));
+
+            return rObj;
+        }
+
+
+        [WebMethod]
         public GetSchemaResult GetSchema()
         {
             Configuration cfg = new Configuration();
@@ -54,7 +66,7 @@ namespace ISEL.Sample.Ws
         {
             Loja loja = Singleton<LojaService>.Current.Read(lojaId);
             List<string> rObj = new List<string>();
-            foreach ( LojaAlbum album in loja.Albuns) rObj.Add( album.Album.Titulo );
+            foreach (LojaAlbum album in loja.Albuns) rObj.Add(string.Concat(album.Album.Titulo, album.Album.GetType().Name));
 
             loja.RemoveLojaAlbum(loja.Albuns[0]);
 

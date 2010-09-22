@@ -1,14 +1,19 @@
 ﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-	<class name="ISEL.Sample.Entity.Album, ISEL.Sample.Entity" table="Album" lazy="false">
+	<class name="ISEL.Sample.Entity.Album, ISEL.Sample.Entity" table="Album" lazy="false" abstract="true">
 		<id name="ID" column="Id">
 			<generator class="identity" />
 		</id>
+		<discriminator column="EntityType" type="String" />
 		<property name="Titulo" column="Titulo" not-null="false" />
 	
 		<many-to-one name="Editor" class="ISEL.Sample.Entity.Editor, ISEL.Sample.Entity" column="EditorId" cascade="all" />
 		<bag name="_Lojas" access="field" table="LojaAlbum" inverse="true">
 			<key column="AlbumId" />
 			<one-to-many class="ISEL.Sample.Entity.LojaAlbum, ISEL.Sample.Entity" />
+		</bag>
+		<bag name="_Director" access="field" table="DirectorAlbum" inverse="true">
+			<key column="AlbumId" />
+			<one-to-many class="ISEL.Sample.Entity.DirectorAlbum, ISEL.Sample.Entity" />
 		</bag>
 	</class>
 </hibernate-mapping>

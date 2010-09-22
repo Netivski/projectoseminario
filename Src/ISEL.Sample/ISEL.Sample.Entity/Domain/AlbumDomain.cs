@@ -18,11 +18,18 @@ namespace ISEL.Sample.Entity.Domain
     
     IList<LojaAlbum> _Lojas = new List<LojaAlbum>();  
   
+    IList<DirectorAlbum> _Director = new List<DirectorAlbum>();  
+  
     public virtual string Titulo { get; set; }
   
     public virtual IList<LojaAlbum> Lojas {
         get { return new List<LojaAlbum>(_Lojas).AsReadOnly(); }
         protected set { _Lojas = value; }
+    }     
+  
+    public virtual IList<DirectorAlbum> Director {
+        get { return new List<DirectorAlbum>(_Director).AsReadOnly(); }
+        protected set { _Director = value; }
     }     
   
     public virtual Editor Editor { get; set; }
@@ -36,6 +43,18 @@ namespace ISEL.Sample.Entity.Domain
     public void RemoveLojaAlbum(LojaAlbum obj) {
         if (obj != null &&  _Lojas.Contains(obj)) {
             _Lojas.Remove(obj);
+        }
+    }    
+  
+    public void AddDirectorAlbum(DirectorAlbum obj) {
+        if (obj != null &&  !_Director.Contains(obj)) {
+            _Director.Add(obj);
+        }
+    }
+
+    public void RemoveDirectorAlbum(DirectorAlbum obj) {
+        if (obj != null &&  _Director.Contains(obj)) {
+            _Director.Remove(obj);
         }
     }    
   
