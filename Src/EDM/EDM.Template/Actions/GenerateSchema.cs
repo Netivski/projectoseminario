@@ -28,10 +28,12 @@ namespace EDM.Template.Actions
             m_ApplicationObject = GetService<DTE>(true);
             m_BuildEvents = m_ApplicationObject.Events.BuildEvents;
             if (ACT_ON_BUILD)
+            {
                 m_BuildEvents.OnBuildProjConfigDone += new _dispBuildEvents_OnBuildProjConfigDoneEventHandler(m_BuildEvents_OnBuildProjConfigDone);
+                GetService<DTE>(true).ExecuteCommand("Build.BuildSolution", String.Empty);
+            }
             else
                 System.Windows.Forms.MessageBox.Show("Schema not being generated!");
-            GetService<DTE>(true).ExecuteCommand("Build.BuildSolution", String.Empty);
         }
 
         public override void Undo()
@@ -44,7 +46,7 @@ namespace EDM.Template.Actions
 
         EnvDTE.DTE m_ApplicationObject;
         EnvDTE.BuildEvents m_BuildEvents;
-        readonly Boolean ACT_ON_BUILD = false;
+        readonly Boolean ACT_ON_BUILD = true;
 
         void m_BuildEvents_OnBuildProjConfigDone(string Project, string ProjectConfig, string Platform, string SolutionConfig, bool Success)
         {
@@ -57,14 +59,51 @@ namespace EDM.Template.Actions
                 );
                 try
                 {
-                    Assembly ent = Assembly.LoadFrom(
-                        Path.Combine(targetSolDir, pName + @"\bin\" + ProjectConfig + @"\" + pName + ".dll")
+                    //Assembly edmFoundation = Assembly.LoadFrom(
+                    //    Path.Combine(targetSolDir, @"Assembly\EDM.FoundationClasses.dll")
+                    //);
+                    //AppDomain.CurrentDomain.Load(edmFoundation.GetName());
+
+                    //Assembly ent = Assembly.LoadFrom(
+                    //    Path.Combine(targetSolDir, AppCompany + "." + AppProject + ".Ws" + @"\bin" + @"\" + pName + ".dll")
+                    //);
+                    //AppDomain.CurrentDomain.Load(ent.GetName());
+
+
+                    DirectoryInfo d = new DirectoryInfo(
+                        Path.Combine(targetSolDir, AppCompany + "." + AppProject + @".Entity\bin\" + ProjectConfig)
                     );
 
+                    Assembly asm;
+                    foreach (FileInfo f in d.GetFiles("*.dll"))
+                    {
+                        asm = Assembly.LoadFrom(f.FullName);
+                        AppDomain.CurrentDomain.Load(asm.GetName());
+                        foreach (AssemblyName a in asm.GetReferencedAssemblies())
+                            AppDomain.CurrentDomain.Load(a);
+                    }
+                    TextWriter cons = new StreamWriter(@"c:\temp\out.txt",false);
+                    Console.SetOut(cons);
+                    try
+                    {
+                        foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
+                        {
+                            Console.WriteLine(a.GetName());
+                        }
+                        cons.Flush();
+                        cons.Close();
+                    }
+                    catch (Exception e)
+                    {
+                        System.Windows.Forms.MessageBox.Show(
+                           "Exception caught while generating schema!\n" + e.InnerException.Message
+                        );
+                    }
                     string hibernateCfg = Path.Combine(targetSolDir, AppCompany + "." + AppProject + @".Ws\hibernate.cfg.xml");
                     NHibernate.Cfg.Configuration cfg = new NHibernate.Cfg.Configuration();
-                    cfg.AddAssembly(ent);
                     cfg.Configure(hibernateCfg);
+                    //cfg.AddAssembly(ent);
+                    //cfg.Configure();
 
                     //Schema Creation Script
                     SchemaExport sExport = new SchemaExport(cfg);
@@ -86,6 +125,7 @@ namespace EDM.Template.Actions
                     );
                     sUpdate.Execute(txt => updateWriter.WriteLine(txt), false);
                     updateWriter.Close();
+                    System.Windows.Forms.MessageBox.Show("Schema generation completed successfuly!");
                 }
                 catch (Exception e)
                 {

@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataInterfaces\Base\" />
-    <Folder Include="Data\Base\" />
+    <Folder Include="Data\" />
     <Folder Include="Domain\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
