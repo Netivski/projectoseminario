@@ -134,6 +134,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)$(TargetName).dll" "..\..\..\..\ISEL.Sample\Assembly" /R /Q /Y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)$(TargetName).dll" "..\..\..\..\ISEL.Sample\Assembly" /R /Q /Y
+xcopy "$(TargetDir)$(TargetName).dll" "..\..\..\EDM.Template\Solution Items\Assembly" /R /Q /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>
