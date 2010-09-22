@@ -25,6 +25,8 @@ namespace EDM.Generator.Engine
                 SetSteps();
             }
             steps.ForEach( step => step.Generate( Context ) );
+
+            Context.ThreeDFile.Content.Save(@"c:\temp\ThreeDFile.xml");
         }
     }
 }

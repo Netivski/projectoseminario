@@ -7,9 +7,24 @@
     <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 
       <xsl:call-template name="NewLine" />
-      <xsl:call-template name="Tab1" />
-      <class name="{@nameSpace}, {@assemblyName}" table="{@masterEntity}" lazy="false">
+      <xsl:call-template name="Tab1" />      
+  <xsl:choose>
+    <xsl:when test="@type = 'abstractdependent' or @type = 'dependent'">
+      <subclass name="{@nameSpace}, {@assemblyName}" extends="ISEL.Sample.Entity.{@baseEntity}, ISEL.Sample.Entity" discriminator-value="{@name}" abstract="{@abstract}">
+        <xsl:call-template name="resolveFields"></xsl:call-template>
 
+        <xsl:call-template name="NewLine" />
+        <xsl:call-template name="Tab1" />
+
+        <xsl:apply-templates select="relations/manyToOne"  mode="manyToOne" />
+        <xsl:apply-templates select="relations/oneToMany"  mode="oneToMany" />
+
+        <xsl:call-template name="NewLine" />
+        <xsl:call-template name="Tab1" />
+      </subclass>
+    </xsl:when>
+    <xsl:otherwise>
+      <class name="{@nameSpace}, {@assemblyName}" table="{@masterEntity}" lazy="false" abstract="{@abstract}">
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab2" />
         <id name="ID" column="Id">
@@ -19,7 +34,12 @@
           <xsl:call-template name="NewLine" />
           <xsl:call-template name="Tab2" />
         </id>
-        <xsl:call-template name="resolveRecursiveFields"></xsl:call-template>
+        <xsl:if test="@type='abstract'">
+          <xsl:call-template name="NewLine" />
+          <xsl:call-template name="Tab2" />
+          <discriminator column="EntityType" type="String" />
+        </xsl:if>
+        <xsl:call-template name="resolveFields"></xsl:call-template>
 
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab1" />
@@ -29,12 +49,17 @@
         
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab1" />
-
       </class>
-
+    </xsl:otherwise>
+  </xsl:choose>
       <xsl:call-template name="NewLine" />
     </hibernate-mapping>
   </xsl:template>
+
+  <xsl:template name="resolveFields">
+    <xsl:apply-templates select="fields/field"/>
+  </xsl:template>
+
 
   <xsl:template name="resolveRecursiveFields">
     <xsl:apply-templates select="fields/field"/>

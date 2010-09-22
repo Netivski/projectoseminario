@@ -12,7 +12,7 @@ using <xsl:value-of select="@rttiNameSpace"/>;
 namespace <xsl:value-of select="@baseNameSpace"/>
 {
   [Serializable]
-  public class <xsl:value-of select="@name"/> : Domain.<xsl:value-of select="@name"/>Domain
+  public <xsl:if test="@type = 'abstract' or @type = 'abstractdependent'">abstract</xsl:if> class <xsl:value-of select="@name"/> : Domain.<xsl:value-of select="@name"/>Domain
   {
     public <xsl:value-of select="@name"/> () {}
   }
