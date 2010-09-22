@@ -59,7 +59,16 @@ namespace EDM.Generator.Engine.Step
             }
 
             return "false";
-        }        
+        }
+
+        bool IsAbstract(GeneratorContext context, XmlNode entity)
+        {
+            string entityType = Utils.XML.Get.GetAttributeValue(context.ThreeDFile.Content, entity, "type");
+
+            if (string.IsNullOrEmpty(entityType)) return false;
+
+            return entityType == "abstract" || entityType == "abstractdependent";
+        }
 
 
         public override void Generate( GeneratorContext context )
@@ -152,6 +161,7 @@ namespace EDM.Generator.Engine.Step
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "unitTestNameSpace", string.Format("{0}.{1}"    , nameSpace, UNIT_TEST_PROJECT_NAME));
 
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "targetDomainPath" , context.Output.EntityDomainPath);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "abstract", IsAbstract(context, node) ? "true": "false");
             }
 
             //Resolve Relations

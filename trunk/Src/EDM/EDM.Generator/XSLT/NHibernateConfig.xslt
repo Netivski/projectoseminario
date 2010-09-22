@@ -31,7 +31,7 @@
 
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab2" />
-        <property name="proxyfactory.factory_class"> NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu </property>
+        <property name="proxyfactory.factory_class">NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu</property>
         
         <xsl:call-template name="NewLine" />
         <xsl:call-template name="Tab2" />
