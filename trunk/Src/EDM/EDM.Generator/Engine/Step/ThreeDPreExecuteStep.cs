@@ -123,7 +123,9 @@ namespace EDM.Generator.Engine.Step
             nodeList = Utils.XML.Get.GetNodeList(context.ThreeDFile.Content, "/solution/entities/entity/fields/field");
             foreach (XmlNode node in nodeList)
             {
-                if (node.Attributes["nillable"] == null) Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "nillable", bool.FalseString.ToLower());
+                if (node.Attributes["nillable"] == null) Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "nillable", bool.TrueString.ToLower());
+                bool nillable = Convert.ToBoolean( node.Attributes["nillable"].InnerText );
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "not-null", nillable ? "false": "true");
                 String baseType = Utils.XML.Get.GetNode(context.ThreeDFile.Content, string.Concat( "/solution/userTypes/*[@name = '", node.Attributes["type"].Value.ToString(), "']")).Name;
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, string.Concat("/solution/entities/entity/fields/field[@name = '", node.Attributes["name"].Value.ToString(), "' and @type = '", node.Attributes["type"].Value.ToString(),"']"), "edmType", baseType);
             }
