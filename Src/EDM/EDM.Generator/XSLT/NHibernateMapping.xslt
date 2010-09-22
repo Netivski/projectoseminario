@@ -10,7 +10,7 @@
       <xsl:call-template name="Tab1" />      
   <xsl:choose>
     <xsl:when test="@type = 'abstractdependent' or @type = 'dependent'">
-      <subclass name="{@nameSpace}, {@assemblyName}" extends="ISEL.Sample.Entity.{@baseEntity}, ISEL.Sample.Entity" discriminator-value="{@name}" abstract="{@abstract}">
+      <subclass name="{@nameSpace}, {@assemblyName}" extends="{@assemblyName}.{@baseEntity}, {@assemblyName}" discriminator-value="{@name}" abstract="{@abstract}">
         <xsl:call-template name="resolveFields"></xsl:call-template>
 
         <xsl:call-template name="NewLine" />
@@ -75,7 +75,7 @@
   <xsl:template match="field" xmlns="urn:nhibernate-mapping-2.2">
     <xsl:call-template name="NewLine" />
     <xsl:call-template name="Tab2" />
-    <property name="{@name}" column="{@name}" not-null="{@nillable}"/>
+    <property name="{@name}" column="{@name}" not-null="{@not-null}"/>
   </xsl:template>
   
   <xsl:template match="manyToOne" mode="manyToOne" xmlns="urn:nhibernate-mapping-2.2">
