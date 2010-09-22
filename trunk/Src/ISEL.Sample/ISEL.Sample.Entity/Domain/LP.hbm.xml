@@ -1,14 +1,10 @@
 ﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-	<class name="ISEL.Sample.Entity.LP, ISEL.Sample.Entity" table="Album" lazy="false">
-		<id name="ID" column="Id">
-			<generator class="identity" />
-		</id>
+	<subclass name="ISEL.Sample.Entity.LP, ISEL.Sample.Entity" extends="ISEL.Sample.Entity.Album, ISEL.Sample.Entity" discriminator-value="LP" abstract="false">
 		<property name="DtEdicao" column="DtEdicao" not-null="false" />
-		<property name="Titulo" column="Titulo" not-null="false" />
 	
 		<bag name="_Faixas" access="field" table="Faixa" inverse="true">
 			<key column="LPId" />
 			<one-to-many class="ISEL.Sample.Entity.Faixa, ISEL.Sample.Entity" />
 		</bag>
-	</class>
+	</subclass>
 </hibernate-mapping>

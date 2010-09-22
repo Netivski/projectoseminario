@@ -62,6 +62,8 @@ namespace ISEL.Sample.Entity.DataInterfaces.Base
   
     ILojaAlbumDao GetLojaAlbumDao();
   
+    IDirectorAlbumDao GetDirectorAlbumDao();
+  
     }
 }
   

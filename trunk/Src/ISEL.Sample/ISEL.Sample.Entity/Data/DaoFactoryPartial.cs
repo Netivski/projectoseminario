@@ -131,6 +131,10 @@ namespace ISEL.Sample.Entity.Data
       return new LojaAlbumDao();
     }
   
+    public IDirectorAlbumDao GetDirectorAlbumDao() {
+      return new DirectorAlbumDao();
+    }
+  
 
     }
 }

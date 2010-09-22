@@ -58,6 +58,7 @@
     <Compile Include="Base\ClienteBaseService.cs" />
     <Compile Include="Base\CommentBaseService.cs" />
     <Compile Include="Base\CursoBaseService.cs" />
+    <Compile Include="Base\DirectorAlbumBaseService.cs" />
     <Compile Include="Base\DirectorBaseService.cs" />
     <Compile Include="Base\DirectorPrimeiraLinhaBaseService.cs" />
     <Compile Include="Base\DirectorSegundaLinhaBaseService.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="ClienteService.cs" />
     <Compile Include="CommentService.cs" />
     <Compile Include="CursoService.cs" />
+    <Compile Include="DirectorAlbumService.cs" />
     <Compile Include="DirectorPrimeiraLinhaService.cs" />
     <Compile Include="DirectorSegundaLinhaService.cs" />
     <Compile Include="DirectorService.cs" />
