@@ -13,6 +13,7 @@ using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System.IO;
 using System.Text;
+using System.Reflection;
 
 namespace ISEL.Sample.Ws
 {
@@ -57,6 +58,15 @@ namespace ISEL.Sample.Ws
             s.Execute(txt => schemaExport.Append(txt), false, false);
             StringBuilder schemaUpdate = new StringBuilder();
             su.Execute(txt => schemaUpdate.Append(txt), false);
+
+            TextWriter cons = new StreamWriter(@"c:\temp\out2.txt");
+            Console.SetOut(cons);
+            foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                Console.WriteLine(a.GetName());
+            }
+            cons.Flush();
+            cons.Close();
 
             return new GetSchemaResult() { SchemaExport = schemaExport.ToString(), SchemaUpdate = schemaUpdate.ToString() };
         }

@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence"
 		Persistence\hibernate.cfg.xml = Persistence\hibernate.cfg.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEL.Sample.Fe", "ISEL.Sample.Fe\ISEL.Sample.Fe.csproj", "{808BECC4-30E1-4A56-B3A6-8FE003175707}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3D", "3D", "{9F3DAD37-9B08-41E3-8AA9-8872B2BAF48A}"
 	ProjectSection(SolutionItems) = preProject
 		3D\3d.xml = 3D\3d.xml
@@ -44,10 +42,6 @@ Global
 		{7E29FB31-F19E-40DC-8F96-8FBF9FDCBC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E29FB31-F19E-40DC-8F96-8FBF9FDCBC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E29FB31-F19E-40DC-8F96-8FBF9FDCBC40}.Release|Any CPU.Build.0 = Release|Any CPU
-		{808BECC4-30E1-4A56-B3A6-8FE003175707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{808BECC4-30E1-4A56-B3A6-8FE003175707}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{808BECC4-30E1-4A56-B3A6-8FE003175707}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{808BECC4-30E1-4A56-B3A6-8FE003175707}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
