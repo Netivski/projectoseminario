@@ -2,15 +2,16 @@
 <!-- edited with XMLSpy v2010 (http://www.altova.com) by Ricardo Neto (Netpat) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 
+
 	<!-- ================== ENUMERADOS REFERENTES A CARDINALIDADE ================== -->
-	<!-- Definição do enumerado correspondente à cardinalidade -->
+	<!-- Definição do enumerado correspondente à cardinalidade (0..1) -->
 	<xs:simpleType name="t_zeroOrOne">
 		<xs:restriction base="xs:int">
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- Definição do enumerado correspondente à cardinalidade -->
+	<!-- Definição do enumerado correspondente à cardinalidade (0..unbounded) -->
 	<xs:simpleType name="t_zeroOrMany">
 		<xs:union>
 			<xs:simpleType>
@@ -25,7 +26,7 @@
 			</xs:simpleType>
 		</xs:union>
 	</xs:simpleType>
-	<!-- Definição do enumerado correspondente à cardinalidade -->
+	<!-- Definição do enumerado correspondente à cardinalidade (1..unbounded) -->
 	<xs:simpleType name="t_oneOrMany">
 		<xs:union>
 			<xs:simpleType>
@@ -40,7 +41,7 @@
 			</xs:simpleType>
 		</xs:union>
 	</xs:simpleType>
-	<!-- Definição do enumerado correspondente à cardinalidade -->
+	<!-- Definição do enumerado correspondente à cardinalidade (1) -->
 	<xs:simpleType name="t_one">
 		<xs:restriction base="xs:int">
 			<xs:enumeration value="1"/>
@@ -48,9 +49,7 @@
 	</xs:simpleType>
 
 
-
-
-	<!-- ================== VALIDAÇÃO DE TIPOS ================== -->
+	<!-- ================== DEFINIÇÃO DE <userTypes> ================== -->
 	<!-- Definição do tipo LONG -->
 	<xs:complexType name="t_Long">
 		<xs:sequence>
@@ -198,11 +197,13 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<!-- ================== VALIDAÇÃO DE ENTIDADES ================== -->
+	
+	<!-- ================== DEFINIÇÃO DE <entity> ================== -->
 	<!-- Definição do enumerado correspondente ao tipo de entidade -->
 	<xs:simpleType name="t_entityType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="abstract"/>
+			<xs:enumeration value="abstractdependent"/>
 			<xs:enumeration value="base"/>
 			<xs:enumeration value="dependent"/>
 		</xs:restriction>
@@ -214,44 +215,11 @@
 		<xs:attribute name="unique" type="xs:boolean" use="optional" default="false"/>
 		<xs:attribute name="visible" type="xs:boolean" use="optional" default="false"/>
 		<xs:attribute name="nillable" type="xs:boolean" use="optional" default="false"/>
-		<xs:attribute name="sequence" type="xs:boolean" use="optional" default="false"/>
-		<xs:attribute name="searchable" type="xs:boolean" use="optional" default="false"/>
 	</xs:complexType>
 	<!-- Definição do tipo que representa um contentor de campos -->
 	<xs:complexType name="t_fieldContainer">
 		<xs:sequence>
 			<xs:element name="field" type="t_field" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!-- Definição do elemento que representa uma relação 1-1 -->
-	<xs:complexType name="t_oneToOne_relation">
-		<xs:attribute name="name" type="xs:string" use="required"/>
-		<xs:attribute name="entity" type="xs:string" use="required"/>
-		<xs:attribute name="minOccurs" type="t_one" use="required"/>
-		<xs:attribute name="maxOccurs" type="t_one" use="required"/>
-	</xs:complexType>
-	<!-- Definição do elemento que representa uma relação 1-n -->
-	<xs:complexType name="t_oneToMany_relation">
-		<xs:attribute name="name" type="xs:string" use="required"/>
-		<xs:attribute name="entity" type="xs:string" use="required"/>
-		<xs:attribute name="minOccurs" type="t_zeroOrOne" use="required"/>
-		<xs:attribute name="maxOccurs" type="t_oneOrMany" use="required"/>
-	</xs:complexType>
-	<!-- Definição do elemento que representa uma relação n-n -->
-	<xs:complexType name="t_manyToMany_relation">
-		<xs:attribute name="name" type="xs:string" use="required"/>
-		<xs:attribute name="entity" type="xs:string" use="required"/>
-		<xs:attribute name="minOccurs" type="t_zeroOrOne" use="required"/>
-		<xs:attribute name="maxOccurs" type="t_oneOrMany" use="required"/>
-	</xs:complexType>
-	<!-- Definição do elemento que representa o contentor de relações -->
-	<xs:complexType name="t_relations">
-		<xs:sequence maxOccurs="unbounded">
-			<xs:choice>
-				<xs:element name="oneToOne" type="t_oneToOne_relation"/>
-				<xs:element name="oneToMany" type="t_oneToMany_relation"/>
-				<xs:element name="manyToMany" type="t_manyToMany_relation"/>
-			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- Definição do elemento que representa uma entidade -->
@@ -263,19 +231,59 @@
 					<xs:field xpath="@name"/>
 				</xs:unique>
 			</xs:element>
-			<xs:element name="relations" type="t_relations" minOccurs="0">
-				<xs:unique name="un_relationName">
-					<xs:selector xpath="*"/>
-					<xs:field xpath="@name"/>
-				</xs:unique>
-			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string" use="required"/>
 		<xs:attribute name="type" type="t_entityType" use="required"/>
 		<xs:attribute name="baseEntity" use="optional"/>
 	</xs:complexType>
 	
-	<!-- ================== VALIDAÇÃO DE ENVIRONMENTS ================== -->
+	
+	<!-- ================== DEFINIÇÃO DE <relations> ================== -->	
+	<!-- Definição do enumerado correspondente ao tipo de relação -->
+	<xs:simpleType name="t_relationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OneToMany"/>
+			<xs:enumeration value="ManyToOne"/>
+			<xs:enumeration value="ManyToMany"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definição do elemento que representa uma entidade numa relação ManyToMany -->
+	<xs:complexType name="t_relationEntity">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="relationName" type="xs:string" use="required"/>
+		<xs:attribute name="nillable" type="xs:boolean" use="required"/>
+		<xs:attribute name="inverse" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<!-- Definição do elemento que representa uma relação -->
+	<xs:complexType name="t_relation">
+		<xs:sequence minOccurs="0">
+			<xs:element name="entity" type="t_relationEntity" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="t_relationType" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="optional"/>
+		<xs:attribute name="entityName" type="xs:string" use="optional"/>
+		<xs:attribute name="oneEntity" type="xs:string" use="optional"/>
+		<xs:attribute name="manyEntity" type="xs:string" use="optional"/>
+		<xs:attribute name="minOccurs" type="t_oneOrMany" use="required"/>
+		<xs:attribute name="maxOccurs" type="t_oneOrMany" use="required"/>
+		<xs:attribute name="nillable" type="xs:boolean" use="optional"/>
+		<xs:attribute name="inverse" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<!-- Definição do elemento que representa o contentor de relações -->
+	<xs:complexType name="t_relations">
+		<xs:sequence maxOccurs="unbounded">
+				<xs:element name="relation" type="t_relation">
+					<!-- Restrição de unicidade ao nome da relação na entidade associativa -->
+					<xs:unique name="un_relationEntityRefName">
+						<xs:selector xpath="entity"/>
+						<xs:field xpath="@relationName"/>
+					</xs:unique>
+				</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<!-- ================== DEFINIÇÃO DE <environments> ================== -->
 	<!-- Definição do tipo que representa o tipo de provider utiilzado -->
 	<xs:simpleType name="t_serverType">
 		<xs:restriction base="xs:string">
@@ -322,7 +330,7 @@
 	</xs:complexType>
 	
 
-	<!-- ================== VALIDAÇÃO DE BUSINESS PROCESSES ================== -->
+	<!-- ================== DEFINIÇÃO DE <businessProcesses> ================== -->
 	<!-- Definição do tipo que representa um parâmetro -->
 	<xs:complexType name="t_param">
 		<xs:attribute name="type" type="xs:string" use="required"/>
@@ -336,22 +344,22 @@
 			<xs:element name="param" type="t_param" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- Definição do tipo que representa um parâmetro -->
+	<!-- Definição do tipo que representa o retorno de um business process -->
 	<xs:complexType name="t_output">
 		<xs:attribute name="type" type="xs:string" use="required"/>
-		<xs:attribute name="minOccurs" type="t_zeroOrMany" use="optional" default="1"/>
-		<xs:attribute name="maxOccurs" type="t_zeroOrMany" use="optional" default="1"/>
+		<xs:attribute name="minOccurs" type="t_one" use="optional" default="1"/>
+		<xs:attribute name="maxOccurs" type="t_oneOrMany" use="optional" default="1"/>
 	</xs:complexType>
 	<!-- Definição do elemento que representa um business process -->
 	<xs:complexType name="t_businessProcess">
 		<xs:sequence>
-			<xs:element name="input" type="t_input">
+			<xs:element name="input" type="t_input" minOccurs="0" maxOccurs="unbounded">
 				<xs:unique name="un_paramName">
 					<xs:selector xpath="param"/>
 					<xs:field xpath="@name"/>
 				</xs:unique>
 			</xs:element>
-			<xs:element name="output" type="t_output" minOccurs="0"/>
+			<xs:element name="output" type="t_output" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string" use="required"/>
 		<xs:attribute name="description" type="xs:string" use="required"/>
@@ -376,12 +384,12 @@
 	</xs:complexType>
 	
 	
-	
-	<!-- ================== VALIDAÇÃO GERAL DO DICIONÁRIO ================== -->
+	<!-- ================== DEFINIÇÃO DE <solution> ================== -->
 	<!-- Definição do elemento SOLUTION -->
 	<xs:element name="solution">
 		<xs:complexType>
 			<xs:sequence>
+			
 				<!-- Definição do elemento USERTYPES -->
 				<xs:element name="userTypes" type="t_userType">
 					<xs:unique name="un_platformType_name">
@@ -389,8 +397,10 @@
 						<xs:field xpath="@name"/>
 					</xs:unique>
 				</xs:element>
+				
 				<!-- Definição do elemento ENVIRONMENTS -->
 				<xs:element name="environments" type="t_environments" minOccurs="0"/>
+				
 				<!-- Definição do elemento BUSINESSPROCESSES -->
 				<xs:element name="businessProcesses" type="t_businessProcesses" minOccurs="0">
 					<xs:unique name="un_componentName">
@@ -398,11 +408,13 @@
 						<xs:field xpath="@name"/>
 					</xs:unique>
 				</xs:element>
+				
 				<!-- Definição do elemento ENTITIES -->
 				<xs:element name="entities">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="entity" type="t_entity" maxOccurs="unbounded"/>
+							<xs:element name="relations" type="t_relations" maxOccurs="1"/>
 						</xs:sequence>
 					</xs:complexType>
 					<!-- Restrição de unicidade ao nome da entidade-->
@@ -410,7 +422,7 @@
 						<xs:selector xpath="entity"/>
 						<xs:field xpath="@name"/>
 					</xs:unique>
-					<!-- Restrição referencial do atributo baseType de entity para nome de entity existente -->
+					<!-- Restrição referencial do atributo baseType de entity para nome de uma entity existente -->
 					<xs:key name="entityName">
 						<xs:selector xpath="entity"/>
 						<xs:field xpath="@name"/>
@@ -419,22 +431,49 @@
 						<xs:selector xpath="entity"/>
 						<xs:field xpath="@baseEntity"/>
 					</xs:keyref>
+					<!-- Restrição referencial dos atributos oneEntity, manyEntity e entityName de relation para nome de entity existente -->
+					<xs:keyref name="refRelationOneEntityName" refer="entityName">
+						<xs:selector xpath="relations/relation"/>
+						<xs:field xpath="@oneEntity"/>
+					</xs:keyref>
+					<xs:keyref name="refRelationManyEntityName" refer="entityName">
+						<xs:selector xpath="relations/relation"/>
+						<xs:field xpath="@manyEntity"/>
+					</xs:keyref>
+					<xs:keyref name="refRelationAssociativeEntityName" refer="entityName">
+						<xs:selector xpath="relations/relation"/>
+						<xs:field xpath="@entityName"/>
+					</xs:keyref>
+					<!-- Restrição referencial do atributo name de relation/entity para nome de entity existente -->
+					<xs:keyref name="refManyToManyRelationParticipantEntity" refer="entityName">
+						<xs:selector xpath="relations/relation/entity"/>
+						<xs:field xpath="@name"/>
+					</xs:keyref>
 				</xs:element>
+				
 			</xs:sequence>
+			
 			<xs:attribute name="companyName" type="xs:string" use="required"/>
 			<xs:attribute name="projectName" type="xs:string" use="required"/>
 		</xs:complexType>
-		<!-- Restrição referencial do atributo type de field para nome de tipo existente -->
+		
 		<xs:key name="typeName">
 			<xs:selector xpath="userTypes/*"/>
 			<xs:field xpath="@name"/>
 		</xs:key>
+		<!-- Restrição referencial do atributo type de field para nome de tipo existente -->
 		<xs:keyref name="refTypeName_EntityField" refer="typeName">
 			<xs:selector xpath="entities/entity/fields/field"/>
 			<xs:field xpath="@type"/>
 		</xs:keyref>
+		<!-- Restrição referencial do atributo type de input de um business process para nome de tipo existente -->
 		<xs:keyref name="refTypeName_BusProcParam" refer="typeName">
-			<xs:selector xpath="businesProcesses/component/businesProcess/input/param"/>
+			<xs:selector xpath="businessProcesses/component/businessProcess/input/param"/>
+			<xs:field xpath="@type"/>
+		</xs:keyref>
+		<!-- Restrição referencial do atributo type de output de um business process para nome de tipo existente -->
+		<xs:keyref name="refTypeName_BusProcOutput" refer="typeName">
+			<xs:selector xpath="businessProcesses/component/businessProcess/output"/>
 			<xs:field xpath="@type"/>
 		</xs:keyref>
 	</xs:element>

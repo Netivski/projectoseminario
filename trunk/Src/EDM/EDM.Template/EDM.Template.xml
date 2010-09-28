@@ -171,10 +171,6 @@
           <Input Name="AppProject" RecipeArgument="AppProjectName"/>
         </Action>
 
-        <Action Name="AttachBuildHandler" Type="EDM.Template.Actions.AttachBuildEventHandlerAction, EDM.Template">
-          <Input Name="AppCompany" RecipeArgument="AppCompanyName"/>
-          <Input Name="AppProject" RecipeArgument="AppProjectName"/>
-        </Action>
       </Actions>
     </Recipe>
 
@@ -183,7 +179,7 @@
       <Caption>Synchronize solution with 3D</Caption>
 
       <HostData>
-        <Icon ID="172" />
+        <Icon ID="159" />
         <CommandBar Name="Solution"/>
       </HostData>
 
@@ -206,7 +202,7 @@
       <Caption>Generate database schema</Caption>
 
       <HostData>
-        <Icon ID="172" />
+        <Icon ID="521" />
         <CommandBar Name="Solution"/>
       </HostData>
 

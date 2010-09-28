@@ -64,12 +64,14 @@ namespace EDM.Template.Actions
             data.Save(Path.Combine(solutionDirectory, @"3d\3d.xml"));
         }
 
-        private void DoCopy(DTE vs, String srcLocation, String destLocation, String folderName)
+        private void DoCopy(DTE m_application, String srcLocation, String destLocation, String folderName)
         {
+            m_application.StatusBar.Text = "Starting copy of solution folder '" + folderName + "' items";
+
             String sourceDir = Path.Combine(srcLocation, folderName);
             String targetDir = Path.Combine(destLocation, folderName);
 
-            Project targetProj = ProjectFinder.GetProject(vs, folderName);
+            Project targetProj = ProjectFinder.GetProject(m_application, folderName);
 
             foreach (String file in Directory.GetFiles(sourceDir))
             {
@@ -79,8 +81,11 @@ namespace EDM.Template.Actions
                     true
                 );
                 targetProj.ProjectItems.AddFromFile(Path.Combine(targetDir, Path.GetFileName(file)));
-                vs.ActiveWindow.Close(EnvDTE.vsSaveChanges.vsSaveChangesNo);
+                m_application.ActiveWindow.Close(EnvDTE.vsSaveChanges.vsSaveChangesNo);
             }
+
+            m_application.StatusBar.Text = "Copy of solution folder '" + folderName + "' items finished!";
+            m_application.StatusBar.Highlight(true);
         }
         #endregion
     }

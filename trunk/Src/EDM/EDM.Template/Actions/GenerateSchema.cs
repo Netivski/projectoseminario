@@ -5,8 +5,9 @@ using Microsoft.Practices.RecipeFramework;
 using EnvDTE;
 using System.IO;
 using NHibernate.Tool.hbm2ddl;
-using System.Windows.Forms;
 using System.Reflection;
+using EDM.Template.Utils;
+
 
 #endregion
 
@@ -33,7 +34,10 @@ namespace EDM.Template.Actions
                 GetService<DTE>(true).ExecuteCommand("Build.BuildSolution", String.Empty);
             }
             else
-                System.Windows.Forms.MessageBox.Show("Schema not being generated!");
+            {
+                m_ApplicationObject.StatusBar.Text = "Schema generation is disabled.";
+                m_ApplicationObject.StatusBar.Highlight(true);
+            }
         }
 
         public override void Undo()
@@ -54,78 +58,47 @@ namespace EDM.Template.Actions
 
             if (Success && Path.GetDirectoryName(Project).Equals(pName))
             {
+                m_ApplicationObject.StatusBar.Text =
+                    "Schema generation starting."
+                    + "This may take a while! Please be patient...";
+                m_ApplicationObject.StatusBar.Highlight(false);
+
                 string targetSolDir = Path.GetDirectoryName(
                     (string)m_ApplicationObject.Solution.Properties.Item("Path").Value
                 );
+                string targetCreateLocation = Path.Combine(targetSolDir, @"Persistence\dbSchemaCreate.sql");
+                string targetUpdateLocation = Path.Combine(targetSolDir, @"Persistence\dbSchemaUpdate.sql");
+
                 try
                 {
-                    //Assembly edmFoundation = Assembly.LoadFrom(
-                    //    Path.Combine(targetSolDir, @"Assembly\EDM.FoundationClasses.dll")
-                    //);
-                    //AppDomain.CurrentDomain.Load(edmFoundation.GetName());
-
-                    //Assembly ent = Assembly.LoadFrom(
-                    //    Path.Combine(targetSolDir, AppCompany + "." + AppProject + ".Ws" + @"\bin" + @"\" + pName + ".dll")
-                    //);
-                    //AppDomain.CurrentDomain.Load(ent.GetName());
-
-
                     DirectoryInfo d = new DirectoryInfo(
-                        Path.Combine(targetSolDir, AppCompany + "." + AppProject + @".Entity\bin\" + ProjectConfig)
+                        Path.Combine(targetSolDir, pName + @"\bin\" + ProjectConfig + @"\")
                     );
 
-                    Assembly asm;
                     foreach (FileInfo f in d.GetFiles("*.dll"))
                     {
-                        asm = Assembly.LoadFrom(f.FullName);
-                        AppDomain.CurrentDomain.Load(asm.GetName());
-                        foreach (AssemblyName a in asm.GetReferencedAssemblies())
-                            AppDomain.CurrentDomain.Load(a);
+                        AppDomain.CurrentDomain.Load(Assembly.LoadFrom(f.FullName).GetName());
                     }
-                    TextWriter cons = new StreamWriter(@"c:\temp\out.txt",false);
-                    Console.SetOut(cons);
-                    try
-                    {
-                        foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
-                        {
-                            Console.WriteLine(a.GetName());
-                        }
-                        cons.Flush();
-                        cons.Close();
-                    }
-                    catch (Exception e)
-                    {
-                        System.Windows.Forms.MessageBox.Show(
-                           "Exception caught while generating schema!\n" + e.InnerException.Message
-                        );
-                    }
+
                     string hibernateCfg = Path.Combine(targetSolDir, AppCompany + "." + AppProject + @".Ws\hibernate.cfg.xml");
                     NHibernate.Cfg.Configuration cfg = new NHibernate.Cfg.Configuration();
-                    cfg.Configure(hibernateCfg);
-                    //cfg.AddAssembly(ent);
-                    //cfg.Configure();
+
+                    AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
+                    try { cfg.Configure(hibernateCfg); }
+                    finally { AppDomain.CurrentDomain.AssemblyResolve -= CurrentDomain_AssemblyResolve; }
 
                     //Schema Creation Script
                     SchemaExport sExport = new SchemaExport(cfg);
-                    TextWriter createWriter = new StreamWriter(
-                        File.Create(
-                            Path.Combine(targetSolDir, @"\Persistence\dbSchemaCreate.sql")
-                        )
-                    );
+                    TextWriter createWriter = new StreamWriter(File.Create(targetCreateLocation));
                     sExport.Execute(txt => createWriter.WriteLine(txt), false, false);
                     createWriter.Close();
 
                     //Schema Update Script
                     SchemaUpdate sUpdate = new SchemaUpdate(cfg);
-                    sUpdate.Execute(txt => createWriter.WriteLine(txt), false);
-                    TextWriter updateWriter = new StreamWriter(
-                        File.Create(
-                            Path.Combine(targetSolDir, @"\Persistence\dbSchemaUpdate.sql")
-                        )
-                    );
+                    TextWriter updateWriter = new StreamWriter(File.Create(targetUpdateLocation));
                     sUpdate.Execute(txt => updateWriter.WriteLine(txt), false);
                     updateWriter.Close();
-                    System.Windows.Forms.MessageBox.Show("Schema generation completed successfuly!");
                 }
                 catch (Exception e)
                 {
@@ -133,13 +106,34 @@ namespace EDM.Template.Actions
                         "Exception caught while generating schema!\n" + e.InnerException.Message
                     );
                 }
-                m_BuildEvents.OnBuildProjConfigDone -= m_BuildEvents_OnBuildProjConfigDone;
+                finally
+                {
+                    m_BuildEvents.OnBuildProjConfigDone -= m_BuildEvents_OnBuildProjConfigDone;
+                }
+                Project targetProject = ProjectFinder.GetProject(m_ApplicationObject, "Persistence");
+                targetProject.ProjectItems.AddFromFile(targetCreateLocation);
+                targetProject.ProjectItems.AddFromFile(targetUpdateLocation);
+                m_ApplicationObject.StatusBar.Text = "Schema generation completed successfuly!";
+                m_ApplicationObject.StatusBar.Highlight(true);
             }
             else if (!Success)
             {
-                System.Windows.Forms.MessageBox.Show("Schema was not generated.");
+                m_ApplicationObject.StatusBar.Text =
+                    "Schema generation failed to initialize due to project build error!";
+                m_ApplicationObject.StatusBar.Highlight(true);
                 m_BuildEvents.OnBuildProjConfigDone -= m_BuildEvents_OnBuildProjConfigDone;
             }
+        }
+
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            AssemblyName aName = new AssemblyName(args.Name);
+            foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (a.GetName().Name.Equals(aName.Name))
+                    return a;
+            }
+            return null;
         }
         #endregion
     }
