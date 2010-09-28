@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="FirstProject"
+                   namespace="FirstProject">
+	<class name="Editor" table="Editor" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="Nome" column="Nome" not-null="false" />
+		<property name="Pais" column="Pais" not-null="false" />
+	
+		<bag name="_Albuns" access="field" table="Album" inverse="true">
+			<key column="EditorId" />
+			<one-to-many class="Album" />
+		</bag>
+	</class>
+</hibernate-mapping>

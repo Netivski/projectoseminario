@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="FirstProject"
+                   namespace="FirstProject">
+	<class name="EP" table="Album" lazy="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="DtLancamento" column="DtLancamento" not-null="false" />
+		<property name="Titulo" column="Titulo" not-null="false" />
+	
+		<bag name="_Faixas" access="field" table="Faixa" inverse="true">
+			<key column="EPId" />
+			<one-to-many class="Faixa" />
+		</bag>
+	</class>
+</hibernate-mapping>
