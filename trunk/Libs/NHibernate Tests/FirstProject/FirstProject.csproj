@@ -51,14 +51,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Album.cs" />
+    <Compile Include="Domain\Editor.cs" />
+    <Compile Include="Domain\EP.cs" />
+    <Compile Include="Domain\Faixa.cs" />
+    <Compile Include="Domain\Interprete.cs" />
+    <Compile Include="Domain\Loja.cs" />
+    <Compile Include="Domain\LojaAlbum.cs" />
+    <Compile Include="Domain\LP.cs" />
     <Compile Include="Domain\Person.cs" />
     <Compile Include="MainClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mappings\Album.hbm.xml" />
+    <Content Include="Mappings\Editor.hbm.xml" />
+    <Content Include="Mappings\EP.hbm.xml" />
+    <Content Include="Mappings\Faixa.hbm.xml" />
     <Content Include="Mappings\hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Mappings\Loja.hbm.xml" />
+    <Content Include="Mappings\LojaAlbum.hbm.xml" />
+    <Content Include="Mappings\LP.hbm.xml" />
     <EmbeddedResource Include="Mappings\Person.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
