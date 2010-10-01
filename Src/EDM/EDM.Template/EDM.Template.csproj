@@ -122,26 +122,27 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Solution Items\3D\3dValidator.xsd">
+    <Content Include="Solution Items\3D\3dValidator.xsd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Solution Items\3D\3d.xml">
+    <Content Include="Solution Items\3D\3d.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\Antlr3.Runtime.dll">
+    </Content>
+    <Content Include="Solution Items\Assembly\Antlr3.Runtime.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\NHibernate.ByteCode.LinFu.dll">
+    </Content>
+    <Content Include="Solution Items\Assembly\NHibernate.ByteCode.LinFu.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\NHibernate.xml">
+    </Content>
+    <Content Include="Solution Items\Assembly\NHibernate.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
+    <Content Include="Solution Items\Assembly\nunit.framework.license.txt" />
     <Content Include="Templates\Solutions\Projects\EDM.Services\EDM.Services.csproj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -173,51 +174,51 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="Utils\ProjectFinder.cs" />
-    <None Include="Solution Items\Assembly\EDM.FoundationClasses.dll">
+    <Content Include="Solution Items\Assembly\EDM.FoundationClasses.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\Iesi.Collections.dll">
+    </Content>
+    <Content Include="Solution Items\Assembly\Iesi.Collections.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\Iesi.Collections.license.txt">
+    </Content>
+    <Content Include="Solution Items\Assembly\Iesi.Collections.license.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\Iesi.Collections.xml">
+    </Content>
+    <Content Include="Solution Items\Assembly\Iesi.Collections.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\log4net.dll">
+    </Content>
+    <Content Include="Solution Items\Assembly\log4net.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\log4net.license.txt">
+    </Content>
+    <Content Include="Solution Items\Assembly\log4net.license.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\log4net.xml">
+    </Content>
+    <Content Include="Solution Items\Assembly\log4net.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\nhibernate-configuration.xsd">
+    </Content>
+    <Content Include="Solution Items\Assembly\nhibernate-configuration.xsd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\nhibernate-mapping.xsd">
+    </Content>
+    <Content Include="Solution Items\Assembly\nhibernate-mapping.xsd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\NHibernate.dll">
+    </Content>
+    <Content Include="Solution Items\Assembly\NHibernate.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\NHibernate.license.txt">
+    </Content>
+    <Content Include="Solution Items\Assembly\NHibernate.license.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\nunit.framework.dll">
+    </Content>
+    <Content Include="Solution Items\Assembly\nunit.framework.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\NUnitAsp.dll">
+    </Content>
+    <Content Include="Solution Items\Assembly\NUnitAsp.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\Rhino.Mocks.dll">
+    </Content>
+    <Content Include="Solution Items\Assembly\Rhino.Mocks.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Solution Items\Assembly\Rhino.Mocks.xml">
+    </Content>
+    <Content Include="Solution Items\Assembly\Rhino.Mocks.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="Templates\Solutions\Projects\EDM.Ws\EDM.Ws.webproj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
