@@ -382,7 +382,7 @@ namespace EDM.Generator.Engine.Step
                 XmlNode typeNode = Utils.XML.Get.GetNode(context.ThreeDFile.Content, string.Concat("/solution/userTypes/*[@name = '", node.Attributes["type"].Value.ToString(), "']"));
                 String baseType = typeNode.Name;
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, node, "edmType", baseType);
-            }           
+            }
         }
     }
 }
