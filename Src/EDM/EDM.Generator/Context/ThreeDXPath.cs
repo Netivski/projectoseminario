@@ -139,5 +139,21 @@ namespace EDM.Generator.Context
                 return string.Concat(Entity,"[@type != 'abstract' and @type != 'abstractdependent']");
             }
         }
+
+        public string BusinessObject
+        {
+            get
+            {
+                return string.Concat(Solution, "/businessObject");
+            }
+        }
+        public string BusinessObjectEntity
+        {
+            get
+            {
+                return string.Concat(BusinessObject, "/entity");
+            }
+        }
+
     }
 }

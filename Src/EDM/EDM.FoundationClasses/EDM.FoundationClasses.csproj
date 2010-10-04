@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObject\IBusinessObject.cs" />
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Environment\IEnvironment.cs" />
     <Compile Include="Exception\EntityStateException.cs" />

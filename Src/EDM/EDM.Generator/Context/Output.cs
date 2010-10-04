@@ -32,6 +32,17 @@ namespace EDM.Generator.Context
             get { return Path.Combine(resultDirectory.FullName, string.Format("{0}.{1}", nameSpace, "Entity")); }
         }
 
+        public string EntityBusinessObjectPath
+        {
+            get { return Path.Combine(resultDirectory.FullName, Path.Combine(EntityProjectPath, "BusinessObject")); }
+        }
+
+        public string EntityBusinessObjectBasePath
+        {
+            get { return Path.Combine(EntityBusinessObjectPath, "Base"); }
+        }
+
+
         public string EntityDataPath
         {
             get { return Path.Combine(resultDirectory.FullName, Path.Combine(EntityProjectPath, "Data")); }
