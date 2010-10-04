@@ -93,7 +93,7 @@
   <!--Servidores de BD-->
 	<environments>
 		<dataEnvironments>
-			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=127.0.0.1;Initial Catalog=iselsample;User Id=iselsample;Password=iselsample;" serverName="127.0.0.1" instance="SQLSERVER1" username="iselsample" password="iselsample" catalog="iselsample"/>
+			<provider name="FirstBDServer" type="MsSql2005" connectionString="Server=127.0.0.1;Initial Catalog=iselsampletest;User Id=iselsample;Password=iselsample;" serverName="127.0.0.1" instance="SQLSERVER1" username="iselsample" password="iselsample" catalog="iselsample"/>
 		</dataEnvironments>
 	</environments>
   
@@ -154,6 +154,16 @@
     </component>
    
     </businessProcesses>
+
+  <businessObject>
+    <entity name="Manager" referenceEntity="Manager"/>
+    <!--<entity name="Categoria">
+      <fields>
+        <field type="limiteCartaoCreditoDirector" name="LimiteCartaoCredito"/>
+        <field type="limiteAprovacaoDirector" name="LimiteAprovacao"/>
+      </fields>
+    </entity>-->
+  </businessObject>
 
 	<!--Definição de entidades-->
 	<entities>
