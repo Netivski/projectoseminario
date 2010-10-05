@@ -1,193 +1,193 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<solution xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="3dValidator.xsd" 
-          companyName="FutureView" 
-          projectName="ECom">
-	<userTypes>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="3dValidator.xsd" companyName="FutureView" projectName="ECom">
+  <!--Dominio de tipos-->
+  <userTypes>
     <long name="RecordId" minExclusive="0" maxInclusive="999999999"></long>
-    <string name="Email.Address" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$" length="256"/>
-    <boolean name="Email.Enabled"/>
-    <string name="Phone.Prefix" length="5"/>
-    <string name="Phone.Number" pattern="[0-9]{9}" length="9"/>
-    <string name="FixedPhone.Number" pattern="[0-9]{9}" length="9"/>
-    <string name="Address.Country" length="75"/>
-    <string name="Address.Line1" length="100"/>
-    <string name="Address.Line2" length="100"/>
-    <string name="Address.PostalCode" length="20"/>
-    <string name="Address.PostalCodeDesc" length="75"/>
-    <string name="Customer.UserName" length="25"/>
-    <string name="Customer.Password" length="50"/>
-    <boolean name="Customer.AccountNonExpired"/>
-    <boolean name="Customer.AccountNonLocked"/>
-    <boolean name="Customer.CredentialsNonExpired"/>
-    <boolean name="Customer.Enabled"/>
-    <boolean name="Customer.LastFailedLogin"/>
-    <boolean name="Customer.FailedLoginCount"/>
-    <DateTime name="Customer.LastLoginDate"/>
-    <DateTime name="Customer.CreateDate"/>
-    <DateTime name="Customer.BirthDate"/>
-    <string name="Customer.Hint" length="256"/>
-    <string name="Customer.HintAnswer" length="256"/>
-    <string name="LastPassword.Password" length="50"/>
-    <DateTime name="LastPassword.CreateDate"/>
-    <string name="Sku.Description" length="256"/>
-    <boolean name="Sku.Available"/>
-    <decimal name="Sku.Pvp" minExclusive="0" maxInclusive="1500"/>
-    <decimal name="Sku.Discount" minExclusive="0" maxInclusive="70"/>
-    <decimal name="Sku.FinalPrice"/>
-    <decimal name="Sku.IvaClass"/>
-    <int name="Sku.DateToMarket"/>
-    <decimal name="Sku.Weight"/>
-    <Datetime name="Sku.EffectiveStartDate"/>
-    <DateTime name="Sku.EffectiveEndDate"/>
-    <int name="Sku.MinOrderQty"/>
-    <int name="Sku.MaxOrderQty"/>
-    <string name="Sku.SmallImagePath" length="256"/>
-    <string name="Sku.LargeImagePath" length="256"/>
-    <int name="Sku.Qty" minExclusive="0" maxInclusive="9999"/>
-    <string name="Sku.SkuCode" length="25"/>
-    <string name="Order.ShipmentName" length="100"/>
-    <string name="Order.ShipmentAddressline1" length="100"/>
-    <string name="Order.ShipmentAddressline2" length="100"/>
-    <string name="Order.ShipmentCountry" length="75"/>
-    <string name="Order.ShipmentPostalCode" length="20"/>
-    <string name="Order.ShipmentPostalCodeDesc" length="75"/>
-    <string name="Order.BillingName" length="100"/>
-    <string name="Order.BillingAddressLine1" length="100"/>
-    <string name="Order.BillingAddressLine2" length="100"/>
-    <string name="Order.BillingCountry" length="75"/>
-    <string name="Order.BillingPostalCode" length="20"/>
-    <string name="Order.BillingPostalCodeDesc" length="75"/>
-    <string name="Order.BillingNif" pattern="[0-9]{9}" length="9"/>
-    <decimal name="Order.TotalAmount"/>
-    <decimal name="Order.TotalWeight"/>
-    <int name="Order.TotalItens"/>
-    <Datetime name="Order.DateOfArrival"/>
-    <decimal name="Order.DiscountAmount"/>
-    <string name="Order.Obs" length="256"/>
-    <string name="Order.StatusCode" length="10">
+    <string name="EmailAddress" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$" length="256"/>
+    <bool name="EmailEnabled"/>
+    <string name="PhonePrefix" length="5"/>
+    <string name="PhoneNumber" pattern="[0-9]{9}" length="9"/>
+    <string name="FixedPhoneNumber" pattern="[0-9]{9}" length="9"/>
+    <string name="AddressCountry" length="75"/>
+    <string name="AddressLine1" length="100"/>
+    <string name="AddressLine2" length="100"/>
+    <string name="AddressPostalCode" length="20"/>
+    <string name="AddressPostalCodeDesc" length="75"/>
+    <string name="CustomerUserName" length="25"/>
+    <string name="CustomerPassword" length="50"/>
+    <bool name="CustomerAccountNonExpired"/>
+    <bool name="CustomerAccountNonLocked"/>
+    <bool name="CustomerCredentialsNonExpired"/>
+    <bool name="CustomerEnabled"/>
+    <bool name="CustomerLastFailedLogin"/>
+    <bool name="CustomerFailedLoginCount"/>
+    <DateTime name="CustomerLastLoginDate"/>
+    <DateTime name="CustomerCreateDate"/>
+    <DateTime name="CustomerBirthDate"/>
+    <string name="CustomerHint" length="256"/>
+    <string name="CustomerHintAnswer" length="256"/>
+    <string name="LastPasswordPassword" length="50"/>
+    <DateTime name="LastPasswordCreateDate"/>
+    <string name="SkuDescription" length="256"/>
+    <bool name="SkuAvailable"/>
+    <decimal name="SkuPvp" minExclusive="0" maxInclusive="1500"/>
+    <decimal name="SkuDiscount" minExclusive="0" maxInclusive="70"/>
+    <decimal name="SkuFinalPrice"/>
+    <decimal name="SkuIvaClass"/>
+    <int name="SkuDateToMarket"/>
+    <decimal name="SkuWeight"/>
+    <DateTime name="SkuEffectiveStartDate"/>
+    <DateTime name="SkuEffectiveEndDate"/>
+    <int name="SkuMinOrderQty"/>
+    <int name="SkuMaxOrderQty"/>
+    <string name="SkuSmallImagePath" length="256"/>
+    <string name="SkuLargeImagePath" length="256"/>
+    <int name="SkuQty" minExclusive="0" maxInclusive="9999"/>
+    <string name="SkuSkuCode" length="25"/>
+    <string name="OrderHeaderShipmentName" length="100"/>
+    <string name="OrderHeaderShipmentAddressline1" length="100"/>
+    <string name="OrderHeaderShipmentAddressline2" length="100"/>
+    <string name="OrderHeaderShipmentCountry" length="75"/>
+    <string name="OrderHeaderShipmentPostalCode" length="20"/>
+    <string name="OrderHeaderShipmentPostalCodeDesc" length="75"/>
+    <string name="OrderHeaderBillingName" length="100"/>
+    <string name="OrderHeaderBillingAddressLine1" length="100"/>
+    <string name="OrderHeaderBillingAddressLine2" length="100"/>
+    <string name="OrderHeaderBillingCountry" length="75"/>
+    <string name="OrderHeaderBillingPostalCode" length="20"/>
+    <string name="OrderHeaderBillingPostalCodeDesc" length="75"/>
+    <string name="OrderHeaderBillingNif" pattern="[0-9]{9}" length="9"/>
+    <decimal name="OrderHeaderTotalAmount"/>
+    <decimal name="OrderHeaderTotalWeight"/>
+    <int name="OrderHeaderTotalItens"/>
+    <DateTime name="OrderHeaderDateOfArrival"/>
+    <decimal name="OrderHeaderDiscountAmount"/>
+    <string name="OrderHeaderObs" length="256"/>
+    <string name="OrderHeaderStatusCode" length="10">
       <enumeration>Created</enumeration>
       <enumeration>Submited</enumeration>
       <enumeration>Acepted</enumeration>
       <enumeration>Dispatched</enumeration>
       <enumeration>Canceled</enumeration>
     </string>
-    <string name="OrderItem.Description" length="256"/>
-    <boolean name="OrderItem.Available"/>
-    <decimal name="OrderItem.Pvp" minExclusive="0" maxInclusive="1500"/>
-    <decimal name="OrderItem.Discount" minExclusive="0" maxInclusive="70"/>
-    <decimal name="OrderItem.FinalPrice"/>
-    <decimal name="OrderItem.IvaClass"/>
-    <Datetime name="OrderItem.DateToMarket"/>
-    <decimal name="OrderItem.Weight"/>
-    <int name="OrderItem.Qty"/>
-    <string name="Category.Name" length="75"/>
-    <string name="Category.Description" length="256"/>
-    <string name="Category.SmallImagePath" length="256"/>
-    <string name="Category.LargeImagePath" length="256"/>
-    <Datetime name="Category.EffectiveStartDate"/>
-    <Datetime name="Category.EffectiveEndDate"/>
-    <string name="RuntimeAuthorization.TypeName" length="256"/>
-    <string name="RuntimeAuthorization.MethodName" length="256"/>
-    <string name="RuntimeAuthorizationUser.UserName" length="25"/>
-    <string name="IndividualCustomer.Nif" length="9"/>
-    <string name="IndividualCustomer.FirstName" length="25"/>
-    <string name="IndividualCustomer.LastName" length="25"/>
-    <string name="IndividualCustomer.Title" length="25">
+    <string name="OrderItemDescription" length="256"/>
+    <bool name="OrderItemAvailable"/>
+    <decimal name="OrderItemPvp" minExclusive="0" maxInclusive="1500"/>
+    <decimal name="OrderItemDiscount" minExclusive="0" maxInclusive="70"/>
+    <decimal name="OrderItemFinalPrice"/>
+    <decimal name="OrderItemIvaClass"/>
+    <DateTime name="OrderItemDateToMarket"/>
+    <decimal name="OrderItemWeight"/>
+    <int name="OrderItemQty"/>
+    <string name="CategoryName" length="75"/>
+    <string name="CategoryDescription" length="256"/>
+    <string name="CategorySmallImagePath" length="256"/>
+    <string name="CategoryLargeImagePath" length="256"/>
+    <DateTime name="CategoryEffectiveStartDate"/>
+    <DateTime name="CategoryEffectiveEndDate"/>
+    <string name="RuntimeAuthorizationTypeName" length="256"/>
+    <string name="RuntimeAuthorizationMethodName" length="256"/>
+    <string name="RuntimeAuthorizationUserUserName" length="25"/>
+    <string name="IndividualCustomerNif" length="9"/>
+    <string name="IndividualCustomerFirstName" length="25"/>
+    <string name="IndividualCustomerLastName" length="25"/>
+    <string name="IndividualCustomerTitle" length="25">
       <enumeration>Sr.</enumeration>
       <enumeration>Eng.</enumeration>
       <enumeration>Dr.</enumeration>
       <enumeration>Prof.</enumeration>
       <enumeration>Prof. Dr.</enumeration>
     </string>
-    <string name="BusinessCustomer.Nif" length="9"/>
-    <string name="BusinessCustomer.Name" length="100"/>
-    <decimal name="BusinessCustomer.Capital" />
-    <decimal name="BusinessCustomer.CreditLimit"/>
+    <string name="BusinessCustomerNif" length="9"/>
+    <string name="BusinessCustomerName" length="100"/>
+    <decimal name="BusinessCustomerCapital" />
+    <decimal name="BusinessCustomerCreditLimit"/>
   </userTypes>
-	
-	<environments>
-		<dataEnvironments>
-			<provider name="FirstBDServer" type="MsSql2008" connectionString="Server=127.0.0.1;Initial Catalog=futureviewecom;User Id=futureviewecom;Password=futureviewecom;" serverName="127.0.0.1" instance="SQLSERVER1" username="futureviewecom" password="futureviewecom" catalog="futureviewecom"/>
-		</dataEnvironments>
-	</environments>
-  
+  <!--Servidores de BD-->
+  <environments>
+    <dataEnvironments>
+      <provider name="FirstBDServer" type="MsSql2005" connectionString="Server=127.0.0.1;Initial Catalog=futureviewecom;User Id=futureviewecom;Password=futureviewecom;" serverName="127.0.0.1" instance="SQLSERVER1" username="futureviewecom" password="futureviewecom" catalog="futureviewecom"/>
+    </dataEnvironments>
+  </environments>
+
   <businessProcesses>
     <component name="Registo">
       <businessProcess name="RegisterIndividualCustomer" description="Register Individual Customer">
         <input>
-          <param type="Customer.UserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.Password" name="Password" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.BirthDate" name="BirthDate" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.Hint" name="Hint" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.HintAnswer" name="HintAnswer" minOccurs="1" maxOccurs="1"></param>
-          <param type="IndividualCustomer.Nif" name="Nif" minOccurs="1" maxOccurs="1"></param>
-          <param type="IndividualCustomer.FirstName" name="FirstName" minOccurs="1" maxOccurs="1"></param>
-          <param type="IndividualCustomer.LastName" name="LastName" minOccurs="1" maxOccurs="1"></param>
-          <param type="IndividualCustomer.Title" name="Title" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerPassword" name="Password" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerBirthDate" name="BirthDate" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerHint" name="Hint" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerHintAnswer" name="HintAnswer" minOccurs="1" maxOccurs="1"></param>
+          <param type="IndividualCustomerNif" name="Nif" minOccurs="1" maxOccurs="1"></param>
+          <param type="IndividualCustomerFirstName" name="FirstName" minOccurs="1" maxOccurs="1"></param>
+          <param type="IndividualCustomerLastName" name="LastName" minOccurs="1" maxOccurs="1"></param>
+          <param type="IndividualCustomerTitle" name="Title" minOccurs="1" maxOccurs="1"></param>
         </input>
         <output type="RecordId" minOccurs="1" maxOccurs="1"/>
       </businessProcess>
 
       <businessProcess name="RegisterBusinessCustomer" description="Register Business Customer">
         <input>
-          <param type="Customer.UserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.Password" name="Password" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.BirthDate" name="BirthDate" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.Hint" name="Hint" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.HintAnswer" name="HintAnswer" minOccurs="1" maxOccurs="1"></param>
-          <param type="BusinessCustomer.Nif" name="Nif" minOccurs="1" maxOccurs="1"></param>
-          <param type="BusinessCustomer.Name" name="Name" minOccurs="1" maxOccurs="1"></param>
-          <param type="BusinessCustomer.Capital" name="Capital" minOccurs="1" maxOccurs="1"></param>
-          <param type="BusinessCustomer.CreditLimit" name="CreditLimit" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerPassword" name="Password" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerBirthDate" name="BirthDate" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerHint" name="Hint" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerHintAnswer" name="HintAnswer" minOccurs="1" maxOccurs="1"></param>
+          <param type="BusinessCustomerNif" name="Nif" minOccurs="1" maxOccurs="1"></param>
+          <param type="BusinessCustomerName" name="Name" minOccurs="1" maxOccurs="1"></param>
+          <param type="BusinessCustomerCapital" name="Capital" minOccurs="1" maxOccurs="1"></param>
+          <param type="BusinessCustomerCreditLimit" name="CreditLimit" minOccurs="1" maxOccurs="1"></param>
         </input>
         <output type="RecordId" minOccurs="1" maxOccurs="1"/>
       </businessProcess>
 
       <businessProcess name="ChangePassword" description="Change Customer Password">
         <input>
-          <param type="Customer.UserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.Password" name="OldPassword" minOccurs="1" maxOccurs="1"></param>
-          <param type="Customer.Password" name="NewPassword" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerPassword" name="OldPassword" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerPassword" name="NewPassword" minOccurs="1" maxOccurs="1"></param>
         </input>
       </businessProcess>
 
       <businessProcess name="ResetPassword" description="Reset Customer Password">
         <input>
-          <param type="Customer.UserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
         </input>
       </businessProcess>
 
     </component>
+    
     <component name="Consulta">
       <businessProcess name="ReadCategory" description="Read Category">
         <input/>
         <output type="RecordId" minOccurs="0" maxOccurs="unbounded"/>
-      </businessProcess>      
-    </component>    
+      </businessProcess>
+    </component>
 
     <component name="Venda"></component>
   </businessProcesses>
-
-	<entities>
-
+  
+  <!--Definição de entidades-->
+  <entities>
     <entity type="abstract" name="Contact">
-      <fields/>      
+      <fields/>
     </entity>
 
     <entity type="dependent" baseEntity="Contact" name="Email">
       <fields>
-        <field type="Email.Address" name="Address"/>
-        <field type="Email.Enabled" name="Enabled"/>
+        <field type="EmailAddress" name="Address"/>
+        <field type="EmailEnabled" name="Enabled"/>
       </fields>
     </entity>
 
     <entity type="dependent" baseEntity="Contact" name="Phone">
       <fields>
-        <field type="Phone.Prefix" name="Prefix"/>
-        <field type="Phone.Number" name="Number"/>
+        <field type="PhonePrefix" name="Prefix"/>
+        <field type="PhoneNumber" name="Number"/>
       </fields>
     </entity>
-
+    
     <entity type="dependent" baseEntity="Phone" name="FixedPhone">
       <fields/>
     </entity>
@@ -200,13 +200,13 @@
       <fields/>
     </entity>
 
-    <entity type="abstract" name="Address">
+    <entity type="abstractdependent" name="Address" baseEntity="Contact" >
       <fields>
-        <field type="Address.Country" name="Country"/>
-        <field type="Address.Line1" name="Line1"/>
-        <field type="Address.Line2" name="Line2"/>
-        <field type="Address.PostalCode" name="PostalCode"/>
-        <field type="Address.PostalCodeDesc" name="PostalCodeDesc"/>
+        <field type="AddressCountry" name="Country"/>
+        <field type="AddressLine1" name="Line1"/>
+        <field type="AddressLine2" name="Line2"/>
+        <field type="AddressPostalCode" name="PostalCode"/>
+        <field type="AddressPostalCodeDesc" name="PostalCodeDesc"/>
       </fields>
     </entity>
 
@@ -218,129 +218,121 @@
       <fields/>
     </entity>
 
-    <entity type="dependent" baseEntity="Address" name="Costumer">
+    <entity type="dependent" baseEntity="Address" name="CustomerAddress">
       <fields/>
     </entity>
 
     <entity type="abstract" name="Customer">
       <fields>
-        <field type="Customer.UserName" name="UserName"/>
-        <field type="Customer.Password" name="Password"/>
-        <field type="Customer.AccountNonExpired" name="AccountNonExpired"/>
-        <field type="Customer.AccountNonLocked" name="AccountNonLocked"/>
-        <field type="Customer.CredentialsNonExpired" name="CredentialsNonExpired"/>
-        <field type="Customer.Enabled" name="Enabled"/>
-        <field type="Customer.LastFailedLogin" name="LastFailedLogin"/>
-        <field type="Customer.FailedLoginCount" name="FailedLoginCount"/>
-        <field type="Customer.LastLoginDate" name="LastLoginDate"/>
-        <field type="Customer.CreateDate" name="CreateDate"/>
-        <field type="Customer.BirthDate" name="BirthDate"/>
-        <field type="Customer.Hint" name="Hint"/>
-        <field type="Customer.HintAnswer" name="HintAnswer"/>
+        <field type="CustomerUserName" name="UserName"/>
+        <field type="CustomerPassword" name="Password"/>
+        <field type="CustomerAccountNonExpired" name="AccountNonExpired"/>
+        <field type="CustomerAccountNonLocked" name="AccountNonLocked"/>
+        <field type="CustomerCredentialsNonExpired" name="CredentialsNonExpired"/>
+        <field type="CustomerEnabled" name="Enabled"/>
+        <field type="CustomerLastFailedLogin" name="LastFailedLogin"/>
+        <field type="CustomerFailedLoginCount" name="FailedLoginCount"/>
+        <field type="CustomerLastLoginDate" name="LastLoginDate"/>
+        <field type="CustomerCreateDate" name="CreateDate"/>
+        <field type="CustomerBirthDate" name="BirthDate"/>
+        <field type="CustomerHint" name="Hint"/>
+        <field type="CustomerHintAnswer" name="HintAnswer"/>
       </fields>
     </entity>
 
     <entity type="dependent" baseEntity="Customer" name="IndividualCustomer">
       <fields>
-        <field type="IndividualCustomer.Nif" name="Nif"/>
-        <field type="IndividualCustomer.FirstName" name="FirstName"/>
-        <field type="IndividualCustomer.LastName" name="LastName"/>
-        <field type="IndividualCustomer.Title" name="Title"/>
+        <field type="IndividualCustomerNif" name="Nif"/>
+        <field type="IndividualCustomerFirstName" name="FirstName"/>
+        <field type="IndividualCustomerLastName" name="LastName"/>
+        <field type="IndividualCustomerTitle" name="Title"/>
       </fields>
     </entity>
 
     <entity type="dependent" baseEntity="Customer" name="BusinessCustomer">
       <fields>
-        <field type="BusinessCustomer.Nif" name="Nif"/>
-        <field type="BusinessCustomer.Name" name="Name"/>
-        <field type="BusinessCustomer.Capital" name="Capital"/>
-        <field type="BusinessCustomer.CreditLimit" name="CreditLimit"/>
+        <field type="BusinessCustomerNif" name="Nif"/>
+        <field type="BusinessCustomerName" name="Name"/>
+        <field type="BusinessCustomerCapital" name="Capital"/>
+        <field type="BusinessCustomerCreditLimit" name="CreditLimit"/>
       </fields>
     </entity>
 
-    <entity type="base" name="CustomerContact">
-      <fields/>
-    </entity>
-
-
-
     <entity type="base" name="LastPassword">
       <fields>
-        <field type="LastPassword.Password" name="Password"/>
-        <field type="LastPassword.CreateDate" name="CreateDate"/>
+        <field type="LastPasswordPassword" name="Password"/>
+        <field type="LastPasswordCreateDate" name="CreateDate"/>
       </fields>
     </entity>
 
     <entity type="base" name="Sku">
       <fields>
-        <field type="Sku.Description" name="Description"/>
-        <field type="Sku.Available" name="Available"/>
-        <field type="Sku.Pvp" name="Pvp"/>
-        <field type="Sku.Discount" name="Discount"/>
-        <field type="Sku.FinalPrice" name="FinalPrice"/>
-        <field type="Sku.IvaClass" name="IvaClass"/>
-        <field type="Sku.DateToMarket" name="DateToMarket"/>
-        <field type="Sku.Weight" name="Weight"/>
-        <field type="Sku.EffectiveStartDate" name="EffectiveStartDate"/>
-        <field type="Sku.EffectiveEndDate" name="EffectiveEndDate"/>
-        <field type="Sku.MinOrderQty" name="MinOrderQty"/>
-        <field type="Sku.MaxOrderQty" name="MaxOrderQty"/>
-        <field type="Sku.SmallImagePath" name="SmallImagePath"/>
-        <field type="Sku.LargeImagePath" name="LargeImagePath"/>
-        <field type="Sku.Qty" name="Qty"/>
-        <field type="Sku.SkuCode" name="SkuCode"/>
+        <field type="SkuDescription" name="Description"/>
+        <field type="SkuAvailable" name="Available"/>
+        <field type="SkuPvp" name="Pvp"/>
+        <field type="SkuDiscount" name="Discount"/>
+        <field type="SkuFinalPrice" name="FinalPrice"/>
+        <field type="SkuIvaClass" name="IvaClass"/>
+        <field type="SkuDateToMarket" name="DateToMarket"/>
+        <field type="SkuWeight" name="Weight"/>
+        <field type="SkuEffectiveStartDate" name="EffectiveStartDate"/>
+        <field type="SkuEffectiveEndDate" name="EffectiveEndDate"/>
+        <field type="SkuMinOrderQty" name="MinOrderQty"/>
+        <field type="SkuMaxOrderQty" name="MaxOrderQty"/>
+        <field type="SkuSmallImagePath" name="SmallImagePath"/>
+        <field type="SkuLargeImagePath" name="LargeImagePath"/>
+        <field type="SkuQty" name="Qty"/>
+        <field type="SkuSkuCode" name="SkuCode"/>
       </fields>
     </entity>
 
-
-    <entity type="base" name="Order">
+    <entity type="base" name="OrderHeader">
       <fields>
-        <field type="Order.ShipmentName" name="ShipmentName"/>
-        <field type="Order.ShipmentAddressline1" name="ShipmentAddressline1"/>
-        <field type="Order.ShipmentAddressline2" name="ShipmentAddressline2"/>
-        <field type="Order.ShipmentCountry" name="ShipmentCountry"/>
-        <field type="Order.ShipmentPostalCode" name="ShipmentPostalCode"/>
-        <field type="Order.ShipmentPostalCodeDesc" name="ShipmentPostalCodeDesc"/>
-        <field type="Order.BillingName" name="BillingName"/>
-        <field type="Order.BillingAddressLine1" name="BillingAddressLine1"/>
-        <field type="Order.BillingAddressLine2" name="BillingAddressLine2"/>
-        <field type="Order.BillingCountry" name="BillingCountry"/>
-        <field type="Order.BillingPostalCode" name="BillingPostalCode"/>
-        <field type="Order.BillingPostalCodeDesc" name="BillingPostalCodeDesc"/>
-        <field type="Order.BillingNif" name="BillingNif"/>
-        <field type="Order.TotalAmount" name="TotalAmount"/>
-        <field type="Order.TotalWeight" name="TotalWeight"/>
-        <field type="Order.TotalItens" name="TotalItens"/>
-        <field type="Order.DateOfArrival" name="DateOfArrival"/>
-        <field type="Order.DiscountAmount" name="DiscountAmount"/>
-        <field type="Order.Obs" name="Obs"/>
-        <field type="Order.StatusCode" name="StatusCode"/>
+        <field type="OrderHeaderShipmentName" name="ShipmentName"/>
+        <field type="OrderHeaderShipmentAddressline1" name="ShipmentAddressline1"/>
+        <field type="OrderHeaderShipmentAddressline2" name="ShipmentAddressline2"/>
+        <field type="OrderHeaderShipmentCountry" name="ShipmentCountry"/>
+        <field type="OrderHeaderShipmentPostalCode" name="ShipmentPostalCode"/>
+        <field type="OrderHeaderShipmentPostalCodeDesc" name="ShipmentPostalCodeDesc"/>
+        <field type="OrderHeaderBillingName" name="BillingName"/>
+        <field type="OrderHeaderBillingAddressLine1" name="BillingAddressLine1"/>
+        <field type="OrderHeaderBillingAddressLine2" name="BillingAddressLine2"/>
+        <field type="OrderHeaderBillingCountry" name="BillingCountry"/>
+        <field type="OrderHeaderBillingPostalCode" name="BillingPostalCode"/>
+        <field type="OrderHeaderBillingPostalCodeDesc" name="BillingPostalCodeDesc"/>
+        <field type="OrderHeaderBillingNif" name="BillingNif"/>
+        <field type="OrderHeaderTotalAmount" name="TotalAmount"/>
+        <field type="OrderHeaderTotalWeight" name="TotalWeight"/>
+        <field type="OrderHeaderTotalItens" name="TotalItens"/>
+        <field type="OrderHeaderDateOfArrival" name="DateOfArrival"/>
+        <field type="OrderHeaderDiscountAmount" name="DiscountAmount"/>
+        <field type="OrderHeaderObs" name="Obs"/>
+        <field type="OrderHeaderStatusCode" name="StatusCode"/>
       </fields>
     </entity>
-
 
     <entity type="base" name="OrderItem">
       <fields>
-        <field type="OrderItem.Description " name="Description "/>
-        <field type="OrderItem.Available " name="Available "/>
-        <field type="OrderItem.Pvp " name="Pvp "/>
-        <field type="OrderItem.Discount " name="Discount "/>
-        <field type="OrderItem.FinalPrice " name="FinalPrice "/>
-        <field type="OrderItem.IvaClass " name="IvaClass "/>
-        <field type="OrderItem.DateToMarket " name="DateToMarket "/>
-        <field type="OrderItem.Weight " name="Weight "/>
-        <field type="OrderItem.Qty" name="Qty"/>
+        <field type="OrderItemDescription" name="Description"/>
+        <field type="OrderItemAvailable" name="Available"/>
+        <field type="OrderItemPvp" name="Pvp"/>
+        <field type="OrderItemDiscount" name="Discount"/>
+        <field type="OrderItemFinalPrice" name="FinalPrice"/>
+        <field type="OrderItemIvaClass" name="IvaClass"/>
+        <field type="OrderItemDateToMarket" name="DateToMarket"/>
+        <field type="OrderItemWeight" name="Weight"/>
+        <field type="OrderItemQty" name="Qty"/>
       </fields>
     </entity>
 
     <entity type="base" name="Category">
       <fields>
-        <field type="Category.Name" name="Name"/>
-        <field type="Category.Description" name="Description"/>
-        <field type="Category.SmallImagePath" name="SmallImagePath"/>
-        <field type="Category.LargeImagePath" name="LargeImagePath"/>
-        <field type="Category.EffectiveStartDate " name="EffectiveStartDate "/>
-        <field type="Category.EffectiveEndDate " name="EffectiveEndDate "/>
+        <field type="CategoryName" name="Name"/>
+        <field type="CategoryDescription" name="Description"/>
+        <field type="CategorySmallImagePath" name="SmallImagePath"/>
+        <field type="CategoryLargeImagePath" name="LargeImagePath"/>
+        <field type="CategoryEffectiveStartDate" name="EffectiveStartDate"/>
+        <field type="CategoryEffectiveEndDate" name="EffectiveEndDate"/>
       </fields>
     </entity>
 
@@ -350,19 +342,29 @@
 
     <entity type="base" name="RuntimeAuthorization">
       <fields>
-        <field type="RuntimeAuthorization.TypeName" name="TypeName"/>
-        <field type="RuntimeAuthorization.MethodName" name="MethodName"/>
+        <field type="RuntimeAuthorizationTypeName" name="TypeName"/>
+        <field type="RuntimeAuthorizationMethodName" name="MethodName"/>
       </fields>
     </entity>
 
 
     <entity type="base" name="RuntimeAuthorizationUser">
       <fields>
-        <field type="RuntimeAuthorizationUser.UserName" name="UserName"/>
+        <field type="RuntimeAuthorizationUserUserName" name="UserName"/>
       </fields>
     </entity>
-    
-    <relations>             
+
+    <relations>
+      <relation type="OneToMany" name="LastPasswords" oneEntity="Customer" manyEntity="LastPassword" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="true"></relation>
+      <relation type="OneToMany" name="Contacts" oneEntity="Customer" manyEntity="Contact" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="true"></relation>
+      <relation type="OneToMany" name="Orders" oneEntity="Customer" manyEntity="OrderHeader" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="true"></relation>
+      <relation type="OneToMany" name="Items" oneEntity="OrderHeader" manyEntity="OrderItem" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="true"></relation>
+      <relation type="OneToMany" name="Users" oneEntity="RuntimeAuthorization" manyEntity="RuntimeAuthorizationUser" nillable="false" minOccurs="1" maxOccurs="unbounded" inverse="true"></relation>
+      <relation type="ManyToMany" entityName="CategorySku" minOccurs="1" maxOccurs="unbounded">
+        <entity name="Category" nillable="false" inverse="true" relationName="CategorySku"/>
+        <entity name="Sku" nillable="false" inverse="true" relationName="CategorySku"/>
+      </relation>
     </relations>
+    
   </entities>
 </solution>
