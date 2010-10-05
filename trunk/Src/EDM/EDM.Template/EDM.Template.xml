@@ -5,7 +5,7 @@
     Guid="3ff2883b-2dfb-4476-aa54-7046f9691a0a"
     SchemaVersion="1.0">
   <Recipes>
-    <Recipe Name="CreateSolution">
+    <Recipe Name="CreateSolution" Bound="false">
       <xi:include href="TypeAlias.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
       <Caption>Collects information for the new EDM solution.</Caption>
 
@@ -174,13 +174,13 @@
       </Actions>
     </Recipe>
 
-    <Recipe Name="SynchronizeMetadata">
+    <Recipe Name="SynchronizeMetadata" Bound="true" Recurrent="true">
       <xi:include href="TypeAlias.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
       <Caption>Synchronize solution with 3D</Caption>
 
       <HostData>
         <Icon ID="159" />
-        <CommandBar Name="Solution"/>
+        <CommandBar Guid="D309F791-903F-11D0-9EFC-00A0C911004F" ID="1043"/>
       </HostData>
 
       <Arguments>
@@ -197,13 +197,13 @@
 
     </Recipe>
 
-    <Recipe Name="GenerateSchema">
+    <Recipe Name="GenerateSchema" Bound="true" Recurrent="true">
       <xi:include href="TypeAlias.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
       <Caption>Generate database schema</Caption>
 
       <HostData>
         <Icon ID="521" />
-        <CommandBar Name="Solution"/>
+        <CommandBar Guid="D309F791-903F-11D0-9EFC-00A0C911004F" ID="1043"/>
       </HostData>
 
       <Arguments>

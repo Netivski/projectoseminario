@@ -1,7 +1,6 @@
 #region Using Directives
 
 using System;
-using System.Linq;
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.RecipeFramework;
 using EnvDTE;
