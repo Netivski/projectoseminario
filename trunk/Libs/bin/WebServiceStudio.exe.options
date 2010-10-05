@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DataEditors>
+    <CustomHandler TypeName="Microsoft.Web.Services.Security.X509.X509Certificate,Microsoft.Web.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Custom=null" Handler="CertificateEditor, WSEExt" />
+    <CustomHandler TypeName="FileName, WSEExt" Handler="FileEditor, WSEExt" />
+  </DataEditors>
+  <TypeConverters />
+  <ProxyProperties>
+    <CustomHandler TypeName="Microsoft.Web.Services.WebServicesClientProtocol,Microsoft.Web.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Custom=null" Handler="WSEProxyProperties, WSEExt" />
+  </ProxyProperties>
+  <UiSettings>
+    <WsdlFont>Microsoft Sans Serif, 25pt</WsdlFont>
+    <ReqRespFont>Microsoft Sans Serif, 25pt</ReqRespFont>
+    <MessageFont>Microsoft Sans Serif, 25pt</MessageFont>
+  </UiSettings>
+  <WsdlSettings Language="CS" CustomCodeDomProvider="" Protocol="SOAP" ProxyBaseType="" />
+  <InvokeSettings>
+    <RecentlyUsedUris>
+      <Uri>http://localhost:49947/RegistoWs.asmx?WSDL</Uri>
+      <Uri>http://cg-sad:8081/ws_Regioes.asmx</Uri>
+      <Uri>http://cg-sbdd/pt.dges.sicabe.bz/pt_dges_bt_sicabeservicelayer_orchTechRules_TRGateway.asmx</Uri>
+      <Uri>http://cg-sbdd:8080/pt_dges_bt_sicabeservicelayer_orchTechRules_TRGateway.asmx?WSDL</Uri>
+      <Uri>http://localhost/pt.dges.bt/pt_dges_bt_orchBTInvoke_BTGateway.asmx</Uri>
+      <Uri>http://localhost:2589/SICABE-webservice/WS_regioes.asmx</Uri>
+      <Uri>http://localhost:2589/SICABE-webservice/WS_Candidato.asmx</Uri>
+      <Uri>http://localhost:2590/SICABE-webservice/WS_Candidato.asmx</Uri>
+      <Uri>http://localhost:2590/SICABE-webservice/WS_Regioes.asmx</Uri>
+      <Uri>http://localhost:1616/pt.dges.bt.serviceregister/ServiceRegister.asmx</Uri>
+      <Uri>http://localhost:2589/SICABE-webservice/WS_Candidatura.asmx</Uri>
+      <Uri>http://localhost:2590/SICABE-webservice/WS_Candidatura.asmx</Uri>
+      <Uri>http://localhost:8084/Ws_Candidatura.asmx?WSDL</Uri>
+      <Uri>http://cg-prod-1:8084/Ws_Candidatura.asmx?WSDL</Uri>
+      <Uri>http://cg-prod-1:8084/Ws_Concurso.asmx?WSDL</Uri>
+      <Uri>http://cg-prod-1:8084/WS_ComposicaoAgregadoFamiliar.asmx</Uri>
+      <Uri>http://10.50.10.16:2020/WS_ComposicaoAgregadoFamiliar.asmx</Uri>
+      <Uri>http://10.50.10.201:6060/WS_Candidato.asmx?op=Record_Delete_porDocIdentificacao</Uri>
+      <Uri>http://localhost:4041/SADManager.asmx</Uri>
+      <Uri>http://cg-sad:4041/SADManager.asmx</Uri>
+      <Uri>http://cg-sad:4041/ReceivedEntries.asmx</Uri>
+      <Uri>http://10.50.10.16:2020/WS_Candidatura.asmx</Uri>
+      <Uri>http://cg-sad:4041/ReceivedEntries.asmx?wsdl</Uri>
+      <Uri>http://localhost:4041/ReceivedEntries.asmx?wsdl</Uri>
+      <Uri>http://localhost:4041/SADManager.asmx?wsdl</Uri>
+      <Uri>http://localhost:2589/SICABE-webservice/WS_Candidatura.asmx?WSDL</Uri>
+      <Uri>http://10.50.10.16:2020/WS_Candidatura.asmx?WSDL</Uri>
+      <Uri>http://cg-prod-1:8084/WS_Candidatura.asmx</Uri>
+      <Uri>http://localhost:2589/SICABE-webservice/WS_ResultadoCandidatura.asmx</Uri>
+      <Uri>http://10.50.10.16:2020/WS_ResultadoCandidatura.asmx</Uri>
+      <Uri>http://10.50.10.16:2020/WS_vConcursoFase.asmx</Uri>
+      <Uri>http://cg-prod-1:8084/WS_reclamacao.asmx?wsdl </Uri>
+      <Uri>http://cg-prod-1:8084/WS_vConcursoFase.asmx</Uri>
+      <Uri>http://10.50.10.201:4040/SADManager.asmx</Uri>
+      <Uri>http://localhost:2589/SICABE-webservice/WS_reclamacao.asmx</Uri>
+      <Uri>http://localhost:2589/SICABE-webservice/WS_vConcursoFase.asmx</Uri>
+      <Uri>http://localhost:2589/SICABE-webservice/WS_ComposicaoAgregadoFamiliar.asmx</Uri>
+      <Uri>http://cg-prod-1:8084/WS_ConcursoFase.asmx</Uri>
+      <Uri>http://CG-SAD:4041/ReceivedEntries.asmx</Uri>
+      <Uri>http://CG-SAD:4041/SADManager.asmx</Uri>
+      <Uri>http://10.50.10.16:2020/WS_vComposicaoAgregadoFamiliar.asmx</Uri>
+      <Uri>http://cg-prod-1:8084/WS_vComposicaoAgregadoFamiliar.asmx</Uri>
+      <Uri>http://CG-SAD:4041/PropertyValue.asmx</Uri>
+      <Uri>http://cg-prod-1:8084/WS_vpesquisacandidatoII.asmx?wsdl </Uri>
+      <Uri>http://10.50.10.16:2020/WS_vPlanoDePagamento_Com_dtPagamento.asmx?wsdl </Uri>
+      <Uri>http://10.50.10.204:2020/WS_vPlanoDePagamento_Com_dtPagamento.asmx?wsdl </Uri>
+      <Uri>http://cg-prod-1:8084/WS_PlanoDePagamento.asmx?wsdl </Uri>
+      <Uri>http://cg-prod-1:8084/WS_vPlanoDePagamento_Com_dtPagamento.asmx?wsdl </Uri>
+      <Uri>http://10.50.10.16:2020/ws_candidatura.asmx?wsdl</Uri>
+      <Uri>http://10.50.10.16:2020/ws_PlanoDePagamento.asmx?wsdl</Uri>
+      <Uri>http://cg-sad:4041/ReceivedEntries.asmx?WSDL</Uri>
+      <Uri>http://localhost:2589/SICABE-webservice/WS_Candidatura.asmx?wsdl</Uri>
+      <Uri>http://cg-prod-1:8084/ws__utils.asmx</Uri>
+      <Uri>http://localhost:4041/Propertyvalue.asmx</Uri>
+      <Uri>http://cg-sad:4041/Propertyvalue.asmx?WSDL</Uri>
+      <Uri>http://cg-sad:4041/SADManager.asmx?WSDL</Uri>
+      <Uri>http://cg-sad:4041/Property.asmx?WSDL</Uri>
+      <Uri>http://10.50.10.16:2020/ws_concurso.asmx?WSDL</Uri>
+      <Uri>http://cg-prod-1:8084/ws_concurso.asmx?WSDL</Uri>
+      <Uri>http://10.50.10.204:2020/ws_concurso.asmx?WSDL</Uri>
+      <Uri>http://cg-prod-1:8084/ws__utils.asmx?WSDL</Uri>
+      <Uri>http://10.50.10.16:2020/Ws_Candidatura.asmx?WSDL</Uri>
+      <Uri>http://10.50.10.16:2020/Ws_CursoAnterior.asmx?WSDL</Uri>
+      <Uri>http://cg-prod-1:8084/Ws_CursoAnterior.asmx?WSDL</Uri>
+      <Uri>http://localhost:1750/SICABE-webservice/WS_CursoAnterior.asmx?WSDL</Uri>
+      <Uri>http://10.50.10.16:2020/ws_cursoanterior.asmx</Uri>
+      <Uri>http://172.16.50.203:8084/WS_vPesquisaCandidatoII.asmx</Uri>
+      <Uri>http://10.50.10.16:2020/WS_vPesquisaCandidato.asmx?WSDL</Uri>
+      <Uri>http://localhost:1750/SICABE-webservice/WS_Candidatura.asmx?WSDL</Uri>
+      <Uri>http://localhost:2420/SICABE-webservice/WS_Candidatura.asmx?WSDL</Uri>
+      <Uri>http://localhost:2421/SICABE-webservice/WS_Candidatura.asmx?WSDL</Uri>
+      <Uri>http://172.16.0.25/smsws/sms.asmx</Uri>
+      <Uri>http://172.16.0.25/smsws/sms.asmx?WSDL</Uri>
+      <Uri>http://127.0.0.1:7879/smsws/sms.asmx?WSDL</Uri>
+      <Uri>http://localhost:2421/SICABE-webservice/WS_Candidato.asmx?wsdl</Uri>
+      <Uri>http://cg-prod-1:8084//WS_Candidatura.asmx?wsdl</Uri>
+      <Uri>http://10.50.10.16:2020/WS_Candidatura.asmx?wsdl</Uri>
+      <Uri>http://10.50.10.16:2020/WS_vPesquisaCandidato.asmx?wsdl</Uri>
+      <Uri>http://localhost:2421/SICABE-webservice/WS_Candidatura.asmx?wsdl</Uri>
+      <Uri>http://localhost:1679/SICABE-webservice/WS_Candidatura.asmx?wsdl</Uri>
+      <Uri>http://localhost:3805/SICABE-webservice/WS_Candidatura.asmx?wsdl</Uri>
+      <Uri>http://localhost:2413/SICABE-webservice/WS_Candidatura.asmx?wsdl</Uri>
+      <Uri>http://10.50.10.16:2020/WS_concurso.asmx?WSDL</Uri>
+      <Uri>http://localhost:2033/SICABE-webservice/WS_HistoricoEstadoCandidatura.asmx</Uri>
+      <Uri>http://dges-biz2006-bd.ppiloto.dsas:2020/WS_Candidatura.asmx</Uri>
+      <Uri>http://dges-biz2006-bd:2020/ws_curso.asmx?wsdl</Uri>
+      <Uri>http://vulcano:4000/Configure.asmx?WSDL</Uri>
+      <Uri>http://localhost:4000/Configure.asmx?WSDL</Uri>
+      <Uri>http://menelau:4000/Configure.asmx?WSDL</Uri>
+      <Uri>http://localhost:4041/Clientes.asmx?wsdl</Uri>
+      <Uri>http://localhost:4040/Clientes.asmx?wsdl</Uri>
+      <Uri>http://localhost:4000/financiamento.asmx?wsdl</Uri>
+      <Uri>http://localhost:4000/dossier.asmx?wsdl</Uri>
+      <Uri>http://priapo:3000/dossier.asmx?wsdl</Uri>
+      <Uri>http://priapo:3000/configure.asmx?wsdl</Uri>
+      <Uri>http://localhost:4000/configure.asmx?wsdl</Uri>
+      <Uri>http://localhost:4000/Online.asmx?wsdl</Uri>
+      <Uri>http://localhost:4001/Online.asmx?wsdl</Uri>
+      <Uri>http://localhost:2222/Online.asmx?wsdl</Uri>
+      <Uri>http://localhost/sigepWs/TbEstado.asmx?WSDL</Uri>
+      <Uri>http://localhost/sigepWs/TbAlunoCurso.asmx?WSDL</Uri>
+      <Uri>http://localhost/sigepWs/Login.asmx</Uri>
+      <Uri>http://localhost:9090/sigepWs/TbAlunos.asmx?WSDL</Uri>
+      <Uri>http://www.sigepws.pt:9090/TbAnoLectivo.asmx?wsdl</Uri>
+      <Uri>http://localhost:9090/ADSws/referencia.asmx?WSDL</Uri>
+      <Uri>http://localhost:9090/ADSws/despesa.asmx?WSDL</Uri>
+      <Uri>http://localhost:2020/er4/Er4BillDescription.asmx?wsdl</Uri>
+      <Uri>http://localhost:9090/ADSws/pagamentos.asmx</Uri>
+      <Uri>http://adsws.test/referencia.asmx?wsdl</Uri>
+      <Uri>http://localhost:9090/ADSws/referencia.asmx?wsdl</Uri>
+      <Uri>http://s302pc255:9090/ADSws/referencia.asmx?wsdl</Uri>
+      <Uri>http://localhost:9090/ADSws/listaDespesas.asmx?wsdl</Uri>
+      <Uri>D:\Personal\Work\Vodafone\App\Ws\ADSws\WSDL\Vf_Flow_DespesaServico_put.wsdl</Uri>
+      <Uri>http://localhost:9090/ADSWS/pagamentos.asmx?WSDL</Uri>
+      <Uri>C:\Documents and Settings\Administrator\Desktop\put.wsdl</Uri>
+      <Uri>C:\Documents and Settings\Administrator\Desktop\debug MW\Vf_Flow_DespesaServico_put.wsdl</Uri>
+      <Uri>C:\Documents and Settings\Administrator\Desktop\debug MW\Vf_Flow_DespesaServico_putAdiantamento.wsdl</Uri>
+      <Uri>D:\Personal\Work\Vodafone\App\Ws\ADSws\WSDL\Vf_Flow_DespesaServico_putAdiantamento.wsdl</Uri>
+      <Uri>C:\Documents and Settings\Administrator\Desktop\Vf_Flow_DespesaServico_put.wsdl</Uri>
+      <Uri>D:\Personal\Work\Vodafone\App\Ws\ADSws\WSDL\Vf_Flow_Viatura_checkMatricula.wsdl</Uri>
+      <Uri>D:\Personal\Work\Vodafone\App\Ws\ADSws\WSDL\Vf_Flow_ExchangeRate_getDetail.wsdl</Uri>
+      <Uri>D:\Personal\Work\Vodafone\App\Ws\ADSws\WSDL\Vf_Flow_CostCenter_getDetails.wsdl</Uri>
+      <Uri>C:\Vf_Flow_InternalOrder_getDetail.wsdl0.wsdl</Uri>
+      <Uri />
+    </RecentlyUsedUris>
+  </InvokeSettings>
+</Configuration>
