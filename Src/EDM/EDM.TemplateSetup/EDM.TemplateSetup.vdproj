@@ -243,12 +243,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_362B30A1D343D118E045302166BB0CEA"
-        "OwnerKey" = "8:_AC3201B3C4194049A4D89DFBBB252E58"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_3AF7EE87FBE226642A2CC970DF6B03D1"
         "OwnerKey" = "8:_8FA64AADB584D7F9B403C5ED11FCC703"
         "MsmSig" = "8:_UNDEFINED"
@@ -587,6 +581,12 @@
         {
         "MsmKey" = "8:_982CCAD819EEB55CF84700446D2CF7C9"
         "OwnerKey" = "8:_AFBACECC191B4E7B918D432B79923A0C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9E73A1681E08A8D764CD0A1967811168"
+        "OwnerKey" = "8:_AC3201B3C4194049A4D89DFBBB252E58"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1072,7 +1072,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_362B30A1D343D118E045302166BB0CEA"
+        "OwnerKey" = "8:_9E73A1681E08A8D764CD0A1967811168"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1263,6 +1263,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.3.5.SP1"
+                    {
+                    "Name" = "8:.NET Framework 3.5 SP1"
+                    "ProductCode" = "8:Microsoft.Net.Framework.3.5.SP1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -1563,37 +1576,6 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_362B30A1D343D118E045302166BB0CEA"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:EDM.Generator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_362B30A1D343D118E045302166BB0CEA"
-                    {
-                    "Name" = "8:EDM.Generator.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:EDM.Generator.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_941E212AAFC14B4385EFCAB93485CFF1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -2068,6 +2050,32 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9E73A1681E08A8D764CD0A1967811168"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:EDM.Generator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                }
+            "SourcePath" = "8:EDM.Generator.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_941E212AAFC14B4385EFCAB93485CFF1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -2617,7 +2625,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EDM Solution Template"
         "ProductCode" = "8:{0AC065F8-197A-42A0-AFAE-C39D92EB1C14}"
-        "PackageCode" = "8:{90308E93-6B69-4574-B2E2-B1896A91614A}"
+        "PackageCode" = "8:{5ACA273B-BB07-44C5-9788-4B61343BAD16}"
         "UpgradeCode" = "8:{E01791A6-725C-4157-A432-848463C117A7}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -3147,7 +3155,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AC3201B3C4194049A4D89DFBBB252E58"
             {
-            "SourcePath" = "8:..\\EDM.Template\\obj\\Debug\\EDM.Template.dll"
+            "SourcePath" = "8:..\\EDM.Template\\obj\\Release\\EDM.Template.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_941E212AAFC14B4385EFCAB93485CFF1"
@@ -3175,7 +3183,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AFBACECC191B4E7B918D432B79923A0C"
             {
-            "SourcePath" = "8:..\\EDM.TemplateInstaller\\obj\\Debug\\EDM.TemplateInstaller.dll"
+            "SourcePath" = "8:..\\EDM.TemplateInstaller\\obj\\Release\\EDM.TemplateInstaller.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4A720395639C43EE8DE4E9E1297FCB6A"
