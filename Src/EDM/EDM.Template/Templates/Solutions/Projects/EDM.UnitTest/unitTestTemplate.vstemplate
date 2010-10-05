@@ -13,6 +13,7 @@
   </TemplateData>
   <TemplateContent>
     <Project File="EDM.UnitTest.csproj" TargetFileName="$AppCompanyName$.$AppProjectName$.UnitTest.csproj" ReplaceParameters="true">
+      <Folder Name="Base" TargetFolderName="Base" />
       <ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="false">AuthoringTests.txt</ProjectItem>
     </Project>

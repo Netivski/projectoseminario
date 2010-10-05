@@ -63,9 +63,10 @@ namespace <xsl:value-of select="@baseNameSpace"/>.BusinessObject.Base
     <xsl:template name="WriteFields">
     <xsl:apply-templates select="fields/field" mode="field"/>
     <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
-      <xsl:if test="count(fields/field) > 0">, </xsl:if>
+      <xsl:variable name="varFieldCount" select="count(fields/field)"></xsl:variable>
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:if test="$varFieldCount > 0 and count(//entity[@name=$varBaseEntity]/fields/field) > 0">, </xsl:if>
         <xsl:call-template name="WriteFields"></xsl:call-template>
       </xsl:for-each>
     </xsl:if>

@@ -21,7 +21,6 @@ namespace EDM.Tester
         private static string outputPath;
         private static string edmFilePath;
         private static GeneratorContext context;
-        private static XmlDocument doc;
         private static ThreeDXPath xPath;
 
         public GeneratorStepsTest()
