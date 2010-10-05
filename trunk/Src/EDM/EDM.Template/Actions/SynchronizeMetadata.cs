@@ -103,7 +103,7 @@ namespace EDM.Template.Actions
                     {
                         //Deal with NHibernate configuration file
                         m_application.Solution.FindProjectItem(fileName)
-                            .Properties.Item("BuildAction").Value = prjBuildAction.prjBuildActionEmbeddedResource;
+                            .Properties.Item("BuildAction").Value = prjBuildAction.prjBuildActionNone;
                         m_application.Solution.FindProjectItem(fileName)
                             .Properties.Item("CopyToOutputDirectory").Value = 1;
                     }

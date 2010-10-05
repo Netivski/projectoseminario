@@ -76,9 +76,10 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
   <xsl:template name="resolveRecursiveParams">
     <xsl:apply-templates select="fields/field" mode="params"/>
     <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
-      <xsl:if test="count(fields/field) > 0">, </xsl:if>
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
+      <xsl:variable name="varFieldCount" select="count(fields/field)"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:if test="$varFieldCount > 0 and count(//entity[@name=$varBaseEntity]/fields/field) > 0">, </xsl:if>
         <xsl:call-template name="resolveRecursiveParams"></xsl:call-template>
       </xsl:for-each>
     </xsl:if>
@@ -87,9 +88,10 @@ namespace <xsl:value-of select="@wsNameSpace"/>.Base
   <xsl:template name="resolveRecursiveCallParams">
     <xsl:apply-templates select="fields/field" mode="callParams"/>
     <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
-      <xsl:if test="count(fields/field) > 0">, </xsl:if>
+      <xsl:variable name="varFieldCount" select="count(fields/field)"></xsl:variable>
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
       <xsl:for-each select="//entity[@name=$varBaseEntity]">
+        <xsl:if test="$varFieldCount > 0 and count(//entity[@name=$varBaseEntity]/fields/field) > 0">, </xsl:if>
         <xsl:call-template name="resolveRecursiveCallParams"></xsl:call-template>
       </xsl:for-each>
     </xsl:if>

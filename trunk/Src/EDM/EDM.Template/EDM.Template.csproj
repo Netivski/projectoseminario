@@ -136,6 +136,12 @@
     <Content Include="Solution Items\Assembly\Antlr3.Runtime.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Solution Items\Assembly\LinFu.DynamicProxy.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Solution Items\Assembly\LinFu.License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Solution Items\Assembly\NHibernate.ByteCode.LinFu.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

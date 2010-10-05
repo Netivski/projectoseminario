@@ -41,7 +41,8 @@ namespace EDM.Generator.Engine.Step
                     ,new Step( "BPWsAsmx"                     , Path.Combine( context.Output.WsAsmx                      , "{0}Ws.asmx"                      ), context.ThreeDFile.XPath.Component           , false )
                     ,new Step( "BPWsAsmxCs"                   , Path.Combine( context.Output.WsAsmxCs                    , "{0}Ws.asmx.cs"                   ), context.ThreeDFile.XPath.Component           , false )
                     ,new Step( "UnitTest"                     , Path.Combine( context.Output.UnitTestPath                , "{0}Test.cs"                      ), context.ThreeDFile.XPath.EntityNotAbstract   , false )
-                    ,new Step( "BusinessObjectRefEntityBase"  , Path.Combine( context.Output.EntityBusinessObjectBasePath, "BO{0}Base.cs"                    ), context.ThreeDFile.XPath.BusinessObjectEntity, true  )                    
+                    ,new Step( "UnitTestBase"                 , Path.Combine( context.Output.UnitTestBasePath            , "{0}BaseTest.cs"                  ), context.ThreeDFile.XPath.EntityNotAbstract   , true )
+                    //,new Step( "BusinessObjectRefEntityBase"  , Path.Combine( context.Output.EntityBusinessObjectBasePath, "BO{0}Base.cs"                    ), context.ThreeDFile.XPath.BusinessObjectEntity, true  )                    
             };
         }
 
