@@ -43,6 +43,7 @@ namespace EDM.Generator.Engine.Step
                     ,new Step( "UnitTest"                     , Path.Combine( context.Output.UnitTestPath                , "{0}Test.cs"                      ), context.ThreeDFile.XPath.EntityNotAbstract   , false )
                     ,new Step( "UnitTestBase"                 , Path.Combine( context.Output.UnitTestBasePath            , "{0}BaseTest.cs"                  ), context.ThreeDFile.XPath.EntityNotAbstract   , true )
                     //,new Step( "BusinessObjectRefEntityBase"  , Path.Combine( context.Output.EntityBusinessObjectBasePath, "BO{0}Base.cs"                    ), context.ThreeDFile.XPath.BusinessObjectEntity, true  )                    
+                    ,new ThreeDSaveStep()
             };
         }
 

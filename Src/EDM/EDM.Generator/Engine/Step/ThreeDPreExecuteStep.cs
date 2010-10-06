@@ -201,6 +201,8 @@ namespace EDM.Generator.Engine.Step
                         XmlNode oneToManyRelations = GetEntityRelationsNode(context, name);
                         XmlNode oneToMany = context.ThreeDFile.Content.CreateElement("oneToMany");
                         Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "entity", entityName);
+                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "manyEntity", entityName);
+                        Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "oneEntity", name);                                   
                         Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "name", relationName);
                         Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "minOccurs", minOccurs);
                         Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "maxOccurs", maxOccurs);
@@ -229,6 +231,7 @@ namespace EDM.Generator.Engine.Step
                     Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "minOccurs", minOccurs);
                     Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "maxOccurs", maxOccurs);
                     Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "nillable", nillable);
+                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "accessibility", "public");
 
 
                     manyToOneRelations.AppendChild(manyToOne);
@@ -258,6 +261,8 @@ namespace EDM.Generator.Engine.Step
                 XmlNode oneToManyRelations = GetEntityRelationsNode(context, oneEntity);
                 XmlNode oneToMany = context.ThreeDFile.Content.CreateElement("oneToMany");                               
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "entity", manyEntity);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "manyEntity", manyEntity);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "oneEntity", oneEntity);                                   
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "name", rName);
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "minOccurs", minOccurs);
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "maxOccurs", maxOccurs);
@@ -265,30 +270,31 @@ namespace EDM.Generator.Engine.Step
 
                 oneToManyRelations.AppendChild(oneToMany);
 
-                if (inverse)
+                XmlNode manyToOneRelations = GetEntityRelationsNode(context, manyEntity);
+                XmlNode manyToOne = context.ThreeDFile.Content.CreateElement("manyToOne");
+
+                if (bool.Parse(nillable))
                 {
-                    XmlNode manyToOneRelations = GetEntityRelationsNode(context, manyEntity);
-                    XmlNode manyToOne = context.ThreeDFile.Content.CreateElement("manyToOne");
-
-                    if (bool.Parse(nillable))
-                    {
-                        minOccurs = "0";
-                        maxOccurs = "1";
-                    }
-                    else
-                    {
-                        minOccurs = "1";
-                        maxOccurs = "1";
-                    }
-
-                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "entity", oneEntity);
-                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "name", oneEntity);
-                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "minOccurs", minOccurs);
-                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "maxOccurs", maxOccurs);
-                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "nillable", nillable);
-
-                    manyToOneRelations.AppendChild(manyToOne);
+                    minOccurs = "0";
+                    maxOccurs = "1";
                 }
+                else
+                {
+                    minOccurs = "1";
+                    maxOccurs = "1";
+                }
+
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "entity", oneEntity);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "manyEntity", manyEntity);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "oneEntity", oneEntity);                                   
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "name", oneEntity);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "minOccurs", minOccurs);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "maxOccurs", maxOccurs);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "nillable", nillable);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "accessibility", inverse ? "public" : "internal");
+
+                manyToOneRelations.AppendChild(manyToOne);
+                
             }
 
             //003.6 - manyToOne Relation
@@ -311,6 +317,7 @@ namespace EDM.Generator.Engine.Step
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "minOccurs", minOccurs);
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "maxOccurs", maxOccurs);
                 Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "nillable", nillable);
+                Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, manyToOne, "accessibility", "public" );
 
                 manyToOneRelations.AppendChild(manyToOne);
 
@@ -319,6 +326,8 @@ namespace EDM.Generator.Engine.Step
                     XmlNode oneToManyRelations = GetEntityRelationsNode(context, oneEntity);
                     XmlNode oneToMany = context.ThreeDFile.Content.CreateElement("oneToMany");
                     Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "entity", manyEntity);
+                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "manyEntity", manyEntity);
+                    Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "oneEntity", oneEntity);                                   
                     Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "name", manyEntity);
                     Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "minOccurs", minOccurs);
                     Utils.XML.Set.AddAttribute(context.ThreeDFile.Content, oneToMany, "maxOccurs", maxOccurs);

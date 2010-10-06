@@ -101,11 +101,12 @@ namespace <xsl:value-of select="@baseNameSpace"/>.Domain
   <xsl:template match="fields/field" mode="IsValid">Validator.IsValid(UserTypeMetadata.<xsl:value-of select="@type"/>, <xsl:value-of select="@name"/>) <xsl:if test="position() != last()"> <xsl:call-template name="and"/> </xsl:if></xsl:template>
 
   <xsl:template match="manyToOne" mode="manyToOne">
-    public virtual <xsl:value-of select="@entity"/>&#160;<xsl:value-of select="@name"/> { get; set; }
+    <xsl:value-of select="@accessibility"/>&#160; virtual <xsl:value-of select="@entity"/>&#160;<xsl:value-of select="@name"/> { get; set; }
   </xsl:template>  
 
   <xsl:template match="oneToMany" mode="oneToManyMethods">
     public void Add<xsl:value-of select="@entity"/>(<xsl:value-of select="@entity"/> obj) {
+        obj.<xsl:value-of select="@oneEntity"/> = (<xsl:value-of select="@oneEntity"/>)this;
         if (obj != null <xsl:call-template name="and"></xsl:call-template> !_<xsl:value-of select="@name"/>.Contains(obj)) {
             _<xsl:value-of select="@name"/>.Add(obj);
         }

@@ -13,8 +13,8 @@ namespace EDM.GeneratorEntryPoint
         static Program()
         {
 
-            ThreeDFilePath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\ISEL.Sample\3D\3D.xml");
-            GenResult      = Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\ISEL.Sample");            
+            ThreeDFilePath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\FutureView.ECom\3D\3D.xml");
+            GenResult      = Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\FutureView.ECom");            
         }
 
         static void Main(string[] args)
