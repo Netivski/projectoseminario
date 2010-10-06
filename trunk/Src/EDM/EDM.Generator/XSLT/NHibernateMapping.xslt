@@ -81,16 +81,14 @@
   <xsl:template match="manyToOne" mode="manyToOne" xmlns="urn:nhibernate-mapping-2.2">
     <xsl:call-template name="NewLine" />
     <xsl:call-template name="Tab2" />
-    <many-to-one name="{@name}"
-       class="{@nameSpace}, {@assemblyName}"
-       column="{@fkName}" cascade="all"/>
+    <many-to-one name="{@name}" class="{@nameSpace}, {@assemblyName}" column="{@fkName}" cascade="all"/>
   </xsl:template>
   
 
   <xsl:template match="oneToMany" mode="oneToMany" xmlns="urn:nhibernate-mapping-2.2">
     <xsl:call-template name="NewLine" />
     <xsl:call-template name="Tab2" />
-    <bag name="_{@name}" access="field" table="{@entity}" inverse="true"> <xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />      
+    <bag name="_{@name}" access="field" table="{@entity}" inverse="true" cascade="all"> <xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />      
       <key column="{@fkName}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />
       <one-to-many class="{@nameSpace}, {@assemblyName}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab2" />
     </bag>
@@ -100,7 +98,7 @@
   <xsl:template match="manyToMany" mode="manyToMany" xmlns="urn:nhibernate-mapping-2.2">
     <xsl:call-template name="NewLine" />
     <xsl:call-template name="Tab2" />
-    <bag name="{@name}" table="{@tableName}" inverse="true"> <xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />      
+    <bag name="{@name}" table="{@tableName}" inverse="true" cascade="all"> <xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />      
       <key column="{@parentField}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab3" />
       <many-to-many column="{@childField}" class="{@nameSpace}, {@assemblyName}" /><xsl:call-template name="NewLine" /><xsl:call-template name="Tab2" />
     </bag>
