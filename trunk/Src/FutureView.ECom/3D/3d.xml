@@ -111,7 +111,7 @@
   </environments>
 
   <businessProcesses>
-    <component name="Registo">
+    <component name="UserRegister">
       <businessProcess name="RegisterIndividualCustomer" description="Register Individual Customer">
         <input>
           <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
@@ -123,6 +123,30 @@
           <param type="IndividualCustomerFirstName" name="FirstName" minOccurs="1" maxOccurs="1"></param>
           <param type="IndividualCustomerLastName" name="LastName" minOccurs="1" maxOccurs="1"></param>
           <param type="IndividualCustomerTitle" name="Title" minOccurs="1" maxOccurs="1"></param>
+          <param type="EmailAddress"  name="Address" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhonePrefix"  name="PhonePrefix" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhoneNumber"  name="PhoneNumber" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhonePrefix"  name="FixedPhonePrefix" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhoneNumber"  name="FixedPhoneNumber" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhonePrefix"  name="FaxPrefix" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhoneNumber"  name="FaxNumber" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhonePrefix"  name="MobilePrefix" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhoneNumber"  name="MobileNumber" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressCountry"  name="BillingCountry" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine1"  name="BillingLine1" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine2"  name="BillingLine2" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCode"  name="BillingPostalCode" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCodeDesc"  name="BillingPostalCodeDesc" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressCountry"  name="ShippingCountry" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine1"  name="ShippingLine1" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine2"  name="ShippingLine2" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCode"  name="ShippingPostalCode" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCodeDesc"  name="ShippingPostalCodeDesc" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressCountry"  name="CustomerAddressCountry" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine1"  name="CustomerAddressLine1" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine2"  name="CustomerAddressLine2" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCode"  name="CustomerAddressPostalCode" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCodeDesc"  name="CustomerAddressPostalCodeDesc" minOccurs="0" maxOccurs="1"></param>
         </input>
         <output type="RecordId" minOccurs="1" maxOccurs="1"/>
       </businessProcess>
@@ -137,11 +161,36 @@
           <param type="BusinessCustomerNif" name="Nif" minOccurs="1" maxOccurs="1"></param>
           <param type="BusinessCustomerName" name="Name" minOccurs="1" maxOccurs="1"></param>
           <param type="BusinessCustomerCapital" name="Capital" minOccurs="1" maxOccurs="1"></param>
-          <param type="BusinessCustomerCreditLimit" name="CreditLimit" minOccurs="1" maxOccurs="1"></param>
+          <param type="EmailAddress"  name="Address" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhonePrefix"  name="PhonePrefix" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhoneNumber"  name="PhoneNumber" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhonePrefix"  name="FixedPhonePrefix" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhoneNumber"  name="FixedPhoneNumber" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhonePrefix"  name="FaxPrefix" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhoneNumber"  name="FaxNumber" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhonePrefix"  name="MobilePrefix" minOccurs="0" maxOccurs="1"></param>
+          <param type="PhoneNumber"  name="MobileNumber" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressCountry"  name="BillingCountry" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine1"  name="BillingLine1" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine2"  name="BillingLine2" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCode"  name="BillingPostalCode" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCodeDesc"  name="BillingPostalCodeDesc" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressCountry"  name="ShippingCountry" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine1"  name="ShippingLine1" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine2"  name="ShippingLine2" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCode"  name="ShippingPostalCode" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCodeDesc"  name="ShippingPostalCodeDesc" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressCountry"  name="CustomerAddressCountry" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine1"  name="CustomerAddressLine1" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressLine2"  name="CustomerAddressLine2" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCode"  name="CustomerAddressPostalCode" minOccurs="0" maxOccurs="1"></param>
+          <param type="AddressPostalCodeDesc"  name="CustomerAddressPostalCodeDesc" minOccurs="0" maxOccurs="1"></param>
         </input>
         <output type="RecordId" minOccurs="1" maxOccurs="1"/>
       </businessProcess>
+    </component>
 
+    <component name="UserPassword">
       <businessProcess name="ChangePassword" description="Change Customer Password">
         <input>
           <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
@@ -155,19 +204,36 @@
           <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
         </input>
       </businessProcess>
-
-    </component>
-    
-    <component name="Consulta">
-      <businessProcess name="ReadCategory" description="Read Category">
-        <input/>
-        <output type="RecordId" minOccurs="0" maxOccurs="unbounded"/>
-      </businessProcess>
     </component>
 
-    <component name="Venda"></component>
+    <component name="Sales">
+      <input>
+        <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId1" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty1" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId2" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty2" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId3" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty3" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId4" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty4" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId5" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty5" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId6" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty6" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId7" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty7" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId8" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty8" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId9" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty9" minOccurs="1" maxOccurs="1"></param>
+        <param type="RecordId" name="ItemId10" minOccurs="1" maxOccurs="1"></param>
+        <param type="OrderItemQty" name="ItemQty10" minOccurs="1" maxOccurs="1"></param>
+      </input>
+      <output type="RecordId" minOccurs="1" maxOccurs="1"/>
+    </component>
   </businessProcesses>
-  
+
   <!--Definição de entidades-->
   <entities>
     <entity type="abstract" name="Contact">
@@ -187,7 +253,7 @@
         <field type="PhoneNumber" name="Number"/>
       </fields>
     </entity>
-    
+
     <entity type="dependent" baseEntity="Phone" name="FixedPhone">
       <fields/>
     </entity>
@@ -365,6 +431,6 @@
         <entity name="Sku" nillable="false" inverse="true" relationName="CategorySku"/>
       </relation>
     </relations>
-    
+
   </entities>
 </solution>
