@@ -101,6 +101,9 @@
     <Compile Include="SkuService.cs" />
     <Compile Include="UserPasswordService.cs" />
     <Compile Include="UserRegisterService.cs" />
+    <Compile Include="Util\EMail\EMailSender.cs" />
+    <Compile Include="Util\EMail\Template\ITemplate.cs" />
+    <Compile Include="Util\EMail\Template\ResetPassword.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FutureView.ECom.Entity\FutureView.ECom.Entity.csproj">
