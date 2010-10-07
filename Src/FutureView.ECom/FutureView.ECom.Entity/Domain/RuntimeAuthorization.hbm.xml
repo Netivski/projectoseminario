@@ -1,0 +1,14 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="FutureView.ECom.Entity.RuntimeAuthorization, FutureView.ECom.Entity" table="RuntimeAuthorization" lazy="false" abstract="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="TypeName" column="TypeName" not-null="false" />
+		<property name="MethodName" column="MethodName" not-null="false" />
+	
+		<bag name="_Users" access="field" table="RuntimeAuthorizationUser" inverse="true" cascade="all">
+			<key column="RuntimeAuthorizationId" />
+			<one-to-many class="FutureView.ECom.Entity.RuntimeAuthorizationUser, FutureView.ECom.Entity" />
+		</bag>
+	</class>
+</hibernate-mapping>

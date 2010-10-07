@@ -1,0 +1,5 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<subclass name="FutureView.ECom.Entity.FixedPhone, FutureView.ECom.Entity" extends="FutureView.ECom.Entity.Phone, FutureView.ECom.Entity" discriminator-value="FixedPhone" abstract="false">
+	
+	</subclass>
+</hibernate-mapping>

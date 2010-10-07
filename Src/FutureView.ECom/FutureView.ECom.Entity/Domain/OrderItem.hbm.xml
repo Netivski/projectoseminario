@@ -1,0 +1,18 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="FutureView.ECom.Entity.OrderItem, FutureView.ECom.Entity" table="OrderItem" lazy="false" abstract="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="Description" column="Description" not-null="false" />
+		<property name="Available" column="Available" not-null="false" />
+		<property name="Pvp" column="Pvp" not-null="false" />
+		<property name="Discount" column="Discount" not-null="false" />
+		<property name="FinalPrice" column="FinalPrice" not-null="false" />
+		<property name="IvaClass" column="IvaClass" not-null="false" />
+		<property name="DateToMarket" column="DateToMarket" not-null="false" />
+		<property name="Weight" column="Weight" not-null="false" />
+		<property name="Qty" column="Qty" not-null="false" />
+	
+		<many-to-one name="OrderHeader" class="FutureView.ECom.Entity.OrderHeader, FutureView.ECom.Entity" column="OrderHeaderId" cascade="all" />
+	</class>
+</hibernate-mapping>

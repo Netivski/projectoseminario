@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="FaxWs.asmx.cs" Class="FutureView.ECom.Ws.FaxWs" %>

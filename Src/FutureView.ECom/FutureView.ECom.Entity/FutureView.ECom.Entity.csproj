@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8D86CE31-348F-4C88-92B0-5CB93587A6AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FutureView.ECom.Entity</RootNamespace>
+    <AssemblyName>FutureView.ECom.Entity</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EDM.FoundationClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\EDM.FoundationClasses.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="Billing.cs" />
+    <Compile Include="BusinessCustomer.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="CategorySku.cs" />
+    <Compile Include="Contact.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerAddress.cs" />
+    <Compile Include="DataInterfaces\Base\IDaoFactoryBase.cs" />
+    <Compile Include="DataInterfaces\Base\IDaoInterfaceBase.cs" />
+    <Compile Include="DataInterfaces\IDaoFactory.cs" />
+    <Compile Include="DataInterfaces\IDaoInterface.cs" />
+    <Compile Include="DataInterfaces\IDaoInterfacePartial.cs" />
+    <Compile Include="Data\DaoFactory.cs" />
+    <Compile Include="Data\DaoFactoryPartial.cs" />
+    <Compile Include="Data\DAOImplementation.cs" />
+    <Compile Include="Data\DAOImplementationPartial.cs" />
+    <Compile Include="Domain\AddressDomain.cs" />
+    <Compile Include="Domain\BillingDomain.cs" />
+    <Compile Include="Domain\BusinessCustomerDomain.cs" />
+    <Compile Include="Domain\CategoryDomain.cs" />
+    <Compile Include="Domain\CategorySkuDomain.cs" />
+    <Compile Include="Domain\ContactDomain.cs" />
+    <Compile Include="Domain\CustomerAddressDomain.cs" />
+    <Compile Include="Domain\CustomerDomain.cs" />
+    <Compile Include="Domain\EmailDomain.cs" />
+    <Compile Include="Domain\FaxDomain.cs" />
+    <Compile Include="Domain\FixedPhoneDomain.cs" />
+    <Compile Include="Domain\IndividualCustomerDomain.cs" />
+    <Compile Include="Domain\LastPasswordDomain.cs" />
+    <Compile Include="Domain\MobileDomain.cs" />
+    <Compile Include="Domain\OrderHeaderDomain.cs" />
+    <Compile Include="Domain\OrderItemDomain.cs" />
+    <Compile Include="Domain\PhoneDomain.cs" />
+    <Compile Include="Domain\RuntimeAuthorizationDomain.cs" />
+    <Compile Include="Domain\RuntimeAuthorizationUserDomain.cs" />
+    <Compile Include="Domain\ShippingDomain.cs" />
+    <Compile Include="Domain\SkuDomain.cs" />
+    <Compile Include="Email.cs" />
+    <Compile Include="Fax.cs" />
+    <Compile Include="FixedPhone.cs" />
+    <Compile Include="IndividualCustomer.cs" />
+    <Compile Include="LastPassword.cs" />
+    <Compile Include="Mobile.cs" />
+    <Compile Include="OrderHeader.cs" />
+    <Compile Include="OrderItem.cs" />
+    <Compile Include="Phone.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuntimeAuthorization.cs" />
+    <Compile Include="RuntimeAuthorizationUser.cs" />
+    <Compile Include="Shipping.cs" />
+    <Compile Include="Sku.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FutureView.ECom.Rtti\FutureView.ECom.Rtti.csproj">
+      <Project>{53CCC07A-E0CE-4F39-9F59-41CC9AD300DA}</Project>
+      <Name>FutureView.ECom.Rtti</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Address.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Billing.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\BusinessCustomer.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Category.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\CategorySku.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Contact.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Customer.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\CustomerAddress.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Email.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Fax.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\FixedPhone.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\IndividualCustomer.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\LastPassword.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Mobile.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\OrderHeader.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\OrderItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Phone.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\RuntimeAuthorization.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\RuntimeAuthorizationUser.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Shipping.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Sku.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

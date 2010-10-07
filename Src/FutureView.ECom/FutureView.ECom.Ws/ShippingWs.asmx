@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="ShippingWs.asmx.cs" Class="FutureView.ECom.Ws.ShippingWs" %>

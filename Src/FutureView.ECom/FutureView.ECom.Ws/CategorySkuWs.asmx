@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="CategorySkuWs.asmx.cs" Class="FutureView.ECom.Ws.CategorySkuWs" %>

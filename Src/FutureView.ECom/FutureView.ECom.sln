@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3D", "3D", "{6BB3908E-A764-4CA3-9A30-C1F601072442}"
+	ProjectSection(SolutionItems) = preProject
+		3D\3d.xml = 3D\3d.xml
+		3D\3dValidator.xsd = 3D\3dValidator.xsd
+		original3D.xml = original3D.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assembly", "Assembly", "{26407A79-B06F-42DE-B039-4618EE75C930}"
+	ProjectSection(SolutionItems) = preProject
+		Assembly\Antlr3.Runtime.dll = Assembly\Antlr3.Runtime.dll
+		Assembly\EDM.FoundationClasses.dll = Assembly\EDM.FoundationClasses.dll
+		Assembly\Iesi.Collections.dll = Assembly\Iesi.Collections.dll
+		Assembly\Iesi.Collections.license.txt = Assembly\Iesi.Collections.license.txt
+		Assembly\Iesi.Collections.xml = Assembly\Iesi.Collections.xml
+		Assembly\LinFu.DynamicProxy.dll = Assembly\LinFu.DynamicProxy.dll
+		Assembly\LinFu.License.txt = Assembly\LinFu.License.txt
+		Assembly\log4net.dll = Assembly\log4net.dll
+		Assembly\log4net.license.txt = Assembly\log4net.license.txt
+		Assembly\log4net.xml = Assembly\log4net.xml
+		Assembly\nhibernate-configuration.xsd = Assembly\nhibernate-configuration.xsd
+		Assembly\nhibernate-mapping.xsd = Assembly\nhibernate-mapping.xsd
+		Assembly\NHibernate.ByteCode.LinFu.dll = Assembly\NHibernate.ByteCode.LinFu.dll
+		Assembly\NHibernate.dll = Assembly\NHibernate.dll
+		Assembly\NHibernate.license.txt = Assembly\NHibernate.license.txt
+		Assembly\NHibernate.xml = Assembly\NHibernate.xml
+		Assembly\nunit.framework.dll = Assembly\nunit.framework.dll
+		Assembly\nunit.framework.license.txt = Assembly\nunit.framework.license.txt
+		Assembly\NUnitAsp.dll = Assembly\NUnitAsp.dll
+		Assembly\Rhino.Mocks.dll = Assembly\Rhino.Mocks.dll
+		Assembly\Rhino.Mocks.xml = Assembly\Rhino.Mocks.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{B7685801-4F1A-41DF-B2BE-645ACF6D828E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureView.ECom.Entity", "FutureView.ECom.Entity\FutureView.ECom.Entity.csproj", "{8D86CE31-348F-4C88-92B0-5CB93587A6AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureView.ECom.Rtti", "FutureView.ECom.Rtti\FutureView.ECom.Rtti.csproj", "{53CCC07A-E0CE-4F39-9F59-41CC9AD300DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureView.ECom.Services", "FutureView.ECom.Services\FutureView.ECom.Services.csproj", "{F6EAE5C2-3EFA-474C-BAAA-E198FCB75B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureView.ECom.Ws", "FutureView.ECom.Ws\FutureView.ECom.Ws.csproj", "{59E83C2A-F912-42B9-82E3-28EF847252FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureView.ECom.UnitTest", "FutureView.ECom.UnitTest\FutureView.ECom.UnitTest.csproj", "{9DCE69C9-C298-46EE-9D01-B862F7D25850}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{72664362-9EEE-4132-9F2C-866AEA2418DE}"
+	ProjectSection(SolutionItems) = preProject
+		FutureView.ECom.vsmdi = FutureView.ECom.vsmdi
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = FutureView.ECom.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D86CE31-348F-4C88-92B0-5CB93587A6AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D86CE31-348F-4C88-92B0-5CB93587A6AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D86CE31-348F-4C88-92B0-5CB93587A6AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D86CE31-348F-4C88-92B0-5CB93587A6AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53CCC07A-E0CE-4F39-9F59-41CC9AD300DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53CCC07A-E0CE-4F39-9F59-41CC9AD300DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53CCC07A-E0CE-4F39-9F59-41CC9AD300DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53CCC07A-E0CE-4F39-9F59-41CC9AD300DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6EAE5C2-3EFA-474C-BAAA-E198FCB75B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6EAE5C2-3EFA-474C-BAAA-E198FCB75B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6EAE5C2-3EFA-474C-BAAA-E198FCB75B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6EAE5C2-3EFA-474C-BAAA-E198FCB75B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59E83C2A-F912-42B9-82E3-28EF847252FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E83C2A-F912-42B9-82E3-28EF847252FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E83C2A-F912-42B9-82E3-28EF847252FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E83C2A-F912-42B9-82E3-28EF847252FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DCE69C9-C298-46EE-9D01-B862F7D25850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DCE69C9-C298-46EE-9D01-B862F7D25850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DCE69C9-C298-46EE-9D01-B862F7D25850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DCE69C9-C298-46EE-9D01-B862F7D25850}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

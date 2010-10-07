@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="RuntimeAuthorizationWs.asmx.cs" Class="FutureView.ECom.Ws.RuntimeAuthorizationWs" %>

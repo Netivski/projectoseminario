@@ -1,0 +1,34 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="FutureView.ECom.Entity.Customer, FutureView.ECom.Entity" table="Customer" lazy="false" abstract="true">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<discriminator column="EntityType" type="String" />
+		<property name="UserName" column="UserName" not-null="false" />
+		<property name="Password" column="Password" not-null="false" />
+		<property name="AccountNonExpired" column="AccountNonExpired" not-null="false" />
+		<property name="AccountNonLocked" column="AccountNonLocked" not-null="false" />
+		<property name="CredentialsNonExpired" column="CredentialsNonExpired" not-null="false" />
+		<property name="Enabled" column="Enabled" not-null="false" />
+		<property name="LastFailedLogin" column="LastFailedLogin" not-null="false" />
+		<property name="FailedLoginCount" column="FailedLoginCount" not-null="false" />
+		<property name="LastLoginDate" column="LastLoginDate" not-null="false" />
+		<property name="CreateDate" column="CreateDate" not-null="false" />
+		<property name="BirthDate" column="BirthDate" not-null="false" />
+		<property name="Hint" column="Hint" not-null="false" />
+		<property name="HintAnswer" column="HintAnswer" not-null="false" />
+	
+		<bag name="_LastPasswords" access="field" table="LastPassword" inverse="true" cascade="all">
+			<key column="CustomerId" />
+			<one-to-many class="FutureView.ECom.Entity.LastPassword, FutureView.ECom.Entity" />
+		</bag>
+		<bag name="_Contacts" access="field" table="Contact" inverse="true" cascade="all">
+			<key column="CustomerId" />
+			<one-to-many class="FutureView.ECom.Entity.Contact, FutureView.ECom.Entity" />
+		</bag>
+		<bag name="_Orders" access="field" table="OrderHeader" inverse="true" cascade="all">
+			<key column="CustomerId" />
+			<one-to-many class="FutureView.ECom.Entity.OrderHeader, FutureView.ECom.Entity" />
+		</bag>
+	</class>
+</hibernate-mapping>
