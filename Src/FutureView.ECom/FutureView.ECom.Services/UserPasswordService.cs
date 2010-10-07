@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;        
-using EDM.FoundationClasses.Patterns;
 using FutureView.ECom.Entity;
 using FutureView.ECom.Entity.Data;
 using FutureView.ECom.Entity.DataInterfaces;
@@ -24,7 +20,22 @@ namespace FutureView.ECom.Services
           customer.Password = NewPassword;
 
           customerDao.SaveOrUpdate(customer);
-      } 
+      }
+
+      protected override void ResetPasswordLogic(string UserName)
+      {
+          ICustomerDao customerDao = DaoFactory.Current.GetCustomerDao();
+          Customer customer = customerDao.GetByUserName(UserName);
+
+          if (customer == null) throw new ApplicationException("Invalid Customer");
+          customer.Password = Guid.NewGuid().ToString();
+
+          Email eMail = (Email)customer.GetContactByType(typeof(Email));
+          if (eMail == null) throw new ApplicationException( "Invalid Customer Configuration ( EMail )" );
+          Util.EMail.EMailSender.SendMail(new Util.EMail.Template.ResetPassword(), eMail.Address, customer.Password);
+
+          customerDao.SaveOrUpdate(customer);
+      }
   }
 }
   

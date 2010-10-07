@@ -9,6 +9,8 @@ namespace FutureView.ECom.Entity.DataInterfaces
     public partial interface ICustomerDao : ICustomerDaoBase 
     {
         Customer GetByUserName(string UserName);
+        Customer GetByUserNameAndPassword(string UserName, string Password);
+
     }
 }
   

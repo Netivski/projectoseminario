@@ -207,30 +207,33 @@
     </component>
 
     <component name="Sales">
-      <input>
-        <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId1" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty1" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId2" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty2" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId3" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty3" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId4" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty4" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId5" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty5" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId6" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty6" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId7" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty7" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId8" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty8" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId9" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty9" minOccurs="1" maxOccurs="1"></param>
-        <param type="RecordId" name="ItemId10" minOccurs="1" maxOccurs="1"></param>
-        <param type="OrderItemQty" name="ItemQty10" minOccurs="1" maxOccurs="1"></param>
-      </input>
-      <output type="RecordId" minOccurs="1" maxOccurs="1"/>
+      <businessProcess name="Buy" description="Change Customer Password">
+        <input>
+          <param type="CustomerUserName" name="UserName" minOccurs="1" maxOccurs="1"></param>
+          <param type="CustomerPassword" name="Password" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId1" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty1" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId2" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty2" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId3" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty3" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId4" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty4" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId5" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty5" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId6" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty6" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId7" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty7" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId8" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty8" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId9" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty9" minOccurs="1" maxOccurs="1"></param>
+          <param type="RecordId" name="ItemId10" minOccurs="1" maxOccurs="1"></param>
+          <param type="OrderItemQty" name="ItemQty10" minOccurs="1" maxOccurs="1"></param>
+        </input>
+        <output type="RecordId" minOccurs="1" maxOccurs="1"/>
+      </businessProcess>
     </component>
   </businessProcesses>
 
