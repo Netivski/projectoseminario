@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="FixedPhoneWs.asmx.cs" Class="FutureView.ECom.Ws.FixedPhoneWs" %>

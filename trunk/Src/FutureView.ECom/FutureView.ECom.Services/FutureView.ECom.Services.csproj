@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F6EAE5C2-3EFA-474C-BAAA-E198FCB75B53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FutureView.ECom.Services</RootNamespace>
+    <AssemblyName>FutureView.ECom.Services</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EDM.FoundationClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\EDM.FoundationClasses.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressService.cs" />
+    <Compile Include="Base\AddressBaseService.cs" />
+    <Compile Include="Base\BillingBaseService.cs" />
+    <Compile Include="Base\BusinessCustomerBaseService.cs" />
+    <Compile Include="Base\CategoryBaseService.cs" />
+    <Compile Include="Base\CategorySkuBaseService.cs" />
+    <Compile Include="Base\ContactBaseService.cs" />
+    <Compile Include="Base\CustomerAddressBaseService.cs" />
+    <Compile Include="Base\CustomerBaseService.cs" />
+    <Compile Include="Base\EmailBaseService.cs" />
+    <Compile Include="Base\FaxBaseService.cs" />
+    <Compile Include="Base\FixedPhoneBaseService.cs" />
+    <Compile Include="Base\IndividualCustomerBaseService.cs" />
+    <Compile Include="Base\LastPasswordBaseService.cs" />
+    <Compile Include="Base\MobileBaseService.cs" />
+    <Compile Include="Base\OrderHeaderBaseService.cs" />
+    <Compile Include="Base\OrderItemBaseService.cs" />
+    <Compile Include="Base\PhoneBaseService.cs" />
+    <Compile Include="Base\RuntimeAuthorizationBaseService.cs" />
+    <Compile Include="Base\RuntimeAuthorizationUserBaseService.cs" />
+    <Compile Include="Base\SalesBaseImplementationService.cs" />
+    <Compile Include="Base\SalesBaseService.cs" />
+    <Compile Include="Base\ShippingBaseService.cs" />
+    <Compile Include="Base\SkuBaseService.cs" />
+    <Compile Include="Base\UserPasswordBaseImplementationService.cs" />
+    <Compile Include="Base\UserPasswordBaseService.cs" />
+    <Compile Include="Base\UserRegisterBaseImplementationService.cs" />
+    <Compile Include="Base\UserRegisterBaseService.cs" />
+    <Compile Include="BillingService.cs" />
+    <Compile Include="BusinessCustomerService.cs" />
+    <Compile Include="CategoryService.cs" />
+    <Compile Include="CategorySkuService.cs" />
+    <Compile Include="ContactService.cs" />
+    <Compile Include="CustomerAddressService.cs" />
+    <Compile Include="CustomerService.cs" />
+    <Compile Include="EmailService.cs" />
+    <Compile Include="FaxService.cs" />
+    <Compile Include="FixedPhoneService.cs" />
+    <Compile Include="IndividualCustomerService.cs" />
+    <Compile Include="LastPasswordService.cs" />
+    <Compile Include="MobileService.cs" />
+    <Compile Include="OrderHeaderService.cs" />
+    <Compile Include="OrderItemService.cs" />
+    <Compile Include="PhoneService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuntimeAuthorizationService.cs" />
+    <Compile Include="RuntimeAuthorizationUserService.cs" />
+    <Compile Include="SalesService.cs" />
+    <Compile Include="ShippingService.cs" />
+    <Compile Include="SkuService.cs" />
+    <Compile Include="UserPasswordService.cs" />
+    <Compile Include="UserRegisterService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FutureView.ECom.Entity\FutureView.ECom.Entity.csproj">
+      <Project>{8D86CE31-348F-4C88-92B0-5CB93587A6AE}</Project>
+      <Name>FutureView.ECom.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FutureView.ECom.Rtti\FutureView.ECom.Rtti.csproj">
+      <Project>{53CCC07A-E0CE-4F39-9F59-41CC9AD300DA}</Project>
+      <Name>FutureView.ECom.Rtti</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{59E83C2A-F912-42B9-82E3-28EF847252FA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FutureView.ECom.Ws</RootNamespace>
+    <AssemblyName>FutureView.ECom.Ws</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EDM.FoundationClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\EDM.FoundationClasses.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.4.0.2, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnitAsp, Version=1.5.1.27647, Culture=neutral, PublicKeyToken=f9bdb8e9d00f2b23">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\NUnitAsp.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.0.518.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressWs.asmx.cs">
+      <DependentUpon>AddressWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\AddressBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\BillingBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\BusinessCustomerBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\CategoryBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\CategorySkuBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\ContactBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\CustomerAddressBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\CustomerBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\EmailBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\FaxBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\FixedPhoneBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\IndividualCustomerBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\LastPasswordBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\MobileBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\OrderHeaderBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\OrderItemBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\PhoneBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\RuntimeAuthorizationBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\RuntimeAuthorizationUserBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\SalesBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\ShippingBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\SkuBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\UserPasswordBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\UserRegisterBaseWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BillingWs.asmx.cs">
+      <DependentUpon>BillingWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessCustomerWs.asmx.cs">
+      <DependentUpon>BusinessCustomerWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CategorySkuWs.asmx.cs">
+      <DependentUpon>CategorySkuWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CategoryWs.asmx.cs">
+      <DependentUpon>CategoryWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ContactWs.asmx.cs">
+      <DependentUpon>ContactWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomerAddressWs.asmx.cs">
+      <DependentUpon>CustomerAddressWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomerWs.asmx.cs">
+      <DependentUpon>CustomerWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EmailWs.asmx.cs">
+      <DependentUpon>EmailWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FaxWs.asmx.cs">
+      <DependentUpon>FaxWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FixedPhoneWs.asmx.cs">
+      <DependentUpon>FixedPhoneWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IndividualCustomerWs.asmx.cs">
+      <DependentUpon>IndividualCustomerWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LastPasswordWs.asmx.cs">
+      <DependentUpon>LastPasswordWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MobileWs.asmx.cs">
+      <DependentUpon>MobileWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OrderHeaderWs.asmx.cs">
+      <DependentUpon>OrderHeaderWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OrderItemWs.asmx.cs">
+      <DependentUpon>OrderItemWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PhoneWs.asmx.cs">
+      <DependentUpon>PhoneWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuntimeAuthorizationUserWs.asmx.cs">
+      <DependentUpon>RuntimeAuthorizationUserWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RuntimeAuthorizationWs.asmx.cs">
+      <DependentUpon>RuntimeAuthorizationWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SalesWs.asmx.cs">
+      <DependentUpon>SalesWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ShippingWs.asmx.cs">
+      <DependentUpon>ShippingWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkuWs.asmx.cs">
+      <DependentUpon>SkuWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserPasswordWs.asmx.cs">
+      <DependentUpon>UserPasswordWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserRegisterWs.asmx.cs">
+      <DependentUpon>UserRegisterWs.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FutureView.ECom.Entity\FutureView.ECom.Entity.csproj">
+      <Project>{8D86CE31-348F-4C88-92B0-5CB93587A6AE}</Project>
+      <Name>FutureView.ECom.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FutureView.ECom.Rtti\FutureView.ECom.Rtti.csproj">
+      <Project>{53CCC07A-E0CE-4F39-9F59-41CC9AD300DA}</Project>
+      <Name>FutureView.ECom.Rtti</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FutureView.ECom.Services\FutureView.ECom.Services.csproj">
+      <Project>{F6EAE5C2-3EFA-474C-BAAA-E198FCB75B53}</Project>
+      <Name>FutureView.ECom.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddressWs.asmx" />
+    <Content Include="BillingWs.asmx" />
+    <Content Include="BusinessCustomerWs.asmx" />
+    <Content Include="CategorySkuWs.asmx" />
+    <Content Include="CategoryWs.asmx" />
+    <Content Include="ContactWs.asmx" />
+    <Content Include="CustomerAddressWs.asmx" />
+    <Content Include="CustomerWs.asmx" />
+    <Content Include="EmailWs.asmx" />
+    <Content Include="FaxWs.asmx" />
+    <Content Include="FixedPhoneWs.asmx" />
+    <Content Include="hibernate.cfg.xml" />
+    <Content Include="IndividualCustomerWs.asmx" />
+    <Content Include="LastPasswordWs.asmx" />
+    <Content Include="MobileWs.asmx" />
+    <Content Include="OrderHeaderWs.asmx" />
+    <Content Include="OrderItemWs.asmx" />
+    <Content Include="PhoneWs.asmx" />
+    <Content Include="RuntimeAuthorizationUserWs.asmx" />
+    <Content Include="RuntimeAuthorizationWs.asmx" />
+    <Content Include="SalesWs.asmx" />
+    <Content Include="ShippingWs.asmx" />
+    <Content Include="SkuWs.asmx" />
+    <Content Include="UserPasswordWs.asmx" />
+    <Content Include="UserRegisterWs.asmx" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49947</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

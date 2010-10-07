@@ -1,0 +1,10 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="FutureView.ECom.Entity.CategorySku, FutureView.ECom.Entity" table="CategorySku" lazy="false" abstract="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+	
+		<many-to-one name="Category" class="FutureView.ECom.Entity.Category, FutureView.ECom.Entity" column="CategoryId" cascade="all" />
+		<many-to-one name="Sku" class="FutureView.ECom.Entity.Sku, FutureView.ECom.Entity" column="SkuId" cascade="all" />
+	</class>
+</hibernate-mapping>

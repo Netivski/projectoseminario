@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="OrderItemWs.asmx.cs" Class="FutureView.ECom.Ws.OrderItemWs" %>

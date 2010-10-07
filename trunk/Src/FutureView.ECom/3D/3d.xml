@@ -20,7 +20,7 @@
     <bool name="CustomerCredentialsNonExpired"/>
     <bool name="CustomerEnabled"/>
     <bool name="CustomerLastFailedLogin"/>
-    <bool name="CustomerFailedLoginCount"/>
+    <int name="CustomerFailedLoginCount"/>
     <DateTime name="CustomerLastLoginDate"/>
     <DateTime name="CustomerCreateDate"/>
     <DateTime name="CustomerBirthDate"/>
@@ -123,7 +123,7 @@
           <param type="IndividualCustomerFirstName" name="FirstName" minOccurs="1" maxOccurs="1"></param>
           <param type="IndividualCustomerLastName" name="LastName" minOccurs="1" maxOccurs="1"></param>
           <param type="IndividualCustomerTitle" name="Title" minOccurs="1" maxOccurs="1"></param>
-          <param type="EmailAddress"  name="Address" minOccurs="0" maxOccurs="1"></param>
+          <param type="EmailAddress"  name="EmailAddress" minOccurs="0" maxOccurs="1"></param>
           <param type="PhonePrefix"  name="PhonePrefix" minOccurs="0" maxOccurs="1"></param>
           <param type="PhoneNumber"  name="PhoneNumber" minOccurs="0" maxOccurs="1"></param>
           <param type="PhonePrefix"  name="FixedPhonePrefix" minOccurs="0" maxOccurs="1"></param>
@@ -161,7 +161,7 @@
           <param type="BusinessCustomerNif" name="Nif" minOccurs="1" maxOccurs="1"></param>
           <param type="BusinessCustomerName" name="Name" minOccurs="1" maxOccurs="1"></param>
           <param type="BusinessCustomerCapital" name="Capital" minOccurs="1" maxOccurs="1"></param>
-          <param type="EmailAddress"  name="Address" minOccurs="0" maxOccurs="1"></param>
+          <param type="EmailAddress"  name="EmailAddress" minOccurs="0" maxOccurs="1"></param>
           <param type="PhonePrefix"  name="PhonePrefix" minOccurs="0" maxOccurs="1"></param>
           <param type="PhoneNumber"  name="PhoneNumber" minOccurs="0" maxOccurs="1"></param>
           <param type="PhonePrefix"  name="FixedPhonePrefix" minOccurs="0" maxOccurs="1"></param>

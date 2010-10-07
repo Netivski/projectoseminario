@@ -1,0 +1,7 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<subclass name="FutureView.ECom.Entity.Email, FutureView.ECom.Entity" extends="FutureView.ECom.Entity.Contact, FutureView.ECom.Entity" discriminator-value="Email" abstract="false">
+		<property name="Address" column="Address" not-null="false" />
+		<property name="Enabled" column="Enabled" not-null="false" />
+	
+	</subclass>
+</hibernate-mapping>

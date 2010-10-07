@@ -1,0 +1,5 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<subclass name="FutureView.ECom.Entity.Shipping, FutureView.ECom.Entity" extends="FutureView.ECom.Entity.Address, FutureView.ECom.Entity" discriminator-value="Shipping" abstract="false">
+	
+	</subclass>
+</hibernate-mapping>

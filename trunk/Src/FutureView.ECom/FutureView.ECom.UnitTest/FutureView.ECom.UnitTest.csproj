@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9DCE69C9-C298-46EE-9D01-B862F7D25850}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FutureView.ECom.UnitTest</RootNamespace>
+    <AssemblyName>FutureView.ECom.UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="EDM.FoundationClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4fa03c55d709a7fc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\EDM.FoundationClasses.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.4.0.2, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnitAsp, Version=1.5.1.27647, Culture=neutral, PublicKeyToken=f9bdb8e9d00f2b23">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\NUnitAsp.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.0.518.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BillingBaseTest.cs" />
+    <Compile Include="Base\BusinessCustomerBaseTest.cs" />
+    <Compile Include="Base\CategoryBaseTest.cs" />
+    <Compile Include="Base\CategorySkuBaseTest.cs" />
+    <Compile Include="Base\CustomerAddressBaseTest.cs" />
+    <Compile Include="Base\EmailBaseTest.cs" />
+    <Compile Include="Base\FaxBaseTest.cs" />
+    <Compile Include="Base\FixedPhoneBaseTest.cs" />
+    <Compile Include="Base\IndividualCustomerBaseTest.cs" />
+    <Compile Include="Base\LastPasswordBaseTest.cs" />
+    <Compile Include="Base\MobileBaseTest.cs" />
+    <Compile Include="Base\OrderHeaderBaseTest.cs" />
+    <Compile Include="Base\OrderItemBaseTest.cs" />
+    <Compile Include="Base\PhoneBaseTest.cs" />
+    <Compile Include="Base\RuntimeAuthorizationBaseTest.cs" />
+    <Compile Include="Base\RuntimeAuthorizationUserBaseTest.cs" />
+    <Compile Include="Base\ShippingBaseTest.cs" />
+    <Compile Include="Base\SkuBaseTest.cs" />
+    <Compile Include="BillingTest.cs" />
+    <Compile Include="BusinessCustomerTest.cs" />
+    <Compile Include="CategorySkuTest.cs" />
+    <Compile Include="CategoryTest.cs" />
+    <Compile Include="CustomerAddressTest.cs" />
+    <Compile Include="EmailTest.cs" />
+    <Compile Include="FaxTest.cs" />
+    <Compile Include="FixedPhoneTest.cs" />
+    <Compile Include="IndividualCustomerTest.cs" />
+    <Compile Include="LastPasswordTest.cs" />
+    <Compile Include="MobileTest.cs" />
+    <Compile Include="OrderHeaderTest.cs" />
+    <Compile Include="OrderItemTest.cs" />
+    <Compile Include="PhoneTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuntimeAuthorizationTest.cs" />
+    <Compile Include="RuntimeAuthorizationUserTest.cs" />
+    <Compile Include="ShippingTest.cs" />
+    <Compile Include="SkuTest.cs" />
+    <Compile Include="UnitTest1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AuthoringTests.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FutureView.ECom.Entity\FutureView.ECom.Entity.csproj">
+      <Project>{8D86CE31-348F-4C88-92B0-5CB93587A6AE}</Project>
+      <Name>FutureView.ECom.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FutureView.ECom.Rtti\FutureView.ECom.Rtti.csproj">
+      <Project>{53CCC07A-E0CE-4F39-9F59-41CC9AD300DA}</Project>
+      <Name>FutureView.ECom.Rtti</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FutureView.ECom.Services\FutureView.ECom.Services.csproj">
+      <Project>{F6EAE5C2-3EFA-474C-BAAA-E198FCB75B53}</Project>
+      <Name>FutureView.ECom.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FutureView.ECom.Ws\FutureView.ECom.Ws.csproj">
+      <Project>{59E83C2A-F912-42B9-82E3-28EF847252FA}</Project>
+      <Name>FutureView.ECom.Ws</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

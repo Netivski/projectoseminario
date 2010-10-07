@@ -1,0 +1,10 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<subclass name="FutureView.ECom.Entity.Address, FutureView.ECom.Entity" extends="FutureView.ECom.Entity.Contact, FutureView.ECom.Entity" discriminator-value="Address" abstract="true">
+		<property name="Country" column="Country" not-null="false" />
+		<property name="Line1" column="Line1" not-null="false" />
+		<property name="Line2" column="Line2" not-null="false" />
+		<property name="PostalCode" column="PostalCode" not-null="false" />
+		<property name="PostalCodeDesc" column="PostalCodeDesc" not-null="false" />
+	
+	</subclass>
+</hibernate-mapping>

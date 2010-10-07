@@ -1,0 +1,33 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="FutureView.ECom.Entity.OrderHeader, FutureView.ECom.Entity" table="OrderHeader" lazy="false" abstract="false">
+		<id name="ID" column="Id">
+			<generator class="identity" />
+		</id>
+		<property name="ShipmentName" column="ShipmentName" not-null="false" />
+		<property name="ShipmentAddressline1" column="ShipmentAddressline1" not-null="false" />
+		<property name="ShipmentAddressline2" column="ShipmentAddressline2" not-null="false" />
+		<property name="ShipmentCountry" column="ShipmentCountry" not-null="false" />
+		<property name="ShipmentPostalCode" column="ShipmentPostalCode" not-null="false" />
+		<property name="ShipmentPostalCodeDesc" column="ShipmentPostalCodeDesc" not-null="false" />
+		<property name="BillingName" column="BillingName" not-null="false" />
+		<property name="BillingAddressLine1" column="BillingAddressLine1" not-null="false" />
+		<property name="BillingAddressLine2" column="BillingAddressLine2" not-null="false" />
+		<property name="BillingCountry" column="BillingCountry" not-null="false" />
+		<property name="BillingPostalCode" column="BillingPostalCode" not-null="false" />
+		<property name="BillingPostalCodeDesc" column="BillingPostalCodeDesc" not-null="false" />
+		<property name="BillingNif" column="BillingNif" not-null="false" />
+		<property name="TotalAmount" column="TotalAmount" not-null="false" />
+		<property name="TotalWeight" column="TotalWeight" not-null="false" />
+		<property name="TotalItens" column="TotalItens" not-null="false" />
+		<property name="DateOfArrival" column="DateOfArrival" not-null="false" />
+		<property name="DiscountAmount" column="DiscountAmount" not-null="false" />
+		<property name="Obs" column="Obs" not-null="false" />
+		<property name="StatusCode" column="StatusCode" not-null="false" />
+	
+		<many-to-one name="Customer" class="FutureView.ECom.Entity.Customer, FutureView.ECom.Entity" column="CustomerId" cascade="all" />
+		<bag name="_Items" access="field" table="OrderItem" inverse="true" cascade="all">
+			<key column="OrderHeaderId" />
+			<one-to-many class="FutureView.ECom.Entity.OrderItem, FutureView.ECom.Entity" />
+		</bag>
+	</class>
+</hibernate-mapping>

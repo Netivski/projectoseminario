@@ -1,0 +1,9 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<subclass name="FutureView.ECom.Entity.BusinessCustomer, FutureView.ECom.Entity" extends="FutureView.ECom.Entity.Customer, FutureView.ECom.Entity" discriminator-value="BusinessCustomer" abstract="false">
+		<property name="Nif" column="Nif" not-null="false" />
+		<property name="Name" column="Name" not-null="false" />
+		<property name="Capital" column="Capital" not-null="false" />
+		<property name="CreditLimit" column="CreditLimit" not-null="false" />
+	
+	</subclass>
+</hibernate-mapping>
