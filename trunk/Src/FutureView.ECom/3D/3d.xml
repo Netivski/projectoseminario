@@ -3,7 +3,7 @@
   <!--Dominio de tipos-->
   <userTypes>
     <long name="RecordId" minExclusive="0" maxInclusive="999999999"></long>
-    <string name="EmailAddress" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$" length="256"/>
+    <string name="EmailAddress" pattern="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" length="256"/>
     <bool name="EmailEnabled"/>
     <string name="PhonePrefix" length="5"/>
     <string name="PhoneNumber" pattern="[0-9]{9}" length="9"/>
@@ -34,7 +34,7 @@
     <decimal name="SkuDiscount" minExclusive="0" maxInclusive="70"/>
     <decimal name="SkuFinalPrice"/>
     <decimal name="SkuIvaClass"/>
-    <int name="SkuDateToMarket"/>
+    <DateTime name="SkuDateToMarket"/>
     <decimal name="SkuWeight"/>
     <DateTime name="SkuEffectiveStartDate"/>
     <DateTime name="SkuEffectiveEndDate"/>

@@ -17,7 +17,7 @@ namespace FutureView.ECom.Services.Base
     {   
        
         [RuntimeSecurity(SecurityAction.Demand, ClassName="SkuBaseService", MethodName="Create", Unrestricted = false)] 
-        public virtual long Create(string Description, bool Available, decimal Pvp, decimal Discount, decimal FinalPrice, decimal IvaClass, int DateToMarket, decimal Weight, DateTime EffectiveStartDate, DateTime EffectiveEndDate, int MinOrderQty, int MaxOrderQty, string SmallImagePath, string LargeImagePath, int Qty, string SkuCode)
+        public virtual long Create(string Description, bool Available, decimal Pvp, decimal Discount, decimal FinalPrice, decimal IvaClass, DateTime DateToMarket, decimal Weight, DateTime EffectiveStartDate, DateTime EffectiveEndDate, int MinOrderQty, int MaxOrderQty, string SmallImagePath, string LargeImagePath, int Qty, string SkuCode)
         {
             Sku record = new Sku(){ Description = Description, Available = Available, Pvp = Pvp, Discount = Discount, FinalPrice = FinalPrice, IvaClass = IvaClass, DateToMarket = DateToMarket, Weight = Weight, EffectiveStartDate = EffectiveStartDate, EffectiveEndDate = EffectiveEndDate, MinOrderQty = MinOrderQty, MaxOrderQty = MaxOrderQty, SmallImagePath = SmallImagePath, LargeImagePath = LargeImagePath, Qty = Qty, SkuCode = SkuCode };            
     
@@ -30,7 +30,7 @@ namespace FutureView.ECom.Services.Base
         
         
         [RuntimeSecurity(SecurityAction.Demand, ClassName="SkuBaseService", MethodName="Update", Unrestricted = false)] 
-        public virtual void Update(long recordId, string Description, bool Available, decimal Pvp, decimal Discount, decimal FinalPrice, decimal IvaClass, int DateToMarket, decimal Weight, DateTime EffectiveStartDate, DateTime EffectiveEndDate, int MinOrderQty, int MaxOrderQty, string SmallImagePath, string LargeImagePath, int Qty, string SkuCode)
+        public virtual void Update(long recordId, string Description, bool Available, decimal Pvp, decimal Discount, decimal FinalPrice, decimal IvaClass, DateTime DateToMarket, decimal Weight, DateTime EffectiveStartDate, DateTime EffectiveEndDate, int MinOrderQty, int MaxOrderQty, string SmallImagePath, string LargeImagePath, int Qty, string SkuCode)
         {             
             ISkuDao dao = DaoFactory.Current.GetSkuDao();  
 

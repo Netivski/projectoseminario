@@ -10,7 +10,7 @@ namespace FutureView.ECom.Entity
   [Serializable]
   public abstract class Contact : Domain.ContactDomain
   {
-    public Contact () {}
+    public Contact () {}    
   }
 }
   

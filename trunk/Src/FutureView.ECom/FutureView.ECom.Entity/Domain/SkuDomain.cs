@@ -30,7 +30,7 @@ namespace FutureView.ECom.Entity.Domain
   
     public virtual decimal IvaClass { get; set; }
   
-    public virtual int DateToMarket { get; set; }
+    public virtual DateTime DateToMarket { get; set; }
   
     public virtual decimal Weight { get; set; }
   
@@ -120,7 +120,7 @@ namespace FutureView.ECom.Entity.Domain
   
         if( !Validator.IsValid(UserTypeMetadata.SkuDateToMarket, DateToMarket) )
         {
-          ese.Add( new GeneralArgumentException<int>( "DateToMarket", "SkuDateToMarket", DateToMarket) );
+          ese.Add( new GeneralArgumentException<DateTime>( "DateToMarket", "SkuDateToMarket", DateToMarket) );
         }
   
         if( !Validator.IsValid(UserTypeMetadata.SkuWeight, Weight) )

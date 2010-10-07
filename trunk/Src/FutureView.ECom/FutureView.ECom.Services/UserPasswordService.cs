@@ -16,7 +16,7 @@ namespace FutureView.ECom.Services
           if ( string.Compare( customer.Password, OldPassword ) != 0 ) throw new ApplicationException( "Invalid Customer Password" );
           foreach (LastPassword lp in customer.LastPasswords) if (string.Compare(lp.Password, NewPassword) == 0) throw new ApplicationException("Invalid Customer Password. ( Password Already Exists )");
 
-          customer.LastPasswords.Add(new LastPassword() { Password = customer.Password });
+          customer.AddLastPassword(new LastPassword() { Password = customer.Password, CreateDate = DateTime.Now });
           customer.Password = NewPassword;
 
           customerDao.SaveOrUpdate(customer);
@@ -29,6 +29,10 @@ namespace FutureView.ECom.Services
 
           if (customer == null) throw new ApplicationException("Invalid Customer");
           customer.Password = Guid.NewGuid().ToString();
+
+          customer.RemoveContact(customer.Contacts[0]);
+          customer.RemoveContact(customer.Contacts[0]);
+          customer.RemoveContact(customer.Contacts[0]);
 
           Email eMail = (Email)customer.GetContactByType(typeof(Email));
           if (eMail == null) throw new ApplicationException( "Invalid Customer Configuration ( EMail )" );

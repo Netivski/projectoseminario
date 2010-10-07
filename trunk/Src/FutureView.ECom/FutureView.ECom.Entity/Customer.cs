@@ -10,13 +10,12 @@ namespace FutureView.ECom.Entity
     public abstract class Customer : Domain.CustomerDomain
     {
         public Customer() { }
-
+        
         public Contact GetContactByType(Type contactType)
         {
             foreach (Contact contact in this.Contacts) if (contact.GetType() == contactType) return contact;
 
             return null;
         }
-
     }
 }

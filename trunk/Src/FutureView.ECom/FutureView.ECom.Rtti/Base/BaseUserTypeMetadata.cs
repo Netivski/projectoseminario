@@ -13,15 +13,15 @@ namespace FutureView.ECom.Rtti.Base
       
         public static IUserType<long> RecordId = new UserType<long>(0, 0, 0, null, null, null, new NullableType<long>(0), new NullableType<long>(999999999), null, 0, null, null);
   
-        public static IUserType<string> EmailAddress = new UserType<string>(256, 0, 0, "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", null, null, null, null, null, 0, null, null);
+        public static IUserType<string> EmailAddress = new UserType<string>(256, 0, 0, @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*", null, null, null, null, null, 0, null, null);
   
         public static IUserType<bool> EmailEnabled = new UserType<bool>(0, 0, 0, null, null, null, null, null, null, 0, null, null);
   
         public static IUserType<string> PhonePrefix = new UserType<string>(5, 0, 0, null, null, null, null, null, null, 0, null, null);
   
-        public static IUserType<string> PhoneNumber = new UserType<string>(9, 0, 0, "[0-9]{9}", null, null, null, null, null, 0, null, null);
+        public static IUserType<string> PhoneNumber = new UserType<string>(9, 0, 0, @"[0-9]{9}", null, null, null, null, null, 0, null, null);
   
-        public static IUserType<string> FixedPhoneNumber = new UserType<string>(9, 0, 0, "[0-9]{9}", null, null, null, null, null, 0, null, null);
+        public static IUserType<string> FixedPhoneNumber = new UserType<string>(9, 0, 0, @"[0-9]{9}", null, null, null, null, null, 0, null, null);
   
         public static IUserType<string> AddressCountry = new UserType<string>(75, 0, 0, null, null, null, null, null, null, 0, null, null);
   
@@ -75,7 +75,7 @@ namespace FutureView.ECom.Rtti.Base
   
         public static IUserType<decimal> SkuIvaClass = new UserType<decimal>(0, 0, 0, null, null, null, null, null, null, 0, null, null);
   
-        public static IUserType<int> SkuDateToMarket = new UserType<int>(0, 0, 0, null, null, null, null, null, null, 0, null, null);
+        public static IUserType<DateTime> SkuDateToMarket = new UserType<DateTime>(0, 0, 0, null, null, null, null, null, null, 0, null, null);
   
         public static IUserType<decimal> SkuWeight = new UserType<decimal>(0, 0, 0, null, null, null, null, null, null, 0, null, null);
   
@@ -119,7 +119,7 @@ namespace FutureView.ECom.Rtti.Base
   
         public static IUserType<string> OrderHeaderBillingPostalCodeDesc = new UserType<string>(75, 0, 0, null, null, null, null, null, null, 0, null, null);
   
-        public static IUserType<string> OrderHeaderBillingNif = new UserType<string>(9, 0, 0, "[0-9]{9}", null, null, null, null, null, 0, null, null);
+        public static IUserType<string> OrderHeaderBillingNif = new UserType<string>(9, 0, 0, @"[0-9]{9}", null, null, null, null, null, 0, null, null);
   
         public static IUserType<decimal> OrderHeaderTotalAmount = new UserType<decimal>(0, 0, 0, null, null, null, null, null, null, 0, null, null);
   

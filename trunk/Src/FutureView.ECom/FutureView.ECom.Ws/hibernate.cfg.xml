@@ -10,26 +10,26 @@
 		<property name="connection.connection_string">
 			Server=127.0.0.1;Initial Catalog=futureviewecom;User Id=futureviewecom;Password=futureviewecom;
 		</property>
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Contact.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Email.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Phone.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\FixedPhone.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Fax.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Mobile.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Address.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Billing.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Shipping.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\CustomerAddress.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Customer.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\IndividualCustomer.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\BusinessCustomer.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\LastPassword.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Sku.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\OrderHeader.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\OrderItem.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\Category.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\CategorySku.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\RuntimeAuthorization.hbm.xml" />
-		<mapping file="D:\DSTS\Personal\my.life\ISEL\3 Ano\PS\Src\FutureView.ECom\FutureView.ECom.Entity\Domain\RuntimeAuthorizationUser.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Contact.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Email.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Phone.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\FixedPhone.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Fax.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Mobile.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Address.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Billing.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Shipping.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\CustomerAddress.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Customer.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\IndividualCustomer.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\BusinessCustomer.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\LastPassword.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Sku.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\OrderHeader.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\OrderItem.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\Category.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\CategorySku.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\RuntimeAuthorization.hbm.xml" />
+		<mapping file="I:\FutureView.ECom\FutureView.ECom.Entity\Domain\RuntimeAuthorizationUser.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>
