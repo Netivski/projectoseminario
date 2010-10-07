@@ -10,12 +10,12 @@ namespace FutureView.ECom.Entity.Data
     {
         public Customer GetByUserName(string UserName)
         {
-            return null;
+            return GetUniqueByExample(new IndividualCustomer() { UserName = UserName }, "Password", "AccountNonExpired", "AccountNonLocked", "CredentialsNonExpired", "Enabled", "LastFailedLogin", "FailedLoginCount", "LastLoginDate", "CreateDate", "BirthDate", "Hint", "HintAnswer");
         }
 
-        Customer GetByUserNameAndPassword(string UserName, string Password)
+        public Customer GetByUserNameAndPassword(string UserName, string Password)
         {
-            return null;
+            return GetUniqueByExample(new IndividualCustomer() { UserName = UserName, Password = Password }, "AccountNonExpired", "AccountNonLocked", "CredentialsNonExpired", "Enabled", "LastFailedLogin", "FailedLoginCount", "LastLoginDate", "CreateDate", "BirthDate", "Hint", "HintAnswer");
         }
 
     }

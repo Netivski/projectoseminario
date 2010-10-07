@@ -11,6 +11,8 @@ namespace FutureView.ECom.Entity
   public  class IndividualCustomer : Domain.IndividualCustomerDomain
   {
     public IndividualCustomer () {}
+
+    public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
   }
 }
   

@@ -286,7 +286,9 @@
     <Content Include="EmailWs.asmx" />
     <Content Include="FaxWs.asmx" />
     <Content Include="FixedPhoneWs.asmx" />
-    <Content Include="hibernate.cfg.xml" />
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="IndividualCustomerWs.asmx" />
     <Content Include="LastPasswordWs.asmx" />
     <Content Include="MobileWs.asmx" />

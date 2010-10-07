@@ -14,13 +14,13 @@ namespace FutureView.ECom.Ws.Base
     {
         
         [WebMethod]
-        public long Create(string Description, bool Available, decimal Pvp, decimal Discount, decimal FinalPrice, decimal IvaClass, int DateToMarket, decimal Weight, DateTime EffectiveStartDate, DateTime EffectiveEndDate, int MinOrderQty, int MaxOrderQty, string SmallImagePath, string LargeImagePath, int Qty, string SkuCode)
+        public long Create(string Description, bool Available, decimal Pvp, decimal Discount, decimal FinalPrice, decimal IvaClass, DateTime DateToMarket, decimal Weight, DateTime EffectiveStartDate, DateTime EffectiveEndDate, int MinOrderQty, int MaxOrderQty, string SmallImagePath, string LargeImagePath, int Qty, string SkuCode)
         {        
             return Singleton<SkuService>.Current.Create(Description, Available, Pvp, Discount, FinalPrice, IvaClass, DateToMarket, Weight, EffectiveStartDate, EffectiveEndDate, MinOrderQty, MaxOrderQty, SmallImagePath, LargeImagePath, Qty, SkuCode);
         }
 
         [WebMethod]
-        public void Update(long recordId, string Description, bool Available, decimal Pvp, decimal Discount, decimal FinalPrice, decimal IvaClass, int DateToMarket, decimal Weight, DateTime EffectiveStartDate, DateTime EffectiveEndDate, int MinOrderQty, int MaxOrderQty, string SmallImagePath, string LargeImagePath, int Qty, string SkuCode)
+        public void Update(long recordId, string Description, bool Available, decimal Pvp, decimal Discount, decimal FinalPrice, decimal IvaClass, DateTime DateToMarket, decimal Weight, DateTime EffectiveStartDate, DateTime EffectiveEndDate, int MinOrderQty, int MaxOrderQty, string SmallImagePath, string LargeImagePath, int Qty, string SkuCode)
         {
             Singleton<SkuService>.Current.Update(recordId, Description, Available, Pvp, Discount, FinalPrice, IvaClass, DateToMarket, Weight, EffectiveStartDate, EffectiveEndDate, MinOrderQty, MaxOrderQty, SmallImagePath, LargeImagePath, Qty, SkuCode);
         }
