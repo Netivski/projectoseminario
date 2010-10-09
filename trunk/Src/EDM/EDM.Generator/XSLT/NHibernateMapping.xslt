@@ -66,7 +66,7 @@
     <xsl:if test="@type = 'dependent' or @type = 'abstractdependent'">
       <xsl:if test="count(fields/field) > 0"> </xsl:if>
       <xsl:variable name="varBaseEntity" select="@baseEntity"></xsl:variable>
-      <xsl:for-each select="//entity[@name=$varBaseEntity]">
+      <xsl:for-each select="/solution/entities/entity[@name=$varBaseEntity]">
         <xsl:call-template name="resolveRecursiveFields"></xsl:call-template>
       </xsl:for-each>
     </xsl:if>
